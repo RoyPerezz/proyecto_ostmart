@@ -15,7 +15,7 @@ namespace appSugerencias
 
             MySqlConnection con = new MySqlConnection("server=192.168.1.155; database=VALLARTA MAY 2016; Uid=root; pwd=;");
             con.Open();
-            //MessageBox.Show("conectado..."+con.Database);
+           
 
 
             return con;
