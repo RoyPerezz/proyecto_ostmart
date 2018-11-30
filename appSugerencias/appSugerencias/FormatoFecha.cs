@@ -13,6 +13,5 @@ namespace appSugerencias
             String snow = now.ToString(datePatt);
             return snow;
         }
-
     }
 }

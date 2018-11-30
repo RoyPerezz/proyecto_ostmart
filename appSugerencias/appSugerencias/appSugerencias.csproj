@@ -86,6 +86,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_conexion.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FormatoFecha.cs" />
     <Compile Include="frm_ReporteASinVentas.cs">
       <SubType>Form</SubType>
     </Compile>
