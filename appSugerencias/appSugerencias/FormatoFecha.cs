@@ -7,5 +7,13 @@ namespace appSugerencias
 {
     class FormatoFecha
     {
+
+        public String getDate(DateTime now)
+        {
+            String datePatt = @"yyyy-MM-dd";
+            String snow = now.ToString(datePatt);
+            return snow;
+        }
+
     }
 }

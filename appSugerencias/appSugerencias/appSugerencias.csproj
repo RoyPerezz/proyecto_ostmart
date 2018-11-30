@@ -23,7 +23,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,7 +32,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -86,6 +84,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_conexion.xsd</DependentUpon>
     </Compile>
+    <Compile Include="frm_ReporteASinVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ReporteASinVentas.Designer.cs">
+      <DependentUpon>frm_ReporteASinVentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_Sugerencias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +113,9 @@
     <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="ArticuloSinVentas.resx">
       <DependentUpon>ArticuloSinVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_ReporteASinVentas.resx">
+      <DependentUpon>frm_ReporteASinVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Sugerencias.resx">
       <DependentUpon>frm_Sugerencias.cs</DependentUpon>
