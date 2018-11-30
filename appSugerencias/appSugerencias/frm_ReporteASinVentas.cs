@@ -5,37 +5,37 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using MySql.Data.Types;
-using Microsoft.Office.Interop.Excel;
 
 namespace appSugerencias
 {
-    public partial class ImprimirReporte : Form
+    public partial class frm_ReporteASinVentas : Form
     {
-        public ImprimirReporte()
+        public frm_ReporteASinVentas()
         {
             InitializeComponent();
         }
 
-
-
+        private void btnDatos_Click(object sender, EventArgs e)
+        {
+            selectDatos(dgASV);
+        }
 
         public void selectDatos(DataGridView grid)
         {
-            
 
-             DateTime Finicio = DT_inicio.Value;
-            DateTime Ffin = DT_fin.Value;
+
+            DateTime Finicio = dtInicio.Value;
+            DateTime Ffin = dtFin.Value;
 
             string inicio = getDate(Finicio);
             string fin = getDate(Ffin);
 
-           
 
-            MySqlCommand cmd = new MySqlCommand("select texto as sugerencias,usuario  from sugerencias where fecha between '" + inicio +"'"+" and '"+ fin+"'", frm_Sugerencias.conectar());
+
+            MySqlCommand cmd = new MySqlCommand("SELECT sinventas.articulo,sinventas.motivo,sinventas.usuario,prods.DESCRIP,prods.PRECIO1,prods.fabricante,prods.EXISTENCIA FROM sinventas INNER JOIN prods ON prods.ARTICULO=sinventas.articulo where fecha between '" + inicio + "'" + " and '" + fin + "'", BDConexicon.conectar());
 
             MySqlDataAdapter adaptador = new MySqlDataAdapter(cmd);
             System.Data.DataTable tb = new System.Data.DataTable();
@@ -43,16 +43,9 @@ namespace appSugerencias
             adaptador.Fill(tb);
 
             grid.DataSource = tb;
-            grid.Columns[0].Width=350;
-            grid.Columns[1].Width = 150;
+            grid.Columns[0].Width = 100;
+            grid.Columns[1].Width = 400;
             //grid.RowHeadersWidth = 200;
-        }
-
-        internal static String getDate(DateTime now)
-        {
-            String datePatt = @"yyyy-MM-dd";
-            String snow = now.ToString(datePatt);
-            return snow;
         }
 
         public void exportarExcel(DataGridView tabla)
@@ -88,19 +81,18 @@ namespace appSugerencias
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+
+        internal static String getDate(DateTime now)
         {
-            selectDatos(DG_sugerencias);
+            String datePatt = @"yyyy-MM-dd";
+            String snow = now.ToString(datePatt);
+            return snow;
         }
 
-        private void BT_Excel_Click(object sender, EventArgs e)
+        private void btnReporte_Click(object sender, EventArgs e)
         {
-            exportarExcel(DG_sugerencias);
-        }
-
-        private void ImprimirReporte_Load(object sender, EventArgs e)
-        {
-
+            exportarExcel(dgASV);
         }
     }
 }
