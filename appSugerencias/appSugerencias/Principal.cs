@@ -34,11 +34,5 @@ namespace appSugerencias
             ArticuloSinVentas asv = new ArticuloSinVentas();
             asv.Show();
         }
-
-        private void reporteToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            frm_ReporteASinVentas rasv = new frm_ReporteASinVentas();
-            rasv.Show();
-        }
     }
 }

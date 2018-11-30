@@ -17,7 +17,6 @@ namespace appSugerencias
         public ArticuloSinVentas()
         {
             InitializeComponent();
-
         }
 
 
@@ -45,31 +44,12 @@ namespace appSugerencias
 
         }
 
-        public void insertarArticulo(string comando )
+        public void insertarArticulo( string comando)
         {
-            
-            MySqlCommand cmd = new MySqlCommand(comando, BDConexicon.conectar());
-            cmd.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = textBoxCodigo.Text;
-            cmd.Parameters.Add("?motivo", MySqlDbType.VarChar).Value = textboxNoSeVende.Text.ToUpper();
-            cmd.Parameters.Add("?usuario", MySqlDbType.VarChar).Value = textboxUsuario.Text.ToUpper(); ;
-            cmd.Parameters.Add("?departamento", MySqlDbType.VarChar).Value = comboboxDepa.Text;
-            cmd.Parameters.Add("?fecha", MySqlDbType.Date).Value = DateTime.Now;
-            cmd.ExecuteNonQuery();
-            limpiar();
-            MessageBox.Show("Los datos se Guardaron");
+
         }
 
-        public void limpiar()
-        {
-            textBoxCodigo.Text = "";
-            textboxDescrip.Text = "";
-            textboxNoSeVende.Text = "";
-            textboxPiezas.Text = "";
-            textboxPrecio.Text = "";
-            textboxProveedor.Text = "";
-            textboxUsuario.Text="";
-            comboboxDepa.Text = null;
-        }
+
 
 
 
@@ -109,48 +89,15 @@ namespace appSugerencias
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBoxCodigo.Text))
-            {
-                MessageBox.Show("Especifica un articulo");
-            }
-            else
-            {
-                selecionar("select * from prods where articulo =?articulo");
-            }
-            
+            selecionar("select * from prods where articulo =?articulo");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBoxCodigo.Text))
-            {
-                MessageBox.Show("Especifica un articulo");
-            }
-            else if (string.IsNullOrEmpty(textboxNoSeVende.Text))
-            {
-                MessageBox.Show("Especifique un motivo");
-            }
-            else if (string.IsNullOrEmpty(textboxUsuario.Text))
-            {
-                MessageBox.Show("Especifique un Usuario");
-            }
-            else if (string.IsNullOrEmpty(comboboxDepa.Text))
-            {
-                MessageBox.Show("Seleccione un Departamento");
-            }
-            else
-            {
-                insertarArticulo("insert into sinventas(articulo,motivo,departamento,usuario,fecha) values (?articulo,?motivo,?departamento,?usuario,?fecha)");
-            }
-            
+            insertarArticulo("");
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
         {
 
         }

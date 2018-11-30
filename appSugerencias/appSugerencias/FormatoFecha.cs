@@ -7,7 +7,6 @@ namespace appSugerencias
 {
     class FormatoFecha
     {
-
         public String getDate(DateTime now)
         {
             String datePatt = @"yyyy-MM-dd";
