@@ -40,7 +40,7 @@
             // 
             // dtInicio
             // 
-            this.dtInicio.Location = new System.Drawing.Point(76, 26);
+            this.dtInicio.Location = new System.Drawing.Point(63, 26);
             this.dtInicio.Name = "dtInicio";
             this.dtInicio.Size = new System.Drawing.Size(250, 22);
             this.dtInicio.TabIndex = 0;
@@ -55,7 +55,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 26);
+            this.label1.Location = new System.Drawing.Point(17, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 17);
             this.label1.TabIndex = 2;
@@ -97,6 +97,7 @@
             this.btnReporte.TabIndex = 8;
             this.btnReporte.Text = "Generar Reporte";
             this.btnReporte.UseVisualStyleBackColor = true;
+            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
             // 
             // frm_ReporteASinVentas
             // 

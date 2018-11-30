@@ -48,11 +48,51 @@ namespace appSugerencias
             //grid.RowHeadersWidth = 200;
         }
 
+        public void exportarExcel(DataGridView tabla)
+        {
+            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+            excel.Application.Workbooks.Add(true);
+
+            int indiceColumna = 0;
+
+            foreach (DataGridViewColumn col in tabla.Columns)
+            {
+                indiceColumna++;
+                excel.Cells[1, indiceColumna] = col.Name;
+            }
+
+            int indiceFila = 0;
+
+            foreach (DataGridViewRow row in tabla.Rows)
+            {
+                indiceFila++;
+                indiceColumna = 0;
+
+                foreach (DataGridViewColumn col in tabla.Columns)
+                {
+                    indiceColumna++;
+                    excel.Cells[indiceFila + 1, indiceColumna] = row.Cells[col.Name].Value;
+
+                }
+            }
+
+            excel.Visible = true;
+
+
+        }
+
+
+
         internal static String getDate(DateTime now)
         {
             String datePatt = @"yyyy-MM-dd";
             String snow = now.ToString(datePatt);
             return snow;
+        }
+
+        private void btnReporte_Click(object sender, EventArgs e)
+        {
+            exportarExcel(dgASV);
         }
     }
 }
