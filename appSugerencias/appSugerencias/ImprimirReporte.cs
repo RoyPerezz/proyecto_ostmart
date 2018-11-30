@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using MySql.Data.Types;
 using Microsoft.Office.Interop.Excel;
+using Microsoft.Office.Core;
 
 namespace appSugerencias
 {
@@ -43,9 +44,11 @@ namespace appSugerencias
             adaptador.Fill(tb);
 
             grid.DataSource = tb;
-            grid.Columns[0].Width=350;
+            grid.Columns[0].Width=290;
             grid.Columns[1].Width = 150;
             //grid.RowHeadersWidth = 200;
+
+           // grid.AutoResizeColumns( DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
         internal static String getDate(DateTime now)
@@ -55,20 +58,39 @@ namespace appSugerencias
             return snow;
         }
 
+        public void formatoExcel(Microsoft.Office.Interop.Excel.Application excel)
+        {
+
+            //APLICO FORMATO EL DOCUMENTO DE EXCEL
+           
+            excel.Columns.Range["A:A"].ColumnWidth = 67.57;
+            excel.Columns.Range["B:B"].ColumnWidth = 19.43;
+           
+            excel.Cells.Range["A5"].Interior.ColorIndex = 49;
+            excel.Cells.Range["A5"].Font.ColorIndex = 2;
+           
+            excel.Cells.Range["A4"].Value = "SUGERENCIAS SEMANALES";
+
+           excel.Cells.Range["B5"].Interior.ColorIndex = 49;
+            excel.Cells.Range["B5"].Font.ColorIndex = 2;
+        }
+
         public void exportarExcel(DataGridView tabla)
         {
             Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
             excel.Application.Workbooks.Add(true);
 
+            
+            formatoExcel(excel);//linea 61
             int indiceColumna = 0;
-
+           
             foreach (DataGridViewColumn col in tabla.Columns)
             {
                 indiceColumna++;
-                excel.Cells[1, indiceColumna] = col.Name;
+                excel.Cells[5, indiceColumna] = col.Name;
             }
 
-            int indiceFila = 0;
+            int indiceFila = 4;
 
             foreach (DataGridViewRow row in tabla.Rows)
             {
@@ -78,6 +100,7 @@ namespace appSugerencias
                 foreach (DataGridViewColumn col in tabla.Columns)
                 {
                     indiceColumna++;
+                    
                     excel.Cells[indiceFila + 1, indiceColumna] = row.Cells[col.Name].Value;
 
                 }
