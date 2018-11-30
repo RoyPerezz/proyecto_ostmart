@@ -25,9 +25,9 @@ namespace appSugerencias
 
         public void selectDatos(DataGridView grid)
         {
-           
+            
 
-            DateTime Finicio = DT_inicio.Value;
+             DateTime Finicio = DT_inicio.Value;
             DateTime Ffin = DT_fin.Value;
 
             string inicio = getDate(Finicio);
@@ -43,6 +43,9 @@ namespace appSugerencias
             adaptador.Fill(tb);
 
             grid.DataSource = tb;
+            grid.Columns[0].Width=350;
+            grid.Columns[1].Width = 150;
+            //grid.RowHeadersWidth = 200;
         }
 
         internal static String getDate(DateTime now)
