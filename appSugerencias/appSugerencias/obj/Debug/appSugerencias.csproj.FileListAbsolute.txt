@@ -155,3 +155,6 @@ C:\Users\SISTEMAS\Desktop\appSugerencias\appSugerencias\obj\Debug\appSugerencias
 C:\Users\SISTEMAS\Desktop\appSugerencias\appSugerencias\obj\Debug\appSugerencias.csproj.CoreCompileInputs.cache
 C:\Users\SISTEMAS\Desktop\appSugerencias\appSugerencias\obj\Debug\appSugerencias.csproj.CopyComplete
 C:\Users\SISTEMAS\Desktop\appSugerencias\appSugerencias\obj\Debug\appSugerencias.ArticuloSinVentas.resources
+C:\Users\Roy\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.csprojAssemblyReference.cache
+C:\Users\Roy\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.exe
+C:\Users\Roy\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.pdb
