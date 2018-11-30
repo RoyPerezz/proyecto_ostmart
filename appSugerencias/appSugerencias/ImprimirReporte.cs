@@ -94,5 +94,10 @@ namespace appSugerencias
         {
             exportarExcel(DG_sugerencias);
         }
+
+        private void ImprimirReporte_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
