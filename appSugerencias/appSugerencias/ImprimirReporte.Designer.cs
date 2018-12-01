@@ -112,6 +112,7 @@
             this.Controls.Add(this.DT_inicio);
             this.Name = "ImprimirReporte";
             this.Text = "ImprimirReporte";
+            this.Load += new System.EventHandler(this.ImprimirReporte_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DG_sugerencias)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
