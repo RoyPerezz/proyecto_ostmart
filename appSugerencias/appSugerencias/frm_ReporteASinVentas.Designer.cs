@@ -40,50 +40,54 @@
             // 
             // dtInicio
             // 
-            this.dtInicio.Location = new System.Drawing.Point(63, 26);
+            this.dtInicio.Location = new System.Drawing.Point(47, 21);
+            this.dtInicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtInicio.Name = "dtInicio";
-            this.dtInicio.Size = new System.Drawing.Size(250, 22);
+            this.dtInicio.Size = new System.Drawing.Size(188, 20);
             this.dtInicio.TabIndex = 0;
             // 
             // dtFin
             // 
-            this.dtFin.Location = new System.Drawing.Point(63, 82);
+            this.dtFin.Location = new System.Drawing.Point(47, 67);
+            this.dtFin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtFin.Name = "dtFin";
-            this.dtFin.Size = new System.Drawing.Size(250, 22);
+            this.dtFin.Size = new System.Drawing.Size(188, 20);
             this.dtFin.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 26);
+            this.label1.Location = new System.Drawing.Point(13, 21);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 17);
+            this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Inicio";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 82);
+            this.label2.Location = new System.Drawing.Point(22, 67);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(27, 17);
+            this.label2.Size = new System.Drawing.Size(21, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Fin";
             // 
             // dgASV
             // 
             this.dgASV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgASV.Location = new System.Drawing.Point(13, 134);
-            this.dgASV.Margin = new System.Windows.Forms.Padding(4);
+            this.dgASV.Location = new System.Drawing.Point(10, 109);
             this.dgASV.Name = "dgASV";
-            this.dgASV.Size = new System.Drawing.Size(1194, 271);
+            this.dgASV.Size = new System.Drawing.Size(896, 220);
             this.dgASV.TabIndex = 6;
             // 
             // btnDatos
             // 
-            this.btnDatos.Location = new System.Drawing.Point(369, 26);
+            this.btnDatos.Location = new System.Drawing.Point(277, 21);
+            this.btnDatos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDatos.Name = "btnDatos";
-            this.btnDatos.Size = new System.Drawing.Size(117, 55);
+            this.btnDatos.Size = new System.Drawing.Size(88, 45);
             this.btnDatos.TabIndex = 7;
             this.btnDatos.Text = "Obtener Datos";
             this.btnDatos.UseVisualStyleBackColor = true;
@@ -91,9 +95,10 @@
             // 
             // btnReporte
             // 
-            this.btnReporte.Location = new System.Drawing.Point(559, 26);
+            this.btnReporte.Location = new System.Drawing.Point(419, 21);
+            this.btnReporte.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnReporte.Name = "btnReporte";
-            this.btnReporte.Size = new System.Drawing.Size(117, 55);
+            this.btnReporte.Size = new System.Drawing.Size(88, 45);
             this.btnReporte.TabIndex = 8;
             this.btnReporte.Text = "Generar Reporte";
             this.btnReporte.UseVisualStyleBackColor = true;
@@ -101,9 +106,9 @@
             // 
             // frm_ReporteASinVentas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1249, 448);
+            this.ClientSize = new System.Drawing.Size(937, 364);
             this.Controls.Add(this.btnReporte);
             this.Controls.Add(this.btnDatos);
             this.Controls.Add(this.dgASV);
@@ -111,8 +116,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtFin);
             this.Controls.Add(this.dtInicio);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frm_ReporteASinVentas";
             this.Text = "frm_ReporteASinVentas";
+            this.Load += new System.EventHandler(this.frm_ReporteASinVentas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgASV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

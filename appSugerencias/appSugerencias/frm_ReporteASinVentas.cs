@@ -94,5 +94,10 @@ namespace appSugerencias
         {
             exportarExcel(dgASV);
         }
+
+        private void frm_ReporteASinVentas_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

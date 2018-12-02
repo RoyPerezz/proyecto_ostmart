@@ -141,7 +141,12 @@ namespace appSugerencias
                     
                     excel.Cells[indiceFila + 1, indiceColumna] = row.Cells[col.Name].Value;
 
-                    
+                    if ((indiceFila + 1) % 2 == 0)// pinta de color gris las celdas cuyas filas son numeros pares
+                    {
+                        excel.Cells.Range[indiceFila + 1, indiceColumna].Interior.ColorIndex = 15;
+
+                    }
+
 
                 }
 
