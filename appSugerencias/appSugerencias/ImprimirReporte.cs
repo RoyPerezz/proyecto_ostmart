@@ -84,7 +84,7 @@ namespace appSugerencias
 
 
         }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
             selectDatos(DG_sugerencias);
@@ -93,6 +93,11 @@ namespace appSugerencias
         private void BT_Excel_Click(object sender, EventArgs e)
         {
             exportarExcel(DG_sugerencias);
+        }
+
+        private void ImprimirReporte_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
