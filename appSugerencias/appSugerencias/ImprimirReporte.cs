@@ -12,6 +12,7 @@ using MySql.Data.Types;
 using Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Core;
 
+
 namespace appSugerencias
 {
     public partial class ImprimirReporte : Form
@@ -27,16 +28,16 @@ namespace appSugerencias
         public void selectDatos(DataGridView grid)
         {
 
-            FormatoFecha f = new FormatoFecha();
-             DateTime Finicio = DT_inicio.Value;
+
+            DateTime Finicio = DT_inicio.Value;
             DateTime Ffin = DT_fin.Value;
 
-            string inicio = f.getDate(Finicio);
-            string fin = f.getDate(Ffin);
+            string inicio = FormatoFecha.getDate(Finicio);
+            string fin = FormatoFecha.getDate(Ffin);
 
 
             MySqlConnection c = BDConexicon.conectar();
-            MySqlCommand cmd = new MySqlCommand("select texto as sugerencias  from sugerencias where fecha between '" + inicio +"'"+" and '"+ fin+"'", c);
+            MySqlCommand cmd = new MySqlCommand("select texto as sugerencias from sugerencias where fecha between '" + inicio + "'" + " and '" + fin + "'and tipo= '" + CB_tipo.SelectedItem.ToString() + "'", c);
 
             MySqlDataAdapter adaptador = new MySqlDataAdapter(cmd);
             System.Data.DataTable tb = new System.Data.DataTable();
@@ -44,25 +45,25 @@ namespace appSugerencias
             adaptador.Fill(tb);
 
             grid.DataSource = tb;
-            grid.Columns[0].Width=400;
-            
+            grid.Columns[0].Width = 400;
+
             //grid.RowHeadersWidth = 200;
 
-            
 
-           
+
+
         }
 
         public string nombreSuc()
         {
             // obtengo el nombre de la sucursal para el reporte
-            string suc="";
+            string suc = "";
 
             MySqlConnection c = BDConexicon.conectar();
-            MySqlCommand cmd = new MySqlCommand("select empresa from econfig",c);
+            MySqlCommand cmd = new MySqlCommand("select empresa from econfig", c);
             //MySqlDataAdapter ad = new MySqlDataAdapter(cmd);
             MySqlDataReader myreader = cmd.ExecuteReader();
-           
+
 
 
             myreader.Read();
@@ -72,7 +73,27 @@ namespace appSugerencias
 
             return suc;
         }
+
+
+        public String periodoReporte(DateTimePicker inicio,DateTimePicker fin)
+        {
+            
+
+            DateTime DTinicio = inicio.Value;
+            DateTime DTfin = fin.Value;
+            String Finicio = DTinicio.ToShortDateString();
+            String Ffin = DTfin.ToShortDateString();
+            string periodo = "Reporte del "+Finicio+"  al  "+Ffin;
+            return periodo;
+        }
       
+        public String tipoSugerencia(ComboBox c)
+        {
+            string tipo = "";
+            tipo=c.SelectedItem.ToString();
+           
+            return tipo;
+        }
 
         public void formatoExcel(Microsoft.Office.Interop.Excel.Application excel)
         {
@@ -80,14 +101,23 @@ namespace appSugerencias
 
             string suc = nombreSuc();// linea 56
 
+            
+           
+            String periodo = periodoReporte(DT_inicio,DT_fin);//obtengo las fechas del periodo de las sugerencias buscadas; linea 77
+            String tipo = tipoSugerencia(CB_tipo);
+
             //APLICO FORMATO EL DOCUMENTO DE EXCEL
-            //excel.Cells.Range["A4:B4"].Merge();
+            excel.Cells.Range["A3"].Value=periodo;
+            excel.Cells.Range["A3"].Font.Bold = true;
+            excel.Cells.Range["A3"].Font.Size = 10;
+            
+
             excel.Cells.Range["A4"].Font.Bold = true;
             excel.Cells.Range["A4"].Font.Size = 14;
            excel.Cells.Range["A4"].Value = "SUGERENCIAS SEMANALES";
             excel.Cells.Range["B4"].Value = suc;
             excel.Cells.Range["B4"].Font.Bold = true;
-            excel.Cells.Range["B4"].Font.Size = 14;
+            excel.Cells.Range["B4"].Font.Size = 12;
             //excel.Cells.Range["A4"]
 
 
@@ -97,26 +127,25 @@ namespace appSugerencias
             excel.Cells.Range["A5"].Font.Bold = true;
             excel.Cells.Range["A5"].Interior.ColorIndex = 49;
             excel.Cells.Range["A5"].Font.ColorIndex = 2;
-            excel.Cells.Range["A5:B5"].Font.Size = 14;
+            excel.Cells.Range["A5"].Font.Size = 14;
 
+            excel.Cells.Range["B5"].Value=tipo;
             excel.Cells.Range["B5"].Font.Bold = true;
+            excel.Cells.Range["B5"].Font.Size=14;
             excel.Cells.Range["B5"].Interior.ColorIndex = 49;
-           excel.Cells.Range["B5"].Font.ColorIndex = 2;
+            excel.Cells.Range["B5"].Font.ColorIndex = 2;
 
-            //for(int i = 6;i<=50;i++)
-            //{
-            //    excel.Range[i,1].Interior.ColorIndex = 50;
-            //}
+            
         }
 
-        
+
 
         public void exportarExcel(DataGridView tabla)
         {
             Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
             excel.Application.Workbooks.Add(true);
                       
-            formatoExcel(excel);//linea 61
+            
             int indiceColumna = 0;
            
             foreach (DataGridViewColumn col in tabla.Columns)
@@ -133,19 +162,19 @@ namespace appSugerencias
                 indiceFila++;
                 indiceColumna = 0;
 
-               
 
+                
                 foreach (DataGridViewColumn col in tabla.Columns)
                 {
                     indiceColumna++;
                     
                     excel.Cells[indiceFila + 1, indiceColumna] = row.Cells[col.Name].Value;
 
-                    if ((indiceFila + 1) % 2 == 0)// pinta de color gris las celdas cuyas filas son numeros pares
-                    {
-                        excel.Cells.Range[indiceFila + 1, indiceColumna].Interior.ColorIndex = 15;
+                    //if ((indiceFila + 1) % 2 == 0)// pinta de color gris las celdas cuyas filas son numeros pares
+                    //{
+                    //    excel.Cells.Range[indiceFila + 1, indiceColumna].Interior.ColorIndex = 15;
 
-                    }
+                    //}
 
 
                 }
@@ -153,7 +182,7 @@ namespace appSugerencias
                
               
             }
-
+            formatoExcel(excel);//linea 61
             excel.Visible = true;
 
 
@@ -161,12 +190,28 @@ namespace appSugerencias
         
         private void button1_Click(object sender, EventArgs e)
         {
-            selectDatos(DG_sugerencias);
+            if(CB_tipo.SelectedItem==null)
+            {
+                MessageBox.Show("Selecciona el tipo de sugerencia en 'Sugerencias de'");
+            }
+            else
+            {
+                selectDatos(DG_sugerencias);
+            }
+            
         }
 
         private void BT_Excel_Click(object sender, EventArgs e)
         {
-            exportarExcel(DG_sugerencias);
+            if(DG_sugerencias.RowCount==0)
+            {
+                MessageBox.Show("Selecciona los datos a exportar");
+            }
+            else
+            {
+                exportarExcel(DG_sugerencias);
+            }
+            
         }
 
         private void ImprimirReporte_Load(object sender, EventArgs e)

@@ -291,3 +291,6 @@ C:\Users\Roy\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\obj
 C:\Users\Roy\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.csproj.CoreCompileInputs.cache
 C:\Users\Roy\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.exe
 C:\Users\Roy\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.pdb
+C:\Users\Admin\source\repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\Microsoft.CSharp.dll
+C:\Users\Admin\source\repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\MySql.Data.dll
+C:\Users\Admin\source\repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\netstandard.dll
