@@ -34,9 +34,9 @@ namespace appSugerencias
             string inicio = f.getDate(Finicio);
             string fin = f.getDate(Ffin);
 
-           
 
-            MySqlCommand cmd = new MySqlCommand("select texto as sugerencias  from sugerencias where fecha between '" + inicio +"'"+" and '"+ fin+"'", frm_Sugerencias.conectar());
+            MySqlConnection c = BDConexicon.conectar();
+            MySqlCommand cmd = new MySqlCommand("select texto as sugerencias  from sugerencias where fecha between '" + inicio +"'"+" and '"+ fin+"'", c);
 
             MySqlDataAdapter adaptador = new MySqlDataAdapter(cmd);
             System.Data.DataTable tb = new System.Data.DataTable();

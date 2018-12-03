@@ -40,5 +40,10 @@ namespace appSugerencias
             frm_ReporteASinVentas rasv = new frm_ReporteASinVentas();
             rasv.Show();
         }
+
+        private void Principal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
