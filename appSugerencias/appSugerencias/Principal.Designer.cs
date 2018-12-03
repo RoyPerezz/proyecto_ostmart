@@ -34,6 +34,7 @@
             this.reporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productosSinVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,21 +63,22 @@
             // nuevaSugerenciaToolStripMenuItem
             // 
             this.nuevaSugerenciaToolStripMenuItem.Name = "nuevaSugerenciaToolStripMenuItem";
-            this.nuevaSugerenciaToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.nuevaSugerenciaToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
             this.nuevaSugerenciaToolStripMenuItem.Text = "Nueva sugerencia";
             this.nuevaSugerenciaToolStripMenuItem.Click += new System.EventHandler(this.nuevaSugerenciaToolStripMenuItem_Click);
             // 
             // reporteToolStripMenuItem
             // 
             this.reporteToolStripMenuItem.Name = "reporteToolStripMenuItem";
-            this.reporteToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.reporteToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
             this.reporteToolStripMenuItem.Text = "Reporte";
             this.reporteToolStripMenuItem.Click += new System.EventHandler(this.reporteToolStripMenuItem_Click);
             // 
             // productosSinVentasToolStripMenuItem
             // 
             this.productosSinVentasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.registrarProductoToolStripMenuItem});
+            this.registrarProductoToolStripMenuItem,
+            this.reporteToolStripMenuItem1});
             this.productosSinVentasToolStripMenuItem.Name = "productosSinVentasToolStripMenuItem";
             this.productosSinVentasToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
             this.productosSinVentasToolStripMenuItem.Text = "Productos Sin Ventas";
@@ -88,13 +90,20 @@
             this.registrarProductoToolStripMenuItem.Text = "Registrar Producto";
             this.registrarProductoToolStripMenuItem.Click += new System.EventHandler(this.registrarProductoToolStripMenuItem_Click);
             // 
+            // reporteToolStripMenuItem1
+            // 
+            this.reporteToolStripMenuItem1.Name = "reporteToolStripMenuItem1";
+            this.reporteToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
+            this.reporteToolStripMenuItem1.Text = "Reporte";
+            this.reporteToolStripMenuItem1.Click += new System.EventHandler(this.reporteToolStripMenuItem1_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(901, 554);
             this.Controls.Add(this.menuStrip1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Principal";
             this.Text = "Principal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -113,5 +122,6 @@
         private System.Windows.Forms.ToolStripMenuItem reporteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productosSinVentasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrarProductoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteToolStripMenuItem1;
     }
 }
