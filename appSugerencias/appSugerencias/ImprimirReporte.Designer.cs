@@ -37,6 +37,8 @@
             this.BT_Excel = new System.Windows.Forms.Button();
             this.CB_tipo = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.CB_cargo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.DG_sugerencias)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,8 +108,9 @@
             this.CB_tipo.Items.AddRange(new object[] {
             "General",
             "Mantenimiento",
-            "Sistemas"});
-            this.CB_tipo.Location = new System.Drawing.Point(52, 314);
+            "Sistemas",
+            "Todas"});
+            this.CB_tipo.Location = new System.Drawing.Point(316, 314);
             this.CB_tipo.Name = "CB_tipo";
             this.CB_tipo.Size = new System.Drawing.Size(157, 21);
             this.CB_tipo.TabIndex = 7;
@@ -115,17 +118,42 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(55, 298);
+            this.label3.Location = new System.Drawing.Point(319, 298);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 13);
             this.label3.TabIndex = 8;
             this.label3.Text = "Sugerencias de";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(49, 298);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Cargo";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // CB_cargo
+            // 
+            this.CB_cargo.FormattingEnabled = true;
+            this.CB_cargo.Items.AddRange(new object[] {
+            "Asesora de Ventas",
+            "Administrativo",
+            "Cajera"});
+            this.CB_cargo.Location = new System.Drawing.Point(46, 314);
+            this.CB_cargo.Name = "CB_cargo";
+            this.CB_cargo.Size = new System.Drawing.Size(157, 21);
+            this.CB_cargo.TabIndex = 9;
+            this.CB_cargo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // ImprimirReporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(519, 431);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.CB_cargo);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.CB_tipo);
             this.Controls.Add(this.BT_Excel);
@@ -155,5 +183,7 @@
         private System.Windows.Forms.Button BT_Excel;
         private System.Windows.Forms.ComboBox CB_tipo;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox CB_cargo;
     }
 }
