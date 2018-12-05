@@ -97,6 +97,12 @@
       <DependentUpon>DS_conexion.xsd</DependentUpon>
     </Compile>
     <Compile Include="FormatoFecha.cs" />
+    <Compile Include="frm_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Login.Designer.cs">
+      <DependentUpon>frm_Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_ReporteASinVentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="ArticuloSinVentas.resx">
       <DependentUpon>ArticuloSinVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Login.resx">
+      <DependentUpon>frm_Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_ReporteASinVentas.resx">
       <DependentUpon>frm_ReporteASinVentas.cs</DependentUpon>

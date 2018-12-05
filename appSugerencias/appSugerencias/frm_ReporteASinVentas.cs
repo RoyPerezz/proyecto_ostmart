@@ -55,6 +55,7 @@ namespace appSugerencias
 
             int indiceColumna = 0;
 
+            
             foreach (DataGridViewColumn col in tabla.Columns)
             {
                 indiceColumna++;
@@ -72,10 +73,11 @@ namespace appSugerencias
                 {
                     indiceColumna++;
                     excel.Cells[indiceFila + 1, indiceColumna] = row.Cells[col.Name].Value;
+                    
 
                 }
             }
-
+            
             excel.Visible = true;
 
 
