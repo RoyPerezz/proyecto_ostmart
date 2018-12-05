@@ -54,20 +54,10 @@ namespace appSugerencias
             
         }
 
-        private void lblUsuario_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void loginToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            frm_Login rasv = new frm_Login();
-            rasv.Show();
-
-        private void Principal_Load(object sender, EventArgs e)
-        {
-
-
+            frm_Login log = new frm_Login();
+            log.Show();
         }
     }
 }
