@@ -35,6 +35,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.DG_sugerencias = new System.Windows.Forms.DataGridView();
             this.BT_Excel = new System.Windows.Forms.Button();
+            this.CB_tipo = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DG_sugerencias)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,7 +87,7 @@
             this.DG_sugerencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DG_sugerencias.Location = new System.Drawing.Point(52, 116);
             this.DG_sugerencias.Name = "DG_sugerencias";
-            this.DG_sugerencias.Size = new System.Drawing.Size(421, 220);
+            this.DG_sugerencias.Size = new System.Drawing.Size(421, 164);
             this.DG_sugerencias.TabIndex = 5;
             // 
             // BT_Excel
@@ -98,11 +100,34 @@
             this.BT_Excel.UseVisualStyleBackColor = true;
             this.BT_Excel.Click += new System.EventHandler(this.BT_Excel_Click);
             // 
+            // CB_tipo
+            // 
+            this.CB_tipo.FormattingEnabled = true;
+            this.CB_tipo.Items.AddRange(new object[] {
+            "General",
+            "Mantenimiento",
+            "Sistemas"});
+            this.CB_tipo.Location = new System.Drawing.Point(52, 314);
+            this.CB_tipo.Name = "CB_tipo";
+            this.CB_tipo.Size = new System.Drawing.Size(157, 21);
+            this.CB_tipo.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(55, 298);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Sugerencias de";
+            // 
             // ImprimirReporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(519, 431);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.CB_tipo);
             this.Controls.Add(this.BT_Excel);
             this.Controls.Add(this.DG_sugerencias);
             this.Controls.Add(this.button1);
@@ -128,5 +153,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView DG_sugerencias;
         private System.Windows.Forms.Button BT_Excel;
+        private System.Windows.Forms.ComboBox CB_tipo;
+        private System.Windows.Forms.Label label3;
     }
 }
