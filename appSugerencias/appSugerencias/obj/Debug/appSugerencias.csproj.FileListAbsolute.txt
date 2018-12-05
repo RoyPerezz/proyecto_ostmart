@@ -167,7 +167,6 @@ C:\Users\SISTEMAS\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bi
 C:\Users\SISTEMAS\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
 C:\Users\SISTEMAS\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\Microsoft.ReportViewer.WinForms.dll
 C:\Users\SISTEMAS\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\Microsoft.SqlServer.Types.dll
-C:\Users\SISTEMAS\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\MySql.Data.dll
 C:\Users\SISTEMAS\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
 C:\Users\SISTEMAS\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
 C:\Users\SISTEMAS\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
@@ -294,3 +293,4 @@ C:\Users\Roy\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\obj
 C:\Users\Admin\source\repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\Microsoft.CSharp.dll
 C:\Users\Admin\source\repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\MySql.Data.dll
 C:\Users\Admin\source\repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\netstandard.dll
+C:\Users\SISTEMAS\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_Login.resources
