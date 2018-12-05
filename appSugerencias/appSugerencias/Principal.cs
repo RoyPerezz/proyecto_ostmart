@@ -16,7 +16,8 @@ namespace appSugerencias
         {
             InitializeComponent();
         }
-
+        
+        
         private void nuevaSugerenciaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_Sugerencias form = new frm_Sugerencias();
@@ -38,6 +39,28 @@ namespace appSugerencias
         private void reporteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frm_ReporteASinVentas rasv = new frm_ReporteASinVentas();
+            rasv.Show();
+        }
+
+        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_Login rasv = new frm_Login();
+            rasv.Show();
+        }
+
+        private void Principal_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void lblUsuario_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void loginToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            frm_Login rasv = new frm_Login();
             rasv.Show();
         }
     }

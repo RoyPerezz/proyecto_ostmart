@@ -172,6 +172,7 @@ namespace appSugerencias
         private void ImprimirReporte_Load(object sender, EventArgs e)
         {
 
+                        
         }
     }
 }
