@@ -12,12 +12,26 @@ namespace appSugerencias
 {
     public partial class Principal : Form
     {
+        string Usuario="GABY";
+
+        
         public Principal()
         {
             InitializeComponent();
+            lblUsuario.Text = Usuario;
         }
-        
-        
+
+        //public Principal(string usuario)
+        //{
+        //    InitializeComponent();
+        //    Usuario = usuario;
+        //    lblUsuario.Text = Usuario;
+        //}
+
+
+
+
+
         private void nuevaSugerenciaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_Sugerencias form = new frm_Sugerencias();
@@ -52,6 +66,14 @@ namespace appSugerencias
         private void Principal_Load(object sender, EventArgs e)
         {
             
+
+                 
+
+        }
+
+        public void ejecutar (string dato)
+        {
+            lblUsuario.Text = dato;
         }
 
         private void loginToolStripMenuItem_Click_1(object sender, EventArgs e)

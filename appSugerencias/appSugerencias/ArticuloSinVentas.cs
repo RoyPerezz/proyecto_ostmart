@@ -104,6 +104,7 @@ namespace appSugerencias
             textboxPrecio.Enabled = false;
             textboxPiezas.Enabled = false;
 
+            
 
         }
 

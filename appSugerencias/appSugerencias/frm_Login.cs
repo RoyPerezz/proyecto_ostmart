@@ -11,8 +11,11 @@ using MySql.Data.Types;
 
 namespace appSugerencias
 {
+    
     public partial class frm_Login : Form
     {
+        public string var_usuario;
+
         public frm_Login()
         {
             InitializeComponent();
@@ -23,6 +26,8 @@ namespace appSugerencias
         {
             return Encoding.ASCII.GetBytes(s)[0]+12;
         }
+
+        
 
         public string cifraPass(string cadena)
         {
@@ -54,8 +59,12 @@ namespace appSugerencias
                 //MessageBox.Show("HOLA USUARIO " + usu);
                 this.Hide();
 
+
+                //Principal ini = new Principal(usu);
                 Principal ini = new Principal();
+
                 ini.Show();
+                
             }
             else
             {
