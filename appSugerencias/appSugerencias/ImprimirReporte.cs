@@ -37,7 +37,16 @@ namespace appSugerencias
 
 
             MySqlConnection c = BDConexicon.conectar();
-            MySqlCommand cmd = new MySqlCommand("select texto as sugerencias from sugerencias where fecha between '" + inicio + "'" + " and '" + fin + "'and tipo= '" + CB_tipo.SelectedItem.ToString() + "'", c);
+            MySqlCommand cmd;
+            if (CB_tipo.SelectedItem.ToString()=="Todas")
+            {
+             cmd = new MySqlCommand("select texto as sugerencias from sugerencias where fecha between '" + inicio + "'" + " and '" + fin + "'", c);
+            }
+            else
+            {
+               cmd = new MySqlCommand("select texto as sugerencias from sugerencias where fecha between '" + inicio + "'" + " and '" + fin + "'and tipo= '" + CB_tipo.SelectedItem.ToString() + "'and cargo= '"+CB_cargo.SelectedItem.ToString()+"'", c);
+            }
+           
 
             MySqlDataAdapter adaptador = new MySqlDataAdapter(cmd);
             System.Data.DataTable tb = new System.Data.DataTable();
@@ -218,6 +227,16 @@ namespace appSugerencias
         {
 
                         
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
