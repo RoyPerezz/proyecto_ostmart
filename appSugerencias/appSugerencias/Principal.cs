@@ -59,5 +59,11 @@ namespace appSugerencias
             frm_Login log = new frm_Login();
             log.Show();
         }
+
+        private void calificacionescomisionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Calificacionescs cal = new Calificacionescs();
+            cal.Show();
+        }
     }
 }

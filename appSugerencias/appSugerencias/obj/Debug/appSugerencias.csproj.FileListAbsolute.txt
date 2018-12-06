@@ -281,3 +281,4 @@ C:\Users\Admin\source\repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\D
 C:\Users\SISTEMAS\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_Login.resources
 C:\Users\SISTEMAS\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\MySql.Data.xml
 C:\Users\Admin\source\repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_Login.resources
+C:\Users\Admin\source\repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Calificacionescs.resources

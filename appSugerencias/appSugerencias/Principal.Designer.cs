@@ -36,6 +36,9 @@
             this.registrarProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cajasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.calificacionescomisionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportesDeComisionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,7 +48,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sugerenciasToolStripMenuItem,
             this.productosSinVentasToolStripMenuItem,
-            this.loginToolStripMenuItem});
+            this.loginToolStripMenuItem,
+            this.cajasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(676, 24);
@@ -87,14 +91,14 @@
             // registrarProductoToolStripMenuItem
             // 
             this.registrarProductoToolStripMenuItem.Name = "registrarProductoToolStripMenuItem";
-            this.registrarProductoToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.registrarProductoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.registrarProductoToolStripMenuItem.Text = "Registrar Producto";
             this.registrarProductoToolStripMenuItem.Click += new System.EventHandler(this.registrarProductoToolStripMenuItem_Click);
             // 
             // reporteToolStripMenuItem1
             // 
             this.reporteToolStripMenuItem1.Name = "reporteToolStripMenuItem1";
-            this.reporteToolStripMenuItem1.Size = new System.Drawing.Size(172, 22);
+            this.reporteToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.reporteToolStripMenuItem1.Text = "Reporte";
             this.reporteToolStripMenuItem1.Click += new System.EventHandler(this.reporteToolStripMenuItem1_Click);
             // 
@@ -104,6 +108,28 @@
             this.loginToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.loginToolStripMenuItem.Text = "Login";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click_1);
+            // 
+            // cajasToolStripMenuItem
+            // 
+            this.cajasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.calificacionescomisionesToolStripMenuItem,
+            this.reportesDeComisionesToolStripMenuItem});
+            this.cajasToolStripMenuItem.Name = "cajasToolStripMenuItem";
+            this.cajasToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.cajasToolStripMenuItem.Text = "Cajas";
+            // 
+            // calificacionescomisionesToolStripMenuItem
+            // 
+            this.calificacionescomisionesToolStripMenuItem.Name = "calificacionescomisionesToolStripMenuItem";
+            this.calificacionescomisionesToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.calificacionescomisionesToolStripMenuItem.Text = "Calificaciones";
+            this.calificacionescomisionesToolStripMenuItem.Click += new System.EventHandler(this.calificacionescomisionesToolStripMenuItem_Click);
+            // 
+            // reportesDeComisionesToolStripMenuItem
+            // 
+            this.reportesDeComisionesToolStripMenuItem.Name = "reportesDeComisionesToolStripMenuItem";
+            this.reportesDeComisionesToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.reportesDeComisionesToolStripMenuItem.Text = "Reportes de comisiones";
             // 
             // Principal
             // 
@@ -132,5 +158,8 @@
         private System.Windows.Forms.ToolStripMenuItem registrarProductoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cajasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem calificacionescomisionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportesDeComisionesToolStripMenuItem;
     }
 }
