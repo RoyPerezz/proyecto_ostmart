@@ -35,7 +35,7 @@ namespace appSugerencias
 
 
 
-            MySqlCommand cmd = new MySqlCommand("SELECT sinventas.articulo,sinventas.motivo,sinventas.usuario,prods.DESCRIP,prods.PRECIO1,prods.fabricante,prods.EXISTENCIA FROM sinventas INNER JOIN prods ON prods.ARTICULO=sinventas.articulo where fecha between '" + inicio + "'" + " and '" + fin + "'", BDConexicon.conectar());
+            MySqlCommand cmd = new MySqlCommand("SELECT RD_sinventas.articulo,RD_sinventas.motivo,RD_sinventas.usuario,prods.DESCRIP,prods.PRECIO1,prods.fabricante,prods.EXISTENCIA FROM RD_sinventas INNER JOIN prods ON prods.ARTICULO=RD_sinventas.articulo where fecha between '" + inicio + "'" + " and '" + fin + "'", BDConexicon.conectar());
 
             MySqlDataAdapter adaptador = new MySqlDataAdapter(cmd);
             System.Data.DataTable tb = new System.Data.DataTable();

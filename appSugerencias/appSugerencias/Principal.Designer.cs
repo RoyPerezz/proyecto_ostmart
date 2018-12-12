@@ -39,6 +39,8 @@
             this.cajasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calificacionescomisionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesDeComisionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.formatoCajeraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +51,8 @@
             this.sugerenciasToolStripMenuItem,
             this.productosSinVentasToolStripMenuItem,
             this.loginToolStripMenuItem,
-            this.cajasToolStripMenuItem});
+            this.cajasToolStripMenuItem,
+            this.formatoCajeraToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(676, 24);
@@ -91,14 +94,14 @@
             // registrarProductoToolStripMenuItem
             // 
             this.registrarProductoToolStripMenuItem.Name = "registrarProductoToolStripMenuItem";
-            this.registrarProductoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.registrarProductoToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.registrarProductoToolStripMenuItem.Text = "Registrar Producto";
             this.registrarProductoToolStripMenuItem.Click += new System.EventHandler(this.registrarProductoToolStripMenuItem_Click);
             // 
             // reporteToolStripMenuItem1
             // 
             this.reporteToolStripMenuItem1.Name = "reporteToolStripMenuItem1";
-            this.reporteToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.reporteToolStripMenuItem1.Size = new System.Drawing.Size(172, 22);
             this.reporteToolStripMenuItem1.Text = "Reporte";
             this.reporteToolStripMenuItem1.Click += new System.EventHandler(this.reporteToolStripMenuItem1_Click);
             // 
@@ -128,14 +131,31 @@
             // reportesDeComisionesToolStripMenuItem
             // 
             this.reportesDeComisionesToolStripMenuItem.Name = "reportesDeComisionesToolStripMenuItem";
-            this.reportesDeComisionesToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.reportesDeComisionesToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.reportesDeComisionesToolStripMenuItem.Text = "Reportes de comisiones";
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Location = new System.Drawing.Point(32, 46);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(37, 13);
+            this.lblUsuario.TabIndex = 1;
+            this.lblUsuario.Text = "USER";
+            // 
+            // formatoCajeraToolStripMenuItem
+            // 
+            this.formatoCajeraToolStripMenuItem.Name = "formatoCajeraToolStripMenuItem";
+            this.formatoCajeraToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
+            this.formatoCajeraToolStripMenuItem.Text = "Formato Cajera";
+            this.formatoCajeraToolStripMenuItem.Click += new System.EventHandler(this.formatoCajeraToolStripMenuItem_Click);
             // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(676, 450);
+            this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Principal";
             this.Text = "Principal";
@@ -161,5 +181,7 @@
         private System.Windows.Forms.ToolStripMenuItem cajasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem calificacionescomisionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportesDeComisionesToolStripMenuItem;
+        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.ToolStripMenuItem formatoCajeraToolStripMenuItem;
     }
 }

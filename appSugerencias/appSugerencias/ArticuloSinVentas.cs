@@ -141,7 +141,7 @@ namespace appSugerencias
             }
             else
             {
-                insertarArticulo("insert into sinventas(articulo,motivo,departamento,usuario,fecha) values (?articulo,?motivo,?departamento,?usuario,?fecha)");
+                insertarArticulo("insert into RD_sinventas(articulo,motivo,departamento,usuario,fecha) values (?articulo,?motivo,?departamento,?usuario,?fecha)");
             }
             
         }
@@ -152,6 +152,11 @@ namespace appSugerencias
         }
 
         private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboboxDepa_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

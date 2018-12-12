@@ -51,7 +51,7 @@
             // textBoxCodigo
             // 
             this.textBoxCodigo.Location = new System.Drawing.Point(67, 29);
-            this.textBoxCodigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxCodigo.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCodigo.Name = "textBoxCodigo";
             this.textBoxCodigo.Size = new System.Drawing.Size(98, 20);
             this.textBoxCodigo.TabIndex = 0;
@@ -70,7 +70,7 @@
             // textboxDescrip
             // 
             this.textboxDescrip.Location = new System.Drawing.Point(89, 83);
-            this.textboxDescrip.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textboxDescrip.Margin = new System.Windows.Forms.Padding(2);
             this.textboxDescrip.Name = "textboxDescrip";
             this.textboxDescrip.Size = new System.Drawing.Size(278, 20);
             this.textboxDescrip.TabIndex = 2;
@@ -79,7 +79,7 @@
             // textboxPrecio
             // 
             this.textboxPrecio.Location = new System.Drawing.Point(89, 145);
-            this.textboxPrecio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textboxPrecio.Margin = new System.Windows.Forms.Padding(2);
             this.textboxPrecio.Name = "textboxPrecio";
             this.textboxPrecio.Size = new System.Drawing.Size(62, 20);
             this.textboxPrecio.TabIndex = 3;
@@ -87,7 +87,7 @@
             // textboxProveedor
             // 
             this.textboxProveedor.Location = new System.Drawing.Point(89, 115);
-            this.textboxProveedor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textboxProveedor.Margin = new System.Windows.Forms.Padding(2);
             this.textboxProveedor.Name = "textboxProveedor";
             this.textboxProveedor.Size = new System.Drawing.Size(85, 20);
             this.textboxProveedor.TabIndex = 4;
@@ -95,7 +95,7 @@
             // textboxPiezas
             // 
             this.textboxPiezas.Location = new System.Drawing.Point(89, 179);
-            this.textboxPiezas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textboxPiezas.Margin = new System.Windows.Forms.Padding(2);
             this.textboxPiezas.Name = "textboxPiezas";
             this.textboxPiezas.Size = new System.Drawing.Size(62, 20);
             this.textboxPiezas.TabIndex = 5;
@@ -103,7 +103,7 @@
             // textboxNoSeVende
             // 
             this.textboxNoSeVende.Location = new System.Drawing.Point(152, 207);
-            this.textboxNoSeVende.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textboxNoSeVende.Margin = new System.Windows.Forms.Padding(2);
             this.textboxNoSeVende.Multiline = true;
             this.textboxNoSeVende.Name = "textboxNoSeVende";
             this.textboxNoSeVende.Size = new System.Drawing.Size(176, 58);
@@ -163,7 +163,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(182, 28);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(56, 19);
             this.button1.TabIndex = 12;
@@ -174,7 +174,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(148, 391);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(64, 27);
             this.button2.TabIndex = 13;
@@ -204,10 +204,11 @@
             "MOSTRADOR",
             "PLASTICOS"});
             this.comboboxDepa.Location = new System.Drawing.Point(112, 316);
-            this.comboboxDepa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboboxDepa.Margin = new System.Windows.Forms.Padding(2);
             this.comboboxDepa.Name = "comboboxDepa";
             this.comboboxDepa.Size = new System.Drawing.Size(108, 21);
             this.comboboxDepa.TabIndex = 16;
+            this.comboboxDepa.SelectedIndexChanged += new System.EventHandler(this.comboboxDepa_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -222,7 +223,7 @@
             // textboxUsuario
             // 
             this.textboxUsuario.Location = new System.Drawing.Point(113, 287);
-            this.textboxUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textboxUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.textboxUsuario.Name = "textboxUsuario";
             this.textboxUsuario.Size = new System.Drawing.Size(100, 20);
             this.textboxUsuario.TabIndex = 18;
@@ -250,7 +251,7 @@
             this.Controls.Add(this.textboxDescrip);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxCodigo);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ArticuloSinVentas";
             this.Text = "ArticuloSinVentas";
             this.Load += new System.EventHandler(this.ArticuloSinVentas_Load);

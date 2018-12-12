@@ -103,6 +103,12 @@
       <DependentUpon>DS_conexion.xsd</DependentUpon>
     </Compile>
     <Compile Include="FormatoFecha.cs" />
+    <Compile Include="frm_FormatoCajera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_FormatoCajera.Designer.cs">
+      <DependentUpon>frm_FormatoCajera.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Calificacionescs.resx">
       <DependentUpon>Calificacionescs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_FormatoCajera.resx">
+      <DependentUpon>frm_FormatoCajera.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Login.resx">
       <DependentUpon>frm_Login.cs</DependentUpon>

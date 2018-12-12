@@ -87,5 +87,11 @@ namespace appSugerencias
             Calificacionescs cal = new Calificacionescs();
             cal.Show();
         }
+
+        private void formatoCajeraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_FormatoCajera c = new frm_FormatoCajera(Usuario);
+            c.Show();
+        }
     }
 }
