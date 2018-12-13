@@ -28,7 +28,10 @@ namespace appSugerencias
 
         private void frm_FormatoCajera_Load(object sender, EventArgs e)
         {
-
+            textboxDescrip.Enabled = false;
+            textboxPiezas.Enabled = false;
+            textboxPrecio.Enabled = false;
+            textboxProveedor.Enabled = false;
         }
 
         public void insertarArticulo(string comando)

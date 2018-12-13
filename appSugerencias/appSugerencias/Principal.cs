@@ -90,8 +90,19 @@ namespace appSugerencias
 
         private void formatoCajeraToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void formatoCajerasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             frm_FormatoCajera c = new frm_FormatoCajera(Usuario);
             c.Show();
+        }
+
+        private void validarFormatoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_validarcajas v= new frm_validarcajas();
+            v.Show();
         }
     }
 }

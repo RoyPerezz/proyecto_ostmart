@@ -284,3 +284,4 @@ C:\Users\Admin\source\repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\D
 C:\Users\Admin\source\repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Calificacionescs.resources
 C:\Users\SISTEMAS\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Calificacionescs.resources
 C:\Users\SISTEMAS\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_FormatoCajera.resources
+C:\Users\SISTEMAS\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_validarcajas.resources

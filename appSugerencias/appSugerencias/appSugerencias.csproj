@@ -127,6 +127,12 @@
     <Compile Include="frm_Sugerencias.Designer.cs">
       <DependentUpon>frm_Sugerencias.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_validarcajas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_validarcajas.Designer.cs">
+      <DependentUpon>frm_validarcajas.cs</DependentUpon>
+    </Compile>
     <Compile Include="ImprimirReporte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Sugerencias.resx">
       <DependentUpon>frm_Sugerencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_validarcajas.resx">
+      <DependentUpon>frm_validarcajas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ImprimirReporte.resx">
       <DependentUpon>ImprimirReporte.cs</DependentUpon>
