@@ -70,6 +70,24 @@ namespace appSugerencias
 
         private void button2_Click(object sender, EventArgs e)
         {
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO rd_formatocajeras(valido) values(?valido) ", BDConexicon.conectar());
+
+            try
+            {
+                foreach (DataGridViewRow row in dgvCajas.Rows)
+                {
+                    if (Convert.ToBoolean(row.Cells["checkbox"].Value))
+                    {
+                        MessageBox.Show(row.Cells["cantidad"].Value.ToString());
+                        
+                    }
+                    
+                }
+            }
+            catch(Exception ex)
+            {
+
+            }
 
         }
     }
