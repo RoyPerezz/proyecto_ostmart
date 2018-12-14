@@ -286,7 +286,30 @@ namespace appSugerencias
 
         public void limpiar()
         {
-
+            CB_usuario.SelectedIndex = -1;
+            TB_saludo.Text = "";
+            TB_sonrisa.Text = "";
+            TB_pedido.Text = "";
+            TB_maquillaje.Text = "";
+            TB_uniforme.Text = "";
+            TB_gafete.Text = "";
+            TB_peinado.Text = "";
+            TB_area.Text = "";
+            TB_caja.Text = "";
+            TB_equipo.Text = "";
+            TB_foco.Text = "";
+            TB_cancelacion.Text = "";
+            TB_merca.Text = "";
+            TB_informacion.Text = "";
+            TB_cobro.Text = "";
+            TB_promedio.Text = "";
+            TB_ventaT.Text = "";
+            TB_bruta.Text = "";
+            TB_neta.Text = "";
+            TB_clientes.Text = "";
+            TB_Ccliente.Text = "";
+            TB_Ctotal.Text = "";
+           
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -329,6 +352,7 @@ namespace appSugerencias
             cmd.Parameters.Add("?Ctotal", MySqlDbType.Double).Value = Ctotal;
 
             cmd.ExecuteNonQuery();
+            limpiar();
             MessageBox.Show("Registros guardados exitosamente");
             
         }
