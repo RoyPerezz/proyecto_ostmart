@@ -260,7 +260,7 @@ namespace appSugerencias
             TB_clientes.Text = Convert.ToString(clientes);
         }
 
-        public void comisionCliente()
+        public double comisionCliente()
         {
             int clientes = Convert.ToInt32(TB_clientes.Text);
             double comisionClientes = 0.0;
@@ -268,25 +268,69 @@ namespace appSugerencias
             comisionClientes = clientes * 0.1;
 
             TB_Ccliente.Text = Convert.ToString(comisionClientes);
+
+            return comisionClientes;
         }
 
-        public void comisionTotal()
+        public double comisionTotal()
         {
             double comisionT = 0.0;
             double comisionN = Convert.ToDouble(TB_neta.Text);
             double cCliente = Convert.ToDouble(TB_Ccliente.Text);
             comisionT = comisionN + cCliente;
             TB_Ctotal.Text = Convert.ToString(comisionT);
+
+            return comisionT;
+        }
+
+
+        public void limpiar()
+        {
+
         }
         private void button1_Click(object sender, EventArgs e)
         {
             //guarda los registros de la calificación de la cajera
 
             MySqlCommand cmd = new MySqlCommand("insert into rd_comisiones(usuario, fecha, saludo, sonrisa, pedido, maquillaje, uniforme, gafete, peinado, area, equipo, foco," +
-                "merc_caja, informacion, cobro, Vtotales, Cbruta, Cneta, cant_clientes,Ccliente,Ctotal) values(?usuario, ?fecha, ?saludo, ?sonrisa, ?pedido, ?maquillaje, ?uniforme, ?gafete, ?peinado, ?area, ?equipo, ?foco, ?merc_caja, ?informacion, ?cobro, ?Vtotales, ?Cbruta, ?Cneta, ?cant_clientes,?Ccliente,?Ctotal)",BDConexicon.conectar());
-         
+                "cancelacion, merc_caja, informacion, cobro, promedio, Vtotales, Cbruta, Cneta, cant_clientes,Ccliente,Ctotal) values(?usuario, ?fecha, ?saludo, ?sonrisa, ?pedido, ?maquillaje, ?uniforme, ?gafete, ?peinado, ?area, ?equipo, ?foco, ?cancelacion, ?merc_caja, ?informacion, ?cobro, ?promedio, ?Vtotales, ?Cbruta, ?Cneta, ?cant_clientes,?Ccliente,?Ctotal)",BDConexicon.conectar());
+
+
+            double Vtotales = totalVentaDia();
+            double Cbruta = comisionBruta();
+            double Cneta = comisionNeta();
+            double Ccliente = comisionCliente();
+            double Ctotal = comisionTotal();
+            int promedio = calcularPromedio();
+
+            DateTime fecha = DT_fecha.Value;
             cmd.Parameters.Add("?usuario",MySqlDbType.VarChar).Value=CB_usuario.SelectedItem.ToString();
-            cmd.Parameters.Add("?fecha",MySqlDbType.Date).Value=DT_fecha;
+            cmd.Parameters.Add("?fecha", MySqlDbType.Date).Value = fecha.ToString("yyyy-MM-dd"); ;
+            cmd.Parameters.Add("?saludo",MySqlDbType.Int32).Value=saludo;
+            cmd.Parameters.Add("?sonrisa",MySqlDbType.Int32).Value=sonrisa;
+            cmd.Parameters.Add("?pedido",MySqlDbType.Int32).Value=pedido;
+            cmd.Parameters.Add("?maquillaje",MySqlDbType.Int32).Value=maquillaje;
+            cmd.Parameters.Add("?uniforme",MySqlDbType.Int32).Value=uniforme;
+            cmd.Parameters.Add("?gafete",MySqlDbType.Int32).Value=gafete;
+            cmd.Parameters.Add("?peinado",MySqlDbType.Int32).Value=peinado;
+            cmd.Parameters.Add("?area",MySqlDbType.Int32).Value=area;
+            cmd.Parameters.Add("?equipo",MySqlDbType.Int32).Value=equipo;
+            cmd.Parameters.Add("?foco",MySqlDbType.Int32).Value=foco;
+            cmd.Parameters.Add("?cancelacion", MySqlDbType.Int32).Value = cancelacion;
+            cmd.Parameters.Add("?merc_caja",MySqlDbType.Int32).Value=merca;
+            cmd.Parameters.Add("?informacion",MySqlDbType.Int32).Value=informacion;
+            cmd.Parameters.Add("?cobro",MySqlDbType.Int32).Value=cobro;
+            cmd.Parameters.Add("?promedio", MySqlDbType.Int32).Value =promedio ;
+            cmd.Parameters.Add("?Vtotales", MySqlDbType.Double).Value = Vtotales;
+            cmd.Parameters.Add("?Cbruta", MySqlDbType.Double).Value = Cbruta;
+            cmd.Parameters.Add("?CNeta", MySqlDbType.Double).Value = Cneta;
+            cmd.Parameters.Add("?cant_clientes", MySqlDbType.Int32).Value = TB_clientes.Text;
+            cmd.Parameters.Add("?Ccliente", MySqlDbType.Double).Value = Ccliente;
+            cmd.Parameters.Add("?Ctotal", MySqlDbType.Double).Value = Ctotal;
+
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Registros guardados exitosamente");
+            
         }
 
         public double totalVentaDia()//calcula las venta total de cada vendedora por dia   
@@ -343,7 +387,7 @@ namespace appSugerencias
             return cBruta;
         }
 
-        public void comisionNeta()
+        public double comisionNeta()
         {
             double cNeta = 0.0;
             double cBruta = comisionBruta();
@@ -351,6 +395,7 @@ namespace appSugerencias
             cNeta = cBruta * (promedio / 100);
             TB_neta.Text = Convert.ToString(cNeta);
 
+            return cNeta;
         }
       
 
