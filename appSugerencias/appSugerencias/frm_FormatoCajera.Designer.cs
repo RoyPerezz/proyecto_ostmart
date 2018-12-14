@@ -44,7 +44,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.textboxCantidad = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblUsuario
@@ -196,21 +195,11 @@
             this.textboxCantidad.Size = new System.Drawing.Size(62, 20);
             this.textboxCantidad.TabIndex = 23;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(306, 221);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 24;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // frm_FormatoCajera
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(465, 463);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.textboxCantidad);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button1);
@@ -253,6 +242,5 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textboxCantidad;
-        private System.Windows.Forms.Button button2;
     }
 }
