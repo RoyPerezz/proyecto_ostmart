@@ -77,7 +77,7 @@ namespace appSugerencias
             else
             {
                 MySqlConnection c = BDConexicon.conectar();
-                insertar("insert into sugerencias(texto, usuario, fecha, cargo, tipo) values(?texto, ?usuario, ?fecha,?cargo,?tipo)", c);
+                insertar("insert into rd_sugerencias(texto, usuario, fecha, cargo, tipo) values(?texto, ?usuario, ?fecha,?cargo,?tipo)", c);
             }
 
            

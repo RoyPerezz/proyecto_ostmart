@@ -280,8 +280,13 @@ namespace appSugerencias
         }
         private void button1_Click(object sender, EventArgs e)
         {
-           
-          
+            //guarda los registros de la calificación de la cajera
+
+            MySqlCommand cmd = new MySqlCommand("insert into rd_comisiones(usuario, fecha, saludo, sonrisa, pedido, maquillaje, uniforme, gafete, peinado, area, equipo, foco," +
+                "merc_caja, informacion, cobro, Vtotales, Cbruta, Cneta, cant_clientes,Ccliente,Ctotal) values(?usuario, ?fecha, ?saludo, ?sonrisa, ?pedido, ?maquillaje, ?uniforme, ?gafete, ?peinado, ?area, ?equipo, ?foco, ?merc_caja, ?informacion, ?cobro, ?Vtotales, ?Cbruta, ?Cneta, ?cant_clientes,?Ccliente,?Ctotal)",BDConexicon.conectar());
+         
+            cmd.Parameters.Add("?usuario",MySqlDbType.VarChar).Value=CB_usuario.SelectedItem.ToString();
+            cmd.Parameters.Add("?fecha",MySqlDbType.Date).Value=DT_fecha;
         }
 
         public double totalVentaDia()//calcula las venta total de cada vendedora por dia   

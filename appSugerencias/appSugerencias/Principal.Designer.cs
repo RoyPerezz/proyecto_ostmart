@@ -91,14 +91,14 @@
             // registrarProductoToolStripMenuItem
             // 
             this.registrarProductoToolStripMenuItem.Name = "registrarProductoToolStripMenuItem";
-            this.registrarProductoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.registrarProductoToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.registrarProductoToolStripMenuItem.Text = "Registrar Producto";
             this.registrarProductoToolStripMenuItem.Click += new System.EventHandler(this.registrarProductoToolStripMenuItem_Click);
             // 
             // reporteToolStripMenuItem1
             // 
             this.reporteToolStripMenuItem1.Name = "reporteToolStripMenuItem1";
-            this.reporteToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.reporteToolStripMenuItem1.Size = new System.Drawing.Size(172, 22);
             this.reporteToolStripMenuItem1.Text = "Reporte";
             this.reporteToolStripMenuItem1.Click += new System.EventHandler(this.reporteToolStripMenuItem1_Click);
             // 
@@ -128,8 +128,9 @@
             // reportesDeComisionesToolStripMenuItem
             // 
             this.reportesDeComisionesToolStripMenuItem.Name = "reportesDeComisionesToolStripMenuItem";
-            this.reportesDeComisionesToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.reportesDeComisionesToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.reportesDeComisionesToolStripMenuItem.Text = "Reportes de comisiones";
+            this.reportesDeComisionesToolStripMenuItem.Click += new System.EventHandler(this.reportesDeComisionesToolStripMenuItem_Click);
             // 
             // Principal
             // 

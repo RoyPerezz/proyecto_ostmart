@@ -65,5 +65,11 @@ namespace appSugerencias
             Calificacionescs cal = new Calificacionescs();
             cal.Show();
         }
+
+        private void reportesDeComisionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReporteComisiones rc = new ReporteComisiones();
+            rc.Show();
+        }
     }
 }

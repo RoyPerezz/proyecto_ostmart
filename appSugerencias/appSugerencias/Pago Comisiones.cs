@@ -15,5 +15,10 @@ namespace appSugerencias
         {
             InitializeComponent();
         }
+
+        private void Pago_Comisiones_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

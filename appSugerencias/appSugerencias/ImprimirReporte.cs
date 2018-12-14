@@ -40,11 +40,11 @@ namespace appSugerencias
             MySqlCommand cmd;
             if (CB_tipo.SelectedItem.ToString()=="Todas")
             {
-             cmd = new MySqlCommand("select texto as sugerencias from sugerencias where fecha between '" + inicio + "'" + " and '" + fin + "'", c);
+             cmd = new MySqlCommand("select texto as sugerencias from rd_sugerencias where fecha between '" + inicio + "'" + " and '" + fin + "'", c);
             }
             else
             {
-               cmd = new MySqlCommand("select texto as sugerencias from sugerencias where fecha between '" + inicio + "'" + " and '" + fin + "'and tipo= '" + CB_tipo.SelectedItem.ToString() + "'and cargo= '"+CB_cargo.SelectedItem.ToString()+"'", c);
+               cmd = new MySqlCommand("select texto as sugerencias from rd_sugerencias where fecha between '" + inicio + "'" + " and '" + fin + "'and tipo= '" + CB_tipo.SelectedItem.ToString() + "'and cargo= '"+CB_cargo.SelectedItem.ToString()+"'", c);
             }
            
 
