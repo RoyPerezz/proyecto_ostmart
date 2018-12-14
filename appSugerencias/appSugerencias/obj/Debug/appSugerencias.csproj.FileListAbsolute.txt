@@ -328,7 +328,6 @@ C:\Users\Admin\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\b
 C:\Users\Admin\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
 C:\Users\Admin\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
 C:\Users\Admin\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
-C:\Users\Admin\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.csprojAssemblyReference.cache
 C:\Users\Admin\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.csproj.ResolveComReference.cache
 C:\Users\Admin\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.ArticuloSinVentas.resources
 C:\Users\Admin\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Calificacionescs.resources
