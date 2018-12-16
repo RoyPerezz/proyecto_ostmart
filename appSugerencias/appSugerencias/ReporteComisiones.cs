@@ -35,12 +35,6 @@ namespace appSugerencias
           
 
 
-            DateTime inicio = DT_inicio.Value;
-            DateTime fin = DT_fin.Value;
-
-            string finicio = getDate(inicio);
-            string ffin = getDate(fin);
-
 
             Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
             excel.Application.Workbooks.Add(true);
