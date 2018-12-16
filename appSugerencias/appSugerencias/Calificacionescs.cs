@@ -280,7 +280,7 @@ namespace appSugerencias
         }
         private void button1_Click(object sender, EventArgs e)
         {
-           
+           //guarda registro calificaciones y comisiones
           
         }
 
