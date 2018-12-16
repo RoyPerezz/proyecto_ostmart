@@ -104,5 +104,11 @@ namespace appSugerencias
             frm_validarcajas v= new frm_validarcajas();
             v.Show();
         }
+
+        private void reportesDeComisionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReporteCalificaciones rp = new ReporteCalificaciones();
+            rp.Show();
+        }
     }
 }

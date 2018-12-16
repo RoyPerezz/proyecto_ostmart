@@ -135,6 +135,7 @@
             this.reportesDeComisionesToolStripMenuItem.Name = "reportesDeComisionesToolStripMenuItem";
             this.reportesDeComisionesToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.reportesDeComisionesToolStripMenuItem.Text = "Reportes de comisiones";
+            this.reportesDeComisionesToolStripMenuItem.Click += new System.EventHandler(this.reportesDeComisionesToolStripMenuItem_Click);
             // 
             // formatoCajeraToolStripMenuItem
             // 
@@ -149,14 +150,14 @@
             // formatoCajerasToolStripMenuItem
             // 
             this.formatoCajerasToolStripMenuItem.Name = "formatoCajerasToolStripMenuItem";
-            this.formatoCajerasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.formatoCajerasToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.formatoCajerasToolStripMenuItem.Text = "Formato Cajeras";
             this.formatoCajerasToolStripMenuItem.Click += new System.EventHandler(this.formatoCajerasToolStripMenuItem_Click);
             // 
             // validarFormatoToolStripMenuItem
             // 
             this.validarFormatoToolStripMenuItem.Name = "validarFormatoToolStripMenuItem";
-            this.validarFormatoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.validarFormatoToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.validarFormatoToolStripMenuItem.Text = "Validar Formato";
             this.validarFormatoToolStripMenuItem.Click += new System.EventHandler(this.validarFormatoToolStripMenuItem_Click);
             // 
