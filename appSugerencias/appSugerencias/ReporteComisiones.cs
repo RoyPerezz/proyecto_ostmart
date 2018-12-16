@@ -32,9 +32,14 @@ namespace appSugerencias
 
         private void BT_reporte_Click(object sender, EventArgs e)
         {
-          
 
 
+
+            DateTime inicio = DT_inicio.Value;
+            DateTime fin = DT_fin.Value;
+
+            string finicio = getDate(inicio);
+            string ffin = getDate(fin);
 
             Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
             excel.Application.Workbooks.Add(true);
