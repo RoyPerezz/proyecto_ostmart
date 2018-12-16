@@ -89,6 +89,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ReporteComisiones";
             this.Text = "Reporte de Comisiones";
+            this.Load += new System.EventHandler(this.ReporteComisiones_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -102,5 +102,10 @@ namespace appSugerencias
 
             excel.Visible = true;
         }
+
+        private void ReporteComisiones_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
