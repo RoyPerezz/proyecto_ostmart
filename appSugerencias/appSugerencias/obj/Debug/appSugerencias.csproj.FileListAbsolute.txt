@@ -344,4 +344,3 @@ C:\Users\Admin\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\o
 C:\Users\Admin\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.csproj.CopyComplete
 C:\Users\Admin\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.exe
 C:\Users\Admin\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.pdb
-C:\Users\Admin\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.csprojAssemblyReference.cache
