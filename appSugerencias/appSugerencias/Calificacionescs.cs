@@ -311,8 +311,48 @@ namespace appSugerencias
 
         private void button1_Click(object sender, EventArgs e)
         {
-           //guarda registro calificaciones y comisiones
-          
+            //guarda registro calificaciones y comisiones
+
+            MySqlCommand cmd = new MySqlCommand("insert into rd_comisiones(usuario, fecha, saludo, sonrisa, pedido, maquillaje, uniforme, gafete, peinado, area, equipo, foco," +
+               "cancelacion, merc_caja, informacion, cobro, promedio, Vtotales, Cbruta, Cneta, cant_clientes,Ccliente,Ctotal) values(?usuario, ?fecha, ?saludo, ?sonrisa, ?pedido, ?maquillaje, ?uniforme, ?gafete, ?peinado, ?area, ?equipo, ?foco, ?cancelacion, ?merc_caja, ?informacion, ?cobro, ?promedio, ?Vtotales, ?Cbruta, ?Cneta, ?cant_clientes,?Ccliente,?Ctotal)", BDConexicon.conectar());
+
+
+            double Vtotales = totalVentaDia();
+            double Cbruta = comisionBruta();
+            double Cneta = comisionNeta();
+            double Ccliente = comisionCliente();
+            double Ctotal = comisionTotal();
+            int promedio = calcularPromedio();
+
+            DateTime fecha = DT_fecha.Value;
+            cmd.Parameters.Add("?usuario", MySqlDbType.VarChar).Value = CB_usuario.SelectedItem.ToString();
+            cmd.Parameters.Add("?fecha", MySqlDbType.Date).Value = fecha.ToString("yyyy-MM-dd"); ;
+            cmd.Parameters.Add("?saludo", MySqlDbType.Int32).Value = saludo;
+            cmd.Parameters.Add("?sonrisa", MySqlDbType.Int32).Value = sonrisa;
+            cmd.Parameters.Add("?pedido", MySqlDbType.Int32).Value = pedido;
+            cmd.Parameters.Add("?maquillaje", MySqlDbType.Int32).Value = maquillaje;
+            cmd.Parameters.Add("?uniforme", MySqlDbType.Int32).Value = uniforme;
+            cmd.Parameters.Add("?gafete", MySqlDbType.Int32).Value = gafete;
+            cmd.Parameters.Add("?peinado", MySqlDbType.Int32).Value = peinado;
+            cmd.Parameters.Add("?area", MySqlDbType.Int32).Value = area;
+            cmd.Parameters.Add("?equipo", MySqlDbType.Int32).Value = equipo;
+            cmd.Parameters.Add("?foco", MySqlDbType.Int32).Value = foco;
+            cmd.Parameters.Add("?cancelacion", MySqlDbType.Int32).Value = cancelacion;
+            cmd.Parameters.Add("?merc_caja", MySqlDbType.Int32).Value = merca;
+            cmd.Parameters.Add("?informacion", MySqlDbType.Int32).Value = informacion;
+            cmd.Parameters.Add("?cobro", MySqlDbType.Int32).Value = cobro;
+            cmd.Parameters.Add("?promedio", MySqlDbType.Int32).Value = promedio;
+            cmd.Parameters.Add("?Vtotales", MySqlDbType.Double).Value = Vtotales;
+            cmd.Parameters.Add("?Cbruta", MySqlDbType.Double).Value = Cbruta;
+            cmd.Parameters.Add("?CNeta", MySqlDbType.Double).Value = Cneta;
+            cmd.Parameters.Add("?cant_clientes", MySqlDbType.Int32).Value = TB_clientes.Text;
+            cmd.Parameters.Add("?Ccliente", MySqlDbType.Double).Value = Ccliente;
+            cmd.Parameters.Add("?Ctotal", MySqlDbType.Double).Value = Ctotal;
+
+            cmd.ExecuteNonQuery();
+            limpiar();
+            MessageBox.Show("Registros guardados exitosamente");
+
         }
 
         public double totalVentaDia()//calcula las venta total de cada vendedora por dia   
