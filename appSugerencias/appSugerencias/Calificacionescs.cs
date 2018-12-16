@@ -260,7 +260,7 @@ namespace appSugerencias
             TB_clientes.Text = Convert.ToString(clientes);
         }
 
-        public void comisionCliente()
+        public double comisionCliente()
         {
             int clientes = Convert.ToInt32(TB_clientes.Text);
             double comisionClientes = 0.0;
@@ -268,15 +268,19 @@ namespace appSugerencias
             comisionClientes = clientes * 0.1;
 
             TB_Ccliente.Text = Convert.ToString(comisionClientes);
+
+            return comisionClientes;
         }
 
-        public void comisionTotal()
+        public double comisionTotal()
         {
             double comisionT = 0.0;
             double comisionN = Convert.ToDouble(TB_neta.Text);
             double cCliente = Convert.ToDouble(TB_Ccliente.Text);
             comisionT = comisionN + cCliente;
             TB_Ctotal.Text = Convert.ToString(comisionT);
+
+            return comisionT;
         }
 
 
@@ -409,13 +413,15 @@ namespace appSugerencias
             return cBruta;
         }
 
-        public void comisionNeta()
+        public double comisionNeta()
         {
             double cNeta = 0.0;
             double cBruta = comisionBruta();
             double promedio = Convert.ToDouble(TB_promedio.Text);
             cNeta = cBruta * (promedio / 100);
             TB_neta.Text = Convert.ToString(cNeta);
+
+            return cNeta;
 
         }
       
