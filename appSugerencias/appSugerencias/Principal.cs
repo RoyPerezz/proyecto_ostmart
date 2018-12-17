@@ -107,8 +107,14 @@ namespace appSugerencias
 
         private void reportesDeComisionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ReporteCalificaciones rp = new ReporteCalificaciones();
+            Rp_pagocomisiones rp = new Rp_pagocomisiones();
             rp.Show();
+        }
+
+        private void pagoComisionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PagoComisiones pc = new PagoComisiones();
+            pc.Show();
         }
     }
 }

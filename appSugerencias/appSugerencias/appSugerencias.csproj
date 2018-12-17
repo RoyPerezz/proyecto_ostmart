@@ -139,6 +139,12 @@
     <Compile Include="ImprimirReporte.Designer.cs">
       <DependentUpon>ImprimirReporte.cs</DependentUpon>
     </Compile>
+    <Compile Include="PagoComisiones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PagoComisiones.Designer.cs">
+      <DependentUpon>PagoComisiones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,12 @@
     </Compile>
     <Compile Include="ReporteCalificaciones.Designer.cs">
       <DependentUpon>ReporteCalificaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rp_pagocomisiones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rp_pagocomisiones.Designer.cs">
+      <DependentUpon>Rp_pagocomisiones.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="ArticuloSinVentas.resx">
@@ -178,6 +190,9 @@
     <EmbeddedResource Include="ImprimirReporte.resx">
       <DependentUpon>ImprimirReporte.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PagoComisiones.resx">
+      <DependentUpon>PagoComisiones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
@@ -193,6 +208,9 @@
     </Compile>
     <EmbeddedResource Include="ReporteCalificaciones.resx">
       <DependentUpon>ReporteCalificaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rp_pagocomisiones.resx">
+      <DependentUpon>Rp_pagocomisiones.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DS_conexion.xsc">
       <DependentUpon>DS_conexion.xsd</DependentUpon>

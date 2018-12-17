@@ -12,6 +12,10 @@ namespace appSugerencias
 {
     public partial class ReporteCalificaciones : Form
     {
+
+
+        int contador = 0;
+
         public ReporteCalificaciones()
         {
             InitializeComponent();
@@ -27,6 +31,10 @@ namespace appSugerencias
             DateTime inicio = DT_inicio.Value;
             DateTime fin = DT_fin.Value;
 
+            //TimeSpan t = fin - inicio;
+
+            //int dias = t.Days;
+
             string finicio = FormatoFecha.getDate(inicio);
             string ffin = FormatoFecha.getDate(fin);
 
@@ -37,17 +45,22 @@ namespace appSugerencias
             // Encabezado y nombre de las columnas
             MySqlCommand cmd = new MySqlCommand("select distinct fecha from rd_comisiones where fecha between '" + inicio.ToString("yyyy-MM-dd") + "'" + " and '" + fin.ToString("yyyy-MM-dd") + "'", BDConexicon.conectar());
             MySqlDataReader rd = cmd.ExecuteReader();
-
+           
             excel.Cells.Range["A3:J3"].Merge();
+            excel.Cells.Range["A3"].Font.Bold = true;
             excel.Cells.Range["A3:J3"].Value = "Comision de Cajeras correspondiente del   " + inicio.ToShortDateString() + " al    " + fin.ToShortDateString();
             excel.Cells.Range["A:J"].ColumnWidth = 13.57;
             excel.Cells.Range["A4"].Value = "CAJERAS";
+            excel.Cells.Range["A4:H4"].Interior.ColorIndex = 49;
+            excel.Cells.Range["A4:H4"].Font.ColorIndex = 2;
+            excel.Cells.Range["A4:H4"].Font.Bold = true;
             int i = 2;
             while (rd.Read())
             {
                 DateTime fecha =Convert.ToDateTime( rd[0].ToString());
                 string f = FormatoFecha.getDate(fecha);
                 excel.Cells[4, i] =f ;
+              
 
                 i++;
             }

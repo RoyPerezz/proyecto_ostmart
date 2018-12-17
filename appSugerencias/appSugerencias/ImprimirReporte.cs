@@ -170,6 +170,7 @@ namespace appSugerencias
             {
                 indiceFila++;
                 indiceColumna = 0;
+                
 
 
                 
