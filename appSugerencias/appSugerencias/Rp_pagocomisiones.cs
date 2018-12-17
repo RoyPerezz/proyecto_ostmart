@@ -41,7 +41,8 @@ namespace appSugerencias
             excel.Cells.Range["A5:F5"].Interior.ColorIndex = 49;
             excel.Cells.Range["A5:F5"].Font.ColorIndex = 2;
             excel.Cells.Range["A5:F5"].Font.Bold = true;
-            excel.Cells.Range[].
+            excel.Cells.Range["E:E"].ColumnWidth = 14.14;
+           
         }
 
         public void exportarExcel(DataGridView tabla)
