@@ -1,6 +1,7 @@
 ﻿using System;
 using MySql.Data.MySqlClient;
 using MySql.Data.Types;
+using System.Data;
 using System.Windows.Forms;
 
 namespace appSugerencias
@@ -17,7 +18,7 @@ namespace appSugerencias
 
         }
 
-        public void selectDatos(DataGridView grid)
+        public void selectDatos()
         {
 
 
@@ -29,29 +30,28 @@ namespace appSugerencias
 
 
 
-            MySqlCommand cmd = new MySqlCommand("SELECT rd_formatocajeras.articulo, prods.descrip,rd_formatocajeras.cantidad, rd_formatocajeras.anomalia,rd_formatocajeras.usuario,rd_formatocajeras.fecha,rd_formatocajeras.hora FROM rd_formatocajeras INNER JOIN prods ON prods.ARTICULO=rd_formatocajeras.articulo  where rd_formatocajeras.fecha between '" + inicio + "'" + " and '" + fin + "'", BDConexicon.conectar());
+            MySqlCommand cmd = new MySqlCommand("SELECT rd_formatocajeras.id ,rd_formatocajeras.articulo, prods.descrip,rd_formatocajeras.cantidad, rd_formatocajeras.anomalia,rd_formatocajeras.usuario,rd_formatocajeras.fecha,rd_formatocajeras.hora FROM rd_formatocajeras INNER JOIN prods ON prods.ARTICULO=rd_formatocajeras.articulo  where rd_formatocajeras.fecha between '" + inicio + "'" + " and '" + fin + "' and validado='0'", BDConexicon.conectar());
 
             MySqlDataAdapter adaptador = new MySqlDataAdapter(cmd);
-            System.Data.DataTable tb = new System.Data.DataTable();
+            System.Data.DataTable dt = new System.Data.DataTable();
 
-            adaptador.Fill(tb);
+            adaptador.Fill(dt);
 
-            DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
-            chk.HeaderText = "Aceptado";
-            chk.Name = "checkbox";
-            grid.Columns.Add(chk);
-
-            grid.DataSource = tb;
-
-            grid.Columns[0].Width = 50;
-            grid.Columns[1].Width = 100;
-            grid.Columns[2].Width = 200;
-            grid.Columns[3].Width = 30;
-            grid.Columns[4].Width = 150;
-            grid.Columns[5].Width = 50;
-            grid.Columns[6].Width = 100;
-            grid.Columns[7].Width = 100;
-
+            dgvCajas.Rows.Clear();
+          
+            foreach(DataRow item in dt.Rows)
+            {
+                int n = dgvCajas.Rows.Add();
+                dgvCajas.Rows[n].Cells[0].Value = false;
+                dgvCajas.Rows[n].Cells[1].Value = item["id"].ToString();
+                dgvCajas.Rows[n].Cells[2].Value = item["articulo"].ToString();
+                dgvCajas.Rows[n].Cells[3].Value = item["descrip"].ToString();
+                dgvCajas.Rows[n].Cells[4].Value = item["cantidad"].ToString();
+                dgvCajas.Rows[n].Cells[5].Value = item["anomalia"].ToString();
+                dgvCajas.Rows[n].Cells[6].Value = item["usuario"].ToString();
+                dgvCajas.Rows[n].Cells[7].Value = item["fecha"].ToString();
+                dgvCajas.Rows[n].Cells[8].Value = item["hora"].ToString();
+            }
 
           
         }
@@ -65,30 +65,26 @@ namespace appSugerencias
 
         private void button1_Click(object sender, EventArgs e)
         {
-            selectDatos(dgvCajas);
+            selectDatos();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO rd_formatocajeras(valido) values(?valido) ", BDConexicon.conectar());
-
-            try
+            foreach (DataGridViewRow item in dgvCajas.Rows)
             {
-                foreach (DataGridViewRow row in dgvCajas.Rows)
+
+
+                if(Convert.ToBoolean(item.Cells[0].Value))
                 {
-                    if (Convert.ToBoolean(row.Cells["checkbox"].Value))
-                    {
-                        MessageBox.Show(row.Cells["cantidad"].Value.ToString());
-                        
-                    }
-                    
+                    MySqlCommand cmd = new MySqlCommand("UPDATE rd_formatocajeras SET validado='1' WHERE  id='" +item.Cells[1].Value.ToString()+"'", BDConexicon.conectar());
+                    cmd.ExecuteNonQuery();
+
                 }
-            }
-            catch(Exception ex)
-            {
+
 
             }
-
+            selectDatos();
+            MessageBox.Show("Realizado");
         }
     }
 }
