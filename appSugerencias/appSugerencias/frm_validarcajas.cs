@@ -90,5 +90,10 @@ namespace appSugerencias
             }
 
         }
+
+        private void frm_validarcajas_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

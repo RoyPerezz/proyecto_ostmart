@@ -277,7 +277,6 @@ C:\Users\Roy\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\obj
 C:\Users\Roy\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.csproj.CoreCompileInputs.cache
 C:\Users\Roy\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.exe
 C:\Users\Roy\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.pdb
-C:\Users\Admin\source\repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\MySql.Data.dll
 C:\Users\SISTEMAS\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_Login.resources
 C:\Users\SISTEMAS\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\MySql.Data.xml
 C:\Users\Admin\source\repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_Login.resources
@@ -347,3 +346,8 @@ C:\Users\Admin\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\o
 C:\Users\Admin\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.csprojAssemblyReference.cache
 C:\Users\Admin\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.PagoComisiones.resources
 C:\Users\Admin\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Rp_pagocomisiones.resources
+C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\MySql.Data.xml
+C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_FormatoCajera.resources
+C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_validarcajas.resources
+C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.PagoComisiones.resources
+C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Rp_pagocomisiones.resources

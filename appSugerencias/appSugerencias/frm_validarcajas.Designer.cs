@@ -113,6 +113,7 @@
             this.Controls.Add(this.dtInicio);
             this.Name = "frm_validarcajas";
             this.Text = "frm_validarcajas";
+            this.Load += new System.EventHandler(this.frm_validarcajas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCajas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
