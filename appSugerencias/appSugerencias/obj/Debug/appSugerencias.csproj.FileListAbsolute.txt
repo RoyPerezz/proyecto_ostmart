@@ -346,8 +346,9 @@ C:\Users\Admin\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\o
 C:\Users\Admin\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.csprojAssemblyReference.cache
 C:\Users\Admin\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.PagoComisiones.resources
 C:\Users\Admin\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Rp_pagocomisiones.resources
-C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\MySql.Data.xml
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_FormatoCajera.resources
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_validarcajas.resources
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.PagoComisiones.resources
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Rp_pagocomisiones.resources
+C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\MySql.Data.dll
+C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Existencias.resources
