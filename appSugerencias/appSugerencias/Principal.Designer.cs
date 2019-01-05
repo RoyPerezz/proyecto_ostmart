@@ -43,6 +43,7 @@
             this.formatoCajerasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.validarFormatoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblUsuario = new System.Windows.Forms.Label();
+            this.pagoComisionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,6 +119,7 @@
             // 
             this.cajasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.calificacionescomisionesToolStripMenuItem,
+            this.pagoComisionesToolStripMenuItem,
             this.reportesDeComisionesToolStripMenuItem});
             this.cajasToolStripMenuItem.Name = "cajasToolStripMenuItem";
             this.cajasToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
@@ -135,6 +137,7 @@
             this.reportesDeComisionesToolStripMenuItem.Name = "reportesDeComisionesToolStripMenuItem";
             this.reportesDeComisionesToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.reportesDeComisionesToolStripMenuItem.Text = "Reportes de comisiones";
+            this.reportesDeComisionesToolStripMenuItem.Click += new System.EventHandler(this.reportesDeComisionesToolStripMenuItem_Click);
             // 
             // formatoCajeraToolStripMenuItem
             // 
@@ -149,14 +152,14 @@
             // formatoCajerasToolStripMenuItem
             // 
             this.formatoCajerasToolStripMenuItem.Name = "formatoCajerasToolStripMenuItem";
-            this.formatoCajerasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.formatoCajerasToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.formatoCajerasToolStripMenuItem.Text = "Formato Cajeras";
             this.formatoCajerasToolStripMenuItem.Click += new System.EventHandler(this.formatoCajerasToolStripMenuItem_Click);
             // 
             // validarFormatoToolStripMenuItem
             // 
             this.validarFormatoToolStripMenuItem.Name = "validarFormatoToolStripMenuItem";
-            this.validarFormatoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.validarFormatoToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.validarFormatoToolStripMenuItem.Text = "Validar Formato";
             this.validarFormatoToolStripMenuItem.Click += new System.EventHandler(this.validarFormatoToolStripMenuItem_Click);
             // 
@@ -168,6 +171,13 @@
             this.lblUsuario.Size = new System.Drawing.Size(37, 13);
             this.lblUsuario.TabIndex = 1;
             this.lblUsuario.Text = "USER";
+            // 
+            // pagoComisionesToolStripMenuItem
+            // 
+            this.pagoComisionesToolStripMenuItem.Name = "pagoComisionesToolStripMenuItem";
+            this.pagoComisionesToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.pagoComisionesToolStripMenuItem.Text = "Pago comisiones";
+            this.pagoComisionesToolStripMenuItem.Click += new System.EventHandler(this.pagoComisionesToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -204,5 +214,6 @@
         private System.Windows.Forms.ToolStripMenuItem formatoCajeraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem formatoCajerasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem validarFormatoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pagoComisionesToolStripMenuItem;
     }
 }

@@ -139,6 +139,12 @@
     <Compile Include="ImprimirReporte.Designer.cs">
       <DependentUpon>ImprimirReporte.cs</DependentUpon>
     </Compile>
+    <Compile Include="PagoComisiones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PagoComisiones.Designer.cs">
+      <DependentUpon>PagoComisiones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rp_pagocomisiones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rp_pagocomisiones.Designer.cs">
+      <DependentUpon>Rp_pagocomisiones.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="ArticuloSinVentas.resx">
       <DependentUpon>ArticuloSinVentas.cs</DependentUpon>
@@ -172,6 +184,9 @@
     <EmbeddedResource Include="ImprimirReporte.resx">
       <DependentUpon>ImprimirReporte.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PagoComisiones.resx">
+      <DependentUpon>PagoComisiones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
@@ -185,6 +200,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Rp_pagocomisiones.resx">
+      <DependentUpon>Rp_pagocomisiones.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="DS_conexion.xsc">
       <DependentUpon>DS_conexion.xsd</DependentUpon>
     </None>
