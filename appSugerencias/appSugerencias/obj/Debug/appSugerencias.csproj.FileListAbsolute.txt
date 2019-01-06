@@ -359,7 +359,6 @@ C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\D
 C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\Microsoft.SqlServer.Types.dll
 C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\Microsoft.ReportViewer.Common.dll
 C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
-C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\MySql.Data.xml
 C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
@@ -409,3 +408,4 @@ C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\D
 C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.csproj.CopyComplete
 C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.exe
 C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.pdb
+C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Existencias.resources
