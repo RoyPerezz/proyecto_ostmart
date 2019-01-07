@@ -244,7 +244,7 @@
             this.AplicaOferta.TabIndex = 12;
             this.AplicaOferta.Text = "Aplicar";
             this.AplicaOferta.UseVisualStyleBackColor = true;
-            this.AplicaOferta.Click += new System.EventHandler(this.AplicaOferta_Click);
+         //   this.AplicaOferta.Click += new System.EventHandler(this.AplicaOferta_Click);
             // 
             // label10
             // 
@@ -354,7 +354,7 @@
             this.cBoxTodas.TabIndex = 0;
             this.cBoxTodas.Text = "Todas";
             this.cBoxTodas.UseVisualStyleBackColor = true;
-            this.cBoxTodas.CheckedChanged += new System.EventHandler(this.cBoxTodas_CheckedChanged);
+            //this.cBoxTodas.CheckedChanged += new System.EventHandler(this.cBoxTodas_CheckedChanged);
             // 
             // Existencias
             // 
