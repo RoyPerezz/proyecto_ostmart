@@ -110,7 +110,7 @@ namespace appSugerencias
         {
             try
             {
-                MySqlCommand cmd = new MySqlCommand("select existencias from prods where articulo='" + TB_articulo.Text + "'",BDConexicon.Bodega());
+                MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'",BDConexicon.Bodega());
                 MySqlDataReader rd = cmd.ExecuteReader();
 
                 while (rd.Read())
