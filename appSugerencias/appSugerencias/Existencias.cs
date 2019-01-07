@@ -134,5 +134,47 @@ namespace appSugerencias
 
 
         }
+
+        private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cBoxTodas_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cBoxTodas.Checked)
+            {
+                cBoxVa.Checked = true;
+                cBoxRe.Checked = true;
+                cBoxVe.Checked = true;
+                cBoxCo.Checked = true;
+            }else if (!cBoxTodas.Checked)
+            {
+                cBoxVa.Checked = false;
+                cBoxRe.Checked = false;
+                cBoxVe.Checked = false;
+                cBoxCo.Checked = false;
+            }
+        }
+
+        private void AplicaOferta_Click(object sender, EventArgs e)
+        {
+            if (cBoxVa.Checked)
+            {
+                MessageBox.Show("Valarta");
+            }
+             if (cBoxRe.Checked)
+            {
+                MessageBox.Show("Rena");
+            }
+             if (cBoxVe.Checked)
+            {
+                MessageBox.Show("Velazquez");
+            }
+             if (cBoxCo.Checked)
+            {
+                MessageBox.Show("Coloso");
+            }
+        }
     }
 }
