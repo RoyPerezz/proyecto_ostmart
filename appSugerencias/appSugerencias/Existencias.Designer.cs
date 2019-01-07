@@ -91,7 +91,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(129, 155);
+            this.label2.Location = new System.Drawing.Point(129, 184);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 13);
             this.label2.TabIndex = 3;
@@ -99,14 +99,14 @@
             // 
             // TB_vallarta
             // 
-            this.TB_vallarta.Location = new System.Drawing.Point(177, 152);
+            this.TB_vallarta.Location = new System.Drawing.Point(177, 181);
             this.TB_vallarta.Name = "TB_vallarta";
             this.TB_vallarta.Size = new System.Drawing.Size(49, 20);
             this.TB_vallarta.TabIndex = 4;
             // 
             // TB_coloso
             // 
-            this.TB_coloso.Location = new System.Drawing.Point(177, 100);
+            this.TB_coloso.Location = new System.Drawing.Point(177, 129);
             this.TB_coloso.Name = "TB_coloso";
             this.TB_coloso.Size = new System.Drawing.Size(49, 20);
             this.TB_coloso.TabIndex = 6;
@@ -114,7 +114,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(129, 103);
+            this.label3.Location = new System.Drawing.Point(129, 132);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 13);
             this.label3.TabIndex = 5;
@@ -122,7 +122,7 @@
             // 
             // TB_rena
             // 
-            this.TB_rena.Location = new System.Drawing.Point(177, 126);
+            this.TB_rena.Location = new System.Drawing.Point(177, 155);
             this.TB_rena.Name = "TB_rena";
             this.TB_rena.Size = new System.Drawing.Size(49, 20);
             this.TB_rena.TabIndex = 8;
@@ -130,7 +130,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(129, 129);
+            this.label4.Location = new System.Drawing.Point(129, 158);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(33, 13);
             this.label4.TabIndex = 7;
@@ -138,7 +138,7 @@
             // 
             // TB_velazquez
             // 
-            this.TB_velazquez.Location = new System.Drawing.Point(177, 178);
+            this.TB_velazquez.Location = new System.Drawing.Point(177, 207);
             this.TB_velazquez.Name = "TB_velazquez";
             this.TB_velazquez.Size = new System.Drawing.Size(49, 20);
             this.TB_velazquez.TabIndex = 10;
@@ -146,7 +146,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(112, 181);
+            this.label5.Location = new System.Drawing.Point(112, 210);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 9;
@@ -179,7 +179,7 @@
             this.LB_coloso.AutoSize = true;
             this.LB_coloso.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LB_coloso.ForeColor = System.Drawing.Color.DarkGreen;
-            this.LB_coloso.Location = new System.Drawing.Point(232, 107);
+            this.LB_coloso.Location = new System.Drawing.Point(232, 136);
             this.LB_coloso.Name = "LB_coloso";
             this.LB_coloso.Size = new System.Drawing.Size(0, 13);
             this.LB_coloso.TabIndex = 13;
@@ -189,7 +189,7 @@
             this.LB_rena.AutoSize = true;
             this.LB_rena.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LB_rena.ForeColor = System.Drawing.Color.DarkGreen;
-            this.LB_rena.Location = new System.Drawing.Point(232, 133);
+            this.LB_rena.Location = new System.Drawing.Point(232, 162);
             this.LB_rena.Name = "LB_rena";
             this.LB_rena.Size = new System.Drawing.Size(0, 13);
             this.LB_rena.TabIndex = 14;
@@ -199,7 +199,7 @@
             this.LB_vallarta.AutoSize = true;
             this.LB_vallarta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LB_vallarta.ForeColor = System.Drawing.Color.DarkGreen;
-            this.LB_vallarta.Location = new System.Drawing.Point(232, 155);
+            this.LB_vallarta.Location = new System.Drawing.Point(232, 184);
             this.LB_vallarta.Name = "LB_vallarta";
             this.LB_vallarta.Size = new System.Drawing.Size(0, 13);
             this.LB_vallarta.TabIndex = 15;
@@ -209,7 +209,7 @@
             this.LB_velazquez.AutoSize = true;
             this.LB_velazquez.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LB_velazquez.ForeColor = System.Drawing.Color.DarkGreen;
-            this.LB_velazquez.Location = new System.Drawing.Point(232, 181);
+            this.LB_velazquez.Location = new System.Drawing.Point(232, 210);
             this.LB_velazquez.Name = "LB_velazquez";
             this.LB_velazquez.Size = new System.Drawing.Size(0, 13);
             this.LB_velazquez.TabIndex = 16;
@@ -244,7 +244,6 @@
             this.AplicaOferta.TabIndex = 12;
             this.AplicaOferta.Text = "Aplicar";
             this.AplicaOferta.UseVisualStyleBackColor = true;
-         //   this.AplicaOferta.Click += new System.EventHandler(this.AplicaOferta_Click);
             // 
             // label10
             // 
@@ -354,7 +353,6 @@
             this.cBoxTodas.TabIndex = 0;
             this.cBoxTodas.Text = "Todas";
             this.cBoxTodas.UseVisualStyleBackColor = true;
-            //this.cBoxTodas.CheckedChanged += new System.EventHandler(this.cBoxTodas_CheckedChanged);
             // 
             // Existencias
             // 
