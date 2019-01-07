@@ -409,3 +409,8 @@ C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\D
 C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.csproj.CopyComplete
 C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.exe
 C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.pdb
+C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Existencias.resources
+C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_FormatoCajera.resources
+C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_validarcajas.resources
+C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.PagoComisiones.resources
+C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Rp_pagocomisiones.resources
