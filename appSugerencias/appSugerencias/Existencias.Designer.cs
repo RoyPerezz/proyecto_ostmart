@@ -39,8 +39,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.TB_velazquez = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.CB_sucursal = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.LB_coloso = new System.Windows.Forms.Label();
             this.LB_rena = new System.Windows.Forms.Label();
             this.LB_vallarta = new System.Windows.Forms.Label();
@@ -70,7 +68,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 56);
+            this.label1.Location = new System.Drawing.Point(10, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 0;
@@ -78,9 +76,11 @@
             // 
             // TB_articulo
             // 
-            this.TB_articulo.Location = new System.Drawing.Point(60, 53);
+            this.TB_articulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_articulo.Location = new System.Drawing.Point(60, 26);
+            this.TB_articulo.Multiline = true;
             this.TB_articulo.Name = "TB_articulo";
-            this.TB_articulo.Size = new System.Drawing.Size(143, 20);
+            this.TB_articulo.Size = new System.Drawing.Size(143, 47);
             this.TB_articulo.TabIndex = 1;
             // 
             // BTN_aceptar
@@ -156,28 +156,6 @@
             this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Velazquez";
-            // 
-            // CB_sucursal
-            // 
-            this.CB_sucursal.FormattingEnabled = true;
-            this.CB_sucursal.Items.AddRange(new object[] {
-            "Coloso",
-            "Rena",
-            "Vallarta",
-            "Velazquez"});
-            this.CB_sucursal.Location = new System.Drawing.Point(60, 26);
-            this.CB_sucursal.Name = "CB_sucursal";
-            this.CB_sucursal.Size = new System.Drawing.Size(143, 21);
-            this.CB_sucursal.TabIndex = 11;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 29);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 13);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Sucursal";
             // 
             // LB_coloso
             // 
@@ -387,7 +365,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.Lb_bodega);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.TB_bodega);
@@ -404,7 +381,6 @@
             this.groupBox2.Controls.Add(this.LB_coloso);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.TB_rena);
-            this.groupBox2.Controls.Add(this.CB_sucursal);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.TB_velazquez);
             this.groupBox2.Location = new System.Drawing.Point(12, 24);
@@ -413,6 +389,7 @@
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Existencias";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter_2);
             // 
             // Existencias
             // 
@@ -445,8 +422,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TB_velazquez;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox CB_sucursal;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label LB_coloso;
         private System.Windows.Forms.Label LB_rena;
         private System.Windows.Forms.Label LB_vallarta;

@@ -110,7 +110,7 @@ namespace appSugerencias
         {
             try
             {
-                MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'",BDConexicon.Bodega());
+                MySqlCommand cmd = new MySqlCommand("select existencias from prods where articulo='" + TB_articulo.Text + "'",BDConexicon.Bodega());
                 MySqlDataReader rd = cmd.ExecuteReader();
 
                 while (rd.Read())
@@ -143,36 +143,42 @@ namespace appSugerencias
             else
             {
 
-                if (CB_sucursal.SelectedItem == "Vallarta")
-                {
-                    Vallarta();
-                }
+                //if (CB_sucursal.SelectedItem == "Vallarta")
+                //{
+                //    Vallarta();
+                //}
 
-                if (CB_sucursal.SelectedItem == "Velazquez")
-                {
-                    Velazquez();
-                }
+                //if (CB_sucursal.SelectedItem == "Velazquez")
+                //{
+                //    Velazquez();
+                //}
 
-                if (CB_sucursal.SelectedItem == "Rena")
-                {
-                    Rena();
-                }
+                //if (CB_sucursal.SelectedItem == "Rena")
+                //{
+                //    Rena();
+                //}
 
-                if (CB_sucursal.SelectedItem == "Coloso")
-                {
-                    Coloso();
-                }
+                //if (CB_sucursal.SelectedItem == "Coloso")
+                //{
+                //    Coloso();
+                //}
 
-                if (CB_sucursal.SelectedIndex == -1)
-                {
-                    Vallarta();
-                    Velazquez();
-                    Rena();
-                    Coloso();
-                    Bodega();
-                }
+                //if (CB_sucursal.SelectedIndex == -1)
+                //{
+                //    Vallarta();
+                //    Velazquez();
+                //    Rena();
+                //    Coloso();
+                //    Bodega();
+                //}
+
+                Vallarta();
+                Velazquez();
+                Rena();
+                Coloso();
+                 Bodega();
             }
-          
+
 
 
         }
@@ -310,6 +316,11 @@ namespace appSugerencias
         }
 
         private void Existencias_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter_2(object sender, EventArgs e)
         {
 
         }
