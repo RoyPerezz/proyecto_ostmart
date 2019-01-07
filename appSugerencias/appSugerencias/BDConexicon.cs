@@ -58,5 +58,16 @@ namespace appSugerencias
 
         }
 
+        public static MySqlConnection Bodega()
+        {
+
+            MySqlConnection con = new MySqlConnection("server=192.168.1.155; database=VALLARTA JUN 2018; Uid=root; pwd=;");
+            con.Open();
+
+
+
+            return con;
+
+        }
     }
 }
