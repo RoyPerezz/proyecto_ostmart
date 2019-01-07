@@ -110,7 +110,7 @@ namespace appSugerencias
         {
             try
             {
-                MySqlCommand cmd = new MySqlCommand("select existencias from prods where articulo='" + TB_articulo.Text + "'",BDConexicon.Bodega());
+                MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'",BDConexicon.Bodega());
                 MySqlDataReader rd = cmd.ExecuteReader();
 
                 while (rd.Read())
@@ -305,6 +305,11 @@ namespace appSugerencias
         }
 
         private void groupBox2_Enter_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Existencias_Load_1(object sender, EventArgs e)
         {
 
         }
