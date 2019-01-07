@@ -46,19 +46,19 @@
             this.LB_vallarta = new System.Windows.Forms.Label();
             this.LB_velazquez = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cBoxTodas = new System.Windows.Forms.CheckBox();
-            this.cBoxVa = new System.Windows.Forms.CheckBox();
-            this.cBoxRe = new System.Windows.Forms.CheckBox();
-            this.cBoxVe = new System.Windows.Forms.CheckBox();
-            this.cBoxCo = new System.Windows.Forms.CheckBox();
-            this.dtInicio = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.dtFin = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.AplicaOferta = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tbporcentaje = new System.Windows.Forms.TextBox();
+            this.dt_Fin = new System.Windows.Forms.DateTimePicker();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dt_Inicio = new System.Windows.Forms.DateTimePicker();
+            this.cBoxCo = new System.Windows.Forms.CheckBox();
+            this.cBoxVe = new System.Windows.Forms.CheckBox();
+            this.cBoxRe = new System.Windows.Forms.CheckBox();
+            this.cBoxVa = new System.Windows.Forms.CheckBox();
+            this.cBoxTodas = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -219,11 +219,11 @@
             this.groupBox1.Controls.Add(this.AplicaOferta);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.dtFin);
+            this.groupBox1.Controls.Add(this.tbporcentaje);
+            this.groupBox1.Controls.Add(this.dt_Fin);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.dtInicio);
+            this.groupBox1.Controls.Add(this.dt_Inicio);
             this.groupBox1.Controls.Add(this.cBoxCo);
             this.groupBox1.Controls.Add(this.cBoxVe);
             this.groupBox1.Controls.Add(this.cBoxRe);
@@ -236,46 +236,73 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ofertas";
             // 
-            // cBoxTodas
+            // AplicaOferta
             // 
-            this.cBoxTodas.AutoSize = true;
-            this.cBoxTodas.Location = new System.Drawing.Point(6, 25);
-            this.cBoxTodas.Name = "cBoxTodas";
-            this.cBoxTodas.Size = new System.Drawing.Size(56, 17);
-            this.cBoxTodas.TabIndex = 0;
-            this.cBoxTodas.Text = "Todas";
-            this.cBoxTodas.UseVisualStyleBackColor = true;
-            this.cBoxTodas.CheckedChanged += new System.EventHandler(this.cBoxTodas_CheckedChanged);
+            this.AplicaOferta.Location = new System.Drawing.Point(9, 215);
+            this.AplicaOferta.Name = "AplicaOferta";
+            this.AplicaOferta.Size = new System.Drawing.Size(75, 23);
+            this.AplicaOferta.TabIndex = 12;
+            this.AplicaOferta.Text = "Aplicar";
+            this.AplicaOferta.UseVisualStyleBackColor = true;
+            this.AplicaOferta.Click += new System.EventHandler(this.AplicaOferta_Click);
             // 
-            // cBoxVa
+            // label10
             // 
-            this.cBoxVa.AutoSize = true;
-            this.cBoxVa.Location = new System.Drawing.Point(7, 48);
-            this.cBoxVa.Name = "cBoxVa";
-            this.cBoxVa.Size = new System.Drawing.Size(61, 17);
-            this.cBoxVa.TabIndex = 1;
-            this.cBoxVa.Text = "Vallarta";
-            this.cBoxVa.UseVisualStyleBackColor = true;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(228, 171);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(21, 16);
+            this.label10.TabIndex = 11;
+            this.label10.Text = "%";
             // 
-            // cBoxRe
+            // label9
             // 
-            this.cBoxRe.AutoSize = true;
-            this.cBoxRe.Location = new System.Drawing.Point(74, 49);
-            this.cBoxRe.Name = "cBoxRe";
-            this.cBoxRe.Size = new System.Drawing.Size(52, 17);
-            this.cBoxRe.TabIndex = 2;
-            this.cBoxRe.Text = "Rena";
-            this.cBoxRe.UseVisualStyleBackColor = true;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 171);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(126, 13);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "Porcentaje de descuento";
             // 
-            // cBoxVe
+            // tbporcentaje
             // 
-            this.cBoxVe.AutoSize = true;
-            this.cBoxVe.Location = new System.Drawing.Point(141, 48);
-            this.cBoxVe.Name = "cBoxVe";
-            this.cBoxVe.Size = new System.Drawing.Size(75, 17);
-            this.cBoxVe.TabIndex = 3;
-            this.cBoxVe.Text = "Velazquez";
-            this.cBoxVe.UseVisualStyleBackColor = true;
+            this.tbporcentaje.Location = new System.Drawing.Point(138, 168);
+            this.tbporcentaje.Name = "tbporcentaje";
+            this.tbporcentaje.Size = new System.Drawing.Size(84, 20);
+            this.tbporcentaje.TabIndex = 9;
+            // 
+            // dt_Fin
+            // 
+            this.dt_Fin.Location = new System.Drawing.Point(53, 131);
+            this.dt_Fin.Name = "dt_Fin";
+            this.dt_Fin.Size = new System.Drawing.Size(200, 20);
+            this.dt_Fin.TabIndex = 8;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 135);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(21, 13);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Fin";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 105);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(32, 13);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Inicio";
+            // 
+            // dt_Inicio
+            // 
+            this.dt_Inicio.Location = new System.Drawing.Point(53, 102);
+            this.dt_Inicio.Name = "dt_Inicio";
+            this.dt_Inicio.Size = new System.Drawing.Size(200, 20);
+            this.dt_Inicio.TabIndex = 5;
             // 
             // cBoxCo
             // 
@@ -288,73 +315,46 @@
             this.cBoxCo.UseVisualStyleBackColor = true;
             this.cBoxCo.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
             // 
-            // dtInicio
+            // cBoxVe
             // 
-            this.dtInicio.Location = new System.Drawing.Point(53, 102);
-            this.dtInicio.Name = "dtInicio";
-            this.dtInicio.Size = new System.Drawing.Size(200, 20);
-            this.dtInicio.TabIndex = 5;
+            this.cBoxVe.AutoSize = true;
+            this.cBoxVe.Location = new System.Drawing.Point(141, 48);
+            this.cBoxVe.Name = "cBoxVe";
+            this.cBoxVe.Size = new System.Drawing.Size(75, 17);
+            this.cBoxVe.TabIndex = 3;
+            this.cBoxVe.Text = "Velazquez";
+            this.cBoxVe.UseVisualStyleBackColor = true;
             // 
-            // label7
+            // cBoxRe
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 105);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(32, 13);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Inicio";
+            this.cBoxRe.AutoSize = true;
+            this.cBoxRe.Location = new System.Drawing.Point(74, 49);
+            this.cBoxRe.Name = "cBoxRe";
+            this.cBoxRe.Size = new System.Drawing.Size(52, 17);
+            this.cBoxRe.TabIndex = 2;
+            this.cBoxRe.Text = "Rena";
+            this.cBoxRe.UseVisualStyleBackColor = true;
             // 
-            // label8
+            // cBoxVa
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 135);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(21, 13);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Fin";
+            this.cBoxVa.AutoSize = true;
+            this.cBoxVa.Location = new System.Drawing.Point(7, 48);
+            this.cBoxVa.Name = "cBoxVa";
+            this.cBoxVa.Size = new System.Drawing.Size(61, 17);
+            this.cBoxVa.TabIndex = 1;
+            this.cBoxVa.Text = "Vallarta";
+            this.cBoxVa.UseVisualStyleBackColor = true;
             // 
-            // dtFin
+            // cBoxTodas
             // 
-            this.dtFin.Location = new System.Drawing.Point(53, 131);
-            this.dtFin.Name = "dtFin";
-            this.dtFin.Size = new System.Drawing.Size(200, 20);
-            this.dtFin.TabIndex = 8;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(138, 168);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(84, 20);
-            this.textBox1.TabIndex = 9;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 171);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(126, 13);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "Porcentaje de descuento";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(228, 171);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(21, 16);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "%";
-            // 
-            // AplicaOferta
-            // 
-            this.AplicaOferta.Location = new System.Drawing.Point(9, 215);
-            this.AplicaOferta.Name = "AplicaOferta";
-            this.AplicaOferta.Size = new System.Drawing.Size(75, 23);
-            this.AplicaOferta.TabIndex = 12;
-            this.AplicaOferta.Text = "Aplicar";
-            this.AplicaOferta.UseVisualStyleBackColor = true;
-            this.AplicaOferta.Click += new System.EventHandler(this.AplicaOferta_Click);
+            this.cBoxTodas.AutoSize = true;
+            this.cBoxTodas.Location = new System.Drawing.Point(6, 25);
+            this.cBoxTodas.Name = "cBoxTodas";
+            this.cBoxTodas.Size = new System.Drawing.Size(56, 17);
+            this.cBoxTodas.TabIndex = 0;
+            this.cBoxTodas.Text = "Todas";
+            this.cBoxTodas.UseVisualStyleBackColor = true;
+            this.cBoxTodas.CheckedChanged += new System.EventHandler(this.cBoxTodas_CheckedChanged);
             // 
             // Existencias
             // 
@@ -416,10 +416,10 @@
         private System.Windows.Forms.Button AplicaOferta;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DateTimePicker dtFin;
+        private System.Windows.Forms.TextBox tbporcentaje;
+        private System.Windows.Forms.DateTimePicker dt_Fin;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker dtInicio;
+        private System.Windows.Forms.DateTimePicker dt_Inicio;
     }
 }
