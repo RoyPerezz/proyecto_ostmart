@@ -110,7 +110,7 @@ namespace appSugerencias
         {
             try
             {
-                MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'");
+                MySqlCommand cmd = new MySqlCommand("select existencias from prods where articulo='" + TB_articulo.Text + "'",BDConexicon.Bodega());
                 MySqlDataReader rd = cmd.ExecuteReader();
 
                 while (rd.Read())
@@ -182,42 +182,9 @@ namespace appSugerencias
 
         }
 
-        private void cBoxTodas_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cBoxTodas.Checked)
-            {
-                cBoxVa.Checked = true;
-                cBoxRe.Checked = true;
-                cBoxVe.Checked = true;
-                cBoxCo.Checked = true;
-            }else if (!cBoxTodas.Checked)
-            {
-                cBoxVa.Checked = false;
-                cBoxRe.Checked = false;
-                cBoxVe.Checked = false;
-                cBoxCo.Checked = false;
-            }
-        }
+   
 
-        private void AplicaOferta_Click(object sender, EventArgs e)
-        {
-            if (cBoxVa.Checked)
-            {
-                MessageBox.Show("Valarta");
-            }
-             if (cBoxRe.Checked)
-            {
-                MessageBox.Show("Rena");
-            }
-             if (cBoxVe.Checked)
-            {
-                MessageBox.Show("Velazquez");
-            }
-             if (cBoxCo.Checked)
-            {
-                MessageBox.Show("Coloso");
-            }
-        }
+       
 
         private void Existencias_Load(object sender, EventArgs e)
         {
@@ -229,10 +196,7 @@ namespace appSugerencias
 
         }
 
-        private void checkBox5_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
+    
 
 
 
@@ -338,6 +302,11 @@ namespace appSugerencias
                 MessageBox.Show("Coloso");
             }
             
+        }
+
+        private void groupBox2_Enter_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
