@@ -87,7 +87,7 @@
             // 
             this.BTN_aceptar.Location = new System.Drawing.Point(6, 183);
             this.BTN_aceptar.Name = "BTN_aceptar";
-            this.BTN_aceptar.Size = new System.Drawing.Size(75, 48);
+            this.BTN_aceptar.Size = new System.Drawing.Size(83, 48);
             this.BTN_aceptar.TabIndex = 2;
             this.BTN_aceptar.Text = "Aceptar";
             this.BTN_aceptar.UseVisualStyleBackColor = true;
@@ -395,7 +395,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(655, 280);
+            this.ClientSize = new System.Drawing.Size(719, 331);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Existencias";
