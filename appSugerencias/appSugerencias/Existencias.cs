@@ -30,13 +30,15 @@ namespace appSugerencias
                 while (rd.Read())
                 {
                     TB_vallarta.Text = rd[0].ToString();
+                    LB_vallarta.Text = "Conectado";
                 }
-                LB_vallarta.Text = "Conectado";
+               
 
             }
             catch (Exception e)
             {
                 LB_vallarta.Text = "Sin conexion";
+                LB_vallarta.ForeColor = Color.Red;
             }
         }
 
@@ -50,11 +52,14 @@ namespace appSugerencias
             while (rd.Read())
             {
                 TB_velazquez.Text = rd[0].ToString();
-            }
+                    LB_velazquez.Text = "Conectado";
+                }
+                
             }
             catch (Exception e)
             {
-
+                LB_velazquez.Text = "Sin conexion";
+                LB_velazquez.ForeColor = Color.Red;
             }
         }
 
@@ -67,13 +72,16 @@ namespace appSugerencias
             while (rd.Read())
             {
                 TB_rena.Text = rd[0].ToString();
-            }
-
+                    LB_rena.Text = "Conectado";
+                }
+               
+                
 
             }
             catch (Exception e)
             {
-
+                LB_rena.Text = "Sin conexion";
+                LB_rena.ForeColor = Color.Red;
             }
         }
 
@@ -86,51 +94,84 @@ namespace appSugerencias
             while (rd.Read())
             {
                 TB_coloso.Text = rd[0].ToString();
+                LB_coloso.Text = "Conectado";
             }
+               
             }
             catch (Exception e)
             {
-
+                LB_coloso.Text = "Sin conexion";
+                LB_coloso.ForeColor = Color.Red;
             }
         }
 
-      
+        public void Bodega()
+        {
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'");
+                MySqlDataReader rd = cmd.ExecuteReader();
+
+                while (rd.Read())
+                {
+                    TB_bodega.Text = rd[0].ToString();
+                    Lb_bodega.Text = "Conectado";
+                }
+               
+            }
+            catch (Exception e)
+            {
+                Lb_bodega.Text = "Sin conexion";
+                Lb_bodega.ForeColor = Color.Red;
+            }
+        }
+
+
 
 
         private void BTN_aceptar_Click(object sender, EventArgs e)
         {
 
+
+
+          
             if (TB_articulo.Text.Equals(""))
             {
                 MessageBox.Show("Ingresa un artículo");
             }
-            if (CB_sucursal.SelectedItem=="Vallarta")
+            else
             {
-                Vallarta();
-            }
 
-            if (CB_sucursal.SelectedItem == "Velazquez")
-            {
-                Velazquez();
-            }
+                if (CB_sucursal.SelectedItem == "Vallarta")
+                {
+                    Vallarta();
+                }
 
-           if (CB_sucursal.SelectedItem == "Rena")
-            {
-                Rena();
-            }
+                if (CB_sucursal.SelectedItem == "Velazquez")
+                {
+                    Velazquez();
+                }
 
-            if (CB_sucursal.SelectedItem == "Coloso")
-            {
-                Coloso();
-            }
+                if (CB_sucursal.SelectedItem == "Rena")
+                {
+                    Rena();
+                }
 
-            if (CB_sucursal.SelectedIndex==-1)
-            {
-                Vallarta();
-                Velazquez();
-                Rena();
-                Coloso();
+                if (CB_sucursal.SelectedItem == "Coloso")
+                {
+                    Coloso();
+                }
+
+                if (CB_sucursal.SelectedIndex == -1)
+                {
+                    Vallarta();
+                    Velazquez();
+                    Rena();
+                    Coloso();
+                    Bodega();
+                }
             }
+          
 
 
         }
@@ -175,6 +216,16 @@ namespace appSugerencias
             {
                 MessageBox.Show("Coloso");
             }
+        }
+
+        private void Existencias_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
