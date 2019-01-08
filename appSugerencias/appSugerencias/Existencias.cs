@@ -143,34 +143,7 @@ namespace appSugerencias
             else
             {
 
-                //if (CB_sucursal.SelectedItem == "Vallarta")
-                //{
-                //    Vallarta();
-                //}
-
-                //if (CB_sucursal.SelectedItem == "Velazquez")
-                //{
-                //    Velazquez();
-                //}
-
-                //if (CB_sucursal.SelectedItem == "Rena")
-                //{
-                //    Rena();
-                //}
-
-                //if (CB_sucursal.SelectedItem == "Coloso")
-                //{
-                //    Coloso();
-                //}
-
-                //if (CB_sucursal.SelectedIndex == -1)
-                //{
-                //    Vallarta();
-                //    Velazquez();
-                //    Rena();
-                //    Coloso();
-                //    Bodega();
-                //}
+               
                 lblVa.Text = "";
                 lblRe.Text = "";
                 lblVe.Text = "";
