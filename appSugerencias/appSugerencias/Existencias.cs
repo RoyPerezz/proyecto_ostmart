@@ -544,5 +544,23 @@ namespace appSugerencias
             }
 
         }
+
+        private void cBoxTodas_CheckedChanged_2(object sender, EventArgs e)
+        {
+            if (cBoxTodas.Checked)
+            {
+                cBoxVa.Checked = true;
+                cBoxRe.Checked = true;
+                cBoxVe.Checked = true;
+                cBoxCo.Checked = true;
+            }
+            else if (!cBoxTodas.Checked)
+            {
+                cBoxVa.Checked = false;
+                cBoxRe.Checked = false;
+                cBoxVe.Checked = false;
+                cBoxCo.Checked = false;
+            }
+        }
     }
 }
