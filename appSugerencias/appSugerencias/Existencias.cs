@@ -437,6 +437,107 @@ namespace appSugerencias
 
         private void AplicaOferta_Click_1(object sender, EventArgs e)
         {
+            //if (cBoxVa.Checked == false & cBoxRe.Checked == false & cBoxVe.Checked == false & cBoxCo.Checked == false)
+            //{
+            //    MessageBox.Show("Selecciona una Tienda para aplicar la Oferta");
+            //}
+            //if (cBoxVa.Checked)
+            //{
+            //    if (string.IsNullOrEmpty(TB_articulo.Text))
+            //    {
+            //        MessageBox.Show("Inserta Codigo de Articulo");
+
+            //    }
+            //    else if (string.IsNullOrEmpty(tbporcentaje.Text))
+            //    {
+            //        MessageBox.Show("Inserta Porcentaje de Descuento");
+            //    }
+            //    else
+            //    {
+            //        VallartaOferta();
+            //        //MessageBox.Show("Vallarta");
+            //    }
+
+            //}
+            //if (cBoxRe.Checked)
+            //{
+            //    if (string.IsNullOrEmpty(TB_articulo.Text))
+            //    {
+            //        MessageBox.Show("Inserta Codigo de Articulo");
+
+            //    }
+            //    else if (string.IsNullOrEmpty(tbporcentaje.Text))
+            //    {
+            //        MessageBox.Show("Inserta Porcentaje de Descuento");
+            //    }
+            //    else
+            //    {
+            //        RenaOferta();
+            //        //MessageBox.Show("Rena");
+            //    }
+                
+            //}
+            //if (cBoxVe.Checked)
+            //{
+            //    if (string.IsNullOrEmpty(TB_articulo.Text))
+            //    {
+            //        MessageBox.Show("Inserta Codigo de Articulo");
+
+            //    }
+            //    else if (string.IsNullOrEmpty(tbporcentaje.Text))
+            //    {
+            //        MessageBox.Show("Inserta Porcentaje de Descuento");
+            //    }
+            //    else
+            //    {
+            //        VelazquezOferta();
+            //        //MessageBox.Show("Velazquez");
+            //    }
+            //}
+            //if (cBoxCo.Checked)
+            //{
+            //    if (string.IsNullOrEmpty(TB_articulo.Text))
+            //    {
+            //        MessageBox.Show("Inserta Codigo de Articulo");
+
+            //    }
+            //    else if (string.IsNullOrEmpty(tbporcentaje.Text))
+            //    {
+            //        MessageBox.Show("Inserta Porcentaje de Descuento");
+            //    }
+            //    else
+            //    {
+            //        ColosoOferta();
+            //        //MessageBox.Show("Coloso");
+            //    }
+            //}
+            //else
+            //{
+            //    limpiarOferta();
+            //}
+
+        }
+
+        private void cBoxTodas_CheckedChanged_2(object sender, EventArgs e)
+        {
+            if (cBoxTodas.Checked)
+            {
+                cBoxVa.Checked = true;
+                cBoxRe.Checked = true;
+                cBoxVe.Checked = true;
+                cBoxCo.Checked = true;
+            }
+            else if (!cBoxTodas.Checked)
+            {
+                cBoxVa.Checked = false;
+                cBoxRe.Checked = false;
+                cBoxVe.Checked = false;
+                cBoxCo.Checked = false;
+            }
+        }
+
+        private void AplicaOferta_Click_2(object sender, EventArgs e)
+        {
             if (cBoxVa.Checked == false & cBoxRe.Checked == false & cBoxVe.Checked == false & cBoxCo.Checked == false)
             {
                 MessageBox.Show("Selecciona una Tienda para aplicar la Oferta");
@@ -475,7 +576,7 @@ namespace appSugerencias
                     RenaOferta();
                     //MessageBox.Show("Rena");
                 }
-                
+
             }
             if (cBoxVe.Checked)
             {
@@ -516,24 +617,7 @@ namespace appSugerencias
                 limpiarOferta();
             }
 
-        }
 
-        private void cBoxTodas_CheckedChanged_2(object sender, EventArgs e)
-        {
-            if (cBoxTodas.Checked)
-            {
-                cBoxVa.Checked = true;
-                cBoxRe.Checked = true;
-                cBoxVe.Checked = true;
-                cBoxCo.Checked = true;
-            }
-            else if (!cBoxTodas.Checked)
-            {
-                cBoxVa.Checked = false;
-                cBoxRe.Checked = false;
-                cBoxVe.Checked = false;
-                cBoxCo.Checked = false;
-            }
         }
     }
 }

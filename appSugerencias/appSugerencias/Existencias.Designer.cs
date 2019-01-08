@@ -44,6 +44,10 @@
             this.LB_vallarta = new System.Windows.Forms.Label();
             this.LB_velazquez = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblCo = new System.Windows.Forms.Label();
+            this.lblVe = new System.Windows.Forms.Label();
+            this.lblRe = new System.Windows.Forms.Label();
+            this.lblVa = new System.Windows.Forms.Label();
             this.AplicaOferta = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -61,10 +65,6 @@
             this.TB_bodega = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lblVa = new System.Windows.Forms.Label();
-            this.lblRe = new System.Windows.Forms.Label();
-            this.lblVe = new System.Windows.Forms.Label();
-            this.lblCo = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -227,6 +227,46 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ofertas";
             // 
+            // lblCo
+            // 
+            this.lblCo.AutoSize = true;
+            this.lblCo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCo.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblCo.Location = new System.Drawing.Point(238, 69);
+            this.lblCo.Name = "lblCo";
+            this.lblCo.Size = new System.Drawing.Size(0, 16);
+            this.lblCo.TabIndex = 16;
+            // 
+            // lblVe
+            // 
+            this.lblVe.AutoSize = true;
+            this.lblVe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVe.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblVe.Location = new System.Drawing.Point(163, 69);
+            this.lblVe.Name = "lblVe";
+            this.lblVe.Size = new System.Drawing.Size(0, 16);
+            this.lblVe.TabIndex = 15;
+            // 
+            // lblRe
+            // 
+            this.lblRe.AutoSize = true;
+            this.lblRe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRe.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblRe.Location = new System.Drawing.Point(87, 69);
+            this.lblRe.Name = "lblRe";
+            this.lblRe.Size = new System.Drawing.Size(0, 16);
+            this.lblRe.TabIndex = 14;
+            // 
+            // lblVa
+            // 
+            this.lblVa.AutoSize = true;
+            this.lblVa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVa.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblVa.Location = new System.Drawing.Point(22, 69);
+            this.lblVa.Name = "lblVa";
+            this.lblVa.Size = new System.Drawing.Size(0, 16);
+            this.lblVa.TabIndex = 13;
+            // 
             // AplicaOferta
             // 
             this.AplicaOferta.Location = new System.Drawing.Point(9, 215);
@@ -235,6 +275,7 @@
             this.AplicaOferta.TabIndex = 12;
             this.AplicaOferta.Text = "Aplicar";
             this.AplicaOferta.UseVisualStyleBackColor = true;
+            this.AplicaOferta.Click += new System.EventHandler(this.AplicaOferta_Click_2);
             // 
             // label10
             // 
@@ -399,46 +440,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Existencias";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter_2);
-            // 
-            // lblVa
-            // 
-            this.lblVa.AutoSize = true;
-            this.lblVa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVa.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblVa.Location = new System.Drawing.Point(22, 69);
-            this.lblVa.Name = "lblVa";
-            this.lblVa.Size = new System.Drawing.Size(0, 16);
-            this.lblVa.TabIndex = 13;
-            // 
-            // lblRe
-            // 
-            this.lblRe.AutoSize = true;
-            this.lblRe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRe.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblRe.Location = new System.Drawing.Point(87, 69);
-            this.lblRe.Name = "lblRe";
-            this.lblRe.Size = new System.Drawing.Size(0, 16);
-            this.lblRe.TabIndex = 14;
-            // 
-            // lblVe
-            // 
-            this.lblVe.AutoSize = true;
-            this.lblVe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVe.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblVe.Location = new System.Drawing.Point(163, 69);
-            this.lblVe.Name = "lblVe";
-            this.lblVe.Size = new System.Drawing.Size(0, 16);
-            this.lblVe.TabIndex = 15;
-            // 
-            // lblCo
-            // 
-            this.lblCo.AutoSize = true;
-            this.lblCo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCo.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblCo.Location = new System.Drawing.Point(238, 69);
-            this.lblCo.Name = "lblCo";
-            this.lblCo.Size = new System.Drawing.Size(0, 16);
-            this.lblCo.TabIndex = 16;
             // 
             // Existencias
             // 
