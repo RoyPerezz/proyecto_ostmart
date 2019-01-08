@@ -44,6 +44,10 @@
             this.LB_vallarta = new System.Windows.Forms.Label();
             this.LB_velazquez = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblCo = new System.Windows.Forms.Label();
+            this.lblVe = new System.Windows.Forms.Label();
+            this.lblRe = new System.Windows.Forms.Label();
+            this.lblVa = new System.Windows.Forms.Label();
             this.AplicaOferta = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -61,10 +65,6 @@
             this.TB_bodega = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lblVa = new System.Windows.Forms.Label();
-            this.lblRe = new System.Windows.Forms.Label();
-            this.lblVe = new System.Windows.Forms.Label();
-            this.lblCo = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -227,6 +227,46 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ofertas";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // lblCo
+            // 
+            this.lblCo.AutoSize = true;
+            this.lblCo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCo.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblCo.Location = new System.Drawing.Point(240, 69);
+            this.lblCo.Name = "lblCo";
+            this.lblCo.Size = new System.Drawing.Size(0, 13);
+            this.lblCo.TabIndex = 22;
+            // 
+            // lblVe
+            // 
+            this.lblVe.AutoSize = true;
+            this.lblVe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVe.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblVe.Location = new System.Drawing.Point(157, 68);
+            this.lblVe.Name = "lblVe";
+            this.lblVe.Size = new System.Drawing.Size(0, 13);
+            this.lblVe.TabIndex = 22;
+            // 
+            // lblRe
+            // 
+            this.lblRe.AutoSize = true;
+            this.lblRe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRe.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblRe.Location = new System.Drawing.Point(86, 69);
+            this.lblRe.Name = "lblRe";
+            this.lblRe.Size = new System.Drawing.Size(0, 13);
+            this.lblRe.TabIndex = 14;
+            // 
+            // lblVa
+            // 
+            this.lblVa.AutoSize = true;
+            this.lblVa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVa.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblVa.Location = new System.Drawing.Point(15, 68);
+            this.lblVa.Name = "lblVa";
+            this.lblVa.Size = new System.Drawing.Size(0, 13);
+            this.lblVa.TabIndex = 13;
             // 
             // AplicaOferta
             // 
@@ -402,51 +442,11 @@
             this.groupBox2.Text = "Existencias";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter_2);
             // 
-            // lblVa
-            // 
-            this.lblVa.AutoSize = true;
-            this.lblVa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVa.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblVa.Location = new System.Drawing.Point(15, 68);
-            this.lblVa.Name = "lblVa";
-            this.lblVa.Size = new System.Drawing.Size(0, 13);
-            this.lblVa.TabIndex = 13;
-            // 
-            // lblRe
-            // 
-            this.lblRe.AutoSize = true;
-            this.lblRe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRe.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblRe.Location = new System.Drawing.Point(86, 69);
-            this.lblRe.Name = "lblRe";
-            this.lblRe.Size = new System.Drawing.Size(0, 13);
-            this.lblRe.TabIndex = 14;
-            // 
-            // lblVe
-            // 
-            this.lblVe.AutoSize = true;
-            this.lblVe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVe.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblVe.Location = new System.Drawing.Point(157, 68);
-            this.lblVe.Name = "lblVe";
-            this.lblVe.Size = new System.Drawing.Size(0, 13);
-            this.lblVe.TabIndex = 22;
-            // 
-            // lblCo
-            // 
-            this.lblCo.AutoSize = true;
-            this.lblCo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCo.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblCo.Location = new System.Drawing.Point(240, 69);
-            this.lblCo.Name = "lblCo";
-            this.lblCo.Size = new System.Drawing.Size(0, 13);
-            this.lblCo.TabIndex = 22;
-            // 
             // Existencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(719, 331);
+            this.ClientSize = new System.Drawing.Size(669, 332);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Existencias";
