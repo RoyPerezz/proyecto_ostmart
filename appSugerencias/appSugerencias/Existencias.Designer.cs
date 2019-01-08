@@ -61,6 +61,10 @@
             this.TB_bodega = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblVa = new System.Windows.Forms.Label();
+            this.lblRe = new System.Windows.Forms.Label();
+            this.lblVe = new System.Windows.Forms.Label();
+            this.lblCo = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -85,11 +89,11 @@
             // 
             // BTN_aceptar
             // 
-            this.BTN_aceptar.Location = new System.Drawing.Point(6, 183);
+            this.BTN_aceptar.Location = new System.Drawing.Point(13, 232);
             this.BTN_aceptar.Name = "BTN_aceptar";
             this.BTN_aceptar.Size = new System.Drawing.Size(83, 48);
             this.BTN_aceptar.TabIndex = 2;
-            this.BTN_aceptar.Text = "Aceptar";
+            this.BTN_aceptar.Text = "Buscar";
             this.BTN_aceptar.UseVisualStyleBackColor = true;
             this.BTN_aceptar.Click += new System.EventHandler(this.BTN_aceptar_Click);
             // 
@@ -199,6 +203,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblCo);
+            this.groupBox1.Controls.Add(this.lblVe);
+            this.groupBox1.Controls.Add(this.lblRe);
+            this.groupBox1.Controls.Add(this.lblVa);
             this.groupBox1.Controls.Add(this.AplicaOferta);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
@@ -214,19 +222,21 @@
             this.groupBox1.Controls.Add(this.cBoxTodas);
             this.groupBox1.Location = new System.Drawing.Point(350, 24);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(293, 244);
+            this.groupBox1.Size = new System.Drawing.Size(293, 286);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ofertas";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // AplicaOferta
             // 
-            this.AplicaOferta.Location = new System.Drawing.Point(9, 215);
+            this.AplicaOferta.Location = new System.Drawing.Point(9, 232);
             this.AplicaOferta.Name = "AplicaOferta";
-            this.AplicaOferta.Size = new System.Drawing.Size(75, 23);
+            this.AplicaOferta.Size = new System.Drawing.Size(80, 48);
             this.AplicaOferta.TabIndex = 12;
             this.AplicaOferta.Text = "Aplicar";
             this.AplicaOferta.UseVisualStyleBackColor = true;
+            this.AplicaOferta.Click += new System.EventHandler(this.AplicaOferta_Click_1);
             // 
             // label10
             // 
@@ -336,6 +346,7 @@
             this.cBoxTodas.TabIndex = 0;
             this.cBoxTodas.Text = "Todas";
             this.cBoxTodas.UseVisualStyleBackColor = true;
+            this.cBoxTodas.CheckedChanged += new System.EventHandler(this.cBoxTodas_CheckedChanged_1);
             // 
             // Lb_bodega
             // 
@@ -385,11 +396,51 @@
             this.groupBox2.Controls.Add(this.TB_velazquez);
             this.groupBox2.Location = new System.Drawing.Point(12, 24);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(323, 244);
+            this.groupBox2.Size = new System.Drawing.Size(323, 286);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Existencias";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter_2);
+            // 
+            // lblVa
+            // 
+            this.lblVa.AutoSize = true;
+            this.lblVa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVa.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblVa.Location = new System.Drawing.Point(15, 68);
+            this.lblVa.Name = "lblVa";
+            this.lblVa.Size = new System.Drawing.Size(0, 13);
+            this.lblVa.TabIndex = 13;
+            // 
+            // lblRe
+            // 
+            this.lblRe.AutoSize = true;
+            this.lblRe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRe.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblRe.Location = new System.Drawing.Point(86, 69);
+            this.lblRe.Name = "lblRe";
+            this.lblRe.Size = new System.Drawing.Size(0, 13);
+            this.lblRe.TabIndex = 14;
+            // 
+            // lblVe
+            // 
+            this.lblVe.AutoSize = true;
+            this.lblVe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVe.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblVe.Location = new System.Drawing.Point(157, 68);
+            this.lblVe.Name = "lblVe";
+            this.lblVe.Size = new System.Drawing.Size(0, 13);
+            this.lblVe.TabIndex = 22;
+            // 
+            // lblCo
+            // 
+            this.lblCo.AutoSize = true;
+            this.lblCo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCo.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblCo.Location = new System.Drawing.Point(240, 69);
+            this.lblCo.Name = "lblCo";
+            this.lblCo.Size = new System.Drawing.Size(0, 13);
+            this.lblCo.TabIndex = 22;
             // 
             // Existencias
             // 
@@ -444,5 +495,9 @@
         private System.Windows.Forms.TextBox TB_bodega;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lblCo;
+        private System.Windows.Forms.Label lblVe;
+        private System.Windows.Forms.Label lblRe;
+        private System.Windows.Forms.Label lblVa;
     }
 }

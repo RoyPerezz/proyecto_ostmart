@@ -171,6 +171,10 @@ namespace appSugerencias
                 //    Coloso();
                 //    Bodega();
                 //}
+                lblVa.Text = "";
+                lblRe.Text = "";
+                lblVe.Text = "";
+                lblCo.Text = "";
 
                 Vallarta();
                 Velazquez();
@@ -188,9 +192,9 @@ namespace appSugerencias
 
         }
 
-   
 
-       
+
+
 
         private void Existencias_Load(object sender, EventArgs e)
         {
@@ -230,36 +234,179 @@ namespace appSugerencias
             return snow;
         }
 
+
+
         public void VallartaOferta()
         {
-            DateTime Finicio = dt_Inicio.Value;
-            DateTime Ffin = dt_Fin.Value;
+            try
+            {
+                DateTime Finicio = dt_Inicio.Value;
+                DateTime Ffin = dt_Fin.Value;
 
-            string inicio = getDate(Finicio);
-            string fin = getDate(Ffin);
-
-            MySqlCommand cmdo = new MySqlCommand("DELETE FROM ofertas WHERE articulo=?articulo", BDConexicon.conectar());
-            cmdo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
-            MySqlDataReader mdr;
-            mdr = cmdo.ExecuteReader();
-
-            MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET oferta=1  WHERE articulo=?articulo", BDConexicon.conectar());
-            cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
-            MySqlDataReader mdrr;
-            mdrr = cmdoo.ExecuteReader();
+                string inicio = getDate(Finicio);
+                string fin = getDate(Ffin);
 
 
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO ofertas(articulo,fechainicial,fechafinal,porporcentaje,porcentaje) VALUES(?articulo,?fechainicial,?fechafinal,?porporcentaje,?porcentaje)", BDConexicon.conectar());
-            cmd.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
-            cmd.Parameters.Add("?fechainicial", MySqlDbType.VarChar).Value = inicio;
-            cmd.Parameters.Add("?fechafinal", MySqlDbType.VarChar).Value = fin ;
-            cmd.Parameters.Add("?porporcentaje", MySqlDbType.Int16).Value = 1;
-            cmd.Parameters.Add("?porcentaje", MySqlDbType.Float).Value = (float)Convert.ToDouble(tbporcentaje.Text);
-            cmd.ExecuteNonQuery();
 
-            limpiarOferta();
+                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET oferta=1  WHERE articulo=?articulo", BDConexicon.conectar());
+                cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
+                MySqlDataReader mdrr;
+                mdrr = cmdoo.ExecuteReader();
 
-            MessageBox.Show("Los datos se Guardaron");
+                MySqlCommand cmdo = new MySqlCommand("DELETE FROM ofertas WHERE articulo=?articulo", BDConexicon.conectar());
+                cmdo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
+                MySqlDataReader mdr;
+                mdr = cmdo.ExecuteReader();
+
+
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO ofertas(articulo,fechainicial,fechafinal,porporcentaje,porcentaje) VALUES(?articulo,?fechainicial,?fechafinal,?porporcentaje,?porcentaje)", BDConexicon.conectar());
+                cmd.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
+                cmd.Parameters.Add("?fechainicial", MySqlDbType.VarChar).Value = inicio;
+                cmd.Parameters.Add("?fechafinal", MySqlDbType.VarChar).Value = fin;
+                cmd.Parameters.Add("?porporcentaje", MySqlDbType.Int16).Value = 1;
+                cmd.Parameters.Add("?porcentaje", MySqlDbType.Float).Value = (float)Convert.ToDouble(tbporcentaje.Text);
+                cmd.ExecuteNonQuery();
+
+                //limpiarOferta();
+
+                lblVa.Text = "OK";
+                //MessageBox.Show("Los datos se Guardaron");
+            }
+            catch (Exception e)
+            {
+                lblVa.Text = "N/A";
+                lblVa.ForeColor = Color.Red;
+            }
+        }
+
+
+        public void RenaOferta()
+        {
+            try
+            {
+                DateTime Finicio = dt_Inicio.Value;
+                DateTime Ffin = dt_Fin.Value;
+
+                string inicio = getDate(Finicio);
+                string fin = getDate(Ffin);
+
+
+
+                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET oferta=1  WHERE articulo=?articulo", BDConexicon.Rena());
+                cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
+                MySqlDataReader mdrr;
+                mdrr = cmdoo.ExecuteReader();
+
+                MySqlCommand cmdo = new MySqlCommand("DELETE FROM ofertas WHERE articulo=?articulo", BDConexicon.Rena());
+                cmdo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
+                MySqlDataReader mdr;
+                mdr = cmdo.ExecuteReader();
+
+
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO ofertas(articulo,fechainicial,fechafinal,porporcentaje,porcentaje) VALUES(?articulo,?fechainicial,?fechafinal,?porporcentaje,?porcentaje)", BDConexicon.Rena());
+                cmd.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
+                cmd.Parameters.Add("?fechainicial", MySqlDbType.VarChar).Value = inicio;
+                cmd.Parameters.Add("?fechafinal", MySqlDbType.VarChar).Value = fin;
+                cmd.Parameters.Add("?porporcentaje", MySqlDbType.Int16).Value = 1;
+                cmd.Parameters.Add("?porcentaje", MySqlDbType.Float).Value = (float)Convert.ToDouble(tbporcentaje.Text);
+                cmd.ExecuteNonQuery();
+
+                //limpiarOferta();
+
+                lblRe.Text = "OK";
+                //MessageBox.Show("Los datos se Guardaron");
+            }
+            catch (Exception e)
+            {
+                lblRe.Text = "N/A";
+                lblRe.ForeColor = Color.Red;
+            }
+        }
+
+        public void VelazquezOferta()
+        {
+            try
+            {
+                DateTime Finicio = dt_Inicio.Value;
+                DateTime Ffin = dt_Fin.Value;
+
+                string inicio = getDate(Finicio);
+                string fin = getDate(Ffin);
+
+
+
+                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET oferta=1  WHERE articulo=?articulo", BDConexicon.Velazquez());
+                cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
+                MySqlDataReader mdrr;
+                mdrr = cmdoo.ExecuteReader();
+
+                MySqlCommand cmdo = new MySqlCommand("DELETE FROM ofertas WHERE articulo=?articulo", BDConexicon.Velazquez());
+                cmdo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
+                MySqlDataReader mdr;
+                mdr = cmdo.ExecuteReader();
+
+
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO ofertas(articulo,fechainicial,fechafinal,porporcentaje,porcentaje) VALUES(?articulo,?fechainicial,?fechafinal,?porporcentaje,?porcentaje)", BDConexicon.Velazquez());
+                cmd.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
+                cmd.Parameters.Add("?fechainicial", MySqlDbType.VarChar).Value = inicio;
+                cmd.Parameters.Add("?fechafinal", MySqlDbType.VarChar).Value = fin;
+                cmd.Parameters.Add("?porporcentaje", MySqlDbType.Int16).Value = 1;
+                cmd.Parameters.Add("?porcentaje", MySqlDbType.Float).Value = (float)Convert.ToDouble(tbporcentaje.Text);
+                cmd.ExecuteNonQuery();
+
+                //limpiarOferta();
+
+                lblVe.Text = "OK";
+                //MessageBox.Show("Los datos se Guardaron");
+            }
+            catch (Exception e)
+            {
+                lblVe.Text = "N/A";
+                lblVe.ForeColor = Color.Red;
+            }
+        }
+
+        public void ColosoOferta()
+        {
+            try
+            {
+                DateTime Finicio = dt_Inicio.Value;
+                DateTime Ffin = dt_Fin.Value;
+
+                string inicio = getDate(Finicio);
+                string fin = getDate(Ffin);
+
+
+
+                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET oferta=1  WHERE articulo=?articulo", BDConexicon.Coloso());
+                cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
+                MySqlDataReader mdrr;
+                mdrr = cmdoo.ExecuteReader();
+
+                MySqlCommand cmdo = new MySqlCommand("DELETE FROM ofertas WHERE articulo=?articulo", BDConexicon.Coloso());
+                cmdo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
+                MySqlDataReader mdr;
+                mdr = cmdo.ExecuteReader();
+
+
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO ofertas(articulo,fechainicial,fechafinal,porporcentaje,porcentaje) VALUES(?articulo,?fechainicial,?fechafinal,?porporcentaje,?porcentaje)", BDConexicon.Coloso());
+                cmd.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
+                cmd.Parameters.Add("?fechainicial", MySqlDbType.VarChar).Value = inicio;
+                cmd.Parameters.Add("?fechafinal", MySqlDbType.VarChar).Value = fin;
+                cmd.Parameters.Add("?porporcentaje", MySqlDbType.Int16).Value = 1;
+                cmd.Parameters.Add("?porcentaje", MySqlDbType.Float).Value = (float)Convert.ToDouble(tbporcentaje.Text);
+                cmd.ExecuteNonQuery();
+
+               // limpiarOferta();
+
+                lblCo.Text = "OK";
+                //MessageBox.Show("Los datos se Guardaron");
+            }
+            catch (Exception e)
+            {
+                lblCo.Text = "N/A";
+                lblCo.ForeColor = Color.Red;
+            }
         }
 
         public void limpiarOferta()
@@ -274,40 +421,7 @@ namespace appSugerencias
 
         private void AplicaOferta_Click(object sender, EventArgs e)
         {
-            if(cBoxVa.Checked==false & cBoxRe.Checked == false & cBoxVe.Checked == false & cBoxCo.Checked == false )
-            {
-                MessageBox.Show("Selecciona una Tienda para aplicar la Oferta");
-            }
-            if (cBoxVa.Checked)
-            {
-                if (string.IsNullOrEmpty(TB_articulo.Text))
-                {
-                    MessageBox.Show("Inserta Codigo de Articulo");
-
-                }
-                else if(string.IsNullOrEmpty(tbporcentaje.Text))
-                {
-                    MessageBox.Show("Inserta Porcentaje de Descuento");
-                }
-                else
-                {
-                    VallartaOferta();
-                }
-
-            }
-             if (cBoxRe.Checked)
-            {
-                MessageBox.Show("Rena");
-            }
-             if (cBoxVe.Checked)
-            {
-                MessageBox.Show("Velazquez");
-            }
-             if (cBoxCo.Checked)
-            {
-                MessageBox.Show("Coloso");
-            }
-            
+           
         }
 
         private void groupBox2_Enter_1(object sender, EventArgs e)
@@ -322,6 +436,112 @@ namespace appSugerencias
 
         private void groupBox2_Enter_2(object sender, EventArgs e)
         {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cBoxTodas_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (cBoxTodas.Checked)
+            {
+                cBoxVa.Checked = true;
+                cBoxRe.Checked = true;
+                cBoxVe.Checked = true;
+                cBoxCo.Checked = true;
+            }
+            else if (!cBoxTodas.Checked)
+            {
+                cBoxVa.Checked = false;
+                cBoxRe.Checked = false;
+                cBoxVe.Checked = false;
+                cBoxCo.Checked = false;
+            }
+        }
+
+        private void AplicaOferta_Click_1(object sender, EventArgs e)
+        {
+            if (cBoxVa.Checked == false & cBoxRe.Checked == false & cBoxVe.Checked == false & cBoxCo.Checked == false)
+            {
+                MessageBox.Show("Selecciona una Tienda para aplicar la Oferta");
+            }
+            if (cBoxVa.Checked)
+            {
+                if (string.IsNullOrEmpty(TB_articulo.Text))
+                {
+                    MessageBox.Show("Inserta Codigo de Articulo");
+
+                }
+                else if (string.IsNullOrEmpty(tbporcentaje.Text))
+                {
+                    MessageBox.Show("Inserta Porcentaje de Descuento");
+                }
+                else
+                {
+                    VallartaOferta();
+                    //MessageBox.Show("Vallarta");
+                }
+
+            }
+            if (cBoxRe.Checked)
+            {
+                if (string.IsNullOrEmpty(TB_articulo.Text))
+                {
+                    MessageBox.Show("Inserta Codigo de Articulo");
+
+                }
+                else if (string.IsNullOrEmpty(tbporcentaje.Text))
+                {
+                    MessageBox.Show("Inserta Porcentaje de Descuento");
+                }
+                else
+                {
+                    RenaOferta();
+                    //MessageBox.Show("Rena");
+                }
+                
+            }
+            if (cBoxVe.Checked)
+            {
+                if (string.IsNullOrEmpty(TB_articulo.Text))
+                {
+                    MessageBox.Show("Inserta Codigo de Articulo");
+
+                }
+                else if (string.IsNullOrEmpty(tbporcentaje.Text))
+                {
+                    MessageBox.Show("Inserta Porcentaje de Descuento");
+                }
+                else
+                {
+                    VelazquezOferta();
+                    //MessageBox.Show("Velazquez");
+                }
+            }
+            if (cBoxCo.Checked)
+            {
+                if (string.IsNullOrEmpty(TB_articulo.Text))
+                {
+                    MessageBox.Show("Inserta Codigo de Articulo");
+
+                }
+                else if (string.IsNullOrEmpty(tbporcentaje.Text))
+                {
+                    MessageBox.Show("Inserta Porcentaje de Descuento");
+                }
+                else
+                {
+                    ColosoOferta();
+                    //MessageBox.Show("Coloso");
+                }
+            }
+            else
+            {
+                limpiarOferta();
+            }
 
         }
     }
