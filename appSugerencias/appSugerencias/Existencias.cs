@@ -657,5 +657,10 @@ namespace appSugerencias
         {
 
         }
+
+        private void lblVe_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

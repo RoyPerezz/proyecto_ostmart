@@ -61,6 +61,10 @@
             this.TB_bodega = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblVa = new System.Windows.Forms.Label();
+            this.lblRe = new System.Windows.Forms.Label();
+            this.lblVe = new System.Windows.Forms.Label();
+            this.lblCo = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -199,6 +203,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblCo);
+            this.groupBox1.Controls.Add(this.lblVe);
+            this.groupBox1.Controls.Add(this.lblRe);
+            this.groupBox1.Controls.Add(this.lblVa);
             this.groupBox1.Controls.Add(this.AplicaOferta);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
@@ -391,6 +399,51 @@
             this.groupBox2.Text = "Existencias";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter_2);
             // 
+            // lblVa
+            // 
+            this.lblVa.AutoSize = true;
+            this.lblVa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVa.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblVa.Location = new System.Drawing.Point(16, 68);
+            this.lblVa.Name = "lblVa";
+            this.lblVa.Size = new System.Drawing.Size(28, 16);
+            this.lblVa.TabIndex = 13;
+            this.lblVa.Text = "OK";
+            // 
+            // lblRe
+            // 
+            this.lblRe.AutoSize = true;
+            this.lblRe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRe.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblRe.Location = new System.Drawing.Point(84, 68);
+            this.lblRe.Name = "lblRe";
+            this.lblRe.Size = new System.Drawing.Size(28, 16);
+            this.lblRe.TabIndex = 14;
+            this.lblRe.Text = "OK";
+            // 
+            // lblVe
+            // 
+            this.lblVe.AutoSize = true;
+            this.lblVe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVe.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblVe.Location = new System.Drawing.Point(160, 68);
+            this.lblVe.Name = "lblVe";
+            this.lblVe.Size = new System.Drawing.Size(28, 16);
+            this.lblVe.TabIndex = 15;
+            this.lblVe.Text = "OK";
+            this.lblVe.Click += new System.EventHandler(this.lblVe_Click);
+            // 
+            // lblCo
+            // 
+            this.lblCo.AutoSize = true;
+            this.lblCo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCo.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblCo.Location = new System.Drawing.Point(228, 68);
+            this.lblCo.Name = "lblCo";
+            this.lblCo.Size = new System.Drawing.Size(28, 16);
+            this.lblCo.TabIndex = 16;
+            this.lblCo.Text = "OK";
+            // 
             // Existencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -444,5 +497,9 @@
         private System.Windows.Forms.TextBox TB_bodega;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lblCo;
+        private System.Windows.Forms.Label lblVe;
+        private System.Windows.Forms.Label lblRe;
+        private System.Windows.Forms.Label lblVa;
     }
 }
