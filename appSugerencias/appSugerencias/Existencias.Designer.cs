@@ -75,6 +75,7 @@
             this.TB_costo = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.TB_fabricante = new System.Windows.Forms.TextBox();
+            this.BT_limpiar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -95,12 +96,12 @@
             this.TB_articulo.MaxLength = 16;
             this.TB_articulo.Multiline = true;
             this.TB_articulo.Name = "TB_articulo";
-            this.TB_articulo.Size = new System.Drawing.Size(257, 39);
+            this.TB_articulo.Size = new System.Drawing.Size(362, 39);
             this.TB_articulo.TabIndex = 1;
             // 
             // BTN_aceptar
             // 
-            this.BTN_aceptar.Location = new System.Drawing.Point(95, 437);
+            this.BTN_aceptar.Location = new System.Drawing.Point(291, 327);
             this.BTN_aceptar.Name = "BTN_aceptar";
             this.BTN_aceptar.Size = new System.Drawing.Size(145, 48);
             this.BTN_aceptar.TabIndex = 2;
@@ -231,9 +232,9 @@
             this.groupBox1.Controls.Add(this.cBoxRe);
             this.groupBox1.Controls.Add(this.cBoxVa);
             this.groupBox1.Controls.Add(this.cBoxTodas);
-            this.groupBox1.Location = new System.Drawing.Point(400, 24);
+            this.groupBox1.Location = new System.Drawing.Point(493, 24);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(293, 498);
+            this.groupBox1.Size = new System.Drawing.Size(368, 452);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ofertas";
@@ -245,9 +246,8 @@
             this.lblCo.ForeColor = System.Drawing.Color.DarkGreen;
             this.lblCo.Location = new System.Drawing.Point(228, 68);
             this.lblCo.Name = "lblCo";
-            this.lblCo.Size = new System.Drawing.Size(28, 16);
+            this.lblCo.Size = new System.Drawing.Size(0, 16);
             this.lblCo.TabIndex = 16;
-            this.lblCo.Text = "OK";
             // 
             // lblVe
             // 
@@ -256,9 +256,8 @@
             this.lblVe.ForeColor = System.Drawing.Color.DarkGreen;
             this.lblVe.Location = new System.Drawing.Point(160, 68);
             this.lblVe.Name = "lblVe";
-            this.lblVe.Size = new System.Drawing.Size(28, 16);
+            this.lblVe.Size = new System.Drawing.Size(0, 16);
             this.lblVe.TabIndex = 15;
-            this.lblVe.Text = "OK";
             this.lblVe.Click += new System.EventHandler(this.lblVe_Click);
             // 
             // lblRe
@@ -268,9 +267,8 @@
             this.lblRe.ForeColor = System.Drawing.Color.DarkGreen;
             this.lblRe.Location = new System.Drawing.Point(84, 68);
             this.lblRe.Name = "lblRe";
-            this.lblRe.Size = new System.Drawing.Size(28, 16);
+            this.lblRe.Size = new System.Drawing.Size(0, 16);
             this.lblRe.TabIndex = 14;
-            this.lblRe.Text = "OK";
             // 
             // lblVa
             // 
@@ -279,15 +277,14 @@
             this.lblVa.ForeColor = System.Drawing.Color.DarkGreen;
             this.lblVa.Location = new System.Drawing.Point(16, 68);
             this.lblVa.Name = "lblVa";
-            this.lblVa.Size = new System.Drawing.Size(28, 16);
+            this.lblVa.Size = new System.Drawing.Size(0, 16);
             this.lblVa.TabIndex = 13;
-            this.lblVa.Text = "OK";
             // 
             // AplicaOferta
             // 
-            this.AplicaOferta.Location = new System.Drawing.Point(81, 439);
+            this.AplicaOferta.Location = new System.Drawing.Point(87, 381);
             this.AplicaOferta.Name = "AplicaOferta";
-            this.AplicaOferta.Size = new System.Drawing.Size(135, 44);
+            this.AplicaOferta.Size = new System.Drawing.Size(221, 44);
             this.AplicaOferta.TabIndex = 12;
             this.AplicaOferta.Text = "Aplicar";
             this.AplicaOferta.UseVisualStyleBackColor = true;
@@ -429,6 +426,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.BT_limpiar);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.BTN_aceptar);
@@ -459,7 +457,7 @@
             this.groupBox2.Controls.Add(this.TB_velazquez);
             this.groupBox2.Location = new System.Drawing.Point(45, 24);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(349, 498);
+            this.groupBox2.Size = new System.Drawing.Size(442, 452);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Existencias";
@@ -476,12 +474,14 @@
             // 
             // TB_desc
             // 
-            this.TB_desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_desc.Enabled = false;
+            this.TB_desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_desc.HideSelection = false;
             this.TB_desc.Location = new System.Drawing.Point(74, 73);
             this.TB_desc.MaxLength = 16;
             this.TB_desc.Multiline = true;
             this.TB_desc.Name = "TB_desc";
-            this.TB_desc.Size = new System.Drawing.Size(257, 39);
+            this.TB_desc.Size = new System.Drawing.Size(362, 39);
             this.TB_desc.TabIndex = 22;
             // 
             // label11
@@ -495,12 +495,14 @@
             // 
             // TB_precio1
             // 
+            this.TB_precio1.Enabled = false;
             this.TB_precio1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_precio1.HideSelection = false;
             this.TB_precio1.Location = new System.Drawing.Point(74, 121);
             this.TB_precio1.MaxLength = 16;
             this.TB_precio1.Multiline = true;
             this.TB_precio1.Name = "TB_precio1";
-            this.TB_precio1.Size = new System.Drawing.Size(257, 39);
+            this.TB_precio1.Size = new System.Drawing.Size(362, 39);
             this.TB_precio1.TabIndex = 24;
             // 
             // label13
@@ -514,12 +516,14 @@
             // 
             // TB_precio2
             // 
+            this.TB_precio2.Enabled = false;
             this.TB_precio2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_precio2.HideSelection = false;
             this.TB_precio2.Location = new System.Drawing.Point(74, 169);
             this.TB_precio2.MaxLength = 16;
             this.TB_precio2.Multiline = true;
             this.TB_precio2.Name = "TB_precio2";
-            this.TB_precio2.Size = new System.Drawing.Size(257, 39);
+            this.TB_precio2.Size = new System.Drawing.Size(362, 39);
             this.TB_precio2.TabIndex = 26;
             // 
             // label14
@@ -533,12 +537,14 @@
             // 
             // TB_costo
             // 
+            this.TB_costo.Enabled = false;
             this.TB_costo.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_costo.HideSelection = false;
             this.TB_costo.Location = new System.Drawing.Point(74, 217);
             this.TB_costo.MaxLength = 16;
             this.TB_costo.Multiline = true;
             this.TB_costo.Name = "TB_costo";
-            this.TB_costo.Size = new System.Drawing.Size(257, 39);
+            this.TB_costo.Size = new System.Drawing.Size(362, 39);
             this.TB_costo.TabIndex = 28;
             // 
             // label15
@@ -552,19 +558,31 @@
             // 
             // TB_fabricante
             // 
+            this.TB_fabricante.Enabled = false;
             this.TB_fabricante.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_fabricante.HideSelection = false;
             this.TB_fabricante.Location = new System.Drawing.Point(74, 262);
             this.TB_fabricante.MaxLength = 16;
             this.TB_fabricante.Multiline = true;
             this.TB_fabricante.Name = "TB_fabricante";
-            this.TB_fabricante.Size = new System.Drawing.Size(257, 39);
+            this.TB_fabricante.Size = new System.Drawing.Size(362, 39);
             this.TB_fabricante.TabIndex = 28;
+            // 
+            // BT_limpiar
+            // 
+            this.BT_limpiar.Location = new System.Drawing.Point(291, 381);
+            this.BT_limpiar.Name = "BT_limpiar";
+            this.BT_limpiar.Size = new System.Drawing.Size(145, 48);
+            this.BT_limpiar.TabIndex = 29;
+            this.BT_limpiar.Text = "Limpiar";
+            this.BT_limpiar.UseVisualStyleBackColor = true;
+            this.BT_limpiar.Click += new System.EventHandler(this.BT_limpiar_Click);
             // 
             // Existencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(814, 549);
+            this.ClientSize = new System.Drawing.Size(900, 493);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Existencias";
@@ -627,5 +645,6 @@
         private System.Windows.Forms.TextBox TB_precio1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox TB_desc;
+        private System.Windows.Forms.Button BT_limpiar;
     }
 }

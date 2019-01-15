@@ -10,6 +10,9 @@ namespace appSugerencias
 {
     class BDConexicon
     {
+
+        MySqlConnection con;
+
         public static MySqlConnection conectar()
         {
 
@@ -72,5 +75,12 @@ namespace appSugerencias
             return con;
 
         }
+
+        public static void CerrarConexion(MySqlConnection con)
+        {
+            con.Close();
+        }
+
+      
     }
 }
