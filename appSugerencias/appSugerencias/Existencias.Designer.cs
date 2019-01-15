@@ -85,7 +85,7 @@
             // 
             // BTN_aceptar
             // 
-            this.BTN_aceptar.Location = new System.Drawing.Point(6, 183);
+            this.BTN_aceptar.Location = new System.Drawing.Point(6, 248);
             this.BTN_aceptar.Name = "BTN_aceptar";
             this.BTN_aceptar.Size = new System.Drawing.Size(83, 48);
             this.BTN_aceptar.TabIndex = 2;
@@ -214,16 +214,16 @@
             this.groupBox1.Controls.Add(this.cBoxTodas);
             this.groupBox1.Location = new System.Drawing.Point(350, 24);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(293, 244);
+            this.groupBox1.Size = new System.Drawing.Size(293, 302);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ofertas";
             // 
             // AplicaOferta
             // 
-            this.AplicaOferta.Location = new System.Drawing.Point(9, 215);
+            this.AplicaOferta.Location = new System.Drawing.Point(9, 248);
             this.AplicaOferta.Name = "AplicaOferta";
-            this.AplicaOferta.Size = new System.Drawing.Size(75, 23);
+            this.AplicaOferta.Size = new System.Drawing.Size(83, 44);
             this.AplicaOferta.TabIndex = 12;
             this.AplicaOferta.Text = "Aplicar";
             this.AplicaOferta.UseVisualStyleBackColor = true;
@@ -385,7 +385,7 @@
             this.groupBox2.Controls.Add(this.TB_velazquez);
             this.groupBox2.Location = new System.Drawing.Point(12, 24);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(323, 244);
+            this.groupBox2.Size = new System.Drawing.Size(323, 302);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Existencias";
@@ -395,7 +395,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(669, 290);
+            this.ClientSize = new System.Drawing.Size(669, 349);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Existencias";

@@ -13,6 +13,9 @@ namespace appSugerencias
         public static MySqlConnection conectar()
         {
 
+
+            //Esto es una conexion lalalalalla
+
             MySqlConnection con = new MySqlConnection("server=192.168.1.2; database=MyBusinessDelta; Uid=root; pwd=;");
             con.Open();
            
