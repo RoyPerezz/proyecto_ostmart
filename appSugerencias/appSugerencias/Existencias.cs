@@ -128,6 +128,32 @@ namespace appSugerencias
         }
 
 
+        public void DatosProducto()
+        {
+            MySqlCommand cmd = new MySqlCommand("select descrip, precio1,precio2, costo_u,fabricante from prods where articulo ='"+TB_articulo.Text+"'",BDConexicon.Bodega());
+            MySqlDataReader rd = cmd.ExecuteReader();
+
+            while (rd.Read())
+            {
+                TB_desc.Text = rd["DESCRIP"].ToString();
+
+                double precio1 = Convert.ToDouble(rd["PRECIO1"].ToString());
+                double ivaPrecio1 =precio1 + precio1 * 0.16;
+
+                double precio2 = Convert.ToDouble(rd["PRECIO2"].ToString());
+                double ivaPrecio2 = precio2+precio2 * 0.16;
+
+                TB_precio1.Text = ivaPrecio1.ToString();
+                TB_precio2.Text = ivaPrecio2.ToString();
+
+
+                double costo = Convert.ToDouble(rd["COSTO_U"].ToString());
+                double IvaCosto = costo + costo * 0.16;
+
+                TB_costo.Text = IvaCosto.ToString();
+                TB_fabricante.Text = rd["fabricante"].ToString();
+            }
+        }
 
 
         private void BTN_aceptar_Click(object sender, EventArgs e)
@@ -154,6 +180,8 @@ namespace appSugerencias
                 Rena();
                 Coloso();
                  Bodega();
+                DatosProducto();
+
             }
 
 
@@ -617,6 +645,21 @@ namespace appSugerencias
                 limpiarOferta();
             }
 
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblVe_Click(object sender, EventArgs e)
+        {
 
         }
     }
