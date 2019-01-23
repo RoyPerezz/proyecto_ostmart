@@ -13,6 +13,23 @@ namespace appSugerencias
 
         MySqlConnection con;
 
+
+
+        public static MySqlConnection prueba()
+        {
+
+
+            //Esto es una conexion lalalalalla
+
+            MySqlConnection con = new MySqlConnection("server=192.168.1.155; database=VALLARTA JUN 2018; Uid=root; pwd=;");
+            con.Open();
+
+
+
+            return con;
+
+        }
+
         public static MySqlConnection conectar()
         {
 

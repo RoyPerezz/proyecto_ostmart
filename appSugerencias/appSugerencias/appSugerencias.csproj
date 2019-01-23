@@ -166,6 +166,12 @@
       <DependentUpon>Rp_pagocomisiones.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Traspaso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Traspaso.Designer.cs">
+      <DependentUpon>Traspaso.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ArticuloSinVentas.resx">
       <DependentUpon>ArticuloSinVentas.cs</DependentUpon>
     </EmbeddedResource>
@@ -211,6 +217,9 @@
     </Compile>
     <EmbeddedResource Include="Rp_pagocomisiones.resx">
       <DependentUpon>Rp_pagocomisiones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Traspaso.resx">
+      <DependentUpon>Traspaso.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DS_conexion.xsc">
       <DependentUpon>DS_conexion.xsd</DependentUpon>
