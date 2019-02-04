@@ -55,6 +55,14 @@
     <StartupObject>appSugerencias.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.6\Microsoft.CSharp.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -74,6 +82,11 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Web.Services\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -96,6 +109,18 @@
     </Compile>
     <Compile Include="Calificacionescs.Designer.cs">
       <DependentUpon>Calificacionescs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CReporte.Designer.cs">
+      <DependentUpon>CReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasXPagar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasXPagar.Designer.cs">
+      <DependentUpon>CuentasXPagar.cs</DependentUpon>
     </Compile>
     <Compile Include="DS_conexion.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -159,6 +184,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="reporte.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>reporte.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Rp_pagocomisiones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +208,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Calificacionescs.resx">
       <DependentUpon>Calificacionescs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CReporte.resx">
+      <DependentUpon>CReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasXPagar.resx">
+      <DependentUpon>CuentasXPagar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Existencias.resx">
       <DependentUpon>Existencias.cs</DependentUpon>
@@ -215,6 +252,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="reporte.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>reporte.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Rp_pagocomisiones.resx">
       <DependentUpon>Rp_pagocomisiones.cs</DependentUpon>
     </EmbeddedResource>

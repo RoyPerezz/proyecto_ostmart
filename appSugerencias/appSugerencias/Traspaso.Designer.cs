@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.DG_datos = new System.Windows.Forms.DataGridView();
+            this.idtraspaso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ARTICULO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DESCRIPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EXISTENCIAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CANTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TB_articulo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.BT_agregar = new System.Windows.Forms.Button();
@@ -42,11 +47,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.BT_eliminar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.idtraspaso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ARTICULO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DESCRIPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CANTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EXISTENCIAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BT_ip = new System.Windows.Forms.Button();
+            this.BT_reporte = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DG_datos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,20 +61,49 @@
             this.idtraspaso,
             this.ARTICULO,
             this.DESCRIPCION,
-            this.CANTIDAD,
-            this.EXISTENCIAS});
+            this.EXISTENCIAS,
+            this.CANTIDAD});
             this.DG_datos.Enabled = false;
             this.DG_datos.Location = new System.Drawing.Point(35, 183);
             this.DG_datos.Name = "DG_datos";
             this.DG_datos.RowHeadersWidth = 40;
             this.DG_datos.Size = new System.Drawing.Size(513, 150);
             this.DG_datos.TabIndex = 0;
+       
             this.DG_datos.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_datos_CellValueChanged);
+          
+            // 
+            // idtraspaso
+            // 
+            this.idtraspaso.HeaderText = "ID";
+            this.idtraspaso.Name = "idtraspaso";
+            this.idtraspaso.Visible = false;
+            // 
+            // ARTICULO
+            // 
+            this.ARTICULO.HeaderText = "ARTICULO";
+            this.ARTICULO.Name = "ARTICULO";
+            this.ARTICULO.Visible = false;
+            // 
+            // DESCRIPCION
+            // 
+            this.DESCRIPCION.HeaderText = "DESCRIPCION";
+            this.DESCRIPCION.Name = "DESCRIPCION";
+            // 
+            // EXISTENCIAS
+            // 
+            this.EXISTENCIAS.HeaderText = "EXISTENCIAS";
+            this.EXISTENCIAS.Name = "EXISTENCIAS";
+            // 
+            // CANTIDAD
+            // 
+            this.CANTIDAD.HeaderText = "CANTIDAD";
+            this.CANTIDAD.Name = "CANTIDAD";
             // 
             // TB_articulo
             // 
             this.TB_articulo.Enabled = false;
-            this.TB_articulo.Location = new System.Drawing.Point(76, 157);
+            this.TB_articulo.Location = new System.Drawing.Point(92, 152);
             this.TB_articulo.Name = "TB_articulo";
             this.TB_articulo.Size = new System.Drawing.Size(171, 20);
             this.TB_articulo.TabIndex = 1;
@@ -80,9 +111,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 160);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(32, 155);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 13);
+            this.label1.Size = new System.Drawing.Size(60, 16);
             this.label1.TabIndex = 2;
             this.label1.Text = "Articulo";
             // 
@@ -109,9 +141,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(397, 18);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(378, 19);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.Size = new System.Drawing.Size(54, 16);
             this.label2.TabIndex = 5;
             this.label2.Text = "Origen";
             // 
@@ -132,9 +165,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(392, 45);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(373, 46);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 13);
+            this.label3.Size = new System.Drawing.Size(61, 16);
             this.label3.TabIndex = 7;
             this.label3.Text = "Destino";
             // 
@@ -169,9 +203,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(32, 42);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 13);
+            this.label4.Size = new System.Drawing.Size(54, 16);
             this.label4.TabIndex = 11;
             this.label4.Text = "Motivo";
             // 
@@ -196,38 +231,33 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // idtraspaso
+            // BT_ip
             // 
-            this.idtraspaso.HeaderText = "ID";
-            this.idtraspaso.Name = "idtraspaso";
-            this.idtraspaso.Visible = false;
+            this.BT_ip.Location = new System.Drawing.Point(35, 339);
+            this.BT_ip.Name = "BT_ip";
+            this.BT_ip.Size = new System.Drawing.Size(75, 23);
+            this.BT_ip.TabIndex = 14;
+            this.BT_ip.Text = "Conectar";
+            this.BT_ip.UseVisualStyleBackColor = true;
+            this.BT_ip.Click += new System.EventHandler(this.BT_ip_Click);
             // 
-            // ARTICULO
+            // BT_reporte
             // 
-            this.ARTICULO.HeaderText = "ARTICULO";
-            this.ARTICULO.Name = "ARTICULO";
-            this.ARTICULO.Visible = false;
-            // 
-            // DESCRIPCION
-            // 
-            this.DESCRIPCION.HeaderText = "DESCRIPCION";
-            this.DESCRIPCION.Name = "DESCRIPCION";
-            // 
-            // CANTIDAD
-            // 
-            this.CANTIDAD.HeaderText = "CANTIDAD";
-            this.CANTIDAD.Name = "CANTIDAD";
-            // 
-            // EXISTENCIAS
-            // 
-            this.EXISTENCIAS.HeaderText = "EXISTENCIAS";
-            this.EXISTENCIAS.Name = "EXISTENCIAS";
+            this.BT_reporte.Location = new System.Drawing.Point(437, 355);
+            this.BT_reporte.Name = "BT_reporte";
+            this.BT_reporte.Size = new System.Drawing.Size(75, 23);
+            this.BT_reporte.TabIndex = 15;
+            this.BT_reporte.Text = "Reporte";
+            this.BT_reporte.UseVisualStyleBackColor = true;
+            this.BT_reporte.Click += new System.EventHandler(this.BT_reporte_Click);
             // 
             // Traspaso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(573, 401);
+            this.Controls.Add(this.BT_reporte);
+            this.Controls.Add(this.BT_ip);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.BT_eliminar);
             this.Controls.Add(this.label4);
@@ -267,10 +297,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button BT_eliminar;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BT_ip;
         private System.Windows.Forms.DataGridViewTextBoxColumn idtraspaso;
         private System.Windows.Forms.DataGridViewTextBoxColumn ARTICULO;
         private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPCION;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CANTIDAD;
         private System.Windows.Forms.DataGridViewTextBoxColumn EXISTENCIAS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CANTIDAD;
+        private System.Windows.Forms.Button BT_reporte;
     }
 }
