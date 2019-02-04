@@ -113,6 +113,12 @@
     <Compile Include="Calificacionescs.Designer.cs">
       <DependentUpon>Calificacionescs.cs</DependentUpon>
     </Compile>
+    <Compile Include="CotizacionTraspaso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CotizacionTraspaso.Designer.cs">
+      <DependentUpon>CotizacionTraspaso.cs</DependentUpon>
+    </Compile>
     <Compile Include="DS_conexion.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -199,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Calificacionescs.resx">
       <DependentUpon>Calificacionescs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CotizacionTraspaso.resx">
+      <DependentUpon>CotizacionTraspaso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Existencias.resx">
       <DependentUpon>Existencias.cs</DependentUpon>

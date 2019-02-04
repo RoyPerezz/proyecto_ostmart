@@ -489,7 +489,7 @@
             this.BT_limpiar.TabIndex = 29;
             this.BT_limpiar.Text = "Limpiar";
             this.BT_limpiar.UseVisualStyleBackColor = true;
-            this.BT_limpiar.Click += new System.EventHandler(this.BT_limpiar_Click);
+//            this.BT_limpiar.Click += new System.EventHandler(this.BT_limpiar_Click);
             // 
             // label15
             // 
