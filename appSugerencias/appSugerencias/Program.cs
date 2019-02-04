@@ -16,7 +16,7 @@ namespace appSugerencias
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Traspaso());
+            Application.Run(new Traspasos());
         }
     }
 }

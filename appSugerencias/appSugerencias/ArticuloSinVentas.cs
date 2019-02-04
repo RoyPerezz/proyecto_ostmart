@@ -25,7 +25,7 @@ namespace appSugerencias
         public void selecionar(string comando)
         {
 
-            MySqlCommand cmd = new MySqlCommand(comando, BDConexicon.conectar());
+            MySqlCommand cmd = new MySqlCommand(comando, BDConexicon.VallartaOpen());
             cmd.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = textBoxCodigo.Text;
             MySqlDataReader mdr;
             mdr=cmd.ExecuteReader();
@@ -48,7 +48,7 @@ namespace appSugerencias
         public void insertarArticulo(string comando )
         {
             
-            MySqlCommand cmd = new MySqlCommand(comando, BDConexicon.conectar());
+            MySqlCommand cmd = new MySqlCommand(comando, BDConexicon.VallartaOpen());
             cmd.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = textBoxCodigo.Text;
             cmd.Parameters.Add("?motivo", MySqlDbType.VarChar).Value = textboxNoSeVende.Text.ToUpper();
             cmd.Parameters.Add("?usuario", MySqlDbType.VarChar).Value = textboxUsuario.Text.ToUpper(); ;

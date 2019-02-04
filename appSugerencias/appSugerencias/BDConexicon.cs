@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-
+using System.IO;
 using MySql.Data.MySqlClient;
 using MySql.Data.Types;
 
@@ -11,8 +11,21 @@ namespace appSugerencias
 {
     class BDConexicon
     {
-
         MySqlConnection con;
+        MySqlConnection conVallarta;
+        MySqlConnection conRena;
+        MySqlConnection conVelazquez;
+        MySqlConnection conColoso;
+        MySqlConnection conBodega;
+       
+        public static string optieneIp()
+        {
+            TextReader IP;
+            IP = new StreamReader("IP.txt");
+            string ipn = IP.ReadLine();
+            IP.Close();
+            return ipn;
+        }
 
 
 
@@ -40,70 +53,156 @@ namespace appSugerencias
         {
 
 
-            //Esto es una conexion lalalalalla
 
-            MySqlConnection con = new MySqlConnection("server=192.168.1.2; database=MyBusinessDelta; Uid=root; pwd=;");
+            
+            string IP = optieneIp();
+            MySqlConnection con = new MySqlConnection("server="+IP+"; database=VALLARTA JUN 2018; Uid=root; pwd=;");
             con.Open();
+
+
+
+            return con;
+
+        }
+
+        public static MySqlConnection VallartaOpen()
+        {
+
+
+            
+
+            MySqlConnection conVallarta = new MySqlConnection("server=192.168.1.2; database=PRUEBA_SISTEMAS; Uid=root; pwd=;");
+            conVallarta.Open();
            
 
 
-            return con;
+            return conVallarta;
 
         }
 
-        public static MySqlConnection Velazquez()
+
+        public static MySqlConnection RenaOpen()
         {
 
-            MySqlConnection con = new MySqlConnection("server=192.168.4.2; database=MyBusinessDelta; Uid=root; pwd=;");
-            con.Open();
+            MySqlConnection conRena = new MySqlConnection("server=192.168.2.2; database=PRUEB_SISTEMAS; Uid=root; pwd=;");
+            conRena.Open();
 
 
 
-            return con;
+            return conRena;
 
         }
 
-        public static MySqlConnection Rena()
+        public static MySqlConnection VelazquezOpen()
         {
 
-            MySqlConnection con = new MySqlConnection("server=192.168.2.2; database=MyBusinessDelta; Uid=root; pwd=;");
-            con.Open();
+            MySqlConnection conVelazquez = new MySqlConnection("server=192.168.4.2; database=PRUEBA_SISTEMAS; Uid=root; pwd=;");
+            conVelazquez.Open();
 
 
 
-            return con;
+            return conVelazquez;
 
         }
 
-        public static MySqlConnection Coloso()
+
+
+        public static MySqlConnection ColosoOpen()
         {
 
-            MySqlConnection con = new MySqlConnection("server=192.168.3.2; database=MyBusinessDelta; Uid=root; pwd=;");
-            con.Open();
+            MySqlConnection conColoso = new MySqlConnection("server=192.168.3.2; database=PRUEBA_SISTEMAS; Uid=root; pwd=;");
+            conColoso.Open();
 
 
 
-            return con;
+            return conColoso;
 
         }
 
-        public static MySqlConnection Bodega()
+        public static MySqlConnection BodegaOpen()
         {
 
-            MySqlConnection con = new MySqlConnection("server=192.168.0.190; database=MyBusinessDelta; Uid=root; pwd=;");
-            con.Open();
+            MySqlConnection conBodega = new MySqlConnection("server=192.168.0.190; database=MyBusinessDelta; Uid=root; pwd=;");
+            conBodega.Open();
 
 
 
-            return con;
+            return conBodega;
 
         }
 
-        public static void CerrarConexion(MySqlConnection con)
+        public static MySqlConnection VallartaClose()
         {
+
+            MySqlConnection conVallarta = new MySqlConnection("server=192.168.1.2; database=PRUEBA_SISTEMAS; Uid=root; pwd=;");
+            conVallarta.Close(); 
+
+
+
+            return conVallarta;
+
+        }
+
+        public static MySqlConnection RenaClose()
+        {
+
+            MySqlConnection conRena = new MySqlConnection("server=192.168.2.2; database=PRUEBA_SISTEMAS; Uid=root; pwd=;");
+            conRena.Close();
+
+
+
+            return conRena;
+
+        }
+
+        public static MySqlConnection VelazquezClose()
+        {
+
+            MySqlConnection conVelazquez = new MySqlConnection("server=192.168.4.2; database=PRUEBA_SISTEMAS; Uid=root; pwd=;");
+            conVelazquez.Close();
+
+
+
+            return conVelazquez;
+
+        }
+
+        public static MySqlConnection ColosoClose()
+        {
+
+            MySqlConnection conColoso = new MySqlConnection("server=192.168.3.2; database=PRUEBA_SISTEMAS; Uid=root; pwd=;");
+            conColoso.Close();
+
+
+
+            return conColoso;
+
+        }
+
+        public static MySqlConnection BodegaClose()
+        {
+
+            MySqlConnection conBodega = new MySqlConnection("server=192.168.0.190; database=MyBusinessDelta; Uid=root; pwd=;");
+            conBodega.Close();
+
+
+
+            return conBodega;
+
+        }
+
+        public static MySqlConnection ConectarClose()
+        {
+            string IP = optieneIp();
+            MySqlConnection con = new MySqlConnection("server="+IP+"; database=VALLARTA JUN 2018; Uid=root; pwd=;");
             con.Close();
+
+
+
+            return con;
+
         }
 
-      
+
     }
 }
