@@ -198,28 +198,36 @@ namespace appSugerencias
 
         public void DatosProducto()
         {
-            MySqlCommand cmd = new MySqlCommand("select descrip, precio1,precio2, costo_u,fabricante from prods where articulo ='"+TB_articulo.Text+"'",BDConexicon.BodegaOpen());
-            MySqlDataReader rd = cmd.ExecuteReader();
-
-            while (rd.Read())
+            try
             {
-                TB_desc.Text = rd["DESCRIP"].ToString();
+                MySqlCommand cmd = new MySqlCommand("select descrip, precio1,precio2, costo_u,fabricante from prods where articulo ='" + TB_articulo.Text + "'", BDConexicon.BodegaOpen());
+                MySqlDataReader rd = cmd.ExecuteReader();
 
-                double precio1 = Convert.ToDouble(rd["PRECIO1"].ToString());
-                double ivaPrecio1 =precio1 + precio1 * 0.16;
+                while (rd.Read())
+                {
+                    TB_desc.Text = rd["DESCRIP"].ToString();
 
-                double precio2 = Convert.ToDouble(rd["PRECIO2"].ToString());
-                double ivaPrecio2 = precio2+precio2 * 0.16;
+                    double precio1 = Convert.ToDouble(rd["PRECIO1"].ToString());
+                    double ivaPrecio1 = precio1 + precio1 * 0.16;
 
-                TB_precio1.Text = ivaPrecio1.ToString();
-                TB_precio2.Text = ivaPrecio2.ToString();
+                    double precio2 = Convert.ToDouble(rd["PRECIO2"].ToString());
+                    double ivaPrecio2 = precio2 + precio2 * 0.16;
+
+                    TB_precio1.Text = ivaPrecio1.ToString();
+                    TB_precio2.Text = ivaPrecio2.ToString();
 
 
-                double costo = Convert.ToDouble(rd["COSTO_U"].ToString());
-                double IvaCosto = costo + costo * 0.16;
+                    double costo = Convert.ToDouble(rd["COSTO_U"].ToString());
+                    double IvaCosto = costo + costo * 0.16;
 
-                TB_costo.Text = IvaCosto.ToString();
-                TB_fabricante.Text = rd["fabricante"].ToString();
+                    TB_costo.Text = IvaCosto.ToString();
+                    TB_fabricante.Text = rd["fabricante"].ToString();
+                }
+            }
+            catch (Exception e)
+            {
+                Lb_bodega.Text = "Sin conexion";
+                Lb_bodega.ForeColor = Color.Red;
             }
         }
 
@@ -238,10 +246,16 @@ namespace appSugerencias
             {
 
 
-                //lblVa.Text = "";
-                //lblRe.Text = "";
-                //lblVe.Text = "";
-                //lblCo.Text = "";
+                lblVa.Text = "";
+                lblRe.Text = "";
+                lblVe.Text = "";
+                lblCo.Text = "";
+
+                lblVaPre.Text = "";
+                lblRePre.Text = "";
+                lblVePre.Text = "";
+                lblCoPre.Text = "";
+
                 DatosProducto();
                 Bodega();
                 Vallarta();
@@ -487,6 +501,17 @@ namespace appSugerencias
             BDConexicon.ColosoClose();
         }
 
+        public void limpiarPrecio()
+        {
+            cBoxTodasPrecio.Checked = false;
+            cBoxVaPrecio.Checked = false;
+            cBoxRePrecio.Checked = false;
+            cBoxVePrecio.Checked = false;
+            cBoxCoPrecio.Checked = false;
+            tbPrecio1.Text = "";
+            tbPrecio2.Text = "";
+        }
+
         public void limpiarOferta()
         {
             cBoxTodas.Checked = false;
@@ -623,23 +648,23 @@ namespace appSugerencias
 
         }
 
-        private void cBoxTodas_CheckedChanged_2(object sender, EventArgs e)
-        {
-            if (cBoxTodas.Checked)
-            {
-                cBoxVa.Checked = true;
-                cBoxRe.Checked = true;
-                cBoxVe.Checked = true;
-                cBoxCo.Checked = true;
-            }
-            else if (!cBoxTodas.Checked)
-            {
-                cBoxVa.Checked = false;
-                cBoxRe.Checked = false;
-                cBoxVe.Checked = false;
-                cBoxCo.Checked = false;
-            }
-        }
+        //private void cBoxTodas_CheckedChanged_2(object sender, EventArgs e)
+        //{
+        //    if (cBoxTodas.Checked)
+        //    {
+        //        cBoxVa.Checked = true;
+        //        cBoxRe.Checked = true;
+        //        cBoxVe.Checked = true;
+        //        cBoxCo.Checked = true;
+        //    }
+        //    else if (!cBoxTodas.Checked)
+        //    {
+        //        cBoxVa.Checked = false;
+        //        cBoxRe.Checked = false;
+        //        cBoxVe.Checked = false;
+        //        cBoxCo.Checked = false;
+        //    }
+        //}
 
         private void AplicaOferta_Click_2(object sender, EventArgs e)
         {
@@ -765,6 +790,18 @@ namespace appSugerencias
         private void BT_limpiar_Click(object sender, EventArgs e)
         {
             borrarArticulo();
+            limpiarOferta();
+            limpiarPrecio();
+
+            lblVa.Text = "";
+            lblRe.Text = "";
+            lblVe.Text = "";
+            lblCo.Text = "";
+
+            lblVaPre.Text = "";
+            lblRePre.Text = "";
+            lblVePre.Text = "";
+            lblCoPre.Text = "";
         }
 
         private void label17_Click(object sender, EventArgs e)
@@ -862,6 +899,8 @@ namespace appSugerencias
         private void aplicarPrecio_Click(object sender, EventArgs e)
         {
             // APLICACION DE PRECIO
+            
+
             if (cBoxVaPrecio.Checked == false & cBoxRePrecio.Checked == false & cBoxVePrecio.Checked == false & cBoxCoPrecio.Checked == false)
             {
                 MessageBox.Show("Selecciona una Tienda para aplicar la Oferta");
@@ -883,6 +922,7 @@ namespace appSugerencias
                 }
                 else
                 {
+                    
                     VallartaPrecio();
                     //MessageBox.Show("Vallarta");
                 }
@@ -951,31 +991,140 @@ namespace appSugerencias
                     //MessageBox.Show("Coloso");
                 }
             }
-            else
-            {
-                //limpiarOferta();
-            }
+            
+                limpiarPrecio();
+            
         }
 
         //#############################################################################################################################
-        private void VallartaPrecio()
+        public void VallartaPrecio()
         {
-            MessageBox.Show("hola Vallarta");
+            try
+            {
+
+                double Precio1 = Convert.ToDouble(tbPrecio1.Text);
+                double Precio2 = Convert.ToDouble(tbPrecio2.Text);
+                Precio1 = Precio1 / 1.16;
+                Precio2 = Precio2 / 1.16;
+
+
+                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET precio1=?precio1,precio2=?precio2  WHERE articulo=?articulo", BDConexicon.VallartaOpen());
+                cmdoo.Parameters.Add("?precio1", MySqlDbType.VarChar).Value = Precio1;
+                cmdoo.Parameters.Add("?precio2", MySqlDbType.VarChar).Value = Precio2;
+                cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
+                MySqlDataReader mdrr;
+                mdrr = cmdoo.ExecuteReader();
+
+              
+
+                lblVaPre.Text = "OK";
+                lblVaPre.ForeColor = Color.DarkGreen;
+                
+            }
+            catch (Exception e)
+            {
+                lblVaPre.Text = "N/A";
+                lblVaPre.ForeColor = Color.Red;
+            }
+            BDConexicon.VallartaClose();
         }
+
+        
 
         private void RenaPrecio()
         {
-            MessageBox.Show("hola REna");
+            try
+            {
+
+                double Precio1 = Convert.ToDouble(tbPrecio1.Text);
+                double Precio2 = Convert.ToDouble(tbPrecio2.Text);
+                Precio1 = Precio1 / 1.16;
+                Precio2 = Precio2 / 1.16;
+
+
+                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET precio1=?precio1,precio2=?precio2  WHERE articulo=?articulo", BDConexicon.RenaOpen());
+                cmdoo.Parameters.Add("?precio1", MySqlDbType.VarChar).Value = Precio1;
+                cmdoo.Parameters.Add("?precio2", MySqlDbType.VarChar).Value = Precio2;
+                cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
+                MySqlDataReader mdrr;
+                mdrr = cmdoo.ExecuteReader();
+
+
+
+                lblRePre.Text = "OK";
+                lblRePre.ForeColor = Color.DarkGreen;
+
+            }
+            catch (Exception e)
+            {
+                lblRePre.Text = "N/A";
+                lblRePre.ForeColor = Color.Red;
+            }
+            BDConexicon.RenaClose();
         }
 
         private void VelazquezPrecio()
         {
-            MessageBox.Show("hola Velazquez");
+            try
+            {
+
+                double Precio1 = Convert.ToDouble(tbPrecio1.Text);
+                double Precio2 = Convert.ToDouble(tbPrecio2.Text);
+                Precio1 = Precio1 / 1.16;
+                Precio2 = Precio2 / 1.16;
+
+
+                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET precio1=?precio1,precio2=?precio2  WHERE articulo=?articulo", BDConexicon.VelazquezOpen());
+                cmdoo.Parameters.Add("?precio1", MySqlDbType.VarChar).Value = Precio1;
+                cmdoo.Parameters.Add("?precio2", MySqlDbType.VarChar).Value = Precio2;
+                cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
+                MySqlDataReader mdrr;
+                mdrr = cmdoo.ExecuteReader();
+
+
+
+                lblVePre.Text = "OK";
+                lblVePre.ForeColor = Color.DarkGreen;
+
+            }
+            catch (Exception e)
+            {
+                lblVePre.Text = "N/A";
+                lblVePre.ForeColor = Color.Red;
+            }
+            BDConexicon.VelazquezClose();
         }
 
         private void ColosoPrecio()
         {
-            MessageBox.Show("hola Coloso");
+            try
+            {
+
+                double Precio1 = Convert.ToDouble(tbPrecio1.Text);
+                double Precio2 = Convert.ToDouble(tbPrecio2.Text);
+                Precio1 = Precio1 / 1.16;
+                Precio2 = Precio2 / 1.16;
+
+
+                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET precio1=?precio1,precio2=?precio2  WHERE articulo=?articulo", BDConexicon.ColosoOpen());
+                cmdoo.Parameters.Add("?precio1", MySqlDbType.VarChar).Value = Precio1;
+                cmdoo.Parameters.Add("?precio2", MySqlDbType.VarChar).Value = Precio2;
+                cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
+                MySqlDataReader mdrr;
+                mdrr = cmdoo.ExecuteReader();
+
+
+
+                lblCoPre.Text = "OK";
+                lblCoPre.ForeColor = Color.DarkGreen;
+
+            }
+            catch (Exception e)
+            {
+                lblCoPre.Text = "N/A";
+                lblCoPre.ForeColor = Color.Red;
+            }
+            BDConexicon.ColosoClose();
         }
 
         
@@ -994,6 +1143,24 @@ namespace appSugerencias
                 cBoxRePrecio.Checked = false;
                 cBoxVePrecio.Checked = false;
                 cBoxCoPrecio.Checked = false;
+            }
+        }
+
+        private void cBoxTodas_CheckedChanged_3(object sender, EventArgs e)
+        {
+            if (cBoxTodas.Checked)
+            {
+                cBoxVa.Checked = true;
+                cBoxRe.Checked = true;
+                cBoxVe.Checked = true;
+                cBoxCo.Checked = true;
+            }
+            else if (!cBoxTodas.Checked)
+            {
+                cBoxVa.Checked = false;
+                cBoxRe.Checked = false;
+                cBoxVe.Checked = false;
+                cBoxCo.Checked = false;
             }
         }
     }

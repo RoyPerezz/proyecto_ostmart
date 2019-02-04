@@ -60,8 +60,8 @@ namespace appSugerencias
                 this.Hide();
 
 
-                //Principal ini = new Principal(usu);
-                Principal ini = new Principal();
+                Principal ini = new Principal(usu);
+                //Principal ini = new Principal();
 
                 ini.Show();
                 

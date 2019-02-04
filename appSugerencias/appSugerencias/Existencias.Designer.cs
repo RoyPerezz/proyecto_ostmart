@@ -87,6 +87,10 @@
             this.cBoxRePrecio = new System.Windows.Forms.CheckBox();
             this.cBoxVePrecio = new System.Windows.Forms.CheckBox();
             this.cBoxCoPrecio = new System.Windows.Forms.CheckBox();
+            this.lblVaPre = new System.Windows.Forms.Label();
+            this.lblRePre = new System.Windows.Forms.Label();
+            this.lblVePre = new System.Windows.Forms.Label();
+            this.lblCoPre = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -410,6 +414,7 @@
             this.cBoxTodas.TabIndex = 0;
             this.cBoxTodas.Text = "Todas";
             this.cBoxTodas.UseVisualStyleBackColor = true;
+            this.cBoxTodas.CheckedChanged += new System.EventHandler(this.cBoxTodas_CheckedChanged_3);
             // 
             // Lb_bodega
             // 
@@ -588,6 +593,10 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.lblCoPre);
+            this.groupBox3.Controls.Add(this.lblVePre);
+            this.groupBox3.Controls.Add(this.lblRePre);
+            this.groupBox3.Controls.Add(this.lblVaPre);
             this.groupBox3.Controls.Add(this.cBoxCoPrecio);
             this.groupBox3.Controls.Add(this.cBoxVePrecio);
             this.groupBox3.Controls.Add(this.cBoxRePrecio);
@@ -706,6 +715,46 @@
             this.cBoxCoPrecio.Text = "Coloso";
             this.cBoxCoPrecio.UseVisualStyleBackColor = true;
             // 
+            // lblVaPre
+            // 
+            this.lblVaPre.AutoSize = true;
+            this.lblVaPre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVaPre.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblVaPre.Location = new System.Drawing.Point(16, 63);
+            this.lblVaPre.Name = "lblVaPre";
+            this.lblVaPre.Size = new System.Drawing.Size(0, 16);
+            this.lblVaPre.TabIndex = 38;
+            // 
+            // lblRePre
+            // 
+            this.lblRePre.AutoSize = true;
+            this.lblRePre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRePre.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblRePre.Location = new System.Drawing.Point(84, 63);
+            this.lblRePre.Name = "lblRePre";
+            this.lblRePre.Size = new System.Drawing.Size(0, 16);
+            this.lblRePre.TabIndex = 39;
+            // 
+            // lblVePre
+            // 
+            this.lblVePre.AutoSize = true;
+            this.lblVePre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVePre.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblVePre.Location = new System.Drawing.Point(160, 63);
+            this.lblVePre.Name = "lblVePre";
+            this.lblVePre.Size = new System.Drawing.Size(0, 16);
+            this.lblVePre.TabIndex = 40;
+            // 
+            // lblCoPre
+            // 
+            this.lblCoPre.AutoSize = true;
+            this.lblCoPre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCoPre.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblCoPre.Location = new System.Drawing.Point(228, 63);
+            this.lblCoPre.Name = "lblCoPre";
+            this.lblCoPre.Size = new System.Drawing.Size(0, 16);
+            this.lblCoPre.TabIndex = 41;
+            // 
             // Existencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -788,5 +837,9 @@
         private System.Windows.Forms.CheckBox cBoxTodasPrecio;
         private System.Windows.Forms.CheckBox cBoxCoPrecio;
         private System.Windows.Forms.CheckBox cBoxVePrecio;
+        private System.Windows.Forms.Label lblVaPre;
+        private System.Windows.Forms.Label lblCoPre;
+        private System.Windows.Forms.Label lblVePre;
+        private System.Windows.Forms.Label lblRePre;
     }
 }
