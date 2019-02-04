@@ -12,7 +12,7 @@ namespace appSugerencias
 {
     public partial class Principal : Form
     {
-        string Usuario="GABY";
+        string Usuario="";
 
         
         public Principal()
@@ -21,12 +21,12 @@ namespace appSugerencias
             lblUsuario.Text = Usuario;
         }
 
-        //public Principal(string usuario)
-        //{
-        //    InitializeComponent();
-        //    Usuario = usuario;
-        //    lblUsuario.Text = Usuario;
-        //}
+        public Principal(string usuario)
+        {
+            InitializeComponent();
+            Usuario = usuario;
+            lblUsuario.Text = Usuario;
+        }
 
 
 
@@ -67,7 +67,8 @@ namespace appSugerencias
         {
             
 
-                 
+
+
 
         }
 
@@ -115,6 +116,28 @@ namespace appSugerencias
         {
             PagoComisiones pc = new PagoComisiones();
             pc.Show();
+        }
+
+        private void Principal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.ExitThread();
+        }
+
+        private void traspasosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void aplicarTraspasoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TraspasoTiendas appTras = new TraspasoTiendas(Usuario);
+            appTras.Show();
+        }
+
+        private void ofertasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Existencias exis = new Existencias();
+            exis.Show();
         }
     }
 }
