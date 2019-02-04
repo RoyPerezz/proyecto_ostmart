@@ -1164,26 +1164,26 @@ namespace appSugerencias
             }
         }
 
-        private void BT_limpiar_Click(object sender, EventArgs e)
-        {
-            TB_articulo.Text = "";
-            TB_desc.Text = "";
-            TB_precio1.Text = "";
-            TB_precio2.Text = "";
-            TB_costo.Text = "";
-            TB_fabricante.Text = "";
+        //private void BT_limpiar_Click(object sender, EventArgs e)
+        //{
+        //    TB_articulo.Text = "";
+        //    TB_desc.Text = "";
+        //    TB_precio1.Text = "";
+        //    TB_precio2.Text = "";
+        //    TB_costo.Text = "";
+        //    TB_fabricante.Text = "";
 
-            TB_bodega.Text = "";
-            TB_coloso.Text = "";
-            TB_rena.Text = "";
-            TB_vallarta.Text = "";
-            TB_velazquez.Text = "";
+        //    TB_bodega.Text = "";
+        //    TB_coloso.Text = "";
+        //    TB_rena.Text = "";
+        //    TB_vallarta.Text = "";
+        //    TB_velazquez.Text = "";
 
-            Lb_bodega.Text = "";
-            LB_rena.Text = "";
-            LB_coloso.Text = "";
-            LB_vallarta.Text = "";
-            LB_velazquez.Text = "";
-        }
+        //    Lb_bodega.Text = "";
+        //    LB_rena.Text = "";
+        //    LB_coloso.Text = "";
+        //    LB_vallarta.Text = "";
+        //    LB_velazquez.Text = "";
+        //}
     }
 }
