@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.IO;
@@ -25,6 +26,28 @@ namespace appSugerencias
             IP.Close();
             return ipn;
         }
+
+
+
+        public static MySqlConnection prueba()
+        {
+
+            TextReader IP;
+            IP = new StreamReader("IP.txt");
+            string server = IP.ReadLine();
+            IP.Close();
+            //Esto es una conexion lalalalalla
+
+            MySqlConnection con = new MySqlConnection("server=" + server + "; database=VALLARTA JUN 2018; Uid=root; pwd=;");
+            con.Open();
+
+
+
+            return con;
+
+        }
+
+        
 
         public static MySqlConnection conectar()
         {
