@@ -436,3 +436,4 @@ C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\D
 C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\stdole.dll
 C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\itextsharp.xml
 C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.ReporteTraspaso.resources
+C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.CotizacionTraspaso.resources
