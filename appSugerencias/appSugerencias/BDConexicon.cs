@@ -33,7 +33,7 @@ namespace appSugerencias
 
             
             string IP = optieneIp();
-            MySqlConnection con = new MySqlConnection("server="+IP+"; database=VALLARTA JUN 2018; Uid=root; pwd=;");
+            MySqlConnection con = new MySqlConnection("server="+IP+ "; database=PRUEBA_SISTEMAS; Uid=root; pwd=;");
             con.Open();
 
 
@@ -171,7 +171,7 @@ namespace appSugerencias
         public static MySqlConnection ConectarClose()
         {
             string IP = optieneIp();
-            MySqlConnection con = new MySqlConnection("server="+IP+"; database=VALLARTA JUN 2018; Uid=root; pwd=;");
+            MySqlConnection con = new MySqlConnection("server="+IP+ "; database=PRUEBA_SISTEMAS; Uid=root; pwd=;");
             con.Close();
 
 
