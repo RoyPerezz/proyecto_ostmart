@@ -533,11 +533,11 @@ namespace appSugerencias
 
                 parrafo.Clear();
 
-                //parrafo.Add(new Chunk("Aplico: ", negritas));
-                //parrafo.Add(new Chunk("", normal));
-                //doc.Add(parrafo);
+                parrafo.Add(new Chunk("Aplico: ", negritas));
+                parrafo.Add(new Chunk(Usuario, normal));
+                doc.Add(parrafo);
 
-                //parrafo.Clear();
+                parrafo.Clear();
 
                 //parrafo.Add(new Chunk("Observaciones: ", negritas));
                 //parrafo.Add(new Chunk("", normal));
