@@ -106,6 +106,11 @@ namespace appSugerencias
 
         }
 
+        private void frm_Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void textboxLogin_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))

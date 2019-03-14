@@ -168,6 +168,7 @@
             this.TB_articulo.Name = "TB_articulo";
             this.TB_articulo.Size = new System.Drawing.Size(481, 20);
             this.TB_articulo.TabIndex = 9;
+            this.TB_articulo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_articulo_KeyPress);
             // 
             // label4
             // 
