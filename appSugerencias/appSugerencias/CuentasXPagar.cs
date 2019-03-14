@@ -12,79 +12,266 @@ namespace appSugerencias
 {
     public partial class CuentasXPagar : Form
     {
+
+        MySqlConnection conectar;
+
+
         public CuentasXPagar()
         {
             InitializeComponent();
+            DG_datos.Columns[0].Width = 100;
+            DG_datos.Columns[1].Width = 130;
+            DG_datos.Columns[2].Width = 140;
+            DG_datos.Columns[3].Width = 120;
+            DG_datos.Columns[4].Width = 275;
+            DG_datos.Columns[5].Width = 60;
+            DG_datos.Columns[6].Width = 150;
+            DG_datos.Columns[7].Width = 150;
         }
 
-        String codprov = "";
+        double saldo = 0;
+        double importe=0;
+        DateTime fecha;
+        public void EstadoCuenta()
+        {
+          
+            MySqlCommand cmd = new MySqlCommand("select cp.cuenxpag,cp.proveedor,cp.fecha,cp.tipo_doc,cp.NO_REFEREN,cp.cargo_ab,cp.importe " +
+              "from cuenxpdet cp where cp.proveedor ='" + TB_proveedor.Text + "' ORDER BY cp.FECHA", conectar);
 
-        //********************************** OBTENGO LOS PROVEEDORES Y LOS ASIGNO A UN COMBOBOX******************************************************
+            MySqlDataReader dr = cmd.ExecuteReader();
+           
+            while (dr.Read())
+            {
+                importe =Convert.ToDouble( dr["importe"].ToString());
+                fecha = Convert.ToDateTime(dr["fecha"].ToString());
+                if (dr["cargo_ab"].ToString().Equals("C"))
+                {
+                    saldo += Convert.ToDouble(dr["importe"].ToString());
+                    //MessageBox.Show("Compra: "+aux);
+                }
+
+                else
+                {
+
+
+                    saldo -= Convert.ToDouble(dr["importe"].ToString());
+                    //MessageBox.Show("Abono: " + aux);
+                }
+
+
+
+                DG_datos.Rows.Add(dr["cuenxpag"].ToString(), dr["proveedor"].ToString(), fecha.ToString("yyyy/MM/dd"), dr["tipo_doc"].ToString(), dr["no_referen"].ToString(), dr["cargo_ab"].ToString(), importe.ToString("C"), String.Format("{0:0.##}", saldo.ToString("C")));
+
+            }
+
+            DG_datos.Columns[0].Width = 100;
+            DG_datos.Columns[1].Width = 130;
+            DG_datos.Columns[2].Width = 140;
+            DG_datos.Columns[3].Width = 120;
+            DG_datos.Columns[4].Width = 275;
+            DG_datos.Columns[5].Width = 60;
+            DG_datos.Columns[6].Width = 150;
+            DG_datos.Columns[7].Width = 150;
+
+            conectar.Close();
+        }
+
+
+        //################################## CARGA EN EL DATAGRID LOS DATOS DE LAS COMPRAS A ESE PROVEEDOR ###################################
+        //public void CargarGrid()
+        //{
+
+
+        //    MySqlCommand cmd = new MySqlCommand("SELECT fecha as FECHA, cuenxpag as ID, factura as DESCRIPCION, importe as CARGO, saldo as SALDO from cuenxpag where proveedor='" + TB_proveedor.Text+"'", BDConexicon.conectar());
+        //    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+        //    DataTable dt = new DataTable();
+
+
+           
+
+        //    da.Fill(dt);
+        //    DG_datos.DataSource = dt;
+
+
+        //    DG_datos.Columns[0].Width = 130;
+        //    DG_datos.Columns[1].Width = 100;
+        //    DG_datos.Columns[2].Width = 500;
+        //    DG_datos.Columns[3].Width = 160;
+        //    DG_datos.Columns[4].Width = 160;
+
+
+        //    BDConexicon.ConectarClose();
+          
+
+
+        //}
+
+        //###################################### OBTENER LOS NOMBRES DE LOS PROVEEDORES #######################################################
         public void proveedores()
         {
-           
-            MySqlCommand cmd = new MySqlCommand("select nombre from proveed order by nombre",BDConexicon.prueba());
-            MySqlDataReader rd = cmd.ExecuteReader();
+            MySqlCommand cmd = new MySqlCommand("SELECT nombre FROM proveed ORDER BY nombre ASC",conectar);
+            MySqlDataReader dr = cmd.ExecuteReader();
 
-            while (rd.Read())
+            while (dr.Read())
             {
-                CB_proveedor.Items.Add(rd["nombre"].ToString());
+              
+                CB_proveedor.Items.Add(dr["nombre"].ToString());
             }
 
-            rd.Close();
-
-            
-
-        }
-
-        //***************************** obtener datos de la tabla cuenxpdet ******************************************************************************
-
-        public void Cuentaspend()
-        {
-            MySqlCommand cmd = new MySqlCommand("select sum(importe)", BDConexicon.prueba());
-            MySqlDataReader rd = cmd.ExecuteReader();
-
+            dr.Close();
+           // conectar.Close();
         }
 
 
+        
 
 
-        //***************************** LLENAR DATAGRIDVIEW CON LOS DATOS DE ESE PROVEEDOR A QUIEN SE LE VA A PAGAR****************************************
-
-        public void llenarGrid()
-        {
-            MySqlCommand cmd = new MySqlCommand("select fecha,importe from cuenxpag where proveedor='"+CB_proveedor.SelectedItem.ToString()+"'", BDConexicon.prueba());
-            MySqlDataReader rd = cmd.ExecuteReader();
-
-            while (rd.Read())
-            {
-                DG_historial.Rows.Add(rd["fecha"].ToString(),rd["importe"].ToString());
-            }
-
-        }
-
-
-
-
-
+        //############################################## CARGA LOS NOMBRES EN EL COMBOBOX  ######################################################
         private void CuentasXPagar_Load(object sender, EventArgs e)
         {
-            proveedores();
+            //proveedores();
+           
         }
 
-   
+
+        //############################### OBTIENE EL ID DEL PROVEEDOR CADA VEZ QUE SE SELECCIONA DEL COMBOBOX #######################################
 
         private void CB_proveedor_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //OBTENGO EL ID DEL PROVEEDOR SELECCIONADO EN EL COMBOBOX
-            MySqlCommand cmd2 = new MySqlCommand("select proveedor from proveed where nombre='" + CB_proveedor.SelectedItem.ToString() + "'", BDConexicon.prueba());
-            MySqlDataReader rd2 = cmd2.ExecuteReader();
-            while (rd2.Read())
+            
+            DG_datos.Rows.Clear();
+            saldo = 0;
+            try
             {
-                codprov = rd2["PROVEEDOR"].ToString();
+                MySqlCommand cmd = new MySqlCommand("SELECT PROVEEDOR FROM proveed where NOMBRE='" + CB_proveedor.SelectedItem.ToString() + "'", conectar);
+                MySqlDataReader dr = cmd.ExecuteReader();
+                //MessageBox.Show(conectar.State.ToString());
+                while (dr.Read())
+                {
+
+                    TB_proveedor.Text = dr["proveedor"].ToString();
+                    conectar.Close();
+                }
+
+              
+
+               
+
+
+
+                EstadoCuenta();
+                dr.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(""+ex);
             }
 
-            //MessageBox.Show("CODIGO:"+codprov);
+           
+        }
+
+        //private void DG_datos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    string id = this.DG_datos.CurrentRow.Cells[0].Value.ToString();
+        //    //    string des = this.DG_datos.CurrentRow.Cells[2].Value.ToString();
+        //    //    double importe = Convert.ToDouble(this.DG_datos.CurrentRow.Cells[3].Value);
+        //    //    double saldo = Convert.ToDouble(this.DG_datos.CurrentRow.Cells[4].Value);
+
+        //    Desglose d = new Desglose();
+        //    d.CuentXPagar(id);
+        //    d.datoCuenta(id);
+        //    d.Show();
+        //}
+
+        //private void DG_datos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        //{
+        //    if (DG_datos.Columns[e.ColumnIndex].Name == "SALDO")
+        //    {
+        //        if (Convert.ToInt32(e.Value)<=0)
+        //        {
+        //            e.CellStyle.ForeColor = Color.Green;
+        //        }
+        //        else
+        //        {
+        //            e.CellStyle.ForeColor = Color.Red;
+        //        }
+        //    }
+        //}
+
+        private void TB_filtro_TextChanged(object sender, EventArgs e)
+        {
+            if (TB_filtro.Text=="")
+            {
+                CB_proveedor.SelectedIndex = -1;
+                DG_datos.DataSource = null;
+            }
+            else
+            {
+                int index = CB_proveedor.FindString(TB_filtro.Text.ToUpper());
+                CB_proveedor.SelectedIndex = index;
+               
+            }
+
+
+
+
+        }
+
+        private void DG_datos_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            string id = this.DG_datos.CurrentRow.Cells[0].Value.ToString();
+            //    string des = this.DG_datos.CurrentRow.Cells[2].Value.ToString();
+             double importe = Convert.ToDouble(this.DG_datos.CurrentRow.Cells[6].Value);
+             double saldo = Convert.ToDouble(this.DG_datos.CurrentRow.Cells[7].Value);
+
+            Desglose d = new Desglose();
+            d.CuentXPagar(id);
+            d.datoCuenta(id,importe,saldo);
+            d.Show();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void ElegirSucursar()
+        {
+            if(CB_sucursal.SelectedItem.Equals("BODEGA"))
+            {
+               conectar = BDConexicon.BodegaOpen();
+                proveedores();
+            }
+
+            if (CB_sucursal.SelectedItem.Equals("RENA"))
+            {
+                conectar = BDConexicon.RenaOpen();
+                proveedores();
+            }
+
+            if (CB_sucursal.SelectedItem.Equals("COLOSO"))
+            {
+                conectar = BDConexicon.ColosoOpen();
+                proveedores();
+            }
+
+            if (CB_sucursal.SelectedItem.Equals("VELAZQUEZ"))
+            {
+                conectar = BDConexicon.VelazquezOpen();
+                proveedores();
+            }
+
+            if (CB_sucursal.SelectedItem.Equals("VALLARTA"))
+            {
+                conectar = BDConexicon.VallartaOpen();
+                MessageBox.Show(conectar.State.ToString());
+                proveedores();
+            }
+        }
+
+        private void CB_sucursal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ElegirSucursar();
         }
     }
 }
