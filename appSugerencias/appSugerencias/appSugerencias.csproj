@@ -119,6 +119,18 @@
     <Compile Include="CotizacionTraspaso.Designer.cs">
       <DependentUpon>CotizacionTraspaso.cs</DependentUpon>
     </Compile>
+    <Compile Include="CuentasXPagar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasXPagar.Designer.cs">
+      <DependentUpon>CuentasXPagar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Desglose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Desglose.Designer.cs">
+      <DependentUpon>Desglose.cs</DependentUpon>
+    </Compile>
     <Compile Include="DS_conexion.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -221,6 +233,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CotizacionTraspaso.resx">
       <DependentUpon>CotizacionTraspaso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasXPagar.resx">
+      <DependentUpon>CuentasXPagar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Desglose.resx">
+      <DependentUpon>Desglose.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Existencias.resx">
       <DependentUpon>Existencias.cs</DependentUpon>
