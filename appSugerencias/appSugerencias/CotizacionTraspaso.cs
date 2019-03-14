@@ -487,7 +487,7 @@ namespace appSugerencias
 
 
 
-                parrafoEnc.Add("Traspaso de " + origen + " a " + destino);
+                parrafoEnc.Add("TRASPASO DE " + origen + " a " + destino);
                 doc.Add(parrafoEnc);
                 parrafoEnc.Clear();
 

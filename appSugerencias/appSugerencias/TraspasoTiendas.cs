@@ -553,7 +553,7 @@ namespace appSugerencias
                 }
                 catch (Exception e)
                 {
-                    lblConexion.Text = "Sin Conexion";
+                    lblConexion.Text = "Sin Conexion VA";
                     lblConexion.ForeColor = Color.Red;
                 }
 
@@ -577,13 +577,37 @@ namespace appSugerencias
             }
             else if (tienda == "VELAZQUEZ")
             {
-                selectDatos(BDConexicon.VelazquezOpen());
                 
+                try
+                {
+                    selectDatos(BDConexicon.VelazquezOpen());
+                    lblConexion.Text = "Conectado VE";
+                    lblConexion.ForeColor = Color.DarkGreen;
+                }
+                catch (Exception e)
+                {
+                    lblConexion.Text = "Sin Conexion VE";
+                    lblConexion.ForeColor = Color.Red;
+                    limpiarTraspaso();
+                }
+
             }
             else if (tienda == "COLOSO")
             {
-                selectDatos(BDConexicon.ColosoOpen());
                 
+                try
+                {
+                    selectDatos(BDConexicon.ColosoOpen());
+                    lblConexion.Text = "Conectado CO";
+                    lblConexion.ForeColor = Color.DarkGreen;
+                }
+                catch (Exception e)
+                {
+                    lblConexion.Text = "Sin Conexion CO";
+                    lblConexion.ForeColor = Color.Red;
+                    limpiarTraspaso();
+                }
+
             }
 
         }
@@ -1047,11 +1071,11 @@ namespace appSugerencias
             {
                 MessageBox.Show("Seleccione un Traspaso");
             }
-            else if (txtEstatus.Text == "SOLICITADO" || txtEstatus.Text == "CANCELADO")
+            else if (txtEstatus.Text == "CANCELADO")
             {
                 MessageBox.Show("El Estatus debe ser APLICADO");
             }
-            else if (txtEstatus.Text == "APLICADO")
+            else if (txtEstatus.Text=="SOLICITADO" || txtEstatus.Text == "APLICADO")
             {
 
                 ImprimeReporte();           
