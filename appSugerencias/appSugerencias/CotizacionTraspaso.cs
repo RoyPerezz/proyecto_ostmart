@@ -16,13 +16,20 @@ namespace appSugerencias
 {
     public partial class CotizacionTraspaso : Form
     {
+        int existencia = 0;
+        TextReader IP;
+        int cantidad = 0;
+        string Usuario;
         public CotizacionTraspaso()
         {
             InitializeComponent();
         }
-        int existencia = 0;
-        TextReader IP;
-        int cantidad = 0;
+        public CotizacionTraspaso(string usuario)
+        {
+            InitializeComponent();
+            Usuario = usuario;
+        }
+        
 
         //########################### OBTIENE EL NOMBRE DE LA SUCURSAL ################################################################
         public void Sucursal()// obtiene el nombre de la sucursal, debe cambiar el método de conexión según la suc. donde se use
@@ -65,6 +72,7 @@ namespace appSugerencias
 
         private void CotizacionTraspaso_Load(object sender, EventArgs e)
         {
+            
             Sucursal();
             DG_datos.Columns[2].Width = 330;
             DG_datos.Columns[3].Width = 75;
@@ -246,7 +254,7 @@ namespace appSugerencias
                 MySqlCommand cmd = new MySqlCommand("insert into rd_traspaso(fecha, usuario, origen, destino, status, motivo) values(?fecha, ?usuario, ?origen, ?destino, ?status, ?motivo)", BDConexicon.conectar());
                 DateTime fecha = DT_fecha.Value;
                 cmd.Parameters.AddWithValue("?fecha", fecha.ToString("yyyy,MM,dd"));
-                cmd.Parameters.AddWithValue("?usuario", "ADMIN");
+                cmd.Parameters.AddWithValue("?usuario", Usuario);
                 cmd.Parameters.AddWithValue("?origen", TB_origen.Text);
                 cmd.Parameters.AddWithValue("?destino", CB_destino.SelectedItem);
                 cmd.Parameters.AddWithValue("?status", "SOLICITADO");

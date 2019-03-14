@@ -16,7 +16,7 @@ namespace appSugerencias
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CotizacionTraspaso());
+            Application.Run(new frm_Login());
         }
     }
 }

@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.lblUsuario = new System.Windows.Forms.Label();
             this.traspasosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.crearTraspasoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aplicarTraspasoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
+            this.toolsmCreaTraspaso = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsmAplicaTraspaso = new System.Windows.Forms.ToolStripMenuItem();
             this.ofertasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,47 +52,29 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // lblUsuario
-            // 
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(81, 44);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(37, 13);
-            this.lblUsuario.TabIndex = 1;
-            this.lblUsuario.Text = "USER";
-            // 
             // traspasosToolStripMenuItem
             // 
             this.traspasosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.crearTraspasoToolStripMenuItem,
-            this.aplicarTraspasoToolStripMenuItem});
+            this.toolsmCreaTraspaso,
+            this.toolsmAplicaTraspaso});
             this.traspasosToolStripMenuItem.Name = "traspasosToolStripMenuItem";
             this.traspasosToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.traspasosToolStripMenuItem.Text = "Traspasos";
             this.traspasosToolStripMenuItem.Click += new System.EventHandler(this.traspasosToolStripMenuItem_Click);
             // 
-            // crearTraspasoToolStripMenuItem
+            // toolsmCreaTraspaso
             // 
-            this.crearTraspasoToolStripMenuItem.Name = "crearTraspasoToolStripMenuItem";
-            this.crearTraspasoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.crearTraspasoToolStripMenuItem.Text = "Crear Traspaso";
+            this.toolsmCreaTraspaso.Name = "toolsmCreaTraspaso";
+            this.toolsmCreaTraspaso.Size = new System.Drawing.Size(180, 22);
+            this.toolsmCreaTraspaso.Text = "Crear Traspaso";
+            this.toolsmCreaTraspaso.Click += new System.EventHandler(this.crearTraspasoToolStripMenuItem_Click);
             // 
-            // aplicarTraspasoToolStripMenuItem
+            // toolsmAplicaTraspaso
             // 
-            this.aplicarTraspasoToolStripMenuItem.Name = "aplicarTraspasoToolStripMenuItem";
-            this.aplicarTraspasoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.aplicarTraspasoToolStripMenuItem.Text = "Aplicar Traspaso";
-            this.aplicarTraspasoToolStripMenuItem.Click += new System.EventHandler(this.aplicarTraspasoToolStripMenuItem_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 16);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Usuario: ";
+            this.toolsmAplicaTraspaso.Name = "toolsmAplicaTraspaso";
+            this.toolsmAplicaTraspaso.Size = new System.Drawing.Size(180, 22);
+            this.toolsmAplicaTraspaso.Text = "Aplicar Traspaso";
+            this.toolsmAplicaTraspaso.Click += new System.EventHandler(this.aplicarTraspasoToolStripMenuItem_Click);
             // 
             // ofertasToolStripMenuItem
             // 
@@ -106,6 +88,25 @@
             this.pagosToolStripMenuItem.Name = "pagosToolStripMenuItem";
             this.pagosToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
             this.pagosToolStripMenuItem.Text = "Pagos";
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Location = new System.Drawing.Point(81, 44);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(37, 13);
+            this.lblUsuario.TabIndex = 1;
+            this.lblUsuario.Text = "USER";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(70, 16);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Usuario: ";
             // 
             // Principal
             // 
@@ -132,8 +133,8 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.ToolStripMenuItem traspasosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem crearTraspasoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aplicarTraspasoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolsmCreaTraspaso;
+        private System.Windows.Forms.ToolStripMenuItem toolsmAplicaTraspaso;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem ofertasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pagosToolStripMenuItem;

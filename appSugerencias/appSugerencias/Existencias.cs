@@ -11,10 +11,22 @@ using System.Windows.Forms;
 namespace appSugerencias
 {
     public partial class Existencias : Form
+        
+
     {
+        string Usuario;
+        string Area;
+
         public Existencias()
         {
             InitializeComponent();
+        }
+
+        public Existencias(string usuario, string area)
+        {
+            InitializeComponent();
+            Usuario = usuario;
+            Area = area;
         }
 
 
@@ -46,7 +58,7 @@ namespace appSugerencias
                     LB_vallarta.Text = "No existe";
                     LB_vallarta.ForeColor = Color.Red;
                 }
-
+                rd.Close();
             }
             catch (Exception e)
             {
@@ -80,7 +92,7 @@ namespace appSugerencias
                     LB_velazquez.Text = "No existe";
                     LB_velazquez.ForeColor = Color.Red;
                 }
-                
+                rd.Close();
             }
             catch (Exception e)
             {
@@ -114,7 +126,7 @@ namespace appSugerencias
                     LB_rena.Text = "No existe";
                     LB_rena.ForeColor = Color.Red;
                 }
-               
+                rd.Close();
                 
 
             }
@@ -151,56 +163,58 @@ namespace appSugerencias
                     LB_coloso.Text = "No existe";
                     LB_coloso.ForeColor = Color.Red;
                 }
+                rd.Close();
                
             }
+            
             catch (Exception e)
             {
                 LB_coloso.Text = "Sin conexion";
                 LB_coloso.ForeColor = Color.Red;
             }
-
+            
             BDConexicon.ColosoClose();
         }
 
-        public void Bodega()
-        {
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'",BDConexicon.BodegaOpen());
-                MySqlDataReader rd = cmd.ExecuteReader();
+        //public void Bodega()
+        //{
+        //    try
+        //    {
+        //        MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'",BDConexicon.BodegaOpen());
+        //        MySqlDataReader rd = cmd.ExecuteReader();
 
-                //while (rd.Read())
-                //{
-                //    TB_bodega.Text = rd[0].ToString();
-                //    Lb_bodega.Text = "Conectado";
-                //}
+        //        //while (rd.Read())
+        //        //{
+        //        //    TB_bodega.Text = rd[0].ToString();
+        //        //    Lb_bodega.Text = "Conectado";
+        //        //}
 
-                if (rd.Read())
-                {
-                    TB_bodega.Text = rd[0].ToString();
-                    Lb_bodega.Text = "Conectado";
-                    Lb_bodega.ForeColor = Color.DarkGreen;
-                }
-                else
-                {
-                    Lb_bodega.Text = "No existe";
-                    Lb_bodega.ForeColor = Color.Red;
-                }
+        //        if (rd.Read())
+        //        {
+        //            TB_bodega.Text = rd[0].ToString();
+        //            Lb_bodega.Text = "Conectado";
+        //            Lb_bodega.ForeColor = Color.DarkGreen;
+        //        }
+        //        else
+        //        {
+        //            Lb_bodega.Text = "No existe";
+        //            Lb_bodega.ForeColor = Color.Red;
+        //        }
                
-            }
-            catch (Exception e)
-            {
-                Lb_bodega.Text = "Sin conexion";
-                Lb_bodega.ForeColor = Color.Red;
-            }
-        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Lb_bodega.Text = "Sin conexion";
+        //        Lb_bodega.ForeColor = Color.Red;
+        //    }
+        //}
 
 
         public void DatosProducto()
         {
             try
             {
-                MySqlCommand cmd = new MySqlCommand("select descrip, precio1,precio2, costo_u,fabricante from prods where articulo ='" + TB_articulo.Text + "'", BDConexicon.BodegaOpen());
+                MySqlCommand cmd = new MySqlCommand("select descrip, precio1,precio2, costo_u, existencia,fabricante from prods where articulo ='" + TB_articulo.Text + "'", BDConexicon.BodegaOpen());
                 MySqlDataReader rd = cmd.ExecuteReader();
 
                 while (rd.Read())
@@ -216,6 +230,10 @@ namespace appSugerencias
                     TB_precio1.Text = ivaPrecio1.ToString();
                     TB_precio2.Text = ivaPrecio2.ToString();
 
+                    TB_bodega.Text = rd["existencia"].ToString();
+                    Lb_bodega.Text = "Conectado";
+                    Lb_bodega.ForeColor = Color.DarkGreen;
+
 
                     double costo = Convert.ToDouble(rd["COSTO_U"].ToString());
                     double IvaCosto = costo + costo * 0.16;
@@ -223,13 +241,18 @@ namespace appSugerencias
                     TB_costo.Text = IvaCosto.ToString();
                     TB_fabricante.Text = rd["fabricante"].ToString();
                 }
+                rd.Close();
             }
             catch (Exception e)
             {
                 Lb_bodega.Text = "Sin conexion";
                 Lb_bodega.ForeColor = Color.Red;
             }
+
+            BDConexicon.BodegaClose();
         }
+
+
 
 
         private void BTN_aceptar_Click(object sender, EventArgs e)
@@ -257,7 +280,7 @@ namespace appSugerencias
                 lblCoPre.Text = "";
 
                 DatosProducto();
-                Bodega();
+                //Bodega();
                 Vallarta();
                 Rena();
                 Velazquez();
@@ -337,12 +360,13 @@ namespace appSugerencias
                 cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
                 MySqlDataReader mdrr;
                 mdrr = cmdoo.ExecuteReader();
+                mdrr.Close();
 
                 MySqlCommand cmdo = new MySqlCommand("DELETE FROM ofertas WHERE articulo=?articulo", BDConexicon.VallartaOpen());
                 cmdo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
                 MySqlDataReader mdr;
                 mdr = cmdo.ExecuteReader();
-
+                mdr.Close();
 
                 MySqlCommand cmd = new MySqlCommand("INSERT INTO ofertas(articulo,fechainicial,fechafinal,porporcentaje,porcentaje) VALUES(?articulo,?fechainicial,?fechafinal,?porporcentaje,?porcentaje)", BDConexicon.VallartaOpen());
                 cmd.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
@@ -382,13 +406,13 @@ namespace appSugerencias
                 cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
                 MySqlDataReader mdrr;
                 mdrr = cmdoo.ExecuteReader();
-                
+                mdrr.Close();
 
                 MySqlCommand cmdo = new MySqlCommand("DELETE FROM ofertas WHERE articulo=?articulo", BDConexicon.RenaOpen());
                 cmdo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
                 MySqlDataReader mdr;
                 mdr = cmdo.ExecuteReader();
-
+                mdr.Close();
 
                 MySqlCommand cmd = new MySqlCommand("INSERT INTO ofertas(articulo,fechainicial,fechafinal,porporcentaje,porcentaje) VALUES(?articulo,?fechainicial,?fechafinal,?porporcentaje,?porcentaje)", BDConexicon.RenaOpen());
                 cmd.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
@@ -427,12 +451,13 @@ namespace appSugerencias
                 cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
                 MySqlDataReader mdrr;
                 mdrr = cmdoo.ExecuteReader();
+                mdrr.Close();
 
                 MySqlCommand cmdo = new MySqlCommand("DELETE FROM ofertas WHERE articulo=?articulo", BDConexicon.VelazquezOpen());
                 cmdo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
                 MySqlDataReader mdr;
                 mdr = cmdo.ExecuteReader();
-
+                mdr.Close();
 
                 MySqlCommand cmd = new MySqlCommand("INSERT INTO ofertas(articulo,fechainicial,fechafinal,porporcentaje,porcentaje) VALUES(?articulo,?fechainicial,?fechafinal,?porporcentaje,?porcentaje)", BDConexicon.VelazquezOpen());
                 cmd.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
@@ -472,12 +497,13 @@ namespace appSugerencias
                 cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
                 MySqlDataReader mdrr;
                 mdrr = cmdoo.ExecuteReader();
+                mdrr.Close();
 
                 MySqlCommand cmdo = new MySqlCommand("DELETE FROM ofertas WHERE articulo=?articulo", BDConexicon.ColosoOpen());
                 cmdo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
                 MySqlDataReader mdr;
                 mdr = cmdo.ExecuteReader();
-
+                mdr.Close();
 
                 MySqlCommand cmd = new MySqlCommand("INSERT INTO ofertas(articulo,fechainicial,fechafinal,porporcentaje,porcentaje) VALUES(?articulo,?fechainicial,?fechafinal,?porporcentaje,?porcentaje)", BDConexicon.ColosoOpen());
                 cmd.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
@@ -534,7 +560,25 @@ namespace appSugerencias
 
         private void Existencias_Load_1(object sender, EventArgs e)
         {
+            //#################################################### ACTUALIZACION PARA ACTIVAR  SEGUN USUARIO #####################################
+            //if (Area == "TRASPASOS" || Area == "SISTEMAS" || Area == "SUPERVICION")
+            //{
+            //    panelOfertas.Enabled = true;
+            //}
+            //else
+            //{
+            //    panelOfertas.Enabled = false;
+            //}
 
+
+            //if (Area == "TRASPASOS" || Area == "SISTEMAS" || Area == "SUPERVICION")
+            //{
+            //    panelPrecio.Enabled = true;
+            //}
+            //else
+            //{
+            //    panelPrecio.Enabled = false;
+            //}
         }
 
         private void groupBox2_Enter_2(object sender, EventArgs e)
@@ -1014,7 +1058,7 @@ namespace appSugerencias
                 cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
                 MySqlDataReader mdrr;
                 mdrr = cmdoo.ExecuteReader();
-
+                mdrr.Close();
               
 
                 lblVaPre.Text = "OK";
@@ -1048,7 +1092,7 @@ namespace appSugerencias
                 cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
                 MySqlDataReader mdrr;
                 mdrr = cmdoo.ExecuteReader();
-
+                mdrr.Close();
 
 
                 lblRePre.Text = "OK";
@@ -1080,7 +1124,7 @@ namespace appSugerencias
                 cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
                 MySqlDataReader mdrr;
                 mdrr = cmdoo.ExecuteReader();
-
+                mdrr.Close();
 
 
                 lblVePre.Text = "OK";
@@ -1112,7 +1156,7 @@ namespace appSugerencias
                 cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
                 MySqlDataReader mdrr;
                 mdrr = cmdoo.ExecuteReader();
-
+                mdrr.Close();
 
 
                 lblCoPre.Text = "OK";
@@ -1161,6 +1205,79 @@ namespace appSugerencias
                 cBoxRe.Checked = false;
                 cBoxVe.Checked = false;
                 cBoxCo.Checked = false;
+            }
+        }
+
+        private void BT_limpiar_Click_1(object sender, EventArgs e)
+        {
+            borrarArticulo();
+            limpiarOferta();
+            limpiarPrecio();
+
+            lblVa.Text = "";
+            lblRe.Text = "";
+            lblVe.Text = "";
+            lblCo.Text = "";
+
+            lblVaPre.Text = "";
+            lblRePre.Text = "";
+            lblVePre.Text = "";
+            lblCoPre.Text = "";
+        }
+
+        private void TB_articulo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                if (TB_articulo.Text.Equals(""))
+                {
+                    MessageBox.Show("Ingresa un artículo");
+                }
+                else
+                {
+
+
+                    lblVa.Text = "";
+                    lblRe.Text = "";
+                    lblVe.Text = "";
+                    lblCo.Text = "";
+
+                    lblVaPre.Text = "";
+                    lblRePre.Text = "";
+                    lblVePre.Text = "";
+                    lblCoPre.Text = "";
+
+                    DatosProducto();
+                    //Bodega();
+                    Vallarta();
+                    Rena();
+                    Velazquez();
+
+                    Coloso();
+
+
+
+                }
+            }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Space))
+            {
+                borrarArticulo();
+                limpiarOferta();
+                limpiarPrecio();
+
+                lblVa.Text = "";
+                lblRe.Text = "";
+                lblVe.Text = "";
+                lblCo.Text = "";
+
+                lblVaPre.Text = "";
+                lblRePre.Text = "";
+                lblVePre.Text = "";
+                lblCoPre.Text = "";
+                TB_articulo.Focus();
+                TB_articulo.SelectAll();
+                SendKeys.Send("{BACKSPACE}");
             }
         }
     }

@@ -48,6 +48,7 @@ namespace appSugerencias
 
         public void seleccionar(string comando, string usu, string pass)
         {
+            string area;
 
             MySqlCommand cmd = new MySqlCommand(comando, BDConexicon.conectar());
             cmd.Parameters.Add("?usuario", MySqlDbType.VarChar).Value = usu;
@@ -58,9 +59,9 @@ namespace appSugerencias
             {
                 //MessageBox.Show("HOLA USUARIO " + usu);
                 this.Hide();
-
-
-                Principal ini = new Principal(usu);
+                area = mdr.GetString("area");
+                
+                Principal ini = new Principal(usu,area);
                 //Principal ini = new Principal();
 
                 ini.Show();
@@ -97,6 +98,11 @@ namespace appSugerencias
 
 
             dan();
+
+        }
+
+        private void textboxLogin_TextChanged(object sender, EventArgs e)
+        {
 
         }
 

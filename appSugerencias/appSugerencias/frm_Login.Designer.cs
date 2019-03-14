@@ -49,6 +49,7 @@
             this.textboxLogin.PasswordChar = '*';
             this.textboxLogin.Size = new System.Drawing.Size(225, 22);
             this.textboxLogin.TabIndex = 0;
+            this.textboxLogin.TextChanged += new System.EventHandler(this.textboxLogin_TextChanged);
             this.textboxLogin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textboxLogin_KeyPress);
             // 
             // button1

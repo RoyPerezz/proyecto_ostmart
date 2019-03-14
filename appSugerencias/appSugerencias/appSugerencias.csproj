@@ -173,12 +173,25 @@
     <Compile Include="frm_validarcajas.Designer.cs">
       <DependentUpon>frm_validarcajas.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_Verificador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Verificador.Designer.cs">
+      <DependentUpon>frm_Verificador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_VerificadorItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_VerificadorItems.Designer.cs">
+      <DependentUpon>frm_VerificadorItems.cs</DependentUpon>
+    </Compile>
     <Compile Include="ImprimirReporte.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ImprimirReporte.Designer.cs">
       <DependentUpon>ImprimirReporte.cs</DependentUpon>
     </Compile>
+    <Compile Include="InterfaceComunicacion.cs" />
     <Compile Include="PagoComisiones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,6 +257,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_validarcajas.resx">
       <DependentUpon>frm_validarcajas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Verificador.resx">
+      <DependentUpon>frm_Verificador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_VerificadorItems.resx">
+      <DependentUpon>frm_VerificadorItems.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ImprimirReporte.resx">
       <DependentUpon>ImprimirReporte.cs</DependentUpon>

@@ -33,7 +33,7 @@ namespace appSugerencias
 
             
             string IP = optieneIp();
-            MySqlConnection con = new MySqlConnection("server="+IP+"; database=PRUEBA_SISTEMAS; Uid=root; pwd=;");
+            MySqlConnection con = new MySqlConnection("server="+IP+ "; database=MyBusinessDelta; Uid=root; pwd=;");
             con.Open();
 
 
@@ -48,7 +48,7 @@ namespace appSugerencias
 
             
 
-            MySqlConnection conVallarta = new MySqlConnection("server=192.168.1.2; database=PRUEBA_SISTEMAS; Uid=root; pwd=;");
+            MySqlConnection conVallarta = new MySqlConnection("server=192.168.1.2; database=MyBusinessDelta; Uid=root; pwd=;");
             conVallarta.Open();
            
 
@@ -61,7 +61,7 @@ namespace appSugerencias
         public static MySqlConnection RenaOpen()
         {
 
-            MySqlConnection conRena = new MySqlConnection("server=192.168.2.2; database=PRUEB_SISTEMAS; Uid=root; pwd=;");
+            MySqlConnection conRena = new MySqlConnection("server=192.168.2.2; database=MyBusinessDelta; Uid=root; pwd=;");
             conRena.Open();
 
 
@@ -73,7 +73,7 @@ namespace appSugerencias
         public static MySqlConnection VelazquezOpen()
         {
 
-            MySqlConnection conVelazquez = new MySqlConnection("server=192.168.4.2; database=PRUEBA_SISTEMAS; Uid=root; pwd=;");
+            MySqlConnection conVelazquez = new MySqlConnection("server=192.168.4.2; database=MyBusinessDelta; Uid=root; pwd=;");
             conVelazquez.Open();
 
 
@@ -87,7 +87,7 @@ namespace appSugerencias
         public static MySqlConnection ColosoOpen()
         {
 
-            MySqlConnection conColoso = new MySqlConnection("server=192.168.3.2; database=PRUEBA_SISTEMAS; Uid=root; pwd=;");
+            MySqlConnection conColoso = new MySqlConnection("server=192.168.3.2; database=MyBusinessDelta; Uid=root; pwd=;");
             conColoso.Open();
 
 
@@ -111,7 +111,7 @@ namespace appSugerencias
         public static MySqlConnection VallartaClose()
         {
 
-            MySqlConnection conVallarta = new MySqlConnection("server=192.168.1.2; database=PRUEBA_SISTEMAS; Uid=root; pwd=;");
+            MySqlConnection conVallarta = new MySqlConnection("server=192.168.1.2; database=MyBusinessDelta; Uid=root; pwd=;");
             conVallarta.Close(); 
 
 
@@ -123,7 +123,7 @@ namespace appSugerencias
         public static MySqlConnection RenaClose()
         {
 
-            MySqlConnection conRena = new MySqlConnection("server=192.168.2.2; database=PRUEBA_SISTEMAS; Uid=root; pwd=;");
+            MySqlConnection conRena = new MySqlConnection("server=192.168.2.2; database=MyBusinessDelta; Uid=root; pwd=;");
             conRena.Close();
 
 
@@ -135,7 +135,7 @@ namespace appSugerencias
         public static MySqlConnection VelazquezClose()
         {
 
-            MySqlConnection conVelazquez = new MySqlConnection("server=192.168.4.2; database=PRUEBA_SISTEMAS; Uid=root; pwd=;");
+            MySqlConnection conVelazquez = new MySqlConnection("server=192.168.4.2; database=MyBusinessDelta; Uid=root; pwd=;");
             conVelazquez.Close();
 
 
@@ -147,7 +147,7 @@ namespace appSugerencias
         public static MySqlConnection ColosoClose()
         {
 
-            MySqlConnection conColoso = new MySqlConnection("server=192.168.3.2; database=PRUEBA_SISTEMAS; Uid=root; pwd=;");
+            MySqlConnection conColoso = new MySqlConnection("server=192.168.3.2; database=MyBusinessDelta; Uid=root; pwd=;");
             conColoso.Close();
 
 
@@ -171,7 +171,7 @@ namespace appSugerencias
         public static MySqlConnection ConectarClose()
         {
             string IP = optieneIp();
-            MySqlConnection con = new MySqlConnection("server="+IP+"; database=PRUEBA_SISTEMAS; Uid=root; pwd=;");
+            MySqlConnection con = new MySqlConnection("server="+IP+ "; database=MyBusinessDelta; Uid=root; pwd=;");
             con.Close();
 
 

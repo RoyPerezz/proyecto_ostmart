@@ -13,7 +13,7 @@ namespace appSugerencias
     public partial class Principal : Form
     {
         string Usuario="";
-
+        string Area;
         
         public Principal()
         {
@@ -21,13 +21,16 @@ namespace appSugerencias
             lblUsuario.Text = Usuario;
         }
 
-        public Principal(string usuario)
+        public Principal(string usuario,string area)
         {
             InitializeComponent();
             Usuario = usuario;
+            Area = area;
             lblUsuario.Text = Usuario;
+            
         }
 
+        
 
 
 
@@ -65,7 +68,25 @@ namespace appSugerencias
 
         private void Principal_Load(object sender, EventArgs e)
         {
-            
+            if (Area == "TRASPASOS" || Area == "SISTEMAS")
+            {
+                toolsmAplicaTraspaso.Enabled = true;
+            }
+            else
+            {
+                toolsmAplicaTraspaso.Enabled = false;
+            }
+
+
+            if (Area == "BODEGA" || Area == "SISTEMAS" || Area == "SUPERVICION")
+            {
+                toolsmCreaTraspaso.Enabled = true;
+            }
+            else
+            {
+                toolsmCreaTraspaso.Enabled = false;
+            }
+
 
 
 
@@ -136,8 +157,14 @@ namespace appSugerencias
 
         private void ofertasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Existencias exis = new Existencias();
+            Existencias exis = new Existencias(Usuario,Area);
             exis.Show();
+        }
+
+        private void crearTraspasoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CotizacionTraspaso traspaso = new CotizacionTraspaso(Usuario);
+            traspaso.Show();
         }
     }
 }
