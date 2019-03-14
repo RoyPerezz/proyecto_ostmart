@@ -389,14 +389,17 @@ namespace appSugerencias
             limpiar();
             MessageBox.Show("Se han agregado los productos al traspaso");
             deshabilitar();
+            CrearPDF();
 
         }
 
-        private void BT_pdf_Click(object sender, EventArgs e)
+
+
+        public void CrearPDF()
         {
             DateTime fecha = DT_fecha.Value;
             string origen = TB_origen.Text;
-            string destino =Convert.ToString( CB_destino.SelectedItem);
+            string destino = Convert.ToString(CB_destino.SelectedItem);
             string motivo = TB_motivo.Text.ToUpper();
 
             try
@@ -455,10 +458,10 @@ namespace appSugerencias
 
 
                 Document doc = new Document(PageSize.A4);
-                string filename = "TraspasosPDF\\TRASPASO" +origen+"-"+destino+".pdf";
+                string filename = "TraspasosPDF\\TRASPASO" + origen + "-" + destino + ".pdf";
                 PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(@filename, FileMode.Create));
                 filename.ToUpper();
-                
+
 
                 doc.AddTitle("Prueba DaNxD");
                 doc.AddCreator("DaN");
@@ -562,11 +565,11 @@ namespace appSugerencias
                 PdfPTable table = new PdfPTable(DG_datos.Columns.Count);
 
                 table.WidthPercentage = 100;
-                float[] widths = new float[] { 0f,0f,100f, 25f, 20f };
+                float[] widths = new float[] { 0f, 0f, 100f, 25f, 20f };
                 table.SetWidths(widths);
                 table.SkipLastFooter = true;
                 table.SpacingAfter = 10;
-                
+
 
 
                 //Encabezados
@@ -604,9 +607,14 @@ namespace appSugerencias
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al generar archivo PDF o el archivo ya esta abierto.  "+ex);
+                MessageBox.Show("Error al generar archivo PDF o el archivo ya esta abierto.  " + ex);
 
             }
         }
+
+
+
+
+        
     }
 }

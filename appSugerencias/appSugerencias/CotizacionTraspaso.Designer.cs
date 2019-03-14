@@ -47,7 +47,6 @@
             this.BT_quitar = new System.Windows.Forms.Button();
             this.BT_guardar = new System.Windows.Forms.Button();
             this.BT_cotizacion = new System.Windows.Forms.Button();
-            this.BT_pdf = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DG_datos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -223,22 +222,11 @@
             this.BT_cotizacion.UseVisualStyleBackColor = true;
             this.BT_cotizacion.Click += new System.EventHandler(this.BT_cotizacion_Click);
             // 
-            // BT_pdf
-            // 
-            this.BT_pdf.Location = new System.Drawing.Point(103, 500);
-            this.BT_pdf.Name = "BT_pdf";
-            this.BT_pdf.Size = new System.Drawing.Size(365, 41);
-            this.BT_pdf.TabIndex = 14;
-            this.BT_pdf.Text = "PDF";
-            this.BT_pdf.UseVisualStyleBackColor = true;
-            this.BT_pdf.Click += new System.EventHandler(this.BT_pdf_Click);
-            // 
             // CotizacionTraspaso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(568, 553);
-            this.Controls.Add(this.BT_pdf);
             this.Controls.Add(this.BT_cotizacion);
             this.Controls.Add(this.BT_guardar);
             this.Controls.Add(this.BT_quitar);
@@ -283,6 +271,5 @@
         private System.Windows.Forms.Button BT_quitar;
         private System.Windows.Forms.Button BT_guardar;
         private System.Windows.Forms.Button BT_cotizacion;
-        private System.Windows.Forms.Button BT_pdf;
     }
 }
