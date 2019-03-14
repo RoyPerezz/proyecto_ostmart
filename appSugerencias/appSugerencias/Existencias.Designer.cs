@@ -43,7 +43,7 @@
             this.LB_rena = new System.Windows.Forms.Label();
             this.LB_vallarta = new System.Windows.Forms.Label();
             this.LB_velazquez = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panelOfertas = new System.Windows.Forms.GroupBox();
             this.lblCo = new System.Windows.Forms.Label();
             this.lblVe = new System.Windows.Forms.Label();
             this.lblRe = new System.Windows.Forms.Label();
@@ -76,24 +76,24 @@
             this.TB_precio1 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.TB_desc = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.tbPrecio1 = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.tbPrecio2 = new System.Windows.Forms.TextBox();
-            this.aplicarPrecio = new System.Windows.Forms.Button();
-            this.cBoxTodasPrecio = new System.Windows.Forms.CheckBox();
-            this.cBoxVaPrecio = new System.Windows.Forms.CheckBox();
-            this.cBoxRePrecio = new System.Windows.Forms.CheckBox();
-            this.cBoxVePrecio = new System.Windows.Forms.CheckBox();
-            this.cBoxCoPrecio = new System.Windows.Forms.CheckBox();
-            this.lblVaPre = new System.Windows.Forms.Label();
-            this.lblRePre = new System.Windows.Forms.Label();
-            this.lblVePre = new System.Windows.Forms.Label();
+            this.panelPrecio = new System.Windows.Forms.GroupBox();
             this.lblCoPre = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            this.lblVePre = new System.Windows.Forms.Label();
+            this.lblRePre = new System.Windows.Forms.Label();
+            this.lblVaPre = new System.Windows.Forms.Label();
+            this.cBoxCoPrecio = new System.Windows.Forms.CheckBox();
+            this.cBoxVePrecio = new System.Windows.Forms.CheckBox();
+            this.cBoxRePrecio = new System.Windows.Forms.CheckBox();
+            this.cBoxVaPrecio = new System.Windows.Forms.CheckBox();
+            this.cBoxTodasPrecio = new System.Windows.Forms.CheckBox();
+            this.aplicarPrecio = new System.Windows.Forms.Button();
+            this.tbPrecio2 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.tbPrecio1 = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.panelOfertas.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.panelPrecio.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -109,11 +109,11 @@
             // 
             this.TB_articulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TB_articulo.Location = new System.Drawing.Point(74, 26);
-            this.TB_articulo.MaxLength = 16;
-            this.TB_articulo.Multiline = true;
+            this.TB_articulo.MaxLength = 15;
             this.TB_articulo.Name = "TB_articulo";
-            this.TB_articulo.Size = new System.Drawing.Size(370, 39);
+            this.TB_articulo.Size = new System.Drawing.Size(370, 44);
             this.TB_articulo.TabIndex = 1;
+            this.TB_articulo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_articulo_KeyPress);
             // 
             // BTN_aceptar
             // 
@@ -229,31 +229,31 @@
             this.LB_velazquez.Size = new System.Drawing.Size(0, 13);
             this.LB_velazquez.TabIndex = 16;
             // 
-            // groupBox1
+            // panelOfertas
             // 
-            this.groupBox1.Controls.Add(this.lblCo);
-            this.groupBox1.Controls.Add(this.lblVe);
-            this.groupBox1.Controls.Add(this.lblRe);
-            this.groupBox1.Controls.Add(this.lblVa);
-            this.groupBox1.Controls.Add(this.AplicaOferta);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.tbporcentaje);
-            this.groupBox1.Controls.Add(this.dt_Fin);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.dt_Inicio);
-            this.groupBox1.Controls.Add(this.cBoxCo);
-            this.groupBox1.Controls.Add(this.cBoxVe);
-            this.groupBox1.Controls.Add(this.cBoxRe);
-            this.groupBox1.Controls.Add(this.cBoxVa);
-            this.groupBox1.Controls.Add(this.cBoxTodas);
-            this.groupBox1.Location = new System.Drawing.Point(524, 24);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(364, 256);
-            this.groupBox1.TabIndex = 17;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Ofertas";
+            this.panelOfertas.Controls.Add(this.lblCo);
+            this.panelOfertas.Controls.Add(this.lblVe);
+            this.panelOfertas.Controls.Add(this.lblRe);
+            this.panelOfertas.Controls.Add(this.lblVa);
+            this.panelOfertas.Controls.Add(this.AplicaOferta);
+            this.panelOfertas.Controls.Add(this.label10);
+            this.panelOfertas.Controls.Add(this.label9);
+            this.panelOfertas.Controls.Add(this.tbporcentaje);
+            this.panelOfertas.Controls.Add(this.dt_Fin);
+            this.panelOfertas.Controls.Add(this.label8);
+            this.panelOfertas.Controls.Add(this.label7);
+            this.panelOfertas.Controls.Add(this.dt_Inicio);
+            this.panelOfertas.Controls.Add(this.cBoxCo);
+            this.panelOfertas.Controls.Add(this.cBoxVe);
+            this.panelOfertas.Controls.Add(this.cBoxRe);
+            this.panelOfertas.Controls.Add(this.cBoxVa);
+            this.panelOfertas.Controls.Add(this.cBoxTodas);
+            this.panelOfertas.Location = new System.Drawing.Point(524, 24);
+            this.panelOfertas.Name = "panelOfertas";
+            this.panelOfertas.Size = new System.Drawing.Size(364, 256);
+            this.panelOfertas.TabIndex = 17;
+            this.panelOfertas.TabStop = false;
+            this.panelOfertas.Text = "Ofertas";
             // 
             // lblCo
             // 
@@ -489,7 +489,7 @@
             this.BT_limpiar.TabIndex = 29;
             this.BT_limpiar.Text = "Limpiar";
             this.BT_limpiar.UseVisualStyleBackColor = true;
-//            this.BT_limpiar.Click += new System.EventHandler(this.BT_limpiar_Click);
+            this.BT_limpiar.Click += new System.EventHandler(this.BT_limpiar_Click_1);
             // 
             // label15
             // 
@@ -591,78 +591,108 @@
             this.TB_desc.Size = new System.Drawing.Size(370, 39);
             this.TB_desc.TabIndex = 22;
             // 
-            // groupBox3
+            // panelPrecio
             // 
-            this.groupBox3.Controls.Add(this.lblCoPre);
-            this.groupBox3.Controls.Add(this.lblVePre);
-            this.groupBox3.Controls.Add(this.lblRePre);
-            this.groupBox3.Controls.Add(this.lblVaPre);
-            this.groupBox3.Controls.Add(this.cBoxCoPrecio);
-            this.groupBox3.Controls.Add(this.cBoxVePrecio);
-            this.groupBox3.Controls.Add(this.cBoxRePrecio);
-            this.groupBox3.Controls.Add(this.cBoxVaPrecio);
-            this.groupBox3.Controls.Add(this.cBoxTodasPrecio);
-            this.groupBox3.Controls.Add(this.aplicarPrecio);
-            this.groupBox3.Controls.Add(this.tbPrecio2);
-            this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Controls.Add(this.tbPrecio1);
-            this.groupBox3.Controls.Add(this.label16);
-            this.groupBox3.Location = new System.Drawing.Point(524, 286);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(364, 234);
-            this.groupBox3.TabIndex = 22;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Cambiar Precio";
+            this.panelPrecio.Controls.Add(this.lblCoPre);
+            this.panelPrecio.Controls.Add(this.lblVePre);
+            this.panelPrecio.Controls.Add(this.lblRePre);
+            this.panelPrecio.Controls.Add(this.lblVaPre);
+            this.panelPrecio.Controls.Add(this.cBoxCoPrecio);
+            this.panelPrecio.Controls.Add(this.cBoxVePrecio);
+            this.panelPrecio.Controls.Add(this.cBoxRePrecio);
+            this.panelPrecio.Controls.Add(this.cBoxVaPrecio);
+            this.panelPrecio.Controls.Add(this.cBoxTodasPrecio);
+            this.panelPrecio.Controls.Add(this.aplicarPrecio);
+            this.panelPrecio.Controls.Add(this.tbPrecio2);
+            this.panelPrecio.Controls.Add(this.label17);
+            this.panelPrecio.Controls.Add(this.tbPrecio1);
+            this.panelPrecio.Controls.Add(this.label16);
+            this.panelPrecio.Location = new System.Drawing.Point(524, 286);
+            this.panelPrecio.Name = "panelPrecio";
+            this.panelPrecio.Size = new System.Drawing.Size(364, 234);
+            this.panelPrecio.TabIndex = 22;
+            this.panelPrecio.TabStop = false;
+            this.panelPrecio.Text = "Cambiar Precio";
             // 
-            // label16
+            // lblCoPre
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(16, 141);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(48, 13);
-            this.label16.TabIndex = 30;
-            this.label16.Text = "Mayoreo";
-            this.label16.Click += new System.EventHandler(this.label16_Click);
+            this.lblCoPre.AutoSize = true;
+            this.lblCoPre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCoPre.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblCoPre.Location = new System.Drawing.Point(228, 63);
+            this.lblCoPre.Name = "lblCoPre";
+            this.lblCoPre.Size = new System.Drawing.Size(0, 16);
+            this.lblCoPre.TabIndex = 41;
             // 
-            // tbPrecio1
+            // lblVePre
             // 
-            this.tbPrecio1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPrecio1.Location = new System.Drawing.Point(73, 87);
-            this.tbPrecio1.MaxLength = 16;
-            this.tbPrecio1.Multiline = true;
-            this.tbPrecio1.Name = "tbPrecio1";
-            this.tbPrecio1.Size = new System.Drawing.Size(284, 39);
-            this.tbPrecio1.TabIndex = 30;
+            this.lblVePre.AutoSize = true;
+            this.lblVePre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVePre.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblVePre.Location = new System.Drawing.Point(160, 63);
+            this.lblVePre.Name = "lblVePre";
+            this.lblVePre.Size = new System.Drawing.Size(0, 16);
+            this.lblVePre.TabIndex = 40;
             // 
-            // label17
+            // lblRePre
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(15, 104);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(52, 13);
-            this.label17.TabIndex = 30;
-            this.label17.Text = "Menudeo";
-            this.label17.Click += new System.EventHandler(this.label17_Click);
+            this.lblRePre.AutoSize = true;
+            this.lblRePre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRePre.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblRePre.Location = new System.Drawing.Point(84, 63);
+            this.lblRePre.Name = "lblRePre";
+            this.lblRePre.Size = new System.Drawing.Size(0, 16);
+            this.lblRePre.TabIndex = 39;
             // 
-            // tbPrecio2
+            // lblVaPre
             // 
-            this.tbPrecio2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPrecio2.Location = new System.Drawing.Point(73, 132);
-            this.tbPrecio2.MaxLength = 16;
-            this.tbPrecio2.Multiline = true;
-            this.tbPrecio2.Name = "tbPrecio2";
-            this.tbPrecio2.Size = new System.Drawing.Size(284, 39);
-            this.tbPrecio2.TabIndex = 31;
+            this.lblVaPre.AutoSize = true;
+            this.lblVaPre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVaPre.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblVaPre.Location = new System.Drawing.Point(16, 63);
+            this.lblVaPre.Name = "lblVaPre";
+            this.lblVaPre.Size = new System.Drawing.Size(0, 16);
+            this.lblVaPre.TabIndex = 38;
             // 
-            // aplicarPrecio
+            // cBoxCoPrecio
             // 
-            this.aplicarPrecio.Location = new System.Drawing.Point(222, 183);
-            this.aplicarPrecio.Name = "aplicarPrecio";
-            this.aplicarPrecio.Size = new System.Drawing.Size(136, 45);
-            this.aplicarPrecio.TabIndex = 32;
-            this.aplicarPrecio.Text = "Aplicar Precio";
-            this.aplicarPrecio.UseVisualStyleBackColor = true;
-            this.aplicarPrecio.Click += new System.EventHandler(this.aplicarPrecio_Click);
+            this.cBoxCoPrecio.AutoSize = true;
+            this.cBoxCoPrecio.Location = new System.Drawing.Point(222, 43);
+            this.cBoxCoPrecio.Name = "cBoxCoPrecio";
+            this.cBoxCoPrecio.Size = new System.Drawing.Size(58, 17);
+            this.cBoxCoPrecio.TabIndex = 37;
+            this.cBoxCoPrecio.Text = "Coloso";
+            this.cBoxCoPrecio.UseVisualStyleBackColor = true;
+            // 
+            // cBoxVePrecio
+            // 
+            this.cBoxVePrecio.AutoSize = true;
+            this.cBoxVePrecio.Location = new System.Drawing.Point(141, 43);
+            this.cBoxVePrecio.Name = "cBoxVePrecio";
+            this.cBoxVePrecio.Size = new System.Drawing.Size(75, 17);
+            this.cBoxVePrecio.TabIndex = 36;
+            this.cBoxVePrecio.Text = "Velazquez";
+            this.cBoxVePrecio.UseVisualStyleBackColor = true;
+            // 
+            // cBoxRePrecio
+            // 
+            this.cBoxRePrecio.AutoSize = true;
+            this.cBoxRePrecio.Location = new System.Drawing.Point(74, 43);
+            this.cBoxRePrecio.Name = "cBoxRePrecio";
+            this.cBoxRePrecio.Size = new System.Drawing.Size(52, 17);
+            this.cBoxRePrecio.TabIndex = 35;
+            this.cBoxRePrecio.Text = "Rena";
+            this.cBoxRePrecio.UseVisualStyleBackColor = true;
+            // 
+            // cBoxVaPrecio
+            // 
+            this.cBoxVaPrecio.AutoSize = true;
+            this.cBoxVaPrecio.Location = new System.Drawing.Point(13, 43);
+            this.cBoxVaPrecio.Name = "cBoxVaPrecio";
+            this.cBoxVaPrecio.Size = new System.Drawing.Size(61, 17);
+            this.cBoxVaPrecio.TabIndex = 34;
+            this.cBoxVaPrecio.Text = "Vallarta";
+            this.cBoxVaPrecio.UseVisualStyleBackColor = true;
             // 
             // cBoxTodasPrecio
             // 
@@ -675,103 +705,73 @@
             this.cBoxTodasPrecio.UseVisualStyleBackColor = true;
             this.cBoxTodasPrecio.CheckedChanged += new System.EventHandler(this.cBoxTodasPrecio_CheckedChanged);
             // 
-            // cBoxVaPrecio
+            // aplicarPrecio
             // 
-            this.cBoxVaPrecio.AutoSize = true;
-            this.cBoxVaPrecio.Location = new System.Drawing.Point(13, 43);
-            this.cBoxVaPrecio.Name = "cBoxVaPrecio";
-            this.cBoxVaPrecio.Size = new System.Drawing.Size(61, 17);
-            this.cBoxVaPrecio.TabIndex = 34;
-            this.cBoxVaPrecio.Text = "Vallarta";
-            this.cBoxVaPrecio.UseVisualStyleBackColor = true;
+            this.aplicarPrecio.Location = new System.Drawing.Point(222, 183);
+            this.aplicarPrecio.Name = "aplicarPrecio";
+            this.aplicarPrecio.Size = new System.Drawing.Size(136, 45);
+            this.aplicarPrecio.TabIndex = 32;
+            this.aplicarPrecio.Text = "Aplicar Precio";
+            this.aplicarPrecio.UseVisualStyleBackColor = true;
+            this.aplicarPrecio.Click += new System.EventHandler(this.aplicarPrecio_Click);
             // 
-            // cBoxRePrecio
+            // tbPrecio2
             // 
-            this.cBoxRePrecio.AutoSize = true;
-            this.cBoxRePrecio.Location = new System.Drawing.Point(74, 43);
-            this.cBoxRePrecio.Name = "cBoxRePrecio";
-            this.cBoxRePrecio.Size = new System.Drawing.Size(52, 17);
-            this.cBoxRePrecio.TabIndex = 35;
-            this.cBoxRePrecio.Text = "Rena";
-            this.cBoxRePrecio.UseVisualStyleBackColor = true;
+            this.tbPrecio2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPrecio2.Location = new System.Drawing.Point(73, 132);
+            this.tbPrecio2.MaxLength = 16;
+            this.tbPrecio2.Multiline = true;
+            this.tbPrecio2.Name = "tbPrecio2";
+            this.tbPrecio2.Size = new System.Drawing.Size(284, 39);
+            this.tbPrecio2.TabIndex = 31;
             // 
-            // cBoxVePrecio
+            // label17
             // 
-            this.cBoxVePrecio.AutoSize = true;
-            this.cBoxVePrecio.Location = new System.Drawing.Point(141, 43);
-            this.cBoxVePrecio.Name = "cBoxVePrecio";
-            this.cBoxVePrecio.Size = new System.Drawing.Size(75, 17);
-            this.cBoxVePrecio.TabIndex = 36;
-            this.cBoxVePrecio.Text = "Velazquez";
-            this.cBoxVePrecio.UseVisualStyleBackColor = true;
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(15, 104);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(52, 13);
+            this.label17.TabIndex = 30;
+            this.label17.Text = "Menudeo";
+            this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
-            // cBoxCoPrecio
+            // tbPrecio1
             // 
-            this.cBoxCoPrecio.AutoSize = true;
-            this.cBoxCoPrecio.Location = new System.Drawing.Point(222, 43);
-            this.cBoxCoPrecio.Name = "cBoxCoPrecio";
-            this.cBoxCoPrecio.Size = new System.Drawing.Size(58, 17);
-            this.cBoxCoPrecio.TabIndex = 37;
-            this.cBoxCoPrecio.Text = "Coloso";
-            this.cBoxCoPrecio.UseVisualStyleBackColor = true;
+            this.tbPrecio1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPrecio1.Location = new System.Drawing.Point(73, 87);
+            this.tbPrecio1.MaxLength = 16;
+            this.tbPrecio1.Multiline = true;
+            this.tbPrecio1.Name = "tbPrecio1";
+            this.tbPrecio1.Size = new System.Drawing.Size(284, 39);
+            this.tbPrecio1.TabIndex = 30;
             // 
-            // lblVaPre
+            // label16
             // 
-            this.lblVaPre.AutoSize = true;
-            this.lblVaPre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVaPre.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblVaPre.Location = new System.Drawing.Point(16, 63);
-            this.lblVaPre.Name = "lblVaPre";
-            this.lblVaPre.Size = new System.Drawing.Size(0, 16);
-            this.lblVaPre.TabIndex = 38;
-            // 
-            // lblRePre
-            // 
-            this.lblRePre.AutoSize = true;
-            this.lblRePre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRePre.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblRePre.Location = new System.Drawing.Point(84, 63);
-            this.lblRePre.Name = "lblRePre";
-            this.lblRePre.Size = new System.Drawing.Size(0, 16);
-            this.lblRePre.TabIndex = 39;
-            // 
-            // lblVePre
-            // 
-            this.lblVePre.AutoSize = true;
-            this.lblVePre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVePre.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblVePre.Location = new System.Drawing.Point(160, 63);
-            this.lblVePre.Name = "lblVePre";
-            this.lblVePre.Size = new System.Drawing.Size(0, 16);
-            this.lblVePre.TabIndex = 40;
-            // 
-            // lblCoPre
-            // 
-            this.lblCoPre.AutoSize = true;
-            this.lblCoPre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCoPre.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblCoPre.Location = new System.Drawing.Point(228, 63);
-            this.lblCoPre.Name = "lblCoPre";
-            this.lblCoPre.Size = new System.Drawing.Size(0, 16);
-            this.lblCoPre.TabIndex = 41;
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(16, 141);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(48, 13);
+            this.label16.TabIndex = 30;
+            this.label16.Text = "Mayoreo";
+            this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
             // Existencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(932, 532);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.panelPrecio);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.panelOfertas);
             this.Name = "Existencias";
             this.Text = "Existencias";
             this.Load += new System.EventHandler(this.Existencias_Load_1);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.panelOfertas.ResumeLayout(false);
+            this.panelOfertas.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.panelPrecio.ResumeLayout(false);
+            this.panelPrecio.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -793,7 +793,7 @@
         private System.Windows.Forms.Label LB_rena;
         private System.Windows.Forms.Label LB_vallarta;
         private System.Windows.Forms.Label LB_velazquez;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox panelOfertas;
         private System.Windows.Forms.CheckBox cBoxCo;
         private System.Windows.Forms.CheckBox cBoxVe;
         private System.Windows.Forms.CheckBox cBoxRe;
@@ -826,7 +826,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox TB_desc;
         private System.Windows.Forms.Button BT_limpiar;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox panelPrecio;
         private System.Windows.Forms.Button aplicarPrecio;
         private System.Windows.Forms.TextBox tbPrecio2;
         private System.Windows.Forms.Label label17;

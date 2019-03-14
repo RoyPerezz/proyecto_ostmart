@@ -63,8 +63,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.lblConexion = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.lblUsuarioAplica = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -387,26 +385,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(607, 557);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(66, 23);
-            this.button5.TabIndex = 49;
-            this.button5.Text = "USUARIO";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(691, 557);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 50;
-            this.button6.Text = "button6";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -452,8 +430,6 @@
             this.Controls.Add(this.label12);
             this.Controls.Add(this.lblUsuarioAplica);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.lblConexion);
             this.Controls.Add(this.label10);
@@ -486,6 +462,7 @@
             this.Controls.Add(this.cbTienda);
             this.Name = "TraspasoTiendas";
             this.Text = "TraspasoTiendas";
+            this.Load += new System.EventHandler(this.TraspasoTiendas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTraspasos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItem)).EndInit();
             this.ResumeLayout(false);
@@ -529,8 +506,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblConexion;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lblUsuarioAplica;
         private System.Windows.Forms.Label label12;

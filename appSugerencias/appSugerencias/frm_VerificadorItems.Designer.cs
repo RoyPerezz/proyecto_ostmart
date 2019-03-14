@@ -34,10 +34,6 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txtArticulo = new System.Windows.Forms.TextBox();
-            this.lblBusqueda = new System.Windows.Forms.Label();
-            this.lblRespuesta = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +48,7 @@
             this.Column5});
             this.dgvArticulos.Location = new System.Drawing.Point(12, 12);
             this.dgvArticulos.Name = "dgvArticulos";
-            this.dgvArticulos.Size = new System.Drawing.Size(880, 426);
+            this.dgvArticulos.Size = new System.Drawing.Size(930, 426);
             this.dgvArticulos.TabIndex = 0;
             this.dgvArticulos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvArticulos_KeyPress);
             // 
@@ -62,6 +58,7 @@
             this.Column1.HeaderText = "Articulo";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            this.Column1.Width = 200;
             // 
             // Column2
             // 
@@ -69,7 +66,7 @@
             this.Column2.HeaderText = "Descripcion";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Width = 430;
+            this.Column2.Width = 480;
             // 
             // Column3
             // 
@@ -77,6 +74,7 @@
             this.Column3.HeaderText = "Menudeo";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
+            this.Column3.Width = 70;
             // 
             // Column4
             // 
@@ -84,6 +82,7 @@
             this.Column4.HeaderText = "Mayoreo";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
+            this.Column4.Width = 70;
             // 
             // Column5
             // 
@@ -91,58 +90,22 @@
             this.Column5.HeaderText = "Existencias";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(182, 461);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // txtArticulo
-            // 
-            this.txtArticulo.Location = new System.Drawing.Point(12, 461);
-            this.txtArticulo.Name = "txtArticulo";
-            this.txtArticulo.Size = new System.Drawing.Size(142, 20);
-            this.txtArticulo.TabIndex = 2;
-            // 
-            // lblBusqueda
-            // 
-            this.lblBusqueda.AutoSize = true;
-            this.lblBusqueda.Location = new System.Drawing.Point(374, 445);
-            this.lblBusqueda.Name = "lblBusqueda";
-            this.lblBusqueda.Size = new System.Drawing.Size(35, 13);
-            this.lblBusqueda.TabIndex = 3;
-            this.lblBusqueda.Text = "label1";
-            // 
-            // lblRespuesta
-            // 
-            this.lblRespuesta.AutoSize = true;
-            this.lblRespuesta.Location = new System.Drawing.Point(477, 445);
-            this.lblRespuesta.Name = "lblRespuesta";
-            this.lblRespuesta.Size = new System.Drawing.Size(35, 13);
-            this.lblRespuesta.TabIndex = 4;
-            this.lblRespuesta.Text = "label1";
+            this.Column5.Width = 80;
             // 
             // frm_VerificadorItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(911, 496);
-            this.Controls.Add(this.lblRespuesta);
-            this.Controls.Add(this.lblBusqueda);
-            this.Controls.Add(this.txtArticulo);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(965, 496);
             this.Controls.Add(this.dgvArticulos);
             this.Name = "frm_VerificadorItems";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_VerificadorItems";
             this.Load += new System.EventHandler(this.frm_VerificadorItems_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frm_VerificadorItems_KeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frm_VerificadorItems_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -154,9 +117,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox txtArticulo;
-        private System.Windows.Forms.Label lblBusqueda;
-        private System.Windows.Forms.Label lblRespuesta;
     }
 }

@@ -266,7 +266,7 @@ namespace appSugerencias
                 cmd.Parameters.Add("?almacen", MySqlDbType.VarChar).Value = "1";
                 cmd.Parameters.Add("?exist_alm", MySqlDbType.Int32).Value = itemExistencia[i] - itemCantidad[i];
 
-                cmd.Parameters.Add("?usuario", MySqlDbType.VarChar).Value = "DaNxD";
+                cmd.Parameters.Add("?usuario", MySqlDbType.VarChar).Value = usuarioMyB;
                 cmd.Parameters.Add("?usuhora", MySqlDbType.VarChar).Value = "";
                 
                 cmd.Parameters.Add("?id_salida", MySqlDbType.VarChar).Value = txtId.Text;
@@ -1058,6 +1058,13 @@ namespace appSugerencias
             }
         }
 
+
+        private void TraspasoTiendas_Load(object sender, EventArgs e)
+        {
+
+         
+        }
+
         public void TiendaCancelacion(string tienda)
         {
             if (tienda == "BODEGA")
@@ -1087,17 +1094,17 @@ namespace appSugerencias
 
         private void button5_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(usuarioMyB);
+            //MessageBox.Show(usuarioMyB);
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            string host = Dns.GetHostName();
-            IPAddress[] ip = Dns.GetHostAddresses(host);
-            for(int i = 0; i < ip.Count(); i++)
-            {
-                MessageBox.Show(ip[i].ToString());
-            }
+            //string host = Dns.GetHostName();
+            //IPAddress[] ip = Dns.GetHostAddresses(host);
+            //for(int i = 0; i < ip.Count(); i++)
+            //{
+            //    MessageBox.Show(ip[i].ToString());
+            //}
             
         }
         //########## CIERRE ############
