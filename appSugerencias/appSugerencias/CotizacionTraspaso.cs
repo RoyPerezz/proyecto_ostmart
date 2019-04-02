@@ -363,41 +363,33 @@ namespace appSugerencias
         //################################## INSERTA LOS DATOS EN LA BD #####################################################
         private void BT_guardar_Click(object sender, EventArgs e)
         {
-            if (DG_datos.RowCount == 0)
+
+            MySqlCommand cmd2 = new MySqlCommand("insert into rd_traspaso_articulos(fk_idtraspaso,articulo,descripcion,cantidad) values(?fk_idtraspaso,?articulo,?descripcion,?cantidad)", BDConexicon.conectar());
+
+
+
+            foreach (DataGridViewRow row in DG_datos.Rows)
             {
-                MessageBox.Show("Debes agregar articulos al traspaso");
-            }else
-            {
-                CrearPDF();
-                MySqlCommand cmd2 = new MySqlCommand("insert into rd_traspaso_articulos(fk_idtraspaso,articulo,descripcion,cantidad) values(?fk_idtraspaso,?articulo,?descripcion,?cantidad)", BDConexicon.conectar());
 
-
-
-                foreach (DataGridViewRow row in DG_datos.Rows)
-                {
-
-                    cmd2.Parameters.Clear();
-                    cmd2.Parameters.AddWithValue("?fk_idtraspaso", Convert.ToInt32(row.Cells["ID"].Value));
-                    cmd2.Parameters.AddWithValue("?articulo", Convert.ToString(row.Cells["ARTICULO"].Value).ToUpper());
-                    cmd2.Parameters.AddWithValue("?descripcion", Convert.ToString(row.Cells["PRODUCTO"].Value).ToUpper());
-                    cmd2.Parameters.AddWithValue("?cantidad", Convert.ToInt32(row.Cells["CANTIDAD"].Value));
-                    cmd2.ExecuteNonQuery();
+                cmd2.Parameters.Clear();
+                cmd2.Parameters.AddWithValue("?fk_idtraspaso", Convert.ToInt32(row.Cells["ID"].Value));
+                cmd2.Parameters.AddWithValue("?articulo", Convert.ToString(row.Cells["ARTICULO"].Value).ToUpper());
+                cmd2.Parameters.AddWithValue("?descripcion", Convert.ToString(row.Cells["PRODUCTO"].Value).ToUpper());
+                cmd2.Parameters.AddWithValue("?cantidad", Convert.ToInt32(row.Cells["CANTIDAD"].Value));
+                cmd2.ExecuteNonQuery();
 
 
 
 
 
-                }
-
-
-
-                limpiar();
-                MessageBox.Show("Se han agregado los productos al traspaso");
-                deshabilitar();
             }
 
-            
-        
+
+
+            limpiar();
+            MessageBox.Show("Se han agregado los productos al traspaso");
+            deshabilitar();
+            CrearPDF();
 
         }
 
@@ -466,11 +458,9 @@ namespace appSugerencias
 
 
                 Document doc = new Document(PageSize.A4);
-
                 string filename = "TraspasosPDF\\TRASPASO" + origen + "-" + destino + ".pdf";
-               
                 PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(@filename, FileMode.Create));
-                
+                filename.ToUpper();
 
 
                 doc.AddTitle("Prueba DaNxD");
@@ -497,7 +487,7 @@ namespace appSugerencias
 
 
 
-                parrafoEnc.Add("TRASPASO DE  " + origen + " A " + destino);
+                parrafoEnc.Add("TRASPASO DE " + origen + " a " + destino);
                 doc.Add(parrafoEnc);
                 parrafoEnc.Clear();
 
@@ -622,47 +612,14 @@ namespace appSugerencias
             }
         }
 
+        private void TB_articulo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void TB_articulo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                if (DG_datos.RowCount > 0)
-                {
-                    bool bCampoVacio = false;
-                    foreach (DataGridViewRow dr in DG_datos.Rows)
-                    {
-                        foreach (DataGridViewCell dc in dr.Cells)
-                        {
-                            if (dc.Value == null || string.IsNullOrEmpty(dc.Value.ToString()))
-                            {
-                                bCampoVacio = true;
-                            }
-                            else
-                            {
 
-                            }
-                        }
-                    }
-                    if (bCampoVacio)
-                    {
-                        MessageBox.Show("Introduce la cantidad");
-                    }
-                    else
-                    {
-                        // dataGridView1.Rows.Add(TB_nombre.Text, TB_apellidos.Text);
-                        AgregarArticulo();
-                        TB_articulo.Text = "";
-                    }
-
-
-                }
-                else
-                {
-                    AgregarArticulo();
-                    TB_articulo.Text = "";
-                    //dataGridView1.Rows.Add(TB_nombre.Text, TB_apellidos.Text);
-                }
-            }
         }
     }
 }
