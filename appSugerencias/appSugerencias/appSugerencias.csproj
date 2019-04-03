@@ -143,6 +143,12 @@
       <DependentUpon>Existencias.cs</DependentUpon>
     </Compile>
     <Compile Include="FormatoFecha.cs" />
+    <Compile Include="frm_Compras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Compras.Designer.cs">
+      <DependentUpon>frm_Compras.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_FormatoCajera.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Existencias.resx">
       <DependentUpon>Existencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Compras.resx">
+      <DependentUpon>frm_Compras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_FormatoCajera.resx">
       <DependentUpon>frm_FormatoCajera.cs</DependentUpon>

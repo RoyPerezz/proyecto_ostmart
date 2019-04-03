@@ -96,8 +96,14 @@ namespace appSugerencias
         private void button1_Click(object sender, EventArgs e)
         {
 
-
-            dan();
+            try
+            {
+                dan();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Conectar al Servidor");
+            }
 
         }
 
@@ -115,7 +121,15 @@ namespace appSugerencias
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                dan();
+                try
+                {
+                    dan();
+                }
+                catch(Exception exr)
+                {
+                    MessageBox.Show("Error al Conectar al Servidor");
+                }
+                
             }
         }
     }

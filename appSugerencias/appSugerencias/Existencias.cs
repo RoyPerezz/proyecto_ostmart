@@ -561,24 +561,24 @@ namespace appSugerencias
         private void Existencias_Load_1(object sender, EventArgs e)
         {
             //#################################################### ACTUALIZACION PARA ACTIVAR  SEGUN USUARIO #####################################
-            //if (Area == "TRASPASOS" || Area == "SISTEMAS" || Area == "SUPERVICION")
-            //{
-            //    panelOfertas.Enabled = true;
-            //}
-            //else
-            //{
-            //    panelOfertas.Enabled = false;
-            //}
+            if (Area == "TRASPASOS" || Area == "SISTEMAS" || Area == "SUPERVICION")
+            {
+                panelOfertas.Enabled = true;
+            }
+            else
+            {
+                panelOfertas.Enabled = false;
+            }
 
 
-            //if (Area == "TRASPASOS" || Area == "SISTEMAS" || Area == "SUPERVICION")
-            //{
-            //    panelPrecio.Enabled = true;
-            //}
-            //else
-            //{
-            //    panelPrecio.Enabled = false;
-            //}
+            if (Area == "TRASPASOS" || Area == "SISTEMAS" || Area == "SUPERVICION")
+            {
+                panelPrecio.Enabled = true;
+            }
+            else
+            {
+                panelPrecio.Enabled = false;
+            }
         }
 
         private void groupBox2_Enter_2(object sender, EventArgs e)
