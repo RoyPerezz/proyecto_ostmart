@@ -408,6 +408,7 @@ namespace appSugerencias
             string origen = TB_origen.Text;
             string destino =Convert.ToString(CB_destino.SelectedItem);
             string motivo = TB_motivo.Text;
+           
 
 
            
@@ -494,7 +495,7 @@ namespace appSugerencias
 
 
 
-                parrafoEnc.Add("TRASPADO DE " + origen + " A "+destino );
+                parrafoEnc.Add("TRASPASO DE " + origen + " A "+destino+" No."+idtraspaso );
                 doc.Add(parrafoEnc);
                 parrafoEnc.Clear();
 
@@ -520,11 +521,11 @@ namespace appSugerencias
 
                 //parrafo.Clear();
 
-                //parrafo.Add(new Chunk("Solicito: ", negritas));
-                //parrafo.Add(new Chunk(usuario, normal));
-                //doc.Add(parrafo);
+                parrafo.Add(new Chunk("Solicito: ", negritas));
+                parrafo.Add(new Chunk(Usuario, normal));
+                doc.Add(parrafo);
 
-                //parrafo.Clear();
+                parrafo.Clear();
 
                 parrafo.Add(new Chunk("Origen: ", negritas));
                 parrafo.Add(new Chunk(origen, normal));
