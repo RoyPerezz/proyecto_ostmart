@@ -228,7 +228,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(568, 553);
+            this.ClientSize = new System.Drawing.Size(568, 505);
             this.Controls.Add(this.BT_cotizacion);
             this.Controls.Add(this.BT_guardar);
             this.Controls.Add(this.BT_quitar);

@@ -63,6 +63,8 @@ namespace appSugerencias
                 DG_datos.Rows.Add(dr["cuenxpag"].ToString(), dr["proveedor"].ToString(), fecha.ToString("yyyy/MM/dd"), dr["tipo_doc"].ToString(), dr["no_referen"].ToString(), dr["cargo_ab"].ToString(), importe.ToString("C"), String.Format("{0:0.##}", saldo.ToString("C")));
 
             }
+            //conectar.Close();
+            dr.Close();
 
             DG_datos.Columns[0].Width = 100;
             DG_datos.Columns[1].Width = 130;
@@ -73,7 +75,7 @@ namespace appSugerencias
             DG_datos.Columns[6].Width = 150;
             DG_datos.Columns[7].Width = 150;
 
-            conectar.Close();
+            
         }
 
 
@@ -109,17 +111,36 @@ namespace appSugerencias
         //###################################### OBTENER LOS NOMBRES DE LOS PROVEEDORES #######################################################
         public void proveedores()
         {
-            MySqlCommand cmd = new MySqlCommand("SELECT nombre FROM proveed ORDER BY nombre ASC",conectar);
-            MySqlDataReader dr = cmd.ExecuteReader();
+          
 
-            while (dr.Read())
+            try {
+
+                MySqlCommand cmd = new MySqlCommand("SELECT nombre FROM proveed ORDER BY nombre ASC", conectar);
+                MySqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    LB_status.ForeColor = Color.DarkGreen;
+                    LB_status.Text = "Conectado";
+                    while (dr.Read())
+                    {
+
+                        CB_proveedor.Items.Add(dr["nombre"].ToString());
+                    }
+
+                    dr.Close();
+                }
+            } catch(Exception ex)
             {
-              
-                CB_proveedor.Items.Add(dr["nombre"].ToString());
+                LB_status.ForeColor = Color.Red;
+                LB_status.Text = "Sin Conexión";
             }
+            
+            
+          
 
-            dr.Close();
-           // conectar.Close();
+           
+           //conectar.Close();
+          
         }
 
 
@@ -144,59 +165,33 @@ namespace appSugerencias
             try
             {
                 MySqlCommand cmd = new MySqlCommand("SELECT PROVEEDOR FROM proveed where NOMBRE='" + CB_proveedor.SelectedItem.ToString() + "'", conectar);
-                MySqlDataReader dr = cmd.ExecuteReader();
+                MySqlDataReader d = cmd.ExecuteReader();
                 //MessageBox.Show(conectar.State.ToString());
-                while (dr.Read())
+                while (d.Read())
                 {
 
-                    TB_proveedor.Text = dr["proveedor"].ToString();
-                    conectar.Close();
+                    TB_proveedor.Text = d["proveedor"].ToString();
+                   
                 }
 
-              
+
+
 
                
 
-
-
+                d.Close();
                 EstadoCuenta();
-                dr.Close();
+             
             }
             catch (Exception ex)
             {
-                MessageBox.Show(""+ex);
+                //MessageBox.Show("COMBOBOX:"+ex);
             }
 
            
         }
 
-        //private void DG_datos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    string id = this.DG_datos.CurrentRow.Cells[0].Value.ToString();
-        //    //    string des = this.DG_datos.CurrentRow.Cells[2].Value.ToString();
-        //    //    double importe = Convert.ToDouble(this.DG_datos.CurrentRow.Cells[3].Value);
-        //    //    double saldo = Convert.ToDouble(this.DG_datos.CurrentRow.Cells[4].Value);
-
-        //    Desglose d = new Desglose();
-        //    d.CuentXPagar(id);
-        //    d.datoCuenta(id);
-        //    d.Show();
-        //}
-
-        //private void DG_datos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        //{
-        //    if (DG_datos.Columns[e.ColumnIndex].Name == "SALDO")
-        //    {
-        //        if (Convert.ToInt32(e.Value)<=0)
-        //        {
-        //            e.CellStyle.ForeColor = Color.Green;
-        //        }
-        //        else
-        //        {
-        //            e.CellStyle.ForeColor = Color.Red;
-        //        }
-        //    }
-        //}
+  
 
         private void TB_filtro_TextChanged(object sender, EventArgs e)
         {
@@ -237,21 +232,33 @@ namespace appSugerencias
 
         public void ElegirSucursar()
         {
-            if(CB_sucursal.SelectedItem.Equals("BODEGA"))
+
+            TB_filtro.Text = "";
+            CB_proveedor.SelectedIndex=-1;
+            DG_datos.DataSource = null;
+            TB_proveedor.Text = "";
+            LB_status.Text = "";
+
+            if (CB_sucursal.SelectedItem.Equals("BODEGA"))
             {
-               conectar = BDConexicon.BodegaOpen();
+                conectar = BDConexicon.BodegaOpen();
                 proveedores();
             }
 
             if (CB_sucursal.SelectedItem.Equals("RENA"))
             {
                 conectar = BDConexicon.RenaOpen();
+
+              
                 proveedores();
             }
 
             if (CB_sucursal.SelectedItem.Equals("COLOSO"))
             {
-                conectar = BDConexicon.ColosoOpen();
+                
+                    conectar = BDConexicon.ColosoOpen();
+               
+                
                 proveedores();
             }
 
@@ -263,15 +270,28 @@ namespace appSugerencias
 
             if (CB_sucursal.SelectedItem.Equals("VALLARTA"))
             {
+
                 conectar = BDConexicon.VallartaOpen();
-                MessageBox.Show(conectar.State.ToString());
                 proveedores();
             }
         }
 
         private void CB_sucursal_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ElegirSucursar();
+            try
+            {
+          
+                ElegirSucursar();
+               
+            }
+            catch (Exception ex)
+            {
+
+                LB_status.ForeColor = Color.Red;
+                LB_status.Text = "Sin Conexión";
+            }
+           
+           
         }
     }
 }
