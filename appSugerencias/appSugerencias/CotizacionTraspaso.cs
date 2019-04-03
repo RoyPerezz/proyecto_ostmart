@@ -521,7 +521,7 @@ namespace appSugerencias
 
                 //parrafo.Clear();
 
-                parrafo.Add(new Chunk("ELaboró: ", negritas));
+                parrafo.Add(new Chunk("Elaboró: ", negritas));
                 parrafo.Add(new Chunk(Usuario, normal));
                 doc.Add(parrafo);
 
