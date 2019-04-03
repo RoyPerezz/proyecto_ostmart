@@ -16,6 +16,7 @@ namespace appSugerencias
 {
     public partial class CotizacionTraspaso : Form
     {
+        int idtraspaso = 0;
         int existencia = 0;
         TextReader IP;
         int cantidad = 0;
@@ -111,7 +112,7 @@ namespace appSugerencias
 
                     MySqlCommand id = new MySqlCommand("select max(idtraspaso) as id from rd_traspaso ", BDConexicon.conectar());
                     MySqlDataReader r = id.ExecuteReader();
-                    int idtraspaso = 0;
+                    //int idtraspaso = 0;
                     while (r.Read())
                     {
                         idtraspaso = Convert.ToInt32(r[0].ToString());
@@ -356,6 +357,11 @@ namespace appSugerencias
             TB_articulo.Enabled = false;
             BT_guardar.Enabled = false;
             DG_datos.Enabled = false;
+
+           
+            CB_destino.Enabled = true;
+            TB_motivo.Enabled = true;
+            BT_cotizacion.Enabled = true;
         }
 
 
@@ -386,10 +392,11 @@ namespace appSugerencias
 
 
 
-            limpiar();
+           
             MessageBox.Show("Se han agregado los productos al traspaso");
             deshabilitar();
             CrearPDF();
+            limpiar();
 
         }
 
@@ -399,8 +406,11 @@ namespace appSugerencias
         {
             DateTime fecha = DT_fecha.Value;
             string origen = TB_origen.Text;
-            string destino = Convert.ToString(CB_destino.SelectedItem);
-            string motivo = TB_motivo.Text.ToUpper();
+            string destino =Convert.ToString(CB_destino.SelectedItem);
+            string motivo = TB_motivo.Text;
+
+
+           
 
             try
             {
@@ -456,12 +466,9 @@ namespace appSugerencias
                     destino = "RENA";
                 }
 
-
                 Document doc = new Document(PageSize.A4);
-                string filename = "TraspasosPDF\\TRASPASO" + origen + "-" + destino + ".pdf";
+                string filename = "TraspasosPDF\\TRASPASO " + origen+ " " + destino +" "+fecha.ToString("dd_MM_yyyy")+"_"+idtraspaso +".pdf";
                 PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(@filename, FileMode.Create));
-                filename.ToUpper();
-
 
                 doc.AddTitle("Prueba DaNxD");
                 doc.AddCreator("DaN");
@@ -487,7 +494,7 @@ namespace appSugerencias
 
 
 
-                parrafoEnc.Add("TRASPASO DE " + origen + " a " + destino);
+                parrafoEnc.Add("TRASPADO DE " + origen + " A "+destino );
                 doc.Add(parrafoEnc);
                 parrafoEnc.Clear();
 
@@ -495,26 +502,26 @@ namespace appSugerencias
                 doc.Add(Chunk.NEWLINE);
 
                 //parrafo.Add(new Chunk("ID Traspaso: ", negritas));
-                //parrafo.Add(new Chunk("", normal));
+                //parrafo.Add(new Chunk(id, normal));
                 //doc.Add(parrafo);
 
                 //parrafo.Clear();
 
 
                 parrafo.Add(new Chunk("Fecha de Creacion: ", negritas));
-                parrafo.Add(new Chunk(fecha.ToString("dd-MM-yyyy"), normal));
+                parrafo.Add(new Chunk(fecha.ToString(), normal));
                 doc.Add(parrafo);
 
                 parrafo.Clear();
 
                 //parrafo.Add(new Chunk("Fecha de Aplicacion: ", negritas));
-                //parrafo.Add(new Chunk("", normal));
+                //parrafo.Add(new Chunk(fecha_apli, normal));
                 //doc.Add(parrafo);
 
                 //parrafo.Clear();
 
                 //parrafo.Add(new Chunk("Solicito: ", negritas));
-                //parrafo.Add(new Chunk("", normal));
+                //parrafo.Add(new Chunk(usuario, normal));
                 //doc.Add(parrafo);
 
                 //parrafo.Clear();
@@ -531,25 +538,25 @@ namespace appSugerencias
                 parrafo.Clear();
 
                 parrafo.Add(new Chunk("Motivo: ", negritas));
-                parrafo.Add(new Chunk(motivo, normal));
+                parrafo.Add(new Chunk(motivo.ToUpper(), normal));
                 doc.Add(parrafo);
 
                 parrafo.Clear();
 
-                parrafo.Add(new Chunk("Aplico: ", negritas));
-                parrafo.Add(new Chunk(Usuario, normal));
-                doc.Add(parrafo);
+                //parrafo.Add(new Chunk("Aplico: ", negritas));
+                //parrafo.Add(new Chunk(lblUsuarioAplica.Text, normal));
+                //doc.Add(parrafo);
 
-                parrafo.Clear();
+                //parrafo.Clear();
 
                 //parrafo.Add(new Chunk("Observaciones: ", negritas));
-                //parrafo.Add(new Chunk("", normal));
+                //parrafo.Add(new Chunk(observaciones, normal));
                 //doc.Add(parrafo);
 
                 //parrafo.Clear();
 
                 //parrafo.Add(new Chunk("Estado: ", negritas));
-                //parrafo.Add(new Chunk("", normal));
+                //parrafo.Add(new Chunk(estatus, normal));
                 //doc.Add(parrafo);
 
                 //parrafo.Clear();
@@ -565,11 +572,10 @@ namespace appSugerencias
                 PdfPTable table = new PdfPTable(DG_datos.Columns.Count);
 
                 table.WidthPercentage = 100;
-                float[] widths = new float[] { 0f, 0f, 100f, 25f, 20f };
+                float[] widths = new float[] { 0f,0f,100f, 30f, 30f };
                 table.SetWidths(widths);
                 table.SkipLastFooter = true;
                 table.SpacingAfter = 10;
-
 
 
                 //Encabezados
@@ -602,13 +608,11 @@ namespace appSugerencias
                 Process prc = new System.Diagnostics.Process();
                 prc.StartInfo.FileName = filename;
                 prc.Start();
-
-
             }
-            catch (Exception ex)
+            catch (Exception ex )
             {
-                MessageBox.Show("Error al generar archivo PDF o el archivo ya esta abierto.  " + ex);
 
+                MessageBox.Show("Error al generar archivo PDF o el archivo ya esta abierto.");
             }
         }
 
@@ -619,7 +623,48 @@ namespace appSugerencias
 
         private void TB_articulo_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {
+                    if (DG_datos.RowCount > 0)
+                    {
+                        bool bCampoVacio = false;
+                        foreach (DataGridViewRow dr in DG_datos.Rows)
+                        {
+                            foreach (DataGridViewCell dc in dr.Cells)
+                            {
+                                if (dc.Value == null || string.IsNullOrEmpty(dc.Value.ToString()))
+                                {
+                                    bCampoVacio = true;
+                                }
+                                else
+                                {
 
+                                }
+                            }
+                        }
+                        if (bCampoVacio)
+                        {
+                            MessageBox.Show("Introduce la cantidad");
+                        }
+                        else
+                        {
+                            // dataGridView1.Rows.Add(TB_nombre.Text, TB_apellidos.Text);
+                            AgregarArticulo();
+                            TB_articulo.Text = "";
+                        }
+
+
+                    }
+                    else
+                    {
+                        AgregarArticulo();
+                        TB_articulo.Text = "";
+                        //dataGridView1.Rows.Add(TB_nombre.Text, TB_apellidos.Text);
+                    }
+                }
+            }
         }
     }
 }
