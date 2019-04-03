@@ -495,7 +495,7 @@ namespace appSugerencias
 
 
 
-                parrafoEnc.Add("TRASPASO DE " + origen + " A "+destino+" No."+idtraspaso );
+                parrafoEnc.Add("SOLICITUD DE TRASPASO No. "+idtraspaso );
                 doc.Add(parrafoEnc);
                 parrafoEnc.Clear();
 
@@ -521,7 +521,7 @@ namespace appSugerencias
 
                 //parrafo.Clear();
 
-                parrafo.Add(new Chunk("Solicito: ", negritas));
+                parrafo.Add(new Chunk("ELaboró: ", negritas));
                 parrafo.Add(new Chunk(Usuario, normal));
                 doc.Add(parrafo);
 
