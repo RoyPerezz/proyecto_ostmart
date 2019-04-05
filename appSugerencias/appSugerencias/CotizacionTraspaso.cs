@@ -232,10 +232,10 @@ namespace appSugerencias
             }
         }
 
-        //################################################## BOTON QUE CREA LA COTIZACIÓN ##########################################################
+        //*************************************************ENCABEZADO DEL TRASPASO********************************************************************************
 
-        private void BT_cotizacion_Click(object sender, EventArgs e)
-        {
+            public void EncabezadoTras()
+            {
             if (CB_destino.SelectedIndex == -1)
             {
                 MessageBox.Show("Debes seleccionar un destino de traspaso");
@@ -261,22 +261,59 @@ namespace appSugerencias
                 cmd.Parameters.AddWithValue("?status", "SOLICITADO");
                 cmd.Parameters.AddWithValue("?motivo", TB_motivo.Text.ToUpper());
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Traspaso creado");
+                //MessageBox.Show("Traspaso creado");
                 BDConexicon.ConectarClose();
 
-                //habilitar componentes
-                BT_agregar.Enabled = true;
-                BT_quitar.Enabled = true;
-                TB_articulo.Enabled = true;
-                BT_guardar.Enabled = true;
-                DG_datos.Enabled = true;
-
-                //DESHABILITA COMPONENTES DE LA COTIZACION PARA QUE YA NO SEAN MODIFICADOS HASTA QUE SE GUARDE EL TRASPASO CON SUS PROD.
-                CB_destino.Enabled = false;
-                TB_motivo.Enabled = false;
-                BT_cotizacion.Enabled = false;
             }
         }
+
+
+
+        //################################################## BOTON QUE CREA LA COTIZACIÓN ##########################################################
+
+        //private void BT_cotizacion_Click(object sender, EventArgs e)
+        //    {
+        //    if (CB_destino.SelectedIndex == -1)
+        //    {
+        //        MessageBox.Show("Debes seleccionar un destino de traspaso");
+        //    }
+        //    else if (TB_motivo.Text.Equals(""))
+        //    {
+        //        MessageBox.Show("Justifica el traspaso agregando un motivo");
+        //    }
+        //    else if (TB_origen.Text.Equals(CB_destino.SelectedItem.ToString()))
+        //    {
+        //        MessageBox.Show("El origen y el destino es el mismo, favor de cambiar el destino");
+        //    }
+        //    else
+        //    {
+        //        //crea el traspaso en rd_traspaso
+
+        //        MySqlCommand cmd = new MySqlCommand("insert into rd_traspaso(fecha, usuario, origen, destino, status, motivo) values(?fecha, ?usuario, ?origen, ?destino, ?status, ?motivo)", BDConexicon.conectar());
+        //        DateTime fecha = DT_fecha.Value;
+        //        cmd.Parameters.AddWithValue("?fecha", fecha.ToString("yyyy,MM,dd"));
+        //        cmd.Parameters.AddWithValue("?usuario", Usuario);
+        //        cmd.Parameters.AddWithValue("?origen", TB_origen.Text);
+        //        cmd.Parameters.AddWithValue("?destino", CB_destino.SelectedItem);
+        //        cmd.Parameters.AddWithValue("?status", "SOLICITADO");
+        //        cmd.Parameters.AddWithValue("?motivo", TB_motivo.Text.ToUpper());
+        //        cmd.ExecuteNonQuery();
+        //        //MessageBox.Show("Traspaso creado");
+        //        BDConexicon.ConectarClose();
+
+        //        //habilitar componentes
+        //        BT_agregar.Enabled = true;
+        //        BT_quitar.Enabled = true;
+        //        TB_articulo.Enabled = true;
+        //        BT_guardar.Enabled = true;
+        //        DG_datos.Enabled = true;
+
+        //        //DESHABILITA COMPONENTES DE LA COTIZACION PARA QUE YA NO SEAN MODIFICADOS HASTA QUE SE GUARDE EL TRASPASO CON SUS PROD.
+        //        CB_destino.Enabled = false;
+        //        TB_motivo.Enabled = false;
+        //        BT_cotizacion.Enabled = false;
+        //    }
+        //}
 
 
         //########################## VALIDA QUE LA CANTIDAD INTRODUCIDA POR EL USUARIO NO SUPERA LA EXISTENCIA FISICA DEL PRODUCTO ####################
@@ -361,7 +398,7 @@ namespace appSugerencias
            
             CB_destino.Enabled = true;
             TB_motivo.Enabled = true;
-            BT_cotizacion.Enabled = true;
+            //BT_cotizacion.Enabled = true;
         }
 
 
@@ -369,34 +406,46 @@ namespace appSugerencias
         //################################## INSERTA LOS DATOS EN LA BD #####################################################
         private void BT_guardar_Click(object sender, EventArgs e)
         {
-
-            MySqlCommand cmd2 = new MySqlCommand("insert into rd_traspaso_articulos(fk_idtraspaso,articulo,descripcion,cantidad) values(?fk_idtraspaso,?articulo,?descripcion,?cantidad)", BDConexicon.conectar());
-
-
-
-            foreach (DataGridViewRow row in DG_datos.Rows)
+            try
             {
 
-                cmd2.Parameters.Clear();
-                cmd2.Parameters.AddWithValue("?fk_idtraspaso", Convert.ToInt32(row.Cells["ID"].Value));
-                cmd2.Parameters.AddWithValue("?articulo", Convert.ToString(row.Cells["ARTICULO"].Value).ToUpper());
-                cmd2.Parameters.AddWithValue("?descripcion", Convert.ToString(row.Cells["PRODUCTO"].Value).ToUpper());
-                cmd2.Parameters.AddWithValue("?cantidad", Convert.ToInt32(row.Cells["CANTIDAD"].Value));
-                cmd2.ExecuteNonQuery();
+
+                EncabezadoTras();
+
+
+                MySqlCommand cmd2 = new MySqlCommand("insert into rd_traspaso_articulos(fk_idtraspaso,articulo,descripcion,cantidad) values(?fk_idtraspaso,?articulo,?descripcion,?cantidad)", BDConexicon.conectar());
+
+
+
+                foreach (DataGridViewRow row in DG_datos.Rows)
+                {
+
+                    cmd2.Parameters.Clear();
+                    cmd2.Parameters.AddWithValue("?fk_idtraspaso", Convert.ToInt32(row.Cells["ID"].Value));
+                    cmd2.Parameters.AddWithValue("?articulo", Convert.ToString(row.Cells["ARTICULO"].Value).ToUpper());
+                    cmd2.Parameters.AddWithValue("?descripcion", Convert.ToString(row.Cells["PRODUCTO"].Value).ToUpper());
+                    cmd2.Parameters.AddWithValue("?cantidad", Convert.ToInt32(row.Cells["CANTIDAD"].Value));
+                    cmd2.ExecuteNonQuery();
 
 
 
 
 
+                }
+
+
+
+
+                MessageBox.Show("Se han agregado los productos al traspaso");
+                //deshabilitar();
+                CrearPDF();
+                limpiar();
             }
-
-
-
-           
-            MessageBox.Show("Se han agregado los productos al traspaso");
-            deshabilitar();
-            CrearPDF();
-            limpiar();
+            catch (Exception ex)
+            {
+                MessageBox.Show("No hay conexion con el servidor");
+                
+            }
 
         }
 
@@ -495,7 +544,7 @@ namespace appSugerencias
 
 
 
-                parrafoEnc.Add("SOLICITUD DE TRASPASO No. "+idtraspaso );
+                parrafoEnc.Add("SOLICITUD DE TRASPASO "+origen+" No. "+idtraspaso );
                 doc.Add(parrafoEnc);
                 parrafoEnc.Clear();
 
@@ -527,10 +576,10 @@ namespace appSugerencias
 
                 parrafo.Clear();
 
-                parrafo.Add(new Chunk("Origen: ", negritas));
-                parrafo.Add(new Chunk(origen, normal));
+                //parrafo.Add(new Chunk("Origen: ", negritas));
+                //parrafo.Add(new Chunk(origen, normal));
 
-                parrafo.Add("         ");
+                //parrafo.Add("   ");
                 parrafo.Add(new Chunk("Destino: ", negritas));
                 parrafo.Add(new Chunk(destino, normal));
 
@@ -573,7 +622,7 @@ namespace appSugerencias
                 PdfPTable table = new PdfPTable(DG_datos.Columns.Count);
 
                 table.WidthPercentage = 100;
-                float[] widths = new float[] { 0f,0f,100f, 30f, 30f };
+                float[] widths = new float[] { 0f,40f,100f, 0f, 30f };
                 table.SetWidths(widths);
                 table.SkipLastFooter = true;
                 table.SpacingAfter = 10;
@@ -665,6 +714,31 @@ namespace appSugerencias
                         //dataGridView1.Rows.Add(TB_nombre.Text, TB_apellidos.Text);
                     }
                 }
+            }
+        }
+
+        private void DG_datos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {
+
+                    
+                }
+
+            }
+
+        }
+
+        private void DG_datos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (!TB_articulo.Focused)
+            {
+               TB_articulo.Focus();
+                //TB_articulo.Text += e.KeyPress;
+                // Move el cursor al final
+                TB_articulo.SelectionStart = TB_articulo.Text.Length;
             }
         }
     }

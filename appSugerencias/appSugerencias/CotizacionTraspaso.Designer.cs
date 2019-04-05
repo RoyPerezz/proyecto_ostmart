@@ -46,7 +46,6 @@
             this.BT_agregar = new System.Windows.Forms.Button();
             this.BT_quitar = new System.Windows.Forms.Button();
             this.BT_guardar = new System.Windows.Forms.Button();
-            this.BT_cotizacion = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DG_datos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,12 +67,13 @@
             this.PRODUCTO,
             this.EXISTENCIA,
             this.CANTIDAD});
-            this.DG_datos.Enabled = false;
-            this.DG_datos.Location = new System.Drawing.Point(12, 225);
+            this.DG_datos.Location = new System.Drawing.Point(13, 157);
             this.DG_datos.Name = "DG_datos";
             this.DG_datos.Size = new System.Drawing.Size(543, 218);
             this.DG_datos.TabIndex = 1;
+            this.DG_datos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_datos_CellEndEdit);
             this.DG_datos.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_datos_CellValueChanged);
+            this.DG_datos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DG_datos_KeyPress);
             // 
             // ID
             // 
@@ -163,8 +163,7 @@
             // 
             // TB_articulo
             // 
-            this.TB_articulo.Enabled = false;
-            this.TB_articulo.Location = new System.Drawing.Point(74, 194);
+            this.TB_articulo.Location = new System.Drawing.Point(75, 126);
             this.TB_articulo.Name = "TB_articulo";
             this.TB_articulo.Size = new System.Drawing.Size(481, 20);
             this.TB_articulo.TabIndex = 9;
@@ -175,7 +174,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(10, 194);
+            this.label4.Location = new System.Drawing.Point(11, 126);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 18);
             this.label4.TabIndex = 8;
@@ -183,8 +182,7 @@
             // 
             // BT_agregar
             // 
-            this.BT_agregar.Enabled = false;
-            this.BT_agregar.Location = new System.Drawing.Point(13, 449);
+            this.BT_agregar.Location = new System.Drawing.Point(13, 395);
             this.BT_agregar.Name = "BT_agregar";
             this.BT_agregar.Size = new System.Drawing.Size(92, 41);
             this.BT_agregar.TabIndex = 10;
@@ -194,8 +192,7 @@
             // 
             // BT_quitar
             // 
-            this.BT_quitar.Enabled = false;
-            this.BT_quitar.Location = new System.Drawing.Point(241, 449);
+            this.BT_quitar.Location = new System.Drawing.Point(241, 395);
             this.BT_quitar.Name = "BT_quitar";
             this.BT_quitar.Size = new System.Drawing.Size(92, 41);
             this.BT_quitar.TabIndex = 11;
@@ -205,8 +202,7 @@
             // 
             // BT_guardar
             // 
-            this.BT_guardar.Enabled = false;
-            this.BT_guardar.Location = new System.Drawing.Point(463, 449);
+            this.BT_guardar.Location = new System.Drawing.Point(463, 395);
             this.BT_guardar.Name = "BT_guardar";
             this.BT_guardar.Size = new System.Drawing.Size(92, 41);
             this.BT_guardar.TabIndex = 12;
@@ -214,22 +210,11 @@
             this.BT_guardar.UseVisualStyleBackColor = true;
             this.BT_guardar.Click += new System.EventHandler(this.BT_guardar_Click);
             // 
-            // BT_cotizacion
-            // 
-            this.BT_cotizacion.Location = new System.Drawing.Point(206, 106);
-            this.BT_cotizacion.Name = "BT_cotizacion";
-            this.BT_cotizacion.Size = new System.Drawing.Size(171, 41);
-            this.BT_cotizacion.TabIndex = 13;
-            this.BT_cotizacion.Text = "Crear cotización";
-            this.BT_cotizacion.UseVisualStyleBackColor = true;
-            this.BT_cotizacion.Click += new System.EventHandler(this.BT_cotizacion_Click);
-            // 
             // CotizacionTraspaso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(568, 505);
-            this.Controls.Add(this.BT_cotizacion);
+            this.ClientSize = new System.Drawing.Size(568, 450);
             this.Controls.Add(this.BT_guardar);
             this.Controls.Add(this.BT_quitar);
             this.Controls.Add(this.BT_agregar);
@@ -272,6 +257,5 @@
         private System.Windows.Forms.Button BT_agregar;
         private System.Windows.Forms.Button BT_quitar;
         private System.Windows.Forms.Button BT_guardar;
-        private System.Windows.Forms.Button BT_cotizacion;
     }
 }
