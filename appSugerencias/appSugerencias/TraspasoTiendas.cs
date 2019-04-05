@@ -73,7 +73,7 @@ namespace appSugerencias
         public void CancelacionTraspaso(MySqlConnection conexionOpen)
         {
             //=================================================== ACTUALIZAR STATUS DEL TRASPASO ====================================================
-            MySqlCommand ccmdRr = new MySqlCommand("UPDATE rd_traspaso SET status='CANCELADO' WHERE idtraspaso=?idtraspaso", conexionOpen);
+            MySqlCommand ccmdRr = new MySqlCommand("UPDATE rd_traspaso SET estatus='CANCELADO' WHERE idtraspaso=?idtraspaso", conexionOpen);
             ccmdRr.Parameters.Add("?idtraspaso", MySqlDbType.VarChar).Value = txtId.Text;
             ccmdRr.ExecuteNonQuery();
             // BDConexicon.VallartaClose();
@@ -376,7 +376,7 @@ namespace appSugerencias
                 txtId.Text = mdr.GetString("idtraspaso");
                 txtFecha.Text = mdr.GetString("fecha").Split(' ')[0];
                 txtUsuario.Text = mdr.GetString("usuario");
-                txtEstatus.Text = mdr.GetString("status");
+                txtEstatus.Text = mdr.GetString("estatus");
                 txtOrigen.Text = defineTienda(mdr.GetString("origen"));
                 txtDestino.Text = defineTienda(mdr.GetString("destino"));
                 txtMotivo.Text = mdr.GetString("motivo");
@@ -480,7 +480,7 @@ namespace appSugerencias
 
 
             
-                MySqlCommand cmd = new MySqlCommand("SELECT rd_traspaso.idtraspaso,rd_traspaso.status FROM rd_traspaso   where rd_traspaso.fecha between '" + inicio + "'" + " and '" + fin + "' ", conexion);
+                MySqlCommand cmd = new MySqlCommand("SELECT rd_traspaso.idtraspaso,rd_traspaso.estatus FROM rd_traspaso   where rd_traspaso.fecha between '" + inicio + "'" + " and '" + fin + "' ", conexion);
 
                 MySqlDataAdapter adaptador = new MySqlDataAdapter(cmd);
                 System.Data.DataTable dt = new System.Data.DataTable();
@@ -497,7 +497,7 @@ namespace appSugerencias
                     int n = dgvTraspasos.Rows.Add();
 
                     dgvTraspasos.Rows[n].Cells[0].Value = item["idtraspaso"].ToString();
-                    dgvTraspasos.Rows[n].Cells[1].Value = item["status"].ToString();
+                    dgvTraspasos.Rows[n].Cells[1].Value = item["estatus"].ToString();
 
                 }
 
@@ -742,7 +742,7 @@ namespace appSugerencias
         //################################################## FORMATEA LA CELDA DEL GRID DE TRASPASOS ##############################################################
         private void dgvTraspasos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (this.dgvTraspasos.Columns[e.ColumnIndex].Name == "status")
+            if (this.dgvTraspasos.Columns[e.ColumnIndex].Name == "estatus")
             {
                 if (Convert.ToString(e.Value) == "APLICADO")
                 {

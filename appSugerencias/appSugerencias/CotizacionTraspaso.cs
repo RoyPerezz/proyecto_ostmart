@@ -115,7 +115,7 @@ namespace appSugerencias
                     //int idtraspaso = 0;
                     while (r.Read())
                     {
-                        idtraspaso = Convert.ToInt32(r[0].ToString());
+                        idtraspaso  = Convert.ToInt32(r[0].ToString()) + 1;
                         // MessageBox.Show("id:" + idtraspaso);
                     }
 
@@ -147,7 +147,7 @@ namespace appSugerencias
                             //precio += precio * .16;
                             existencia = Convert.ToInt32(rd["existencia"].ToString());
 
-                            DG_datos.Rows.Add(idtraspaso.ToString(), TB_articulo.Text, rd["descrip"].ToString(), rd["existencia"].ToString());
+                            DG_datos.Rows.Add(idtraspaso , TB_articulo.Text, rd["descrip"].ToString(), rd["existencia"].ToString());
                             DG_datos.CurrentRow.Cells[4].Selected = true;
                           
 
@@ -252,7 +252,7 @@ namespace appSugerencias
             {
                 //crea el traspaso en rd_traspaso
 
-                MySqlCommand cmd = new MySqlCommand("insert into rd_traspaso(fecha, usuario, origen, destino, status, motivo) values(?fecha, ?usuario, ?origen, ?destino, ?status, ?motivo)", BDConexicon.conectar());
+                MySqlCommand cmd = new MySqlCommand("insert into rd_traspaso(fecha, usuario, origen, destino, estatus, motivo) values(?fecha, ?usuario, ?origen, ?destino, ?status, ?motivo)", BDConexicon.conectar());
                 DateTime fecha = DT_fecha.Value;
                 cmd.Parameters.AddWithValue("?fecha", fecha.ToString("yyyy,MM,dd"));
                 cmd.Parameters.AddWithValue("?usuario", Usuario);
@@ -404,29 +404,73 @@ namespace appSugerencias
 
 
         //################################## INSERTA LOS DATOS EN LA BD #####################################################
+       
         private void BT_guardar_Click(object sender, EventArgs e)
         {
             try
             {
 
 
-                EncabezadoTras();
+                //EncabezadoTras();
 
 
-                MySqlCommand cmd2 = new MySqlCommand("insert into rd_traspaso_articulos(fk_idtraspaso,articulo,descripcion,cantidad) values(?fk_idtraspaso,?articulo,?descripcion,?cantidad)", BDConexicon.conectar());
-
-
-
-                foreach (DataGridViewRow row in DG_datos.Rows)
+                if (CB_destino.SelectedIndex == -1)
                 {
+                    MessageBox.Show("Debes seleccionar un destino de traspaso");
+                }
+                else if (TB_motivo.Text.Equals(""))
+                {
+                    MessageBox.Show("Justifica el traspaso agregando un motivo");
+                }
+                else if (TB_origen.Text.Equals(CB_destino.SelectedItem.ToString()))
+                {
+                    MessageBox.Show("El origen y el destino es el mismo, favor de cambiar el destino");
+                }
+                else
+                {
+                    //crea el traspaso en rd_traspaso
 
-                    cmd2.Parameters.Clear();
-                    cmd2.Parameters.AddWithValue("?fk_idtraspaso", Convert.ToInt32(row.Cells["ID"].Value));
-                    cmd2.Parameters.AddWithValue("?articulo", Convert.ToString(row.Cells["ARTICULO"].Value).ToUpper());
-                    cmd2.Parameters.AddWithValue("?descripcion", Convert.ToString(row.Cells["PRODUCTO"].Value).ToUpper());
-                    cmd2.Parameters.AddWithValue("?cantidad", Convert.ToInt32(row.Cells["CANTIDAD"].Value));
-                    cmd2.ExecuteNonQuery();
+                    MySqlCommand cmd = new MySqlCommand("insert into rd_traspaso(fecha, usuario, origen, destino, estatus, motivo) values(?fecha, ?usuario, ?origen, ?destino, ?status, ?motivo)", BDConexicon.conectar());
+                    DateTime fecha = DT_fecha.Value;
+                    cmd.Parameters.AddWithValue("?fecha", fecha.ToString("yyyy,MM,dd"));
+                    cmd.Parameters.AddWithValue("?usuario", Usuario);
+                    cmd.Parameters.AddWithValue("?origen", TB_origen.Text);
+                    cmd.Parameters.AddWithValue("?destino", CB_destino.SelectedItem);
+                    cmd.Parameters.AddWithValue("?status", "SOLICITADO");
+                    cmd.Parameters.AddWithValue("?motivo", TB_motivo.Text.ToUpper());
+                    cmd.ExecuteNonQuery();
+                    //MessageBox.Show("Traspaso creado");
+                    BDConexicon.ConectarClose();
 
+
+
+                    MySqlCommand cmd2 = new MySqlCommand("insert into rd_traspaso_articulos(fk_idtraspaso,articulo,descripcion,cantidad) values(?fk_idtraspaso,?articulo,?descripcion,?cantidad)", BDConexicon.conectar());
+
+
+
+                    foreach (DataGridViewRow row in DG_datos.Rows)
+                    {
+
+                        cmd2.Parameters.Clear();
+                        cmd2.Parameters.AddWithValue("?fk_idtraspaso", Convert.ToInt32(row.Cells["ID"].Value));
+                        cmd2.Parameters.AddWithValue("?articulo", Convert.ToString(row.Cells["ARTICULO"].Value).ToUpper());
+                        cmd2.Parameters.AddWithValue("?descripcion", Convert.ToString(row.Cells["PRODUCTO"].Value).ToUpper());
+                        cmd2.Parameters.AddWithValue("?cantidad", Convert.ToInt32(row.Cells["CANTIDAD"].Value));
+                        cmd2.ExecuteNonQuery();
+
+
+
+
+
+                    }
+
+
+                    BDConexicon.ConectarClose();
+
+                    MessageBox.Show("Se han agregado los productos al traspaso");
+                    //deshabilitar();
+                    CrearPDF();
+                    limpiar();
 
 
 
@@ -435,15 +479,11 @@ namespace appSugerencias
 
 
 
-
-                MessageBox.Show("Se han agregado los productos al traspaso");
-                //deshabilitar();
-                CrearPDF();
-                limpiar();
+             
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No hay conexion con el servidor");
+                MessageBox.Show("NO HAY CONEXION CON EL SERVIDOR: "+ex);
                 
             }
 
@@ -517,7 +557,7 @@ namespace appSugerencias
                 }
 
                 Document doc = new Document(PageSize.A4);
-                string filename = "TraspasosPDF\\TRASPASO " + origen+ " " + destino +" "+fecha.ToString("dd_MM_yyyy")+"_"+idtraspaso +".pdf";
+                string filename = "TraspasosPDF\\TRASPASO " + origen+ " " + destino +" "+fecha.ToString("dd_MM_yyyy")+"_"+idtraspaso +1  +".pdf";
                 PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(@filename, FileMode.Create));
 
                 doc.AddTitle("Prueba DaNxD");
@@ -717,19 +757,7 @@ namespace appSugerencias
             }
         }
 
-        private void DG_datos_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                if (e.KeyChar == Convert.ToChar(Keys.Enter))
-                {
-
-                    
-                }
-
-            }
-
-        }
+  
 
         private void DG_datos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
@@ -740,6 +768,11 @@ namespace appSugerencias
                 // Move el cursor al final
                 TB_articulo.SelectionStart = TB_articulo.Text.Length;
             }
+        }
+
+        private void DG_datos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
         }
     }
 }
