@@ -717,19 +717,7 @@ namespace appSugerencias
             }
         }
 
-        private void DG_datos_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                if (e.KeyChar == Convert.ToChar(Keys.Enter))
-                {
-
-                    
-                }
-
-            }
-
-        }
+  
 
         private void DG_datos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {

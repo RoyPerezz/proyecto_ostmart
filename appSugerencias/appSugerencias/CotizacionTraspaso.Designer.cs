@@ -73,7 +73,7 @@
             this.DG_datos.TabIndex = 1;
             this.DG_datos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_datos_CellEndEdit);
             this.DG_datos.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_datos_CellValueChanged);
-            this.DG_datos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DG_datos_KeyPress);
+            //this.DG_datos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DG_datos_KeyPress);
             // 
             // ID
             // 
