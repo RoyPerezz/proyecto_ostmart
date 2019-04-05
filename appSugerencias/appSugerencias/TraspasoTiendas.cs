@@ -291,7 +291,7 @@ namespace appSugerencias
             }
 
             //=================================================== ACTUALIZAR STATUS DEL TRASPASO ====================================================
-            MySqlCommand ccmdRr = new MySqlCommand("UPDATE rd_traspaso SET usuario_aplica=?usuario,status='APLICADO', observacion_aplica=?observaciones,fecha_aplica=?fecha_aplica WHERE idtraspaso=?idtraspaso", conexionOpen);
+            MySqlCommand ccmdRr = new MySqlCommand("UPDATE rd_traspaso SET usuario_aplica=?usuario,estatus='APLICADO', observacion_aplica=?observaciones,fecha_aplica=?fecha_aplica WHERE idtraspaso=?idtraspaso", conexionOpen);
             ccmdRr.Parameters.Add("?usuario", MySqlDbType.VarChar).Value = usuarioMyB;
             ccmdRr.Parameters.Add("?observaciones", MySqlDbType.VarChar).Value = txtObservaciones.Text.ToUpper();
             ccmdRr.Parameters.Add("?fecha_aplica", MySqlDbType.Date).Value = DateTime.Now;
@@ -742,7 +742,7 @@ namespace appSugerencias
         //################################################## FORMATEA LA CELDA DEL GRID DE TRASPASOS ##############################################################
         private void dgvTraspasos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (this.dgvTraspasos.Columns[e.ColumnIndex].Name == "estatus")
+            if (this.dgvTraspasos.Columns[e.ColumnIndex].Name == "status")
             {
                 if (Convert.ToString(e.Value) == "APLICADO")
                 {
