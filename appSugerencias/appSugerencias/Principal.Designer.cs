@@ -118,7 +118,7 @@
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Principal";
-            this.Text = "SoftMart 1.0";
+            this.Text = "SoftMart 1.1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Principal_FormClosed);
             this.Load += new System.EventHandler(this.Principal_Load);
