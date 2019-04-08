@@ -490,7 +490,7 @@ namespace appSugerencias
             }
             catch (Exception ex)
             {
-                MessageBox.Show("NO HAY CONEXION CON EL SERVIDOR: "+ex);
+                MessageBox.Show("ERROR: "+ex);
                 
             }
 
