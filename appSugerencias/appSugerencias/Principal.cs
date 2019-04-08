@@ -151,20 +151,59 @@ namespace appSugerencias
 
         private void aplicarTraspasoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TraspasoTiendas appTras = new TraspasoTiendas(Usuario);
-            appTras.Show();
+            //se localiza el formulario buscandolo entre los forms abiertos 
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is TraspasoTiendas);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm = new TraspasoTiendas();
+            frm.Show();
+
+            //TraspasoTiendas appTras = new TraspasoTiendas(Usuario);
+            //appTras.Show();
         }
 
         private void ofertasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Existencias exis = new Existencias(Usuario,Area);
-            exis.Show();
+            //se localiza el formulario buscandolo entre los forms abiertos 
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Existencias);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm = new Existencias();
+            frm.Show();
         }
 
         private void crearTraspasoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CotizacionTraspaso traspaso = new CotizacionTraspaso(Usuario);
-            traspaso.Show();
+            //se localiza el formulario buscandolo entre los forms abiertos 
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is CotizacionTraspaso);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm = new CotizacionTraspaso();
+            frm.Show();
+
+            //CotizacionTraspaso traspaso = new CotizacionTraspaso(Usuario);
+            //traspaso.Show();
         }
 
         private void pagosToolStripMenuItem_Click(object sender, EventArgs e)
