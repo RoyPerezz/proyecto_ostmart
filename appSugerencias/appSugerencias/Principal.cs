@@ -87,6 +87,14 @@ namespace appSugerencias
                 toolsmCreaTraspaso.Enabled = false;
             }
 
+            if (Area == "PAGOS" || Area == "SISTEMAS" || Area == "SUPERVICION")
+            {
+               pagosToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                pagosToolStripMenuItem.Enabled = false;
+            }
 
 
 
