@@ -170,7 +170,7 @@ namespace appSugerencias
             }
 
             //sino existe la instancia se crea una nueva
-            frm = new TraspasoTiendas();
+            frm = new TraspasoTiendas(Usuario);
             frm.Show();
 
             //TraspasoTiendas appTras = new TraspasoTiendas(Usuario);
@@ -190,7 +190,7 @@ namespace appSugerencias
             }
 
             //sino existe la instancia se crea una nueva
-            frm = new Existencias();
+            frm = new Existencias(Usuario,Area);
             frm.Show();
         }
 
@@ -207,7 +207,7 @@ namespace appSugerencias
             }
 
             //sino existe la instancia se crea una nueva
-            frm = new CotizacionTraspaso();
+            frm = new CotizacionTraspaso(Usuario);
             frm.Show();
 
             //CotizacionTraspaso traspaso = new CotizacionTraspaso(Usuario);
