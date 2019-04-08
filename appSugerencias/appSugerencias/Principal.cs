@@ -87,6 +87,14 @@ namespace appSugerencias
                 toolsmCreaTraspaso.Enabled = false;
             }
 
+            if (Area == "PAGOS" || Area == "SISTEMAS" || Area == "SUPERVICION")
+            {
+               pagosToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                pagosToolStripMenuItem.Enabled = false;
+            }
 
 
 
@@ -208,8 +216,21 @@ namespace appSugerencias
 
         private void pagosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CuentasXPagar cuentas = new CuentasXPagar();
-            cuentas.Show();
+           
+
+            //se localiza el formulario buscandolo entre los forms abiertos 
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is CuentasXPagar);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm = new CuentasXPagar();
+            frm.Show();
         }
     }
 }
