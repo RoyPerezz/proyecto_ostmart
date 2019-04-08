@@ -166,5 +166,11 @@ namespace appSugerencias
             CotizacionTraspaso traspaso = new CotizacionTraspaso(Usuario);
             traspaso.Show();
         }
+
+        private void pagosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CuentasXPagar cuentas = new CuentasXPagar();
+            cuentas.Show();
+        }
     }
 }
