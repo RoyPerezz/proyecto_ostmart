@@ -30,11 +30,6 @@
         {
             this.DT_fecha = new System.Windows.Forms.DateTimePicker();
             this.DG_datos = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ARTICULO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PRODUCTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EXISTENCIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CANTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.TB_motivo = new System.Windows.Forms.TextBox();
             this.TB_origen = new System.Windows.Forms.TextBox();
@@ -46,6 +41,9 @@
             this.BT_agregar = new System.Windows.Forms.Button();
             this.BT_quitar = new System.Windows.Forms.Button();
             this.BT_guardar = new System.Windows.Forms.Button();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ARTICULO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PRODUCTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DG_datos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,45 +59,12 @@
             // 
             this.DG_datos.AllowUserToAddRows = false;
             this.DG_datos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DG_datos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.ARTICULO,
-            this.PRODUCTO,
-            this.EXISTENCIA,
-            this.CANTIDAD});
             this.DG_datos.Location = new System.Drawing.Point(13, 157);
             this.DG_datos.Name = "DG_datos";
             this.DG_datos.Size = new System.Drawing.Size(543, 218);
             this.DG_datos.TabIndex = 1;
             this.DG_datos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_datos_CellEndEdit);
             this.DG_datos.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_datos_CellValueChanged);
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.Visible = false;
-            // 
-            // ARTICULO
-            // 
-            this.ARTICULO.HeaderText = "ARTICULO";
-            this.ARTICULO.Name = "ARTICULO";
-            this.ARTICULO.Visible = false;
-            // 
-            // PRODUCTO
-            // 
-            this.PRODUCTO.HeaderText = "PRODUCTO";
-            this.PRODUCTO.Name = "PRODUCTO";
-            // 
-            // EXISTENCIA
-            // 
-            this.EXISTENCIA.HeaderText = "EXISTENCIA";
-            this.EXISTENCIA.Name = "EXISTENCIA";
-            // 
-            // CANTIDAD
-            // 
-            this.CANTIDAD.HeaderText = "CANTIDAD";
-            this.CANTIDAD.Name = "CANTIDAD";
             // 
             // label1
             // 
@@ -209,6 +174,22 @@
             this.BT_guardar.UseVisualStyleBackColor = true;
             this.BT_guardar.Click += new System.EventHandler(this.BT_guardar_Click);
             // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Visible = false;
+            // 
+            // ARTICULO
+            // 
+            this.ARTICULO.HeaderText = "ARTICULO";
+            this.ARTICULO.Name = "ARTICULO";
+            // 
+            // PRODUCTO
+            // 
+            this.PRODUCTO.HeaderText = "PRODUCTO";
+            this.PRODUCTO.Name = "PRODUCTO";
+            // 
             // CotizacionTraspaso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -240,11 +221,6 @@
 
         private System.Windows.Forms.DateTimePicker DT_fecha;
         private System.Windows.Forms.DataGridView DG_datos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ARTICULO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCTO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EXISTENCIA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CANTIDAD;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TB_motivo;
         private System.Windows.Forms.TextBox TB_origen;
@@ -256,5 +232,8 @@
         private System.Windows.Forms.Button BT_agregar;
         private System.Windows.Forms.Button BT_quitar;
         private System.Windows.Forms.Button BT_guardar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ARTICULO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCTO;
     }
 }
