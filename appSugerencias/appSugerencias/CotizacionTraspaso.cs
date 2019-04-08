@@ -443,34 +443,41 @@ namespace appSugerencias
                     BDConexicon.ConectarClose();
 
 
-
-                    MySqlCommand cmd2 = new MySqlCommand("insert into rd_traspaso_articulos(fk_idtraspaso,articulo,descripcion,cantidad) values(?fk_idtraspaso,?articulo,?descripcion,?cantidad)", BDConexicon.conectar());
-
-
-
-                    foreach (DataGridViewRow row in DG_datos.Rows)
+                    if(DG_datos.RowCount==0)
                     {
-
-                        cmd2.Parameters.Clear();
-                        cmd2.Parameters.AddWithValue("?fk_idtraspaso", Convert.ToInt32(row.Cells["ID"].Value));
-                        cmd2.Parameters.AddWithValue("?articulo", Convert.ToString(row.Cells["ARTICULO"].Value).ToUpper());
-                        cmd2.Parameters.AddWithValue("?descripcion", Convert.ToString(row.Cells["PRODUCTO"].Value).ToUpper());
-                        cmd2.Parameters.AddWithValue("?cantidad", Convert.ToInt32(row.Cells["CANTIDAD"].Value));
-                        cmd2.ExecuteNonQuery();
-
-
-
-
-
+                        MessageBox.Show("Debes agregar articulos a la solicitud");
                     }
+                    else
+                    {
+                        MySqlCommand cmd2 = new MySqlCommand("insert into rd_traspaso_articulos(fk_idtraspaso,articulo,descripcion,cantidad) values(?fk_idtraspaso,?articulo,?descripcion,?cantidad)", BDConexicon.conectar());
 
 
-                    BDConexicon.ConectarClose();
 
-                    MessageBox.Show("Se han agregado los productos al traspaso");
-                    //deshabilitar();
-                    CrearPDF();
-                    limpiar();
+                        foreach (DataGridViewRow row in DG_datos.Rows)
+                        {
+
+                            cmd2.Parameters.Clear();
+                            cmd2.Parameters.AddWithValue("?fk_idtraspaso", Convert.ToInt32(row.Cells["ID"].Value));
+                            cmd2.Parameters.AddWithValue("?articulo", Convert.ToString(row.Cells["ARTICULO"].Value).ToUpper());
+                            cmd2.Parameters.AddWithValue("?descripcion", Convert.ToString(row.Cells["PRODUCTO"].Value).ToUpper());
+                            cmd2.Parameters.AddWithValue("?cantidad", Convert.ToInt32(row.Cells["CANTIDAD"].Value));
+                            cmd2.ExecuteNonQuery();
+
+
+
+
+
+                        }
+
+
+                        BDConexicon.ConectarClose();
+
+                        MessageBox.Show("Se han agregado los productos al traspaso");
+                        //deshabilitar();
+                        CrearPDF();
+                        limpiar();
+                    }
+                    
 
 
 

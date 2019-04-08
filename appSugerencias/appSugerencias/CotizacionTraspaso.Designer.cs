@@ -73,7 +73,6 @@
             this.DG_datos.TabIndex = 1;
             this.DG_datos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_datos_CellEndEdit);
             this.DG_datos.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_datos_CellValueChanged);
-            //this.DG_datos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DG_datos_KeyPress);
             // 
             // ID
             // 
@@ -229,7 +228,7 @@
             this.Controls.Add(this.DG_datos);
             this.Controls.Add(this.DT_fecha);
             this.Name = "CotizacionTraspaso";
-            this.Text = "CotizacionTraspaso";
+            this.Text = "Solicitud de Traspaso";
             this.Load += new System.EventHandler(this.CotizacionTraspaso_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DG_datos)).EndInit();
             this.ResumeLayout(false);
