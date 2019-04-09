@@ -105,7 +105,7 @@ namespace appSugerencias
 
                 //obtengo el id del ultimo traspaso creado
 
-                bool exist = DG_datos.Rows.Cast<DataGridViewRow>().Any(row => Convert.ToString(row.Cells["ARTICULO"].Value) == TB_articulo.Text);
+                bool exist = DG_datos.Rows.Cast<DataGridViewRow>().Any(row => Convert.ToString(row.Cells["CODIGO"].Value) == TB_articulo.Text);
 
                 if (!exist)
                 {
@@ -322,7 +322,7 @@ namespace appSugerencias
 
         private void DG_datos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (DG_datos.Columns[e.ColumnIndex].Name == "CANTIDAD")
+            if (DG_datos.Columns[e.ColumnIndex].Name == "CANT")
             {
                 try
                 {
@@ -457,10 +457,10 @@ namespace appSugerencias
                         {
 
                             cmd2.Parameters.Clear();
-                            cmd2.Parameters.AddWithValue("?fk_idtraspaso", Convert.ToInt32(row.Cells["ID"].Value));
-                            cmd2.Parameters.AddWithValue("?articulo", Convert.ToString(row.Cells["ARTICULO"].Value).ToUpper());
-                            cmd2.Parameters.AddWithValue("?descripcion", Convert.ToString(row.Cells["PRODUCTO"].Value).ToUpper());
-                            cmd2.Parameters.AddWithValue("?cantidad", Convert.ToInt32(row.Cells["CANTIDAD"].Value));
+                            cmd2.Parameters.AddWithValue("?fk_idtraspaso", Convert.ToInt32(row.Cells["ID_traspaso"].Value));
+                            cmd2.Parameters.AddWithValue("?articulo", Convert.ToString(row.Cells["CODIGO"].Value).ToUpper());
+                            cmd2.Parameters.AddWithValue("?descripcion", Convert.ToString(row.Cells["DESCRIP"].Value).ToUpper());
+                            cmd2.Parameters.AddWithValue("?cantidad", Convert.ToInt32(row.Cells["CANT"].Value));
                             cmd2.ExecuteNonQuery();
 
 

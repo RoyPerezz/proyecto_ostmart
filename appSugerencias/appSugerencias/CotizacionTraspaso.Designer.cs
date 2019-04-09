@@ -44,13 +44,18 @@
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ARTICULO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PRODUCTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID_traspaso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CODIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DESCRIP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EXIST = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CANT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DG_datos)).BeginInit();
             this.SuspendLayout();
             // 
             // DT_fecha
             // 
             this.DT_fecha.Enabled = false;
-            this.DT_fecha.Location = new System.Drawing.Point(206, 12);
+            this.DT_fecha.Location = new System.Drawing.Point(263, 12);
             this.DT_fecha.Name = "DT_fecha";
             this.DT_fecha.Size = new System.Drawing.Size(200, 20);
             this.DT_fecha.TabIndex = 0;
@@ -58,10 +63,17 @@
             // DG_datos
             // 
             this.DG_datos.AllowUserToAddRows = false;
+            this.DG_datos.AllowUserToOrderColumns = true;
             this.DG_datos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DG_datos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID_traspaso,
+            this.CODIGO,
+            this.DESCRIP,
+            this.EXIST,
+            this.CANT});
             this.DG_datos.Location = new System.Drawing.Point(13, 157);
             this.DG_datos.Name = "DG_datos";
-            this.DG_datos.Size = new System.Drawing.Size(543, 218);
+            this.DG_datos.Size = new System.Drawing.Size(649, 218);
             this.DG_datos.TabIndex = 1;
             this.DG_datos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_datos_CellEndEdit);
             this.DG_datos.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_datos_CellValueChanged);
@@ -80,7 +92,7 @@
             // 
             this.TB_motivo.Location = new System.Drawing.Point(74, 80);
             this.TB_motivo.Name = "TB_motivo";
-            this.TB_motivo.Size = new System.Drawing.Size(481, 20);
+            this.TB_motivo.Size = new System.Drawing.Size(588, 20);
             this.TB_motivo.TabIndex = 3;
             // 
             // TB_origen
@@ -110,7 +122,7 @@
             "RE",
             "VA",
             "VE"});
-            this.CB_destino.Location = new System.Drawing.Point(434, 51);
+            this.CB_destino.Location = new System.Drawing.Point(541, 51);
             this.CB_destino.Name = "CB_destino";
             this.CB_destino.Size = new System.Drawing.Size(121, 21);
             this.CB_destino.TabIndex = 6;
@@ -119,7 +131,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(362, 54);
+            this.label3.Location = new System.Drawing.Point(469, 54);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 18);
             this.label3.TabIndex = 7;
@@ -129,7 +141,7 @@
             // 
             this.TB_articulo.Location = new System.Drawing.Point(75, 126);
             this.TB_articulo.Name = "TB_articulo";
-            this.TB_articulo.Size = new System.Drawing.Size(481, 20);
+            this.TB_articulo.Size = new System.Drawing.Size(587, 20);
             this.TB_articulo.TabIndex = 9;
             this.TB_articulo.TextChanged += new System.EventHandler(this.TB_articulo_TextChanged);
             this.TB_articulo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_articulo_KeyPress);
@@ -156,7 +168,7 @@
             // 
             // BT_quitar
             // 
-            this.BT_quitar.Location = new System.Drawing.Point(241, 395);
+            this.BT_quitar.Location = new System.Drawing.Point(293, 395);
             this.BT_quitar.Name = "BT_quitar";
             this.BT_quitar.Size = new System.Drawing.Size(92, 41);
             this.BT_quitar.TabIndex = 11;
@@ -166,7 +178,7 @@
             // 
             // BT_guardar
             // 
-            this.BT_guardar.Location = new System.Drawing.Point(463, 395);
+            this.BT_guardar.Location = new System.Drawing.Point(570, 395);
             this.BT_guardar.Name = "BT_guardar";
             this.BT_guardar.Size = new System.Drawing.Size(92, 41);
             this.BT_guardar.TabIndex = 12;
@@ -190,11 +202,37 @@
             this.PRODUCTO.HeaderText = "PRODUCTO";
             this.PRODUCTO.Name = "PRODUCTO";
             // 
+            // ID_traspaso
+            // 
+            this.ID_traspaso.HeaderText = "ID";
+            this.ID_traspaso.Name = "ID_traspaso";
+            this.ID_traspaso.Visible = false;
+            // 
+            // CODIGO
+            // 
+            this.CODIGO.HeaderText = "CÓDIGO";
+            this.CODIGO.Name = "CODIGO";
+            // 
+            // DESCRIP
+            // 
+            this.DESCRIP.HeaderText = "DESCRIPCION";
+            this.DESCRIP.Name = "DESCRIP";
+            // 
+            // EXIST
+            // 
+            this.EXIST.HeaderText = "EXISTENCIA";
+            this.EXIST.Name = "EXIST";
+            // 
+            // CANT
+            // 
+            this.CANT.HeaderText = "CANTIDAD";
+            this.CANT.Name = "CANT";
+            // 
             // CotizacionTraspaso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(568, 450);
+            this.ClientSize = new System.Drawing.Size(677, 450);
             this.Controls.Add(this.BT_guardar);
             this.Controls.Add(this.BT_quitar);
             this.Controls.Add(this.BT_agregar);
@@ -235,5 +273,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ARTICULO;
         private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCTO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID_traspaso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CODIGO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EXIST;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CANT;
     }
 }
