@@ -75,8 +75,8 @@ namespace appSugerencias
         {
             
             Sucursal();
-            DG_datos.Columns[2].Width = 330;
-            DG_datos.Columns[3].Width = 75;
+            DG_datos.Columns[1].Width = 330;
+            DG_datos.Columns[2].Width = 75;
         }
 
 
@@ -90,7 +90,7 @@ namespace appSugerencias
         {
 
 
-            
+            MySqlConnection con = BDConexicon.conectar();
 
 
             if (TB_articulo.Text.Equals(""))
@@ -110,20 +110,20 @@ namespace appSugerencias
                 if (!exist)
                 {
 
-                    MySqlCommand id = new MySqlCommand("select max(idtraspaso) as id from rd_traspaso ", BDConexicon.conectar());
-                    MySqlDataReader r = id.ExecuteReader();
-                    //int idtraspaso = 0;
-                    while (r.Read())
-                    {
-                        idtraspaso  = Convert.ToInt32(r[0].ToString()) + 1;
-                        // MessageBox.Show("id:" + idtraspaso);
-                    }
+                    //MySqlCommand id = new MySqlCommand("select max(idtraspaso) as id from rd_traspaso ", con);
+                    //MySqlDataReader r = id.ExecuteReader();
+                    ////int idtraspaso = 0;
+                    //while (r.Read())
+                    //{
+                    //    idtraspaso  = Convert.ToInt32(r[0].ToString()) + 1;
+                    //    // MessageBox.Show("id:" + idtraspaso);
+                    //}
 
-                    r.Close();
-                    BDConexicon.ConectarClose();
+                    //r.Close();
+                   
                     // se validad el articulo para ver si existe en la base de datos
                    
-                    MySqlCommand c = new MySqlCommand("select articulo from prods where articulo='" + TB_articulo.Text + "'", BDConexicon.conectar());
+                    MySqlCommand c = new MySqlCommand("select articulo from prods where articulo='" + TB_articulo.Text + "'", con);
                     MySqlDataReader art = c.ExecuteReader();
                     string articulo = "";
                     while (art.Read())
@@ -131,12 +131,12 @@ namespace appSugerencias
                         articulo = art[0].ToString();
                     }
                     art.Close();
-                    BDConexicon.ConectarClose();
+                   
 
                   
                     if (TB_articulo.Text.Equals(articulo))
                     {
-                        MySqlCommand cmd = new MySqlCommand("select descrip, existencia from prods where articulo='" + TB_articulo.Text + "'", BDConexicon.conectar());
+                        MySqlCommand cmd = new MySqlCommand("select descrip, existencia from prods where articulo='" + TB_articulo.Text + "'", con);
                         MySqlDataReader rd = cmd.ExecuteReader();
 
                         while (rd.Read())
@@ -147,8 +147,8 @@ namespace appSugerencias
                             //precio += precio * .16;
                             existencia = Convert.ToInt32(rd["existencia"].ToString());
 
-                            DG_datos.Rows.Add(idtraspaso , TB_articulo.Text, rd["descrip"].ToString(), rd["existencia"].ToString());
-                            DG_datos.CurrentRow.Cells[4].Selected = true;
+                            DG_datos.Rows.Add(TB_articulo.Text, rd["descrip"].ToString(), rd["existencia"].ToString());
+                            DG_datos.CurrentRow.Cells[3].Selected = true;
                           
 
 
@@ -156,7 +156,7 @@ namespace appSugerencias
 
                         }
                         rd.Close();
-                        BDConexicon.ConectarClose();
+                       
 
                     }
                     else
@@ -173,7 +173,7 @@ namespace appSugerencias
 
 
 
-
+                con.Close();
 
 
             }
@@ -326,7 +326,7 @@ namespace appSugerencias
             {
                 try
                 {
-                    cantidad = Convert.ToInt32(DG_datos.Rows[e.RowIndex].Cells[4].Value.ToString());
+                    cantidad = Convert.ToInt32(DG_datos.Rows[e.RowIndex].Cells[3].Value.ToString());
 
 
                     if (cantidad > existencia)
@@ -349,7 +349,7 @@ namespace appSugerencias
 
                 try
                 {
-                    if (DG_datos.Rows[e.RowIndex].Cells[4].Value.Equals(""))
+                    if (DG_datos.Rows[e.RowIndex].Cells[3].Value.Equals(""))
                     {
                         MessageBox.Show("INTRODUCE LA CANTIDAD");
                     }
@@ -407,6 +407,9 @@ namespace appSugerencias
        
         private void BT_guardar_Click(object sender, EventArgs e)
         {
+
+            MySqlConnection con = BDConexicon.conectar();
+
             try
             {
 
@@ -426,11 +429,17 @@ namespace appSugerencias
                 {
                     MessageBox.Show("El origen y el destino es el mismo, favor de cambiar el destino");
                 }
-                else
+                else if(DG_datos.RowCount == 0)
                 {
                     //crea el traspaso en rd_traspaso
+                    MessageBox.Show("DEBES AGREGAR ARTICULOS A LA SOLICITUD DE TRASPASO");
 
-                    MySqlCommand cmd = new MySqlCommand("insert into rd_traspaso(fecha, usuario, origen, destino, estatus, motivo) values(?fecha, ?usuario, ?origen, ?destino, ?status, ?motivo)", BDConexicon.conectar());
+                }
+                else
+                {
+
+                    //CABECERA DE LA SOLICITUD
+                    MySqlCommand cmd = new MySqlCommand("insert into rd_traspaso(fecha, usuario, origen, destino, estatus, motivo) values(?fecha, ?usuario, ?origen, ?destino, ?status, ?motivo)", con);
                     DateTime fecha = DT_fecha.Value;
                     cmd.Parameters.AddWithValue("?fecha", fecha.ToString("yyyy,MM,dd"));
                     cmd.Parameters.AddWithValue("?usuario", Usuario);
@@ -439,53 +448,57 @@ namespace appSugerencias
                     cmd.Parameters.AddWithValue("?status", "SOLICITADO");
                     cmd.Parameters.AddWithValue("?motivo", TB_motivo.Text.ToUpper());
                     cmd.ExecuteNonQuery();
-                    //MessageBox.Show("Traspaso creado");
-                    BDConexicon.ConectarClose();
 
-
-                    if(DG_datos.RowCount==0)
+                    //obtengo el ultimo id creado
+                    MySqlCommand id = new MySqlCommand("select max(idtraspaso) as id from rd_traspaso ", con);
+                    MySqlDataReader r = id.ExecuteReader();
+                    //int idtraspaso = 0;
+                    while (r.Read())
                     {
-                        MessageBox.Show("Debes agregar articulos a la solicitud");
+                        idtraspaso = Convert.ToInt32(r[0].ToString());
+                        // MessageBox.Show("id:" + idtraspaso);
                     }
-                    else
+
+                    r.Close();
+
+
+
+                    //se agregan articulos a la tabla 
+
+                    MySqlCommand cmd2 = new MySqlCommand("insert into rd_traspaso_articulos(fk_idtraspaso,articulo,descripcion,cantidad) values(?fk_idtraspaso,?articulo,?descripcion,?cantidad)", con);
+
+                 
+
+                    foreach (DataGridViewRow row in DG_datos.Rows)
                     {
-                        MySqlCommand cmd2 = new MySqlCommand("insert into rd_traspaso_articulos(fk_idtraspaso,articulo,descripcion,cantidad) values(?fk_idtraspaso,?articulo,?descripcion,?cantidad)", BDConexicon.conectar());
 
-
-
-                        foreach (DataGridViewRow row in DG_datos.Rows)
-                        {
-
-                            cmd2.Parameters.Clear();
-                            cmd2.Parameters.AddWithValue("?fk_idtraspaso", Convert.ToInt32(row.Cells["ID_traspaso"].Value));
-                            cmd2.Parameters.AddWithValue("?articulo", Convert.ToString(row.Cells["CODIGO"].Value).ToUpper());
-                            cmd2.Parameters.AddWithValue("?descripcion", Convert.ToString(row.Cells["DESCRIP"].Value).ToUpper());
-                            cmd2.Parameters.AddWithValue("?cantidad", Convert.ToInt32(row.Cells["CANT"].Value));
-                            cmd2.ExecuteNonQuery();
+                        cmd2.Parameters.Clear();
+                        cmd2.Parameters.AddWithValue("?fk_idtraspaso", idtraspaso);
+                        cmd2.Parameters.AddWithValue("?articulo", Convert.ToString(row.Cells["CODIGO"].Value).ToUpper());
+                        cmd2.Parameters.AddWithValue("?descripcion", Convert.ToString(row.Cells["DESCRIP"].Value).ToUpper());
+                        cmd2.Parameters.AddWithValue("?cantidad", Convert.ToInt32(row.Cells["CANT"].Value));
+                        cmd2.ExecuteNonQuery();
 
 
 
 
 
-                        }
-
-
-                        BDConexicon.ConectarClose();
-
-                        MessageBox.Show("Se han agregado los productos al traspaso");
-                        //deshabilitar();
-                        CrearPDF();
-                        limpiar();
                     }
-                    
 
+
+                   
+
+                    MessageBox.Show("Se han agregado los productos al traspaso");
+                    //deshabilitar();
+                    CrearPDF();
+                    limpiar();
 
 
 
                 }
 
 
-
+                con.Close();
              
             }
             catch (Exception ex)
@@ -564,7 +577,7 @@ namespace appSugerencias
                 }
 
                 Document doc = new Document(PageSize.A4);
-                string filename = "TraspasosPDF\\TRASPASO " + origen+ " " + destino +" "+fecha.ToString("dd_MM_yyyy")+"_"+idtraspaso +1  +".pdf";
+                string filename = "TraspasosPDF\\TRASPASO " + origen+ " " + destino +" "+fecha.ToString("dd_MM_yyyy")+"_"+idtraspaso  +".pdf";
                 PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(@filename, FileMode.Create));
 
                 doc.AddTitle("Prueba DaNxD");
@@ -669,7 +682,7 @@ namespace appSugerencias
                 PdfPTable table = new PdfPTable(DG_datos.Columns.Count);
 
                 table.WidthPercentage = 100;
-                float[] widths = new float[] { 0f,40f,100f, 0f, 30f };
+                float[] widths = new float[] { 40f,100f, 0f, 30f };
                 table.SetWidths(widths);
                 table.SkipLastFooter = true;
                 table.SpacingAfter = 10;
@@ -762,6 +775,8 @@ namespace appSugerencias
                     }
                 }
             }
+
+            LB_filas.Text = DG_datos.RowCount.ToString();
         }
 
   
