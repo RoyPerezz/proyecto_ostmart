@@ -561,7 +561,7 @@ namespace appSugerencias
         private void Existencias_Load_1(object sender, EventArgs e)
         {
             //#################################################### ACTUALIZACION PARA ACTIVAR  SEGUN USUARIO #####################################
-            if (Area == "TRASPASOS" || Area == "SISTEMAS" || Area == "SUPERVICION")
+            if (Area == "TRASPASOS" || Area == "SISTEMAS" || Area == "SUPER")
             {
                 panelOfertas.Enabled = true;
             }
@@ -571,7 +571,7 @@ namespace appSugerencias
             }
 
 
-            if (Area == "TRASPASOS" || Area == "SISTEMAS" || Area == "SUPERVICION")
+            if (Area == "TRASPASOS" || Area == "SISTEMAS" || Area == "SUPER")
             {
                 panelPrecio.Enabled = true;
             }

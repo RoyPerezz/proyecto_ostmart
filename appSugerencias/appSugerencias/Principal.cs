@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-
+using System.IO;
 using System.Windows.Forms;
 
 namespace appSugerencias
@@ -30,7 +30,23 @@ namespace appSugerencias
             
         }
 
-        
+        public static string optieneIp()
+        {
+            TextReader IP;
+            IP = new StreamReader("IP.txt");
+            string ipn = IP.ReadLine();
+            IP.Close();
+            return ipn;
+        }
+
+        public static string optieneBd()
+        {
+            TextReader BD;
+            BD = new StreamReader("BD.txt");
+            string bdn = BD.ReadLine();
+            BD.Close();
+            return bdn;
+        }
 
 
 
@@ -78,7 +94,7 @@ namespace appSugerencias
             }
 
 
-            if (Area == "BODEGA" || Area == "SISTEMAS" || Area == "SUPERVICION")
+            if (Area == "BODEGA" || Area == "SISTEMAS" || Area == "SUPER")
             {
                 toolsmCreaTraspaso.Enabled = true;
             }
@@ -87,7 +103,7 @@ namespace appSugerencias
                 toolsmCreaTraspaso.Enabled = false;
             }
 
-            if (Area == "PAGOS" || Area == "SISTEMAS" || Area == "SUPERVICION")
+            if (Area == "PAGOS" || Area == "SISTEMAS" || Area == "SUPER")
             {
                pagosToolStripMenuItem.Enabled = true;
             }
@@ -96,8 +112,11 @@ namespace appSugerencias
                 pagosToolStripMenuItem.Enabled = false;
             }
 
+            string IP = optieneIp();
+            string BD = optieneBd();
 
-
+            lblBD.Text = BD;
+            lblIP.Text = IP;
 
         }
 

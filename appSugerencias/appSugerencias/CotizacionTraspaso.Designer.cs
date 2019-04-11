@@ -44,7 +44,8 @@
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ARTICULO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PRODUCTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID_traspaso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LB_filas = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.CODIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DESCRIP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EXIST = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,7 +67,6 @@
             this.DG_datos.AllowUserToOrderColumns = true;
             this.DG_datos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DG_datos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID_traspaso,
             this.CODIGO,
             this.DESCRIP,
             this.EXIST,
@@ -158,7 +158,7 @@
             // 
             // BT_agregar
             // 
-            this.BT_agregar.Location = new System.Drawing.Point(13, 395);
+            this.BT_agregar.Location = new System.Drawing.Point(12, 432);
             this.BT_agregar.Name = "BT_agregar";
             this.BT_agregar.Size = new System.Drawing.Size(92, 41);
             this.BT_agregar.TabIndex = 10;
@@ -168,7 +168,7 @@
             // 
             // BT_quitar
             // 
-            this.BT_quitar.Location = new System.Drawing.Point(293, 395);
+            this.BT_quitar.Location = new System.Drawing.Point(292, 432);
             this.BT_quitar.Name = "BT_quitar";
             this.BT_quitar.Size = new System.Drawing.Size(92, 41);
             this.BT_quitar.TabIndex = 11;
@@ -178,7 +178,7 @@
             // 
             // BT_guardar
             // 
-            this.BT_guardar.Location = new System.Drawing.Point(570, 395);
+            this.BT_guardar.Location = new System.Drawing.Point(569, 432);
             this.BT_guardar.Name = "BT_guardar";
             this.BT_guardar.Size = new System.Drawing.Size(92, 41);
             this.BT_guardar.TabIndex = 12;
@@ -202,11 +202,25 @@
             this.PRODUCTO.HeaderText = "PRODUCTO";
             this.PRODUCTO.Name = "PRODUCTO";
             // 
-            // ID_traspaso
+            // LB_filas
             // 
-            this.ID_traspaso.HeaderText = "ID";
-            this.ID_traspaso.Name = "ID_traspaso";
-            this.ID_traspaso.Visible = false;
+            this.LB_filas.AutoSize = true;
+            this.LB_filas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_filas.Location = new System.Drawing.Point(534, 379);
+            this.LB_filas.Name = "LB_filas";
+            this.LB_filas.Size = new System.Drawing.Size(19, 20);
+            this.LB_filas.TabIndex = 13;
+            this.LB_filas.Text = "0";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(572, 378);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(89, 20);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "productos";
             // 
             // CODIGO
             // 
@@ -232,7 +246,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(677, 450);
+            this.ClientSize = new System.Drawing.Size(677, 485);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.LB_filas);
             this.Controls.Add(this.BT_guardar);
             this.Controls.Add(this.BT_quitar);
             this.Controls.Add(this.BT_agregar);
@@ -273,7 +289,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ARTICULO;
         private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCTO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID_traspaso;
+        private System.Windows.Forms.Label LB_filas;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn CODIGO;
         private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIP;
         private System.Windows.Forms.DataGridViewTextBoxColumn EXIST;
