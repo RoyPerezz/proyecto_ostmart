@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Existencias));
             this.label1 = new System.Windows.Forms.Label();
             this.TB_articulo = new System.Windows.Forms.TextBox();
             this.BTN_aceptar = new System.Windows.Forms.Button();
@@ -117,12 +118,17 @@
             // 
             // BTN_aceptar
             // 
-            this.BTN_aceptar.Location = new System.Drawing.Point(299, 314);
+            this.BTN_aceptar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BTN_aceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTN_aceptar.ForeColor = System.Drawing.Color.White;
+            this.BTN_aceptar.Image = ((System.Drawing.Image)(resources.GetObject("BTN_aceptar.Image")));
+            this.BTN_aceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BTN_aceptar.Location = new System.Drawing.Point(315, 310);
             this.BTN_aceptar.Name = "BTN_aceptar";
-            this.BTN_aceptar.Size = new System.Drawing.Size(145, 48);
+            this.BTN_aceptar.Size = new System.Drawing.Size(129, 48);
             this.BTN_aceptar.TabIndex = 2;
             this.BTN_aceptar.Text = "Buscar";
-            this.BTN_aceptar.UseVisualStyleBackColor = true;
+            this.BTN_aceptar.UseVisualStyleBackColor = false;
             this.BTN_aceptar.Click += new System.EventHandler(this.BTN_aceptar_Click);
             // 
             // label2
@@ -298,12 +304,17 @@
             // 
             // AplicaOferta
             // 
-            this.AplicaOferta.Location = new System.Drawing.Point(222, 200);
+            this.AplicaOferta.BackColor = System.Drawing.Color.DodgerBlue;
+            this.AplicaOferta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AplicaOferta.ForeColor = System.Drawing.Color.White;
+            this.AplicaOferta.Image = ((System.Drawing.Image)(resources.GetObject("AplicaOferta.Image")));
+            this.AplicaOferta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AplicaOferta.Location = new System.Drawing.Point(198, 200);
             this.AplicaOferta.Name = "AplicaOferta";
-            this.AplicaOferta.Size = new System.Drawing.Size(135, 44);
+            this.AplicaOferta.Size = new System.Drawing.Size(159, 44);
             this.AplicaOferta.TabIndex = 12;
             this.AplicaOferta.Text = "Aplicar Oferta";
-            this.AplicaOferta.UseVisualStyleBackColor = true;
+            this.AplicaOferta.UseVisualStyleBackColor = false;
             this.AplicaOferta.Click += new System.EventHandler(this.AplicaOferta_Click_3);
             // 
             // label10
@@ -483,12 +494,17 @@
             // 
             // BT_limpiar
             // 
-            this.BT_limpiar.Location = new System.Drawing.Point(299, 385);
+            this.BT_limpiar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BT_limpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_limpiar.ForeColor = System.Drawing.Color.White;
+            this.BT_limpiar.Image = ((System.Drawing.Image)(resources.GetObject("BT_limpiar.Image")));
+            this.BT_limpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BT_limpiar.Location = new System.Drawing.Point(315, 381);
             this.BT_limpiar.Name = "BT_limpiar";
-            this.BT_limpiar.Size = new System.Drawing.Size(145, 48);
+            this.BT_limpiar.Size = new System.Drawing.Size(129, 48);
             this.BT_limpiar.TabIndex = 29;
             this.BT_limpiar.Text = "Limpiar";
-            this.BT_limpiar.UseVisualStyleBackColor = true;
+            this.BT_limpiar.UseVisualStyleBackColor = false;
             this.BT_limpiar.Click += new System.EventHandler(this.BT_limpiar_Click_1);
             // 
             // label15
@@ -707,12 +723,17 @@
             // 
             // aplicarPrecio
             // 
-            this.aplicarPrecio.Location = new System.Drawing.Point(222, 183);
+            this.aplicarPrecio.BackColor = System.Drawing.Color.DodgerBlue;
+            this.aplicarPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aplicarPrecio.ForeColor = System.Drawing.Color.White;
+            this.aplicarPrecio.Image = ((System.Drawing.Image)(resources.GetObject("aplicarPrecio.Image")));
+            this.aplicarPrecio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.aplicarPrecio.Location = new System.Drawing.Point(198, 183);
             this.aplicarPrecio.Name = "aplicarPrecio";
-            this.aplicarPrecio.Size = new System.Drawing.Size(136, 45);
+            this.aplicarPrecio.Size = new System.Drawing.Size(160, 45);
             this.aplicarPrecio.TabIndex = 32;
             this.aplicarPrecio.Text = "Aplicar Precio";
-            this.aplicarPrecio.UseVisualStyleBackColor = true;
+            this.aplicarPrecio.UseVisualStyleBackColor = false;
             this.aplicarPrecio.Click += new System.EventHandler(this.aplicarPrecio_Click);
             // 
             // tbPrecio2
@@ -759,12 +780,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(932, 532);
             this.Controls.Add(this.panelPrecio);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.panelOfertas);
             this.Name = "Existencias";
-            this.Text = "Existencias";
+            this.Text = "Existencias / Ofertas";
             this.Load += new System.EventHandler(this.Existencias_Load_1);
             this.panelOfertas.ResumeLayout(false);
             this.panelOfertas.PerformLayout();

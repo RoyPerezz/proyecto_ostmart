@@ -32,12 +32,12 @@ namespace appSugerencias
 
         public void Vallarta()
         {
-            
+            MySqlConnection con = BDConexicon.VallartaOpen();
             try
             {
 
 
-                MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'", BDConexicon.VallartaOpen());
+                MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'",con );
                 MySqlDataReader rd = cmd.ExecuteReader();
 
                 //while (rd.Read())
@@ -65,14 +65,14 @@ namespace appSugerencias
                 LB_vallarta.Text = "Sin conexion";
                 LB_vallarta.ForeColor = Color.Red;
             }
-            BDConexicon.VallartaClose();
+            con.Close();
         }
 
         public void Velazquez()
         {
-
+            MySqlConnection con = BDConexicon.VelazquezOpen();
             try { 
-            MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'", BDConexicon.VelazquezOpen());
+            MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'",con );
             MySqlDataReader rd = cmd.ExecuteReader();
 
             //while (rd.Read())
@@ -100,13 +100,15 @@ namespace appSugerencias
                 LB_velazquez.ForeColor = Color.Red;
             }
 
-            BDConexicon.VelazquezClose();
+            con.Close();
         }
 
         public void Rena()
         {
+
+            MySqlConnection con = BDConexicon.ColosoOpen();
             try { 
-            MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'", BDConexicon.RenaOpen());
+            MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'",con);
             MySqlDataReader rd = cmd.ExecuteReader();
 
             //while (rd.Read())
@@ -136,13 +138,15 @@ namespace appSugerencias
                 LB_rena.ForeColor = Color.Red;
             }
 
-            BDConexicon.RenaClose();
+            con.Close();
         }
 
         public void Coloso()
         {
+
+            MySqlConnection con = BDConexicon.ColosoOpen();
             try { 
-            MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'", BDConexicon.ColosoOpen());
+            MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'", con);
             MySqlDataReader rd = cmd.ExecuteReader();
 
             //while (rd.Read())
@@ -172,8 +176,8 @@ namespace appSugerencias
                 LB_coloso.Text = "Sin conexion";
                 LB_coloso.ForeColor = Color.Red;
             }
-            
-            BDConexicon.ColosoClose();
+
+            con.Close();
         }
 
         //public void Bodega()
@@ -212,9 +216,12 @@ namespace appSugerencias
 
         public void DatosProducto()
         {
+
+            MySqlConnection con = BDConexicon.BodegaOpen();
+
             try
             {
-                MySqlCommand cmd = new MySqlCommand("select descrip, precio1,precio2, costo_u, existencia,fabricante from prods where articulo ='" + TB_articulo.Text + "'", BDConexicon.BodegaOpen());
+                MySqlCommand cmd = new MySqlCommand("select descrip, precio1,precio2, costo_u, existencia,fabricante from prods where articulo ='" + TB_articulo.Text + "'",con);
                 MySqlDataReader rd = cmd.ExecuteReader();
 
                 while (rd.Read())
@@ -249,7 +256,7 @@ namespace appSugerencias
                 Lb_bodega.ForeColor = Color.Red;
             }
 
-            BDConexicon.BodegaClose();
+            con.Close();
         }
 
 
@@ -346,6 +353,8 @@ namespace appSugerencias
 
         public void VallartaOferta()
         {
+
+            MySqlConnection con = BDConexicon.VallartaOpen();
             try
             {
                 DateTime Finicio = dt_Inicio.Value;
@@ -356,19 +365,19 @@ namespace appSugerencias
 
 
 
-                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET oferta=1  WHERE articulo=?articulo", BDConexicon.VallartaOpen());
+                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET oferta=1  WHERE articulo=?articulo", con);
                 cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
                 MySqlDataReader mdrr;
                 mdrr = cmdoo.ExecuteReader();
                 mdrr.Close();
 
-                MySqlCommand cmdo = new MySqlCommand("DELETE FROM ofertas WHERE articulo=?articulo", BDConexicon.VallartaOpen());
+                MySqlCommand cmdo = new MySqlCommand("DELETE FROM ofertas WHERE articulo=?articulo", con);
                 cmdo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
                 MySqlDataReader mdr;
                 mdr = cmdo.ExecuteReader();
                 mdr.Close();
 
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO ofertas(articulo,fechainicial,fechafinal,porporcentaje,porcentaje) VALUES(?articulo,?fechainicial,?fechafinal,?porporcentaje,?porcentaje)", BDConexicon.VallartaOpen());
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO ofertas(articulo,fechainicial,fechafinal,porporcentaje,porcentaje) VALUES(?articulo,?fechainicial,?fechafinal,?porporcentaje,?porcentaje)", con);
                 cmd.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
                 cmd.Parameters.Add("?fechainicial", MySqlDbType.VarChar).Value = inicio;
                 cmd.Parameters.Add("?fechafinal", MySqlDbType.VarChar).Value = fin;
@@ -386,12 +395,14 @@ namespace appSugerencias
                 lblVa.Text = "N/A";
                 lblVa.ForeColor = Color.Red;
             }
-            BDConexicon.VallartaClose();
+            con.Close();
         }
 
 
         public void RenaOferta()
         {
+
+            MySqlConnection con = BDConexicon.RenaOpen();
             try
             {
                 DateTime Finicio = dt_Inicio.Value;
@@ -402,19 +413,19 @@ namespace appSugerencias
 
 
 
-                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET oferta=1  WHERE articulo=?articulo", BDConexicon.RenaOpen());
+                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET oferta=1  WHERE articulo=?articulo",con);
                 cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
                 MySqlDataReader mdrr;
                 mdrr = cmdoo.ExecuteReader();
                 mdrr.Close();
 
-                MySqlCommand cmdo = new MySqlCommand("DELETE FROM ofertas WHERE articulo=?articulo", BDConexicon.RenaOpen());
+                MySqlCommand cmdo = new MySqlCommand("DELETE FROM ofertas WHERE articulo=?articulo", con);
                 cmdo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
                 MySqlDataReader mdr;
                 mdr = cmdo.ExecuteReader();
                 mdr.Close();
 
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO ofertas(articulo,fechainicial,fechafinal,porporcentaje,porcentaje) VALUES(?articulo,?fechainicial,?fechafinal,?porporcentaje,?porcentaje)", BDConexicon.RenaOpen());
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO ofertas(articulo,fechainicial,fechafinal,porporcentaje,porcentaje) VALUES(?articulo,?fechainicial,?fechafinal,?porporcentaje,?porcentaje)", con);
                 cmd.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
                 cmd.Parameters.Add("?fechainicial", MySqlDbType.VarChar).Value = inicio;
                 cmd.Parameters.Add("?fechafinal", MySqlDbType.VarChar).Value = fin;
@@ -432,11 +443,13 @@ namespace appSugerencias
                 lblRe.Text = "N/A";
                 lblRe.ForeColor = Color.Red;
             }
-            BDConexicon.RenaClose();
+          con.Close();
         }
 
         public void VelazquezOferta()
         {
+
+            MySqlConnection con = BDConexicon.VelazquezOpen();
             try
             {
                 DateTime Finicio = dt_Inicio.Value;
@@ -447,19 +460,19 @@ namespace appSugerencias
 
 
 
-                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET oferta=1  WHERE articulo=?articulo", BDConexicon.VelazquezOpen());
+                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET oferta=1  WHERE articulo=?articulo", con);
                 cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
                 MySqlDataReader mdrr;
                 mdrr = cmdoo.ExecuteReader();
                 mdrr.Close();
 
-                MySqlCommand cmdo = new MySqlCommand("DELETE FROM ofertas WHERE articulo=?articulo", BDConexicon.VelazquezOpen());
+                MySqlCommand cmdo = new MySqlCommand("DELETE FROM ofertas WHERE articulo=?articulo", con);
                 cmdo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
                 MySqlDataReader mdr;
                 mdr = cmdo.ExecuteReader();
                 mdr.Close();
 
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO ofertas(articulo,fechainicial,fechafinal,porporcentaje,porcentaje) VALUES(?articulo,?fechainicial,?fechafinal,?porporcentaje,?porcentaje)", BDConexicon.VelazquezOpen());
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO ofertas(articulo,fechainicial,fechafinal,porporcentaje,porcentaje) VALUES(?articulo,?fechainicial,?fechafinal,?porporcentaje,?porcentaje)", con);
                 cmd.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
                 cmd.Parameters.Add("?fechainicial", MySqlDbType.VarChar).Value = inicio;
                 cmd.Parameters.Add("?fechafinal", MySqlDbType.VarChar).Value = fin;
@@ -478,11 +491,13 @@ namespace appSugerencias
                 lblVe.ForeColor = Color.Red;
             }
 
-            BDConexicon.VelazquezClose();
+            con.Close();
         }
 
         public void ColosoOferta()
         {
+
+            MySqlConnection con = BDConexicon.ColosoOpen();
             try
             {
                 DateTime Finicio = dt_Inicio.Value;
@@ -493,19 +508,19 @@ namespace appSugerencias
 
 
 
-                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET oferta=1  WHERE articulo=?articulo", BDConexicon.ColosoOpen());
+                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET oferta=1  WHERE articulo=?articulo", con);
                 cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
                 MySqlDataReader mdrr;
                 mdrr = cmdoo.ExecuteReader();
                 mdrr.Close();
 
-                MySqlCommand cmdo = new MySqlCommand("DELETE FROM ofertas WHERE articulo=?articulo", BDConexicon.ColosoOpen());
+                MySqlCommand cmdo = new MySqlCommand("DELETE FROM ofertas WHERE articulo=?articulo", con);
                 cmdo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
                 MySqlDataReader mdr;
                 mdr = cmdo.ExecuteReader();
                 mdr.Close();
 
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO ofertas(articulo,fechainicial,fechafinal,porporcentaje,porcentaje) VALUES(?articulo,?fechainicial,?fechafinal,?porporcentaje,?porcentaje)", BDConexicon.ColosoOpen());
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO ofertas(articulo,fechainicial,fechafinal,porporcentaje,porcentaje) VALUES(?articulo,?fechainicial,?fechafinal,?porporcentaje,?porcentaje)", con);
                 cmd.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
                 cmd.Parameters.Add("?fechainicial", MySqlDbType.VarChar).Value = inicio;
                 cmd.Parameters.Add("?fechafinal", MySqlDbType.VarChar).Value = fin;
@@ -1043,6 +1058,8 @@ namespace appSugerencias
         //#############################################################################################################################
         public void VallartaPrecio()
         {
+
+            MySqlConnection con = BDConexicon.VallartaOpen();
             try
             {
 
@@ -1052,7 +1069,7 @@ namespace appSugerencias
                 Precio2 = Precio2 / 1.16;
 
 
-                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET precio1=?precio1,precio2=?precio2  WHERE articulo=?articulo", BDConexicon.VallartaOpen());
+                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET precio1=?precio1,precio2=?precio2  WHERE articulo=?articulo",con );
                 cmdoo.Parameters.Add("?precio1", MySqlDbType.VarChar).Value = Precio1;
                 cmdoo.Parameters.Add("?precio2", MySqlDbType.VarChar).Value = Precio2;
                 cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
@@ -1077,6 +1094,8 @@ namespace appSugerencias
 
         private void RenaPrecio()
         {
+
+            MySqlConnection con = BDConexicon.RenaOpen();
             try
             {
 
@@ -1086,7 +1105,7 @@ namespace appSugerencias
                 Precio2 = Precio2 / 1.16;
 
 
-                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET precio1=?precio1,precio2=?precio2  WHERE articulo=?articulo", BDConexicon.RenaOpen());
+                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET precio1=?precio1,precio2=?precio2  WHERE articulo=?articulo",con);
                 cmdoo.Parameters.Add("?precio1", MySqlDbType.VarChar).Value = Precio1;
                 cmdoo.Parameters.Add("?precio2", MySqlDbType.VarChar).Value = Precio2;
                 cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
@@ -1109,6 +1128,8 @@ namespace appSugerencias
 
         private void VelazquezPrecio()
         {
+
+           MySqlConnection con = BDConexicon.VelazquezOpen();
             try
             {
 
@@ -1118,7 +1139,7 @@ namespace appSugerencias
                 Precio2 = Precio2 / 1.16;
 
 
-                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET precio1=?precio1,precio2=?precio2  WHERE articulo=?articulo", BDConexicon.VelazquezOpen());
+                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET precio1=?precio1,precio2=?precio2  WHERE articulo=?articulo",con);
                 cmdoo.Parameters.Add("?precio1", MySqlDbType.VarChar).Value = Precio1;
                 cmdoo.Parameters.Add("?precio2", MySqlDbType.VarChar).Value = Precio2;
                 cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
@@ -1141,6 +1162,9 @@ namespace appSugerencias
 
         private void ColosoPrecio()
         {
+
+
+            MySqlConnection con = BDConexicon.ColosoOpen();
             try
             {
 
@@ -1150,7 +1174,7 @@ namespace appSugerencias
                 Precio2 = Precio2 / 1.16;
 
 
-                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET precio1=?precio1,precio2=?precio2  WHERE articulo=?articulo", BDConexicon.ColosoOpen());
+                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET precio1=?precio1,precio2=?precio2  WHERE articulo=?articulo",con );
                 cmdoo.Parameters.Add("?precio1", MySqlDbType.VarChar).Value = Precio1;
                 cmdoo.Parameters.Add("?precio2", MySqlDbType.VarChar).Value = Precio2;
                 cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;

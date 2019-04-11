@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.traspasosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsmCreaTraspaso = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,6 +46,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.traspasosToolStripMenuItem,
@@ -52,9 +54,10 @@
             this.pagosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(676, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(883, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // traspasosToolStripMenuItem
             // 
@@ -62,28 +65,28 @@
             this.toolsmCreaTraspaso,
             this.toolsmAplicaTraspaso});
             this.traspasosToolStripMenuItem.Name = "traspasosToolStripMenuItem";
-            this.traspasosToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.traspasosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.traspasosToolStripMenuItem.Text = "Traspasos";
             this.traspasosToolStripMenuItem.Click += new System.EventHandler(this.traspasosToolStripMenuItem_Click);
             // 
             // toolsmCreaTraspaso
             // 
             this.toolsmCreaTraspaso.Name = "toolsmCreaTraspaso";
-            this.toolsmCreaTraspaso.Size = new System.Drawing.Size(160, 22);
+            this.toolsmCreaTraspaso.Size = new System.Drawing.Size(162, 22);
             this.toolsmCreaTraspaso.Text = "Crear Traspaso";
             this.toolsmCreaTraspaso.Click += new System.EventHandler(this.crearTraspasoToolStripMenuItem_Click);
             // 
             // toolsmAplicaTraspaso
             // 
             this.toolsmAplicaTraspaso.Name = "toolsmAplicaTraspaso";
-            this.toolsmAplicaTraspaso.Size = new System.Drawing.Size(160, 22);
+            this.toolsmAplicaTraspaso.Size = new System.Drawing.Size(162, 22);
             this.toolsmAplicaTraspaso.Text = "Aplicar Traspaso";
             this.toolsmAplicaTraspaso.Click += new System.EventHandler(this.aplicarTraspasoToolStripMenuItem_Click);
             // 
             // ofertasToolStripMenuItem
             // 
             this.ofertasToolStripMenuItem.Name = "ofertasToolStripMenuItem";
-            this.ofertasToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.ofertasToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.ofertasToolStripMenuItem.Text = "Ofertas";
             this.ofertasToolStripMenuItem.Click += new System.EventHandler(this.ofertasToolStripMenuItem_Click);
             // 
@@ -156,7 +159,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(676, 450);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(883, 450);
             this.Controls.Add(this.lblBD);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblIP);
@@ -164,8 +169,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Principal";
-            this.Text = "SoftMart 1.1.1";
+            this.Text = "SOFTMART 1.1.1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Principal_FormClosed);
             this.Load += new System.EventHandler(this.Principal_Load);

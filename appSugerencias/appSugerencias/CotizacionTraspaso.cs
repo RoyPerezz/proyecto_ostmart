@@ -220,6 +220,7 @@ namespace appSugerencias
                     // dataGridView1.Rows.Add(TB_nombre.Text, TB_apellidos.Text);
                     AgregarArticulo();
                     TB_articulo.Text = "";
+                    LB_filas.Text = DG_datos.RowCount.ToString();
                 }
 
 
@@ -229,7 +230,11 @@ namespace appSugerencias
                 AgregarArticulo();
                 TB_articulo.Text = "";
                 //dataGridView1.Rows.Add(TB_nombre.Text, TB_apellidos.Text);
+                LB_filas.Text = DG_datos.RowCount.ToString();
             }
+
+
+            
         }
 
         //*************************************************ENCABEZADO DEL TRASPASO********************************************************************************
@@ -370,6 +375,7 @@ namespace appSugerencias
             try
             {
                 DG_datos.Rows.Remove(DG_datos.CurrentRow);
+                LB_filas.Text = DG_datos.RowCount.ToString();
             }
             catch (Exception)
             {
@@ -492,6 +498,7 @@ namespace appSugerencias
                     //deshabilitar();
                     CrearPDF();
                     limpiar();
+                    LB_filas.Text = "0";
 
 
 

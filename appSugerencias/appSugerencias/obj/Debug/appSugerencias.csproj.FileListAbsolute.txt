@@ -644,7 +644,6 @@ C:\Users\Admin\Desktop\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\
 C:\Users\Admin\Desktop\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.PagoComisiones.resources
 C:\Users\Admin\Desktop\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Principal.resources
 C:\Users\Admin\Desktop\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Properties.Resources.resources
-C:\Users\Admin\Desktop\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.ReporteTraspaso.resources
 C:\Users\Admin\Desktop\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Rp_pagocomisiones.resources
 C:\Users\Admin\Desktop\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.TraspasoTiendas.resources
 C:\Users\Admin\Desktop\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.csproj.GenerateResource.cache

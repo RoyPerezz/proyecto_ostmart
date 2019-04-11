@@ -19,6 +19,7 @@ namespace appSugerencias
         {
             InitializeComponent();
             lblUsuario.Text = Usuario;
+           
         }
 
         public Principal(string usuario,string area)
@@ -250,6 +251,11 @@ namespace appSugerencias
             //sino existe la instancia se crea una nueva
             frm = new CuentasXPagar();
             frm.Show();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            //menuStrip1.BackColor = Color.LightSteelBlue;
         }
     }
 }

@@ -28,8 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CotizacionTraspaso));
             this.DT_fecha = new System.Windows.Forms.DateTimePicker();
             this.DG_datos = new System.Windows.Forms.DataGridView();
+            this.CODIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DESCRIP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EXIST = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CANT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.TB_motivo = new System.Windows.Forms.TextBox();
             this.TB_origen = new System.Windows.Forms.TextBox();
@@ -46,10 +52,6 @@
             this.PRODUCTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LB_filas = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.CODIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DESCRIP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EXIST = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CANT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DG_datos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,6 +67,9 @@
             // 
             this.DG_datos.AllowUserToAddRows = false;
             this.DG_datos.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.DG_datos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DG_datos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DG_datos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DG_datos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CODIGO,
@@ -77,6 +82,26 @@
             this.DG_datos.TabIndex = 1;
             this.DG_datos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_datos_CellEndEdit);
             this.DG_datos.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_datos_CellValueChanged);
+            // 
+            // CODIGO
+            // 
+            this.CODIGO.HeaderText = "CÓDIGO";
+            this.CODIGO.Name = "CODIGO";
+            // 
+            // DESCRIP
+            // 
+            this.DESCRIP.HeaderText = "DESCRIPCION";
+            this.DESCRIP.Name = "DESCRIP";
+            // 
+            // EXIST
+            // 
+            this.EXIST.HeaderText = "EXISTENCIA";
+            this.EXIST.Name = "EXIST";
+            // 
+            // CANT
+            // 
+            this.CANT.HeaderText = "CANTIDAD";
+            this.CANT.Name = "CANT";
             // 
             // label1
             // 
@@ -158,32 +183,47 @@
             // 
             // BT_agregar
             // 
-            this.BT_agregar.Location = new System.Drawing.Point(12, 432);
+            this.BT_agregar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BT_agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_agregar.ForeColor = System.Drawing.SystemColors.Control;
+            this.BT_agregar.Image = ((System.Drawing.Image)(resources.GetObject("BT_agregar.Image")));
+            this.BT_agregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BT_agregar.Location = new System.Drawing.Point(668, 157);
             this.BT_agregar.Name = "BT_agregar";
-            this.BT_agregar.Size = new System.Drawing.Size(92, 41);
+            this.BT_agregar.Size = new System.Drawing.Size(136, 56);
             this.BT_agregar.TabIndex = 10;
             this.BT_agregar.Text = "Agregar";
-            this.BT_agregar.UseVisualStyleBackColor = true;
+            this.BT_agregar.UseVisualStyleBackColor = false;
             this.BT_agregar.Click += new System.EventHandler(this.BT_agregar_Click);
             // 
             // BT_quitar
             // 
-            this.BT_quitar.Location = new System.Drawing.Point(292, 432);
+            this.BT_quitar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BT_quitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_quitar.ForeColor = System.Drawing.SystemColors.Control;
+            this.BT_quitar.Image = ((System.Drawing.Image)(resources.GetObject("BT_quitar.Image")));
+            this.BT_quitar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BT_quitar.Location = new System.Drawing.Point(668, 238);
             this.BT_quitar.Name = "BT_quitar";
-            this.BT_quitar.Size = new System.Drawing.Size(92, 41);
+            this.BT_quitar.Size = new System.Drawing.Size(136, 56);
             this.BT_quitar.TabIndex = 11;
             this.BT_quitar.Text = "Quitar";
-            this.BT_quitar.UseVisualStyleBackColor = true;
+            this.BT_quitar.UseVisualStyleBackColor = false;
             this.BT_quitar.Click += new System.EventHandler(this.BT_quitar_Click);
             // 
             // BT_guardar
             // 
-            this.BT_guardar.Location = new System.Drawing.Point(569, 432);
+            this.BT_guardar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BT_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_guardar.ForeColor = System.Drawing.SystemColors.Control;
+            this.BT_guardar.Image = ((System.Drawing.Image)(resources.GetObject("BT_guardar.Image")));
+            this.BT_guardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BT_guardar.Location = new System.Drawing.Point(668, 319);
             this.BT_guardar.Name = "BT_guardar";
-            this.BT_guardar.Size = new System.Drawing.Size(92, 41);
+            this.BT_guardar.Size = new System.Drawing.Size(136, 56);
             this.BT_guardar.TabIndex = 12;
             this.BT_guardar.Text = "Guardar";
-            this.BT_guardar.UseVisualStyleBackColor = true;
+            this.BT_guardar.UseVisualStyleBackColor = false;
             this.BT_guardar.Click += new System.EventHandler(this.BT_guardar_Click);
             // 
             // ID
@@ -222,31 +262,12 @@
             this.label5.TabIndex = 14;
             this.label5.Text = "productos";
             // 
-            // CODIGO
-            // 
-            this.CODIGO.HeaderText = "CÓDIGO";
-            this.CODIGO.Name = "CODIGO";
-            // 
-            // DESCRIP
-            // 
-            this.DESCRIP.HeaderText = "DESCRIPCION";
-            this.DESCRIP.Name = "DESCRIP";
-            // 
-            // EXIST
-            // 
-            this.EXIST.HeaderText = "EXISTENCIA";
-            this.EXIST.Name = "EXIST";
-            // 
-            // CANT
-            // 
-            this.CANT.HeaderText = "CANTIDAD";
-            this.CANT.Name = "CANT";
-            // 
             // CotizacionTraspaso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(677, 485);
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.ClientSize = new System.Drawing.Size(820, 412);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.LB_filas);
             this.Controls.Add(this.BT_guardar);
@@ -262,6 +283,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DG_datos);
             this.Controls.Add(this.DT_fecha);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "CotizacionTraspaso";
             this.Text = "Solicitud de Traspaso";
             this.Load += new System.EventHandler(this.CotizacionTraspaso_Load);
