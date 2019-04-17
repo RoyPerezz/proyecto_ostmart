@@ -16,6 +16,7 @@ namespace appSugerencias
     {
         string Usuario;
         string Area;
+        string ip;
 
         public Existencias()
         {
@@ -32,10 +33,10 @@ namespace appSugerencias
 
         public void Vallarta()
         {
-            MySqlConnection con = BDConexicon.VallartaOpen();
+           
             try
             {
-
+                MySqlConnection con = BDConexicon.VallartaOpen();
 
                 MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'",con );
                 MySqlDataReader rd = cmd.ExecuteReader();
@@ -59,20 +60,22 @@ namespace appSugerencias
                     LB_vallarta.ForeColor = Color.Red;
                 }
                 rd.Close();
+                con.Close();
             }
             catch (Exception e)
             {
                 LB_vallarta.Text = "Sin conexion";
                 LB_vallarta.ForeColor = Color.Red;
             }
-            con.Close();
+           
         }
 
         public void Velazquez()
         {
-            MySqlConnection con = BDConexicon.VelazquezOpen();
-            try { 
-            MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'",con );
+          
+            try {
+                MySqlConnection con = BDConexicon.VelazquezOpen();
+                MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'",con );
             MySqlDataReader rd = cmd.ExecuteReader();
 
             //while (rd.Read())
@@ -93,6 +96,7 @@ namespace appSugerencias
                     LB_velazquez.ForeColor = Color.Red;
                 }
                 rd.Close();
+                con.Close();
             }
             catch (Exception e)
             {
@@ -100,15 +104,16 @@ namespace appSugerencias
                 LB_velazquez.ForeColor = Color.Red;
             }
 
-            con.Close();
+           
         }
 
         public void Rena()
         {
 
-            MySqlConnection con = BDConexicon.ColosoOpen();
-            try { 
-            MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'",con);
+          
+            try {
+                MySqlConnection con = BDConexicon.RenaOpen();
+                MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'",con);
             MySqlDataReader rd = cmd.ExecuteReader();
 
             //while (rd.Read())
@@ -129,7 +134,7 @@ namespace appSugerencias
                     LB_rena.ForeColor = Color.Red;
                 }
                 rd.Close();
-                
+                con.Close();
 
             }
             catch (Exception e)
@@ -138,15 +143,17 @@ namespace appSugerencias
                 LB_rena.ForeColor = Color.Red;
             }
 
-            con.Close();
+            
         }
 
         public void Coloso()
         {
 
-            MySqlConnection con = BDConexicon.ColosoOpen();
-            try { 
-            MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'", con);
+           
+            try {
+                MySqlConnection con = BDConexicon.ColosoOpen();
+
+                MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'", con);
             MySqlDataReader rd = cmd.ExecuteReader();
 
             //while (rd.Read())
@@ -168,7 +175,7 @@ namespace appSugerencias
                     LB_coloso.ForeColor = Color.Red;
                 }
                 rd.Close();
-               
+                con.Close();
             }
             
             catch (Exception e)
@@ -177,54 +184,60 @@ namespace appSugerencias
                 LB_coloso.ForeColor = Color.Red;
             }
 
-            con.Close();
+           
         }
 
-        //public void Bodega()
-        //{
-        //    try
-        //    {
-        //        MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'",BDConexicon.BodegaOpen());
-        //        MySqlDataReader rd = cmd.ExecuteReader();
+        public void Bodega()
+        {
+            try
+            {
+                MySqlConnection con = BDConexicon.BodegaOpen();
+                MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'", con);
+                MySqlDataReader rd = cmd.ExecuteReader();
 
-        //        //while (rd.Read())
-        //        //{
-        //        //    TB_bodega.Text = rd[0].ToString();
-        //        //    Lb_bodega.Text = "Conectado";
-        //        //}
+                //while (rd.Read())
+                //{
+                //    TB_bodega.Text = rd[0].ToString();
+                //    Lb_bodega.Text = "Conectado";
+                //}
 
-        //        if (rd.Read())
-        //        {
-        //            TB_bodega.Text = rd[0].ToString();
-        //            Lb_bodega.Text = "Conectado";
-        //            Lb_bodega.ForeColor = Color.DarkGreen;
-        //        }
-        //        else
-        //        {
-        //            Lb_bodega.Text = "No existe";
-        //            Lb_bodega.ForeColor = Color.Red;
-        //        }
-               
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        Lb_bodega.Text = "Sin conexion";
-        //        Lb_bodega.ForeColor = Color.Red;
-        //    }
-        //}
+                if (rd.Read())
+                {
+                    TB_bodega.Text = rd["existencia"].ToString();
+                    Lb_bodega.Text = "Conectado";
+                    Lb_bodega.ForeColor = Color.DarkGreen;
+                }
+                else
+                {
+                    Lb_bodega.Text = "No existe";
+                    Lb_bodega.ForeColor = Color.Red;
+                }
+
+                rd.Close();
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                Lb_bodega.Text = "Sin conexion";
+                Lb_bodega.ForeColor = Color.Red;
+            }
+
+           
+        }
 
 
         public void DatosProducto()
         {
 
-            MySqlConnection con = BDConexicon.BodegaOpen();
+           
 
             try
             {
+                MySqlConnection con = BDConexicon.conectar();
                 MySqlCommand cmd = new MySqlCommand("select descrip, precio1,precio2, costo_u, existencia,fabricante from prods where articulo ='" + TB_articulo.Text + "'",con);
                 MySqlDataReader rd = cmd.ExecuteReader();
 
-                while (rd.Read())
+                if(rd.Read())
                 {
                     TB_desc.Text = rd["DESCRIP"].ToString();
 
@@ -237,9 +250,9 @@ namespace appSugerencias
                     TB_precio1.Text = ivaPrecio1.ToString();
                     TB_precio2.Text = ivaPrecio2.ToString();
 
-                    TB_bodega.Text = rd["existencia"].ToString();
-                    Lb_bodega.Text = "Conectado";
-                    Lb_bodega.ForeColor = Color.DarkGreen;
+                    //TB_bodega.Text = rd["existencia"].ToString();
+                    //Lb_bodega.Text = "Conectado";
+                    //Lb_bodega.ForeColor = Color.DarkGreen;
 
 
                     double costo = Convert.ToDouble(rd["COSTO_U"].ToString());
@@ -248,15 +261,19 @@ namespace appSugerencias
                     TB_costo.Text = IvaCosto.ToString();
                     TB_fabricante.Text = rd["fabricante"].ToString();
                 }
+                else
+                {
+                    MessageBox.Show("ESTE ARTICULO NO EXISTE EN ESTA SUCURSAL");
+                }
                 rd.Close();
+                con.Close();
             }
             catch (Exception e)
             {
-                Lb_bodega.Text = "Sin conexion";
-                Lb_bodega.ForeColor = Color.Red;
+               
             }
 
-            con.Close();
+            
         }
 
 
@@ -287,7 +304,7 @@ namespace appSugerencias
                 lblCoPre.Text = "";
 
                 DatosProducto();
-                //Bodega();
+                Bodega();
                 Vallarta();
                 Rena();
                 Velazquez();
@@ -622,6 +639,8 @@ namespace appSugerencias
                 cBoxVe.Checked = false;
                 cBoxCo.Checked = false;
             }
+
+            ip = BDConexicon.optieneIp();
         }
 
         private void AplicaOferta_Click_1(object sender, EventArgs e)
@@ -1272,7 +1291,7 @@ namespace appSugerencias
                     lblCoPre.Text = "";
 
                     DatosProducto();
-                    //Bodega();
+                    Bodega();
                     Vallarta();
                     Rena();
                     Velazquez();

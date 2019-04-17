@@ -50,7 +50,9 @@ namespace appSugerencias
         {
             string area;
 
-            MySqlCommand cmd = new MySqlCommand(comando, BDConexicon.conectar());
+            MySqlConnection con = BDConexicon.conectar();
+
+            MySqlCommand cmd = new MySqlCommand(comando, con);
             cmd.Parameters.Add("?usuario", MySqlDbType.VarChar).Value = usu;
             cmd.Parameters.Add("?clave", MySqlDbType.VarChar).Value = pass;
             MySqlDataReader mdr;
@@ -71,6 +73,8 @@ namespace appSugerencias
             {
                 MessageBox.Show("Usuario o contraseña erroneo");
             }
+            mdr.Close();
+            con.Close();
         }
 
         public void dan()

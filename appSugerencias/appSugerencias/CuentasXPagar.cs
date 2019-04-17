@@ -212,18 +212,18 @@ namespace appSugerencias
 
         }
 
-        private void DG_datos_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            string id = this.DG_datos.CurrentRow.Cells[0].Value.ToString();
-            //    string des = this.DG_datos.CurrentRow.Cells[2].Value.ToString();
-             double importe = Convert.ToDouble(this.DG_datos.CurrentRow.Cells[6].Value);
-             double saldo = Convert.ToDouble(this.DG_datos.CurrentRow.Cells[7].Value);
+        //private void DG_datos_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    string id = this.DG_datos.CurrentRow.Cells[0].Value.ToString();
+        //    //    string des = this.DG_datos.CurrentRow.Cells[2].Value.ToString();
+        //     double importe = Convert.ToDouble(this.DG_datos.CurrentRow.Cells[6].Value);
+        //     double saldo = Convert.ToDouble(this.DG_datos.CurrentRow.Cells[7].Value);
 
-            Desglose d = new Desglose();
-            d.CuentXPagar(id);
-            d.datoCuenta(id,importe,saldo);
-            d.Show();
-        }
+        //    Desglose d = new Desglose();
+        //    d.CuentXPagar(id);
+        //    d.datoCuenta(id,importe,saldo);
+        //    d.Show();
+        //}
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -292,6 +292,73 @@ namespace appSugerencias
             }
            
            
+        }
+
+        private void DG_datos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string id = this.DG_datos.CurrentRow.Cells[0].Value.ToString();
+            string des = this.DG_datos.CurrentRow.Cells[2].Value.ToString();
+            //string imp = string.Format("{0:####.##}", this.DG_datos.CurrentRow.Cells[6].Value);
+            string importe= Convert.ToString(this.DG_datos.CurrentRow.Cells[6].Value);
+            //string sal = string.Format("{0:####.##}", this.DG_datos.CurrentRow.Cells[7].Value);
+            string saldo = Convert.ToString(this.DG_datos.CurrentRow.Cells[7].Value);
+
+            Desglose d = new Desglose();
+            d.CuentXPagar(id);
+            //d.datoCuenta(id, importe, saldo);
+            d.Show();
+        }
+
+        private void BT_guardar_Click(object sender, EventArgs e)
+        {
+            //ESTE BOTON EXPORTA EN EXCEL EL ESTADO DE CUENTA DE UN PROVEEDOR
+
+            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+            excel.Application.Workbooks.Add(true);
+
+
+
+            int indiceColumna = 0;
+
+            foreach (DataGridViewColumn col in DG_datos.Columns)
+            {
+                indiceColumna++;
+                excel.Cells[5, indiceColumna] = col.Name;
+
+            }
+
+            int indiceFila = 4;
+
+            foreach (DataGridViewRow row in DG_datos.Rows)
+            {
+                indiceFila++;
+                indiceColumna = 0;
+
+
+
+
+                foreach (DataGridViewColumn col in DG_datos.Columns)
+                {
+                    indiceColumna++;
+
+                    excel.Cells[indiceFila + 1, indiceColumna] = row.Cells[col.Name].Value;
+
+
+
+
+
+
+                }
+
+
+
+            }
+
+
+
+
+            excel.Visible = true;
+
         }
     }
 }

@@ -41,6 +41,8 @@
             this.lblIP = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblBD = new System.Windows.Forms.Label();
+            this.estadosDeCuentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteGeneralToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,6 +94,9 @@
             // 
             // pagosToolStripMenuItem
             // 
+            this.pagosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.estadosDeCuentaToolStripMenuItem,
+            this.reporteGeneralToolStripMenuItem});
             this.pagosToolStripMenuItem.Name = "pagosToolStripMenuItem";
             this.pagosToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
             this.pagosToolStripMenuItem.Text = "Pagos";
@@ -154,6 +159,20 @@
             this.lblBD.TabIndex = 6;
             this.lblBD.Text = "Mysql";
             // 
+            // estadosDeCuentaToolStripMenuItem
+            // 
+            this.estadosDeCuentaToolStripMenuItem.Name = "estadosDeCuentaToolStripMenuItem";
+            this.estadosDeCuentaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.estadosDeCuentaToolStripMenuItem.Text = "Estados de cuenta";
+            this.estadosDeCuentaToolStripMenuItem.Click += new System.EventHandler(this.estadosDeCuentaToolStripMenuItem_Click);
+            // 
+            // reporteGeneralToolStripMenuItem
+            // 
+            this.reporteGeneralToolStripMenuItem.Name = "reporteGeneralToolStripMenuItem";
+            this.reporteGeneralToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reporteGeneralToolStripMenuItem.Text = "Reporte general";
+            this.reporteGeneralToolStripMenuItem.Click += new System.EventHandler(this.reporteGeneralToolStripMenuItem_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -198,5 +217,7 @@
         private System.Windows.Forms.Label lblIP;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblBD;
+        private System.Windows.Forms.ToolStripMenuItem estadosDeCuentaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteGeneralToolStripMenuItem;
     }
 }

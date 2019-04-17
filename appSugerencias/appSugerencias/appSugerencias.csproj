@@ -212,6 +212,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RPT_SaldoProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RPT_SaldoProveedores.Designer.cs">
+      <DependentUpon>RPT_SaldoProveedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Rp_pagocomisiones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -286,6 +292,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RPT_SaldoProveedores.resx">
+      <DependentUpon>RPT_SaldoProveedores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Rp_pagocomisiones.resx">
       <DependentUpon>Rp_pagocomisiones.cs</DependentUpon>
     </EmbeddedResource>

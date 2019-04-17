@@ -239,6 +239,27 @@ namespace appSugerencias
            
 
             //se localiza el formulario buscandolo entre los forms abiertos 
+            //Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is CuentasXPagar);
+
+            //if (frm != null)
+            //{
+            //    //si la instancia existe la pongo en primer plano
+            //    frm.BringToFront();
+            //    return;
+            //}
+
+            ////sino existe la instancia se crea una nueva
+            //frm = new CuentasXPagar();
+            //frm.Show();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            //menuStrip1.BackColor = Color.LightSteelBlue;
+        }
+
+        private void estadosDeCuentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is CuentasXPagar);
 
             if (frm != null)
@@ -253,9 +274,22 @@ namespace appSugerencias
             frm.Show();
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void reporteGeneralToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //menuStrip1.BackColor = Color.LightSteelBlue;
+            //CREA UN REPORTE DE LOS SALDOS DE TODOS LOS PROVEEDORES EN CIERTA SUCURSAL
+
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is CuentasXPagar);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm = new RPT_SaldoProveedores();
+            frm.Show();
         }
     }
 }

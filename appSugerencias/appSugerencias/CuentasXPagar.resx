@@ -141,4 +141,22 @@
   <metadata name="SALDO_CUENTA.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="BT_guardar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAAk8AAAJPAfeROJAAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAACcklEQVRYR92XT4hNURzHH2M0iZiaaBIL1PgTJRtJjQ2xwMrKZGMzGylia4RYiazsZEpSLLBQYyGp
+        ydbfpmZnQREKhXB8fud8f9d99XrufZ3p1Xzr0zu/7++ce3/v3XPPO6fRiUIIC2ArjMJVeArvYIW65BMX
+        HYCdcBJuwCv4JV7AOIyBaYuG1ReD59sF4BBchifwGUwf4B5cAMtvgHka6kWa6hfAoFPwCPxm9mnxJbCb
+        bYLiZq1E3gsYAfsSVej3wSb7GQ/AapgTEzXEGC+gjr7AkBewW9fqSIz3AnZAf0XssR7MXUDlOUDf9zAy
+        6wqw9WACLsq/r7jMSuVmpIDbYAvTCflXFJcZVK51AbSPJStqUnYU8f5kR92UbX6+R0C7B55FN2mX/F6Y
+        ik4In2BZHIBo550DFic76qG8wymMOh47SsRegC9EQ/I3Ky7Tp1z7OYB3N6WitsGb1AzPoVfdooi9ANdj
+        +d9S2KR1yv23gDXwPWZDeK3PPzCsLoXwvABfiBbJX6K4TI9y7Qsw4Z9P6ULjSjUJP+8ccOGfTelCd5Rq
+        En7+AvA2ws+YTf/7rj3qUgjPC8izEBHPhcmYCeErrAd79UzTEGeyi9gLuAa2ZxiVf0ZxmaXKtS2gvBiN
+        ybMdketc7CgR53sEtFeBvz62z1sovw/8VfwBa+MARDtrAQ+SFXVEdhSxbUJdE7LzFtCJGO8F2CS7Bafl
+        207L4jLLlZudBXT9EXS9gH1gb1EVPkKxKe3qtjznwaTOL7BYw/8J0/4ut8NRuA4v4TfYOdDaNovtHLgX
+        BjSsXEDlOVBZXNQuPvOH0zriRq2O52+h5vG80fgLWqjgb6a7wDsAAAAASUVORK5CYII=
+</value>
+  </data>
 </root>

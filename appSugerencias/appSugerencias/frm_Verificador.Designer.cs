@@ -71,10 +71,11 @@
             // lblTienda
             // 
             this.lblTienda.AutoSize = true;
-            this.lblTienda.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTienda.Location = new System.Drawing.Point(116, 48);
+            this.lblTienda.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTienda.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.lblTienda.Location = new System.Drawing.Point(175, 59);
             this.lblTienda.Name = "lblTienda";
-            this.lblTienda.Size = new System.Drawing.Size(435, 108);
+            this.lblTienda.Size = new System.Drawing.Size(296, 73);
             this.lblTienda.TabIndex = 2;
             this.lblTienda.Text = "Empresa";
             // 
@@ -276,6 +277,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(1215, 687);
             this.Controls.Add(this.lblFabricante);
             this.Controls.Add(this.lbl7);

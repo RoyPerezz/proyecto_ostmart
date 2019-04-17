@@ -97,13 +97,13 @@ namespace appSugerencias
 
         public static MySqlConnection ColosoOpen()
         {
-            string BD = optieneBd();
-            MySqlConnection conColoso = new MySqlConnection("server=192.168.3.2; database=" + BD + "; Uid=root; pwd=;");
-            conColoso.Open();
+       
+                string BD = optieneBd();
+                MySqlConnection conColoso = new MySqlConnection("server=192.168.3.2; database=" + BD + "; Uid=root; pwd=;");
+                conColoso.Open();
 
-
-
-            return conColoso;
+                return conColoso;
+             
 
         }
 

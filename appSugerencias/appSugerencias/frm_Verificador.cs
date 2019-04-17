@@ -69,12 +69,13 @@ namespace appSugerencias
             DateTime fechaFinal;
             DateTime fechaHoy = DateTime.Now;
             int porporcentaje, porcentaje;
-           // oferta = 0;
-           
+            // oferta = 0;
 
-            MySqlCommand cmd = new MySqlCommand(comando, BDConexicon.conectar());
+            MySqlConnection con = BDConexicon.conectar();
+
+            MySqlCommand cmd = new MySqlCommand(comando, con);
             cmd.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = articulo;
-            
+
             MySqlDataReader mdr;
             mdr = cmd.ExecuteReader();
             if (mdr.Read())
@@ -89,9 +90,9 @@ namespace appSugerencias
                 //lbl7.Show();
                 lblArticulo.Text = articulo;
                 oferta = mdr.GetInt32("oferta");
-                
 
-                
+
+
                 lblDescripcion.Text = mdr.GetString("descrip");
                 precio1 = mdr.GetDouble("Precio1") + (mdr.GetDouble("Precio1") * 0.16);
                 precio2 = mdr.GetDouble("Precio2") + (mdr.GetDouble("Precio2") * 0.16);
@@ -100,9 +101,9 @@ namespace appSugerencias
                 lblExistencia.Text = mdr.GetString("existencia");
                 lblLinea.Text = mdr.GetString("linea");
                 oferta = mdr.GetInt32("oferta");
-               // lblFabricante.Text = mdr.GetString("fabricante");
+                // lblFabricante.Text = mdr.GetString("fabricante");
                 //lblOferta.Text = oferta.ToString();
-                
+
                 mdr.Close();
 
                 if (oferta == 1)
@@ -110,7 +111,7 @@ namespace appSugerencias
 
 
                     //MessageBox.Show("entro");
-                    MySqlCommand cmdd = new MySqlCommand("SELECT fechainicial, fechafinal,porporcentaje,porcentaje FROM ofertas where articulo=?articulo", BDConexicon.conectar());
+                    MySqlCommand cmdd = new MySqlCommand("SELECT fechainicial, fechafinal,porporcentaje,porcentaje FROM ofertas where articulo=?articulo", con);
                     cmdd.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = articulo;
 
                     MySqlDataReader mdrr;
@@ -124,30 +125,30 @@ namespace appSugerencias
                         //MessageBox.Show("FechaHoy: "+fechaHoy);
                         //MessageBox.Show("FechaFinal: " + fechaFinal);
                         //fechaHoy >= fechaInicial &&
-                        if(fechaHoy >fechaInicial ||(fechaHoy.Year==fechaInicial.Year && fechaHoy.Month==fechaInicial.Month && fechaHoy.Day==fechaInicial.Day))
+                        if (fechaHoy > fechaInicial || (fechaHoy.Year == fechaInicial.Year && fechaHoy.Month == fechaInicial.Month && fechaHoy.Day == fechaInicial.Day))
                         {
 
-                        
-                            if ( fechaHoy < fechaFinal || (fechaHoy.Year == fechaFinal.Year) && (fechaHoy.Day == fechaFinal.Day) && (fechaFinal.Month == fechaFinal.Month))
+
+                            if (fechaHoy < fechaFinal || (fechaHoy.Year == fechaFinal.Year) && (fechaHoy.Day == fechaFinal.Day) && (fechaFinal.Month == fechaFinal.Month))
                             {
-                                
-                                precio1 = precio1-(porcentaje * precio1 / 100);
-                                precio2 = precio2-(porcentaje * precio2 / 100);
+
+                                precio1 = precio1 - (porcentaje * precio1 / 100);
+                                precio2 = precio2 - (porcentaje * precio2 / 100);
                                 lblOferta1.Text = precio1.ToString("0.00");
                                 lblOferta2.Text = precio2.ToString("0.00");
                                 lblLeyendaOferta.Text = "Producto con Oferta";
 
                             }
-                            
+
                         }
 
-                        
+
                     }
-                    
+
                     mdrr.Close();
                 }
 
-                
+
 
 
             }
@@ -160,8 +161,7 @@ namespace appSugerencias
             txtArticulo.Text = "";
             contador = 0;
             timer1.Start();
-
-            BDConexicon.ConectarClose();
+            con.Close();
         }
 
         private void frm_Verificador_Load(object sender, EventArgs e)
@@ -216,7 +216,9 @@ namespace appSugerencias
 
         public void muestraTienda()
         {
-            MySqlCommand cmd = new MySqlCommand("SELECT EMPRESA FROM econfig ", BDConexicon.conectar());
+
+            MySqlConnection con = BDConexicon.conectar();
+            MySqlCommand cmd = new MySqlCommand("SELECT EMPRESA FROM econfig ",con );
             MySqlDataReader mdr;
             mdr = cmd.ExecuteReader();
             if (mdr.Read())
@@ -235,7 +237,7 @@ namespace appSugerencias
                 lblTienda.Text = "Bienvenidos";
             }
             mdr.Close();
-            BDConexicon.ConectarClose();
+            con.Close();
         }
         private void button1_Click(object sender, EventArgs e)
         {

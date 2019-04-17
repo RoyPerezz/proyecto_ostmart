@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CuentasXPagar));
             this.label1 = new System.Windows.Forms.Label();
             this.CB_proveedor = new System.Windows.Forms.ComboBox();
             this.DG_datos = new System.Windows.Forms.DataGridView();
@@ -50,6 +51,7 @@
             this.CB_sucursal = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.LB_status = new System.Windows.Forms.Label();
+            this.BT_guardar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DG_datos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,7 +71,7 @@
             this.CB_proveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.CB_proveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CB_proveedor.FormattingEnabled = true;
-            this.CB_proveedor.Location = new System.Drawing.Point(111, 104);
+            this.CB_proveedor.Location = new System.Drawing.Point(111, 112);
             this.CB_proveedor.Name = "CB_proveedor";
             this.CB_proveedor.Size = new System.Drawing.Size(1069, 28);
             this.CB_proveedor.TabIndex = 1;
@@ -109,11 +111,11 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DG_datos.DefaultCellStyle = dataGridViewCellStyle3;
             this.DG_datos.EnableHeadersVisualStyles = false;
-            this.DG_datos.Location = new System.Drawing.Point(20, 142);
+            this.DG_datos.Location = new System.Drawing.Point(20, 150);
             this.DG_datos.Name = "DG_datos";
             this.DG_datos.Size = new System.Drawing.Size(1164, 336);
             this.DG_datos.TabIndex = 2;
-            this.DG_datos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_datos_CellDoubleClick_1);
+            this.DG_datos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_datos_CellDoubleClick);
             // 
             // IDPAGO
             // 
@@ -205,7 +207,7 @@
             "RENA",
             "VALLARTA",
             "VELAZQUEZ"});
-            this.CB_sucursal.Location = new System.Drawing.Point(111, 38);
+            this.CB_sucursal.Location = new System.Drawing.Point(111, 46);
             this.CB_sucursal.Name = "CB_sucursal";
             this.CB_sucursal.Size = new System.Drawing.Size(265, 28);
             this.CB_sucursal.TabIndex = 6;
@@ -232,12 +234,29 @@
             this.LB_status.Size = new System.Drawing.Size(0, 20);
             this.LB_status.TabIndex = 8;
             // 
+            // BT_guardar
+            // 
+            this.BT_guardar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BT_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_guardar.ForeColor = System.Drawing.Color.White;
+            this.BT_guardar.Image = ((System.Drawing.Image)(resources.GetObject("BT_guardar.Image")));
+            this.BT_guardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BT_guardar.Location = new System.Drawing.Point(540, 492);
+            this.BT_guardar.Name = "BT_guardar";
+            this.BT_guardar.Size = new System.Drawing.Size(106, 63);
+            this.BT_guardar.TabIndex = 9;
+            this.BT_guardar.Text = "Guardar";
+            this.BT_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BT_guardar.UseVisualStyleBackColor = false;
+            this.BT_guardar.Click += new System.EventHandler(this.BT_guardar_Click);
+            // 
             // CuentasXPagar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(1196, 540);
+            this.ClientSize = new System.Drawing.Size(1196, 557);
+            this.Controls.Add(this.BT_guardar);
             this.Controls.Add(this.LB_status);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.CB_sucursal);
@@ -279,5 +298,6 @@
         private System.Windows.Forms.ComboBox CB_sucursal;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label LB_status;
+        private System.Windows.Forms.Button BT_guardar;
     }
 }
