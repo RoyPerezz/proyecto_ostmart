@@ -360,5 +360,10 @@ namespace appSugerencias
             excel.Visible = true;
 
         }
+
+        private void DG_datos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

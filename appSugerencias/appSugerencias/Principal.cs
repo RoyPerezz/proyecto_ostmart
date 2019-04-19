@@ -278,18 +278,18 @@ namespace appSugerencias
         {
             //CREA UN REPORTE DE LOS SALDOS DE TODOS LOS PROVEEDORES EN CIERTA SUCURSAL
 
-            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is CuentasXPagar);
+            Form frm2 = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is RPT_SaldoProveedores);
 
-            if (frm != null)
+            if (frm2 != null)
             {
                 //si la instancia existe la pongo en primer plano
-                frm.BringToFront();
+                frm2.BringToFront();
                 return;
             }
 
             //sino existe la instancia se crea una nueva
-            frm = new RPT_SaldoProveedores();
-            frm.Show();
+            frm2 = new RPT_SaldoProveedores();
+            frm2.Show();
         }
     }
 }

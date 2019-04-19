@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RPT_SaldoProveedores));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.CB_sucursal = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.DG_reporte = new System.Windows.Forms.DataGridView();
+            this.LB_estado = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DG_reporte)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,36 +69,49 @@
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(221, 227);
+            this.button1.Location = new System.Drawing.Point(255, 223);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 48);
+            this.button1.Size = new System.Drawing.Size(99, 48);
             this.button1.TabIndex = 2;
-            this.button1.Text = "Generar Reporte";
+            this.button1.Text = "Exportar";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // DG_reporte
             // 
+            this.DG_reporte.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.DG_reporte.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DG_reporte.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DG_reporte.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DG_reporte.Location = new System.Drawing.Point(13, 50);
             this.DG_reporte.Name = "DG_reporte";
-            this.DG_reporte.Size = new System.Drawing.Size(552, 162);
+            this.DG_reporte.Size = new System.Drawing.Size(580, 162);
             this.DG_reporte.TabIndex = 3;
+            // 
+            // LB_estado
+            // 
+            this.LB_estado.AutoSize = true;
+            this.LB_estado.Location = new System.Drawing.Point(217, 16);
+            this.LB_estado.Name = "LB_estado";
+            this.LB_estado.Size = new System.Drawing.Size(0, 13);
+            this.LB_estado.TabIndex = 4;
             // 
             // RPT_SaldoProveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(577, 283);
+            this.ClientSize = new System.Drawing.Size(604, 283);
+            this.Controls.Add(this.LB_estado);
             this.Controls.Add(this.DG_reporte);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CB_sucursal);
             this.Name = "RPT_SaldoProveedores";
             this.Text = "RPT_SaldoProveedores";
+            this.Load += new System.EventHandler(this.RPT_SaldoProveedores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DG_reporte)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -109,5 +124,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView DG_reporte;
+        private System.Windows.Forms.Label LB_estado;
     }
 }
