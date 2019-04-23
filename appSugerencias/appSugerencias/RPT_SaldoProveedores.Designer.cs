@@ -69,7 +69,7 @@
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(255, 223);
+            this.button1.Location = new System.Drawing.Point(286, 223);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(99, 48);
             this.button1.TabIndex = 2;
@@ -87,7 +87,7 @@
             this.DG_reporte.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DG_reporte.Location = new System.Drawing.Point(13, 50);
             this.DG_reporte.Name = "DG_reporte";
-            this.DG_reporte.Size = new System.Drawing.Size(580, 162);
+            this.DG_reporte.Size = new System.Drawing.Size(638, 162);
             this.DG_reporte.TabIndex = 3;
             // 
             // LB_estado
@@ -103,7 +103,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(604, 283);
+            this.ClientSize = new System.Drawing.Size(663, 283);
             this.Controls.Add(this.LB_estado);
             this.Controls.Add(this.DG_reporte);
             this.Controls.Add(this.button1);

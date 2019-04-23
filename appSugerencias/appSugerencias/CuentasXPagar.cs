@@ -60,7 +60,7 @@ namespace appSugerencias
 
 
 
-                DG_datos.Rows.Add(dr["cuenxpag"].ToString(), dr["proveedor"].ToString(), fecha.ToString("yyyy/MM/dd"), dr["tipo_doc"].ToString(), dr["no_referen"].ToString(), dr["cargo_ab"].ToString(), importe.ToString("C"), String.Format("{0:0.##}", saldo.ToString("C")));
+                DG_datos.Rows.Add(dr["cuenxpag"].ToString(), dr["proveedor"].ToString(), fecha.ToString("dd/MM/yyyy"), dr["tipo_doc"].ToString(), dr["no_referen"].ToString(), dr["cargo_ab"].ToString(), importe.ToString("C"), String.Format("{0:0.##}", saldo.ToString("C")));
 
             }
             //conectar.Close();

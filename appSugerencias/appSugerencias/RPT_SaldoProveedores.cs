@@ -25,19 +25,51 @@ namespace appSugerencias
 
         public void llenarGrid(MySqlConnection con)
         {
-            MySqlCommand cmd = new MySqlCommand("SELECT  p.proveedor AS PROVEEDOR,p.nombre AS NOMBRE,sum(cp.saldo) as SALDO from proveed p inner join cuenxpag cp on p.proveedor = cp.proveedor GROUP BY p.PROVEEDOR",con);
+            MySqlCommand cmd = new MySqlCommand("SELECT  p.proveedor AS PROVEEDOR,p.nombre AS NOMBRE,sum(cp.saldo) as SALDO from proveed p inner join cuenxpag cp on p.proveedor = cp.proveedor GROUP BY p.PROVEEDOR order by PROVEEDOR",con);
             DataTable dt = new DataTable();
+            DataRow fila = dt.NewRow();
+           
+
+
             MySqlDataAdapter ad = new MySqlDataAdapter(cmd);
             ad.Fill(dt);
+            
+
+           
+
+            MySqlCommand cmd2 = new MySqlCommand("select max(pd.fecha) as FECHA from cuenxpdet pd inner join proveed p on pd.proveedor = p.PROVEEDOR GROUP BY p.PROVEEDOR order by p.PROVEEDOR", con);
+            MySqlDataReader dr = cmd2.ExecuteReader();
+
+
+
+
+            DateTime fecha;
+           
 
             DG_reporte.DataSource = dt;
+            dt.Columns.Add("FECHA", typeof(string));
+
+            foreach (DataRow row in dt.Rows)
+            {
+                if (dr.Read())
+                {
+                    fecha = Convert.ToDateTime(dr["FECHA"].ToString());
+                    row[3] =fecha.ToString("dd/MM/yyyy");
+
+                }
+
+            }
+            dr.Close();
 
             DG_reporte.Columns[0].Width = 80;
             DG_reporte.Columns[1].Width = 300;
-            DG_reporte.Columns[2].Width = 140;
+            DG_reporte.Columns[2].Width = 100;
             DG_reporte.Columns["SALDO"].DefaultCellStyle.Format = "$##,##0.00";
+           
 
-
+            //MySqlCommand cmd2 = new MySqlCommand(" select max(fecha) FECHA from cuenxpdet GROUP BY PROVEEDOR order by PROVEEDOR",con);
+       
+            con.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -131,7 +163,7 @@ namespace appSugerencias
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("  "+ex);
                 LB_estado.Text = "Sin conexión";
                 LB_estado.ForeColor = Color.Red;
             }
