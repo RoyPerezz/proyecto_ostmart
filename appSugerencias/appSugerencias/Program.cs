@@ -35,7 +35,7 @@ namespace appSugerencias
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new FRM());
+                Application.Run(new frm_Login());
             }
             else
             {
