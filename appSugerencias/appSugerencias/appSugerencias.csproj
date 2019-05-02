@@ -142,6 +142,18 @@
     <Compile Include="Existencias.Designer.cs">
       <DependentUpon>Existencias.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExistenciaXProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExistenciaXProveedor.Designer.cs">
+      <DependentUpon>ExistenciaXProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExProductosProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExProductosProveedor.Designer.cs">
+      <DependentUpon>ExProductosProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormatoFecha.cs" />
     <Compile Include="frm_Compras.cs">
       <SubType>Form</SubType>
@@ -248,6 +260,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Existencias.resx">
       <DependentUpon>Existencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExistenciaXProveedor.resx">
+      <DependentUpon>ExistenciaXProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExProductosProveedor.resx">
+      <DependentUpon>ExProductosProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Compras.resx">
       <DependentUpon>frm_Compras.cs</DependentUpon>

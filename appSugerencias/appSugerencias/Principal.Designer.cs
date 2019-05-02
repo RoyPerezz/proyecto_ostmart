@@ -35,14 +35,14 @@
             this.toolsmAplicaTraspaso = new System.Windows.Forms.ToolStripMenuItem();
             this.ofertasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estadosDeCuentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteGeneralToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblIP = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblBD = new System.Windows.Forms.Label();
-            this.estadosDeCuentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporteGeneralToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,14 +74,14 @@
             // toolsmCreaTraspaso
             // 
             this.toolsmCreaTraspaso.Name = "toolsmCreaTraspaso";
-            this.toolsmCreaTraspaso.Size = new System.Drawing.Size(162, 22);
+            this.toolsmCreaTraspaso.Size = new System.Drawing.Size(180, 22);
             this.toolsmCreaTraspaso.Text = "Crear Traspaso";
             this.toolsmCreaTraspaso.Click += new System.EventHandler(this.crearTraspasoToolStripMenuItem_Click);
             // 
             // toolsmAplicaTraspaso
             // 
             this.toolsmAplicaTraspaso.Name = "toolsmAplicaTraspaso";
-            this.toolsmAplicaTraspaso.Size = new System.Drawing.Size(162, 22);
+            this.toolsmAplicaTraspaso.Size = new System.Drawing.Size(180, 22);
             this.toolsmAplicaTraspaso.Text = "Aplicar Traspaso";
             this.toolsmAplicaTraspaso.Click += new System.EventHandler(this.aplicarTraspasoToolStripMenuItem_Click);
             // 
@@ -101,6 +101,20 @@
             this.pagosToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
             this.pagosToolStripMenuItem.Text = "Pagos";
             this.pagosToolStripMenuItem.Click += new System.EventHandler(this.pagosToolStripMenuItem_Click);
+            // 
+            // estadosDeCuentaToolStripMenuItem
+            // 
+            this.estadosDeCuentaToolStripMenuItem.Name = "estadosDeCuentaToolStripMenuItem";
+            this.estadosDeCuentaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.estadosDeCuentaToolStripMenuItem.Text = "Estados de cuenta";
+            this.estadosDeCuentaToolStripMenuItem.Click += new System.EventHandler(this.estadosDeCuentaToolStripMenuItem_Click);
+            // 
+            // reporteGeneralToolStripMenuItem
+            // 
+            this.reporteGeneralToolStripMenuItem.Name = "reporteGeneralToolStripMenuItem";
+            this.reporteGeneralToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reporteGeneralToolStripMenuItem.Text = "Reporte general";
+            this.reporteGeneralToolStripMenuItem.Click += new System.EventHandler(this.reporteGeneralToolStripMenuItem_Click);
             // 
             // lblUsuario
             // 
@@ -158,20 +172,6 @@
             this.lblBD.Size = new System.Drawing.Size(34, 13);
             this.lblBD.TabIndex = 6;
             this.lblBD.Text = "Mysql";
-            // 
-            // estadosDeCuentaToolStripMenuItem
-            // 
-            this.estadosDeCuentaToolStripMenuItem.Name = "estadosDeCuentaToolStripMenuItem";
-            this.estadosDeCuentaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.estadosDeCuentaToolStripMenuItem.Text = "Estados de cuenta";
-            this.estadosDeCuentaToolStripMenuItem.Click += new System.EventHandler(this.estadosDeCuentaToolStripMenuItem_Click);
-            // 
-            // reporteGeneralToolStripMenuItem
-            // 
-            this.reporteGeneralToolStripMenuItem.Name = "reporteGeneralToolStripMenuItem";
-            this.reporteGeneralToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.reporteGeneralToolStripMenuItem.Text = "Reporte general";
-            this.reporteGeneralToolStripMenuItem.Click += new System.EventHandler(this.reporteGeneralToolStripMenuItem_Click);
             // 
             // Principal
             // 
