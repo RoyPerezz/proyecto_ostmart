@@ -308,7 +308,23 @@ namespace appSugerencias
             frm3.Show();
         }
 
-        private void elQueVaASerElBuenoToolStripMenuItem_Click(object sender, EventArgs e)
+        //private void elQueVaASerElBuenoToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    Form frm3 = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is ExProductosProveedor);
+
+        //    if (frm3 != null)
+        //    {
+        //        //si la instancia existe la pongo en primer plano
+        //        frm3.BringToFront();
+        //        return;
+        //    }
+
+        //    //sino existe la instancia se crea una nueva
+        //    frm3 = new ExProductosProveedor();
+        //    frm3.Show();
+        //}
+
+        private void existenciaPorProveedorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form frm3 = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is ExProductosProveedor);
 
