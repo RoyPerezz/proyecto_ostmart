@@ -17,6 +17,7 @@ namespace appSugerencias
        
         double contador;
         int oferta;
+        string impuesto;
         public frm_Verificador()
         {
             InitializeComponent();
@@ -46,7 +47,7 @@ namespace appSugerencias
                 {
 
                 
-                    seleccionar("SELECT articulo, descrip, linea,precio1,precio2,existencia,fabricante, oferta FROM prods WHERE articulo=?articulo",txtArticulo.Text);
+                    seleccionar("SELECT articulo, descrip, linea,precio1,precio2,existencia,fabricante, oferta ,impuesto FROM prods WHERE articulo=?articulo",txtArticulo.Text);
 
                 }
             }
@@ -88,19 +89,35 @@ namespace appSugerencias
                 lbl5.Show();
                 lbl6.Show();
                 //lbl7.Show();
+                button1.Show();
                 lblArticulo.Text = articulo;
                 oferta = mdr.GetInt32("oferta");
-
+                impuesto = mdr.GetString("impuesto");
 
 
                 lblDescripcion.Text = mdr.GetString("descrip");
-                precio1 = mdr.GetDouble("Precio1") + (mdr.GetDouble("Precio1") * 0.16);
-                precio2 = mdr.GetDouble("Precio2") + (mdr.GetDouble("Precio2") * 0.16);
-                lblPrecio1.Text = precio1.ToString("0.00");
-                lblPrecio2.Text = precio2.ToString("0.00");
+                if (impuesto == "SYS")
+                {
+                    precio1 = mdr.GetDouble("Precio1");
+                    precio2 = mdr.GetDouble("Precio2");
+
+                    lblPrecio1.Text = precio1.ToString("0.00");
+                    lblPrecio2.Text = precio2.ToString("0.00");
+                }
+                else
+                {
+                    precio1 = mdr.GetDouble("Precio1") + (mdr.GetDouble("Precio1") * 0.16);
+                    precio2 = mdr.GetDouble("Precio2") + (mdr.GetDouble("Precio2") * 0.16);
+                    lblPrecio1.Text = precio1.ToString("0.00");
+                    lblPrecio2.Text = precio2.ToString("0.00");
+
+                }
+                
+
                 lblExistencia.Text = mdr.GetString("existencia");
                 lblLinea.Text = mdr.GetString("linea");
                 oferta = mdr.GetInt32("oferta");
+                
                 // lblFabricante.Text = mdr.GetString("fabricante");
                 //lblOferta.Text = oferta.ToString();
 
@@ -110,7 +127,7 @@ namespace appSugerencias
                 {
 
 
-                    //MessageBox.Show("entro");
+                  
                     MySqlCommand cmdd = new MySqlCommand("SELECT fechainicial, fechafinal,porporcentaje,porcentaje FROM ofertas where articulo=?articulo", con);
                     cmdd.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = articulo;
 
@@ -187,6 +204,7 @@ namespace appSugerencias
             lbl5.Hide();
             lbl6.Hide();
             lbl7.Hide();
+            button1.Hide();
             lblArticulo.Text = "";
             lblDescripcion.Text = "";
             lblPrecio1.Text = "";
@@ -274,6 +292,26 @@ namespace appSugerencias
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            //frm_kardex app = new frm_kardex(lblArticulo.Text, 1);
+            //app.Show();
+
+            //se localiza el formulario buscandolo entre los forms abiertos 
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_kardex);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm = new frm_kardex(lblArticulo.Text, 1);
+            frm.Show();
         }
     }
 }
