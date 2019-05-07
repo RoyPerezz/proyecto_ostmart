@@ -50,11 +50,11 @@ namespace appSugerencias
         public void selectArticulos()
         {
 
-
+            MySqlConnection con = BDConexicon.conectar(); ;
 
             double precio1, precio2;
             //articulo  LIKE '%?articulo%'  OR
-            MySqlCommand cmd = new MySqlCommand("SELECT articulo,descrip,precio1,precio2,existencia FROM prods  WHERE   articulo  LIKE '%"+ busqueda + "%' OR descrip LIKE '%" + busqueda + "%' LIMIT 50", BDConexicon.conectar());
+            MySqlCommand cmd = new MySqlCommand("SELECT articulo,descrip,precio1,precio2,existencia FROM prods  WHERE   articulo  LIKE '%"+ busqueda + "%' OR descrip LIKE '%" + busqueda + "%' ORDER BY articulo ASC LIMIT 100", con);
             //cmd.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = txtArticulo.Text;
             MySqlDataAdapter adaptador = new MySqlDataAdapter(cmd);
             System.Data.DataTable dt = new System.Data.DataTable();
@@ -62,11 +62,12 @@ namespace appSugerencias
             adaptador.Fill(dt);
 
             dgvArticulos.Rows.Clear();
-            
+            //dgvArticulos.DataSource=dt;
+
             foreach (DataRow item in dt.Rows)
             {
                 int n = dgvArticulos.Rows.Add();
-                
+                //MessageBox.Show(n.ToString());
                 dgvArticulos.Rows[n].Cells[0].Value = item["articulo"].ToString();
                 dgvArticulos.Rows[n].Cells[1].Value = item["descrip"].ToString();
                 
@@ -88,34 +89,46 @@ namespace appSugerencias
                 c.DefaultCellStyle.Font = new Font("Bold", 20F, GraphicsUnit.Pixel);
             }
 
-            BDConexicon.ConectarClose();
+            con.Close();
             
 
 
         }
 
-        private void dgvArticulos_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                string articulo;
-                try
-                {
+        //private void dgvArticulos_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    if (e.KeyChar == Convert.ToChar(Keys.Enter))
+        //    {
+        //        //string articulo;
+        //        //try
+        //        //{
 
-                
-                 articulo= Convert.ToString(dgvArticulos.Rows[dgvArticulos.CurrentRow.Index-1].Cells[0].Value);
-                }
-                catch(Exception er)
-                {
-                     articulo = "";
-                }
-                InterfaceComunicacion con = this.Owner as InterfaceComunicacion;
-                 
-                con.SetArticulo(articulo);
-                this.Close();
-                
-        }
-        }
+        //        //    //MessageBox.Show(dgvArticulos.Rows.Count.ToString());
+
+        //        //    if (dgvArticulos.Rows.Count == 1 || dgvArticulos.Rows.Count == 3)
+        //        //    {
+        //        //        articulo = Convert.ToString(dgvArticulos.Rows[dgvArticulos.CurrentRow.Index].Cells[0].Value);
+        //        //    }
+        //        //    else
+        //        //    {
+        //        //        articulo = Convert.ToString(dgvArticulos.Rows[dgvArticulos.CurrentRow.Index - 1].Cells[0].Value);
+        //        //    }
+
+
+
+
+        //        //}
+        //        //catch (Exception er)
+        //        //{
+        //        //    articulo = "";
+        //        //}
+        //        //InterfaceComunicacion con = this.Owner as InterfaceComunicacion;
+
+        //        //con.SetArticulo(articulo);
+        //        //this.Close();
+
+        //    }
+        //}
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -147,6 +160,43 @@ namespace appSugerencias
                 MessageBox.Show("salir");
             }
         }
+
+        private void dgvArticulos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                string articulo;
+                try
+                {
+
+                    //MessageBox.Show(dgvArticulos.Rows.Count.ToString());
+
+                    //if (dgvArticulos.Rows.Count == 1 || dgvArticulos.Rows.Count == 3)
+                    //{
+                    //    articulo = Convert.ToString(dgvArticulos.Rows[dgvArticulos.CurrentRow.Index].Cells[0].Value);
+                    //}
+                    //else
+                    //{
+                    //    articulo = Convert.ToString(dgvArticulos.Rows[dgvArticulos.CurrentRow.Index - 1].Cells[0].Value);
+                    //}
+
+                    articulo = Convert.ToString(dgvArticulos.Rows[dgvArticulos.CurrentRow.Index].Cells[0].Value);
+
+
+                }
+                catch (Exception er)
+                {
+                    articulo = "";
+                }
+                InterfaceComunicacion con = this.Owner as InterfaceComunicacion;
+
+                con.SetArticulo(articulo);
+                this.Close();
+            }
+        }
+
+       
         //########## CIERRE ############
     }
 }
