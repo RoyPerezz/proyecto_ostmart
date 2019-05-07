@@ -339,5 +339,10 @@ namespace appSugerencias
             frm3 = new ExProductosProveedor();
             frm3.Show();
         }
+
+        private void cargarCompraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

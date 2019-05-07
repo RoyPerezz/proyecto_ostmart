@@ -191,6 +191,7 @@
             this.cargarCompraToolStripMenuItem.Name = "cargarCompraToolStripMenuItem";
             this.cargarCompraToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.cargarCompraToolStripMenuItem.Text = "Cargar Compra";
+            this.cargarCompraToolStripMenuItem.Click += new System.EventHandler(this.cargarCompraToolStripMenuItem_Click);
             // 
             // existenciaPorProveedorToolStripMenuItem
             // 
