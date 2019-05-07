@@ -43,6 +43,9 @@
             this.lblIP = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblBD = new System.Windows.Forms.Label();
+            this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cargarCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.existenciaPorProveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +56,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.traspasosToolStripMenuItem,
             this.ofertasToolStripMenuItem,
-            this.pagosToolStripMenuItem});
+            this.pagosToolStripMenuItem,
+            this.comprasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(883, 24);
@@ -74,14 +78,14 @@
             // toolsmCreaTraspaso
             // 
             this.toolsmCreaTraspaso.Name = "toolsmCreaTraspaso";
-            this.toolsmCreaTraspaso.Size = new System.Drawing.Size(180, 22);
+            this.toolsmCreaTraspaso.Size = new System.Drawing.Size(162, 22);
             this.toolsmCreaTraspaso.Text = "Crear Traspaso";
             this.toolsmCreaTraspaso.Click += new System.EventHandler(this.crearTraspasoToolStripMenuItem_Click);
             // 
             // toolsmAplicaTraspaso
             // 
             this.toolsmAplicaTraspaso.Name = "toolsmAplicaTraspaso";
-            this.toolsmAplicaTraspaso.Size = new System.Drawing.Size(180, 22);
+            this.toolsmAplicaTraspaso.Size = new System.Drawing.Size(162, 22);
             this.toolsmAplicaTraspaso.Text = "Aplicar Traspaso";
             this.toolsmAplicaTraspaso.Click += new System.EventHandler(this.aplicarTraspasoToolStripMenuItem_Click);
             // 
@@ -105,14 +109,14 @@
             // estadosDeCuentaToolStripMenuItem
             // 
             this.estadosDeCuentaToolStripMenuItem.Name = "estadosDeCuentaToolStripMenuItem";
-            this.estadosDeCuentaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.estadosDeCuentaToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.estadosDeCuentaToolStripMenuItem.Text = "Estados de cuenta";
             this.estadosDeCuentaToolStripMenuItem.Click += new System.EventHandler(this.estadosDeCuentaToolStripMenuItem_Click);
             // 
             // reporteGeneralToolStripMenuItem
             // 
             this.reporteGeneralToolStripMenuItem.Name = "reporteGeneralToolStripMenuItem";
-            this.reporteGeneralToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reporteGeneralToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.reporteGeneralToolStripMenuItem.Text = "Reporte general";
             this.reporteGeneralToolStripMenuItem.Click += new System.EventHandler(this.reporteGeneralToolStripMenuItem_Click);
             // 
@@ -173,6 +177,28 @@
             this.lblBD.TabIndex = 6;
             this.lblBD.Text = "Mysql";
             // 
+            // comprasToolStripMenuItem
+            // 
+            this.comprasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cargarCompraToolStripMenuItem,
+            this.existenciaPorProveedorToolStripMenuItem});
+            this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
+            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.comprasToolStripMenuItem.Text = "Compras";
+            // 
+            // cargarCompraToolStripMenuItem
+            // 
+            this.cargarCompraToolStripMenuItem.Name = "cargarCompraToolStripMenuItem";
+            this.cargarCompraToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.cargarCompraToolStripMenuItem.Text = "Cargar Compra";
+            // 
+            // existenciaPorProveedorToolStripMenuItem
+            // 
+            this.existenciaPorProveedorToolStripMenuItem.Name = "existenciaPorProveedorToolStripMenuItem";
+            this.existenciaPorProveedorToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.existenciaPorProveedorToolStripMenuItem.Text = "Existencia por proveedor";
+            this.existenciaPorProveedorToolStripMenuItem.Click += new System.EventHandler(this.existenciaPorProveedorToolStripMenuItem_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -219,5 +245,8 @@
         private System.Windows.Forms.Label lblBD;
         private System.Windows.Forms.ToolStripMenuItem estadosDeCuentaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteGeneralToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem comprasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cargarCompraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem existenciaPorProveedorToolStripMenuItem;
     }
 }
