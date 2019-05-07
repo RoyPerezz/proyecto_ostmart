@@ -278,18 +278,50 @@ namespace appSugerencias
         {
             //CREA UN REPORTE DE LOS SALDOS DE TODOS LOS PROVEEDORES EN CIERTA SUCURSAL
 
-            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is CuentasXPagar);
+            Form frm2 = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is RPT_SaldoProveedores);
 
-            if (frm != null)
+            if (frm2 != null)
             {
                 //si la instancia existe la pongo en primer plano
-                frm.BringToFront();
+                frm2.BringToFront();
                 return;
             }
 
             //sino existe la instancia se crea una nueva
-            frm = new RPT_SaldoProveedores();
-            frm.Show();
+            frm2 = new RPT_SaldoProveedores();
+            frm2.Show();
+        }
+
+        private void datagridsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form frm3 = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is ExistenciaXProveedor);
+
+            if (frm3 != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm3.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm3 = new ExistenciaXProveedor();
+            frm3.Show();
+        }
+
+        private void elQueVaASerElBuenoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form frm3 = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is ExProductosProveedor);
+
+            if (frm3 != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm3.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm3 = new ExProductosProveedor();
+            frm3.Show();
         }
     }
 }

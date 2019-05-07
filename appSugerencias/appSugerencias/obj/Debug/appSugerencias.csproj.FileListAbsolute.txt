@@ -435,6 +435,7 @@ C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\D
 C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\stdole.dll
 C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\itextsharp.xml
+C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.ReporteTraspaso.resources
 C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.CotizacionTraspaso.resources
 C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_Verificador.resources
 C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_VerificadorItems.resources
@@ -740,6 +741,5 @@ C:\Users\Admin\source\repos\proyecto_ostmart - pruebas\appSugerencias\appSugeren
 C:\Users\Admin\source\repos\proyecto_ostmart - pruebas\appSugerencias\appSugerencias\obj\Debug\appSugerencias.exe
 C:\Users\Admin\source\repos\proyecto_ostmart - pruebas\appSugerencias\appSugerencias\obj\Debug\appSugerencias.pdb
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.RPT_SaldoProveedores.resources
-C:\Users\danxd\source\repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.RPT_SaldoProveedores.resources
-C:\Users\danxd\source\repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Principal2.resources
-C:\Users\danxd\source\repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_kardex.resources
+C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.ExistenciaXProveedor.resources
+C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.ExProductosProveedor.resources

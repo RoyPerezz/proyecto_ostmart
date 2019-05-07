@@ -12,10 +12,12 @@ namespace appSugerencias
 {
     public partial class CuentasXPagar : Form
     {
-
+        double saldo = 0;
+        double importe = 0;
+        DateTime fecha;
         MySqlConnection conectar;
 
-
+        //###################################### EN EL CONSTRUCTOR SE CARGA EL TAMAÑO DE LAS COLUMNAS DEL DATAGRIDVIEW #################################
         public CuentasXPagar()
         {
             InitializeComponent();
@@ -29,9 +31,7 @@ namespace appSugerencias
             DG_datos.Columns[7].Width = 150;
         }
 
-        double saldo = 0;
-        double importe=0;
-        DateTime fecha;
+        //#################################### INSERTA EN EL DATAGRIDVIEW LOS DATOS CORRESPONDIENTES AL HISTORIAL DE PAGOS Y COMPRAS DEL PROVEEDOR ##############
         public void EstadoCuenta()
         {
           
@@ -44,23 +44,26 @@ namespace appSugerencias
             {
                 importe =Convert.ToDouble( dr["importe"].ToString());
                 fecha = Convert.ToDateTime(dr["fecha"].ToString());
+
+
+
                 if (dr["cargo_ab"].ToString().Equals("C"))
-                {
+                {//SI LA OPERACION ES "C" ES UNA COMPRA Y SE SUMA AL SALDO
                     saldo += Convert.ToDouble(dr["importe"].ToString());
-                    //MessageBox.Show("Compra: "+aux);
+                   
                 }
 
                 else
                 {
-
+                    //PERO SI ES DIFERENTE DE "C"(UN ABONO, AJUSTE, DEVOLUCIO, ETC) SE RESTA DEL SALDO DE LA CUENTA
 
                     saldo -= Convert.ToDouble(dr["importe"].ToString());
-                    //MessageBox.Show("Abono: " + aux);
+                   
                 }
 
 
-
-                DG_datos.Rows.Add(dr["cuenxpag"].ToString(), dr["proveedor"].ToString(), fecha.ToString("yyyy/MM/dd"), dr["tipo_doc"].ToString(), dr["no_referen"].ToString(), dr["cargo_ab"].ToString(), importe.ToString("C"), String.Format("{0:0.##}", saldo.ToString("C")));
+                //AQUI SE INSERTAN LAS FILAS AL DATAGRIDVIEW
+                DG_datos.Rows.Add(dr["cuenxpag"].ToString(), dr["proveedor"].ToString(), fecha.ToString("dd/MM/yyyy"), dr["tipo_doc"].ToString(), dr["no_referen"].ToString(), dr["cargo_ab"].ToString(), importe.ToString("C"), String.Format("{0:0.##}", saldo.ToString("C")));
 
             }
             //conectar.Close();
@@ -75,38 +78,17 @@ namespace appSugerencias
             DG_datos.Columns[6].Width = 150;
             DG_datos.Columns[7].Width = 150;
 
-            
+            DG_datos.Columns["IDPAGO"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            DG_datos.Columns["IDPROVEEDOR"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            DG_datos.Columns["FECHA_MOV"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            DG_datos.Columns["TIPO_DOC"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            DG_datos.Columns["REF"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            DG_datos.Columns["MOV"].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+
         }
 
 
-        //################################## CARGA EN EL DATAGRID LOS DATOS DE LAS COMPRAS A ESE PROVEEDOR ###################################
-        //public void CargarGrid()
-        //{
-
-
-        //    MySqlCommand cmd = new MySqlCommand("SELECT fecha as FECHA, cuenxpag as ID, factura as DESCRIPCION, importe as CARGO, saldo as SALDO from cuenxpag where proveedor='" + TB_proveedor.Text+"'", BDConexicon.conectar());
-        //    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-        //    DataTable dt = new DataTable();
-
-
-           
-
-        //    da.Fill(dt);
-        //    DG_datos.DataSource = dt;
-
-
-        //    DG_datos.Columns[0].Width = 130;
-        //    DG_datos.Columns[1].Width = 100;
-        //    DG_datos.Columns[2].Width = 500;
-        //    DG_datos.Columns[3].Width = 160;
-        //    DG_datos.Columns[4].Width = 160;
-
-
-        //    BDConexicon.ConectarClose();
-          
-
-
-        //}
 
         //###################################### OBTENER LOS NOMBRES DE LOS PROVEEDORES #######################################################
         public void proveedores()
@@ -147,7 +129,7 @@ namespace appSugerencias
         
 
 
-        //############################################## CARGA LOS NOMBRES EN EL COMBOBOX  ######################################################
+      
         private void CuentasXPagar_Load(object sender, EventArgs e)
         {
             //proveedores();
@@ -212,26 +194,26 @@ namespace appSugerencias
 
         }
 
-        //private void DG_datos_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    string id = this.DG_datos.CurrentRow.Cells[0].Value.ToString();
-        //    //    string des = this.DG_datos.CurrentRow.Cells[2].Value.ToString();
-        //     double importe = Convert.ToDouble(this.DG_datos.CurrentRow.Cells[6].Value);
-        //     double saldo = Convert.ToDouble(this.DG_datos.CurrentRow.Cells[7].Value);
-
-        //    Desglose d = new Desglose();
-        //    d.CuentXPagar(id);
-        //    d.datoCuenta(id,importe,saldo);
-        //    d.Show();
-        //}
-
+       
         private void label2_Click(object sender, EventArgs e)
         {
 
         }
 
+
+        //################ AL ELEGIR UNA SUC. SE CONECTA A LA BD CORRESPONDIENTE #######################################
         public void ElegirSucursar()
         {
+
+            try
+            {
+                conectar.Close();
+            }
+            catch (Exception ex)
+            {
+
+             
+            }
 
             TB_filtro.Text = "";
             CB_proveedor.SelectedIndex=-1;
@@ -276,6 +258,8 @@ namespace appSugerencias
             }
         }
 
+
+           //############## EL METODO ELEGIRSUCURSAL() ES LLAMADO AL SELECCIONAR UN ITEM EN EL COMBOBOX ###############################
         private void CB_sucursal_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -358,6 +342,11 @@ namespace appSugerencias
 
 
             excel.Visible = true;
+
+        }
+
+        private void DG_datos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

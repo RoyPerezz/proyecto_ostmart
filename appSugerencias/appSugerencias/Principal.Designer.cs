@@ -105,14 +105,14 @@
             // estadosDeCuentaToolStripMenuItem
             // 
             this.estadosDeCuentaToolStripMenuItem.Name = "estadosDeCuentaToolStripMenuItem";
-            this.estadosDeCuentaToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.estadosDeCuentaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.estadosDeCuentaToolStripMenuItem.Text = "Estados de cuenta";
             this.estadosDeCuentaToolStripMenuItem.Click += new System.EventHandler(this.estadosDeCuentaToolStripMenuItem_Click);
             // 
             // reporteGeneralToolStripMenuItem
             // 
             this.reporteGeneralToolStripMenuItem.Name = "reporteGeneralToolStripMenuItem";
-            this.reporteGeneralToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.reporteGeneralToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.reporteGeneralToolStripMenuItem.Text = "Reporte general";
             this.reporteGeneralToolStripMenuItem.Click += new System.EventHandler(this.reporteGeneralToolStripMenuItem_Click);
             // 
