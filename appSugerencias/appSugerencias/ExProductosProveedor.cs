@@ -172,12 +172,12 @@ namespace appSugerencias
 
                 DG_existencias.Columns["DESCRIPCION"].Width = 375;
 
-                DG_existencias.Columns[2].HeaderCell.Style.BackColor = Color.BlueViolet;
-                DG_existencias.Columns[3].HeaderCell.Style.BackColor = Color.BlueViolet;
-                DG_existencias.Columns[4].HeaderCell.Style.BackColor = Color.BlueViolet;
-                DG_existencias.Columns[5].HeaderCell.Style.BackColor = Color.BlueViolet;
+                DG_existencias.Columns[2].HeaderCell.Style.BackColor = Color.Aqua;
+                DG_existencias.Columns[3].HeaderCell.Style.BackColor = Color.DarkSeaGreen;
+                DG_existencias.Columns[4].HeaderCell.Style.BackColor = Color.DeepSkyBlue;
+                DG_existencias.Columns[5].HeaderCell.Style.BackColor = Color.DodgerBlue;
             
-                DG_existencias.Columns[6].HeaderCell.Style.BackColor = Color.BlueViolet;
+                DG_existencias.Columns[6].HeaderCell.Style.BackColor = Color.LightBlue;
 
 
 
