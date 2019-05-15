@@ -14,47 +14,122 @@ using MySql.Data.MySqlClient;
 
 namespace appSugerencias
 {
+
+   
     public partial class RPT_SaldoProveedores : Form
     {
+
+        
+
         public RPT_SaldoProveedores()
         {
             InitializeComponent();
+        }
+
+        public string suc;
+
+        public string getSucursal()
+        {
+            return suc;
+        }
+        //tengo mi metodo sucursal, la cual me trae la suc a la cual me estoy conectando
+        public void sucursal(MySqlConnection con)// aqui ya hice pruebas y si me lo trae, de hecho ya viste el textbox en mi form que si se guarda
+        {
+            try
+            {
+                
+               MySqlCommand cmd = new MySqlCommand("select empresa from econfig", con);
+                MySqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    suc = dr["empresa"].ToString();
+                    TB_suc.Text = dr["empresa"].ToString();// aqui lo guardo en un textbox porque estaba haciendo unas pruebas, hice publico el textbox para obtener la suc que guarde ahi pero...
+                }
+                Singleton s = Singleton.obtenerInstancia();
+                s.nombreTienda(suc);
+                dr.Close();
+
+                
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("falló traer el nombre de la empresa");
+            }
+
+            //Aja pero en que parte de la otra clase ejecutas esta funcion?   ok
         }
 
 
 
         public void llenarGrid(MySqlConnection con)
         {
-            MySqlCommand cmd = new MySqlCommand("SELECT  p.proveedor AS PROVEEDOR,p.nombre AS NOMBRE,sum(cp.saldo) as SALDO from proveed p inner join cuenxpag cp on p.proveedor = cp.proveedor GROUP BY p.PROVEEDOR order by PROVEEDOR",con);
+
+            MySqlCommand cmd = null;
+            if (CHB_saldo.Checked == true)
+            {
+                //Si el checkbox CHB_saldo ha sido marcado, ejecutara esta consulta, obteniendo solo los provedores con saldo positivo
+                cmd = new MySqlCommand("SELECT  p.proveedor AS PROVEEDOR,p.nombre AS NOMBRE,sum(cp.saldo) as SALDO from proveed p inner join cuenxpag cp on p.proveedor = cp.proveedor GROUP BY p.PROVEEDOR having SALDO > 0 order by PROVEEDOR", con);
+            }
+            else
+            {
+                //Si no, ejecutará esta otram trayendo todos los proveedores
+                cmd = new MySqlCommand("SELECT  p.proveedor AS PROVEEDOR,p.nombre AS NOMBRE,sum(cp.saldo) as SALDO from proveed p inner join cuenxpag cp on p.proveedor = cp.proveedor GROUP BY p.PROVEEDOR order by PROVEEDOR", con);
+            }
+
             DataTable dt = new DataTable();
+            //dt.Columns[2].DataType = Double;
             DataRow fila = dt.NewRow();
-           
+
 
 
             MySqlDataAdapter ad = new MySqlDataAdapter(cmd);
             ad.Fill(dt);
-            
 
-           
 
+
+            //Se obtiene la fecha del ultimo moviento en las cuentas pendientes
             MySqlCommand cmd2 = new MySqlCommand("select max(pd.fecha) as FECHA from cuenxpdet pd inner join proveed p on pd.proveedor = p.PROVEEDOR GROUP BY p.PROVEEDOR order by p.PROVEEDOR", con);
-            MySqlDataReader dr = cmd2.ExecuteReader();
+            
+            MySqlDataReader d = cmd.ExecuteReader();
 
 
 
 
             DateTime fecha;
-           
+
 
             DG_reporte.DataSource = dt;
+            dt.Columns.Remove("SALDO");
             dt.Columns.Add("FECHA", typeof(string));
+            dt.Columns.Add("SALDO PROVEEDOR", typeof(string));
+            string saldo = "";
+            foreach (DataRow row in dt.Rows)
+            {
+                if (d.Read())
+                {
 
+                    double s = Convert.ToDouble(d["SALDO"].ToString());
+
+                    row[3] = saldo = String.Format("{0:C}", s);
+
+
+                }
+                //ahora pon el breack point donde creas el objeto y debuguealo con f11
+
+            }
+            d.Close();
+
+            MySqlDataReader dr = cmd2.ExecuteReader();
             foreach (DataRow row in dt.Rows)
             {
                 if (dr.Read())
                 {
                     fecha = Convert.ToDateTime(dr["FECHA"].ToString());
-                    row[3] =fecha.ToString("dd/MM/yyyy");
+                    row[2] = fecha.ToString("dd/MM/yyyy");
+                    
+
 
                 }
 
@@ -64,18 +139,24 @@ namespace appSugerencias
             DG_reporte.Columns[0].Width = 80;
             DG_reporte.Columns[1].Width = 300;
             DG_reporte.Columns[2].Width = 100;
-            DG_reporte.Columns["SALDO"].DefaultCellStyle.Format = "$##,##0.00";
-           
+          //  DG_reporte.Columns[2].DefaultCellStyle.Format = "$##,##0.00";
+
+            //DG_reporte.Columns[0].HeaderCell.Style.BackColor = Color.LightGray;
+            //DG_reporte.Columns[1].HeaderCell.Style.BackColor = Color.LightGray;
+            //DG_reporte.Columns[2].HeaderCell.Style.BackColor = Color.LightGray;
+            //DG_reporte.Columns[3].HeaderCell.Style.BackColor = Color.LightGray;
+
 
             //MySqlCommand cmd2 = new MySqlCommand(" select max(fecha) FECHA from cuenxpdet GROUP BY PROVEEDOR order by PROVEEDOR",con);
-       
+
             con.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        public void ReporteExcel()
         {
             //Crea reporte en pdf sobre los saldos de los proveedores
-          
+
             Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
             excel.Application.Workbooks.Add(true);
 
@@ -122,10 +203,104 @@ namespace appSugerencias
 
             excel.Visible = true;
 
+        }
 
 
 
-        }//FIN METODO BOTON
+        public void ReportePDF()
+        {
+            DateTime fecha = DT_fecha.Value;
+            try { 
+         
+            Document doc = new Document(PageSize.A4);
+            string filename = "ResumenSaldo\\ResumenSaldo"+fecha.ToString("dd-MM-yyyy")+".pdf";
+             
+                PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(@filename, FileMode.Create));
+             
+                writer.PageEvent = new HeaderFooter();
+
+            doc.AddTitle("Reporte de saldos de proveedor");
+            doc.AddCreator("RoyP3r3z");
+
+            // Abrimos el archivo
+            doc.Open();
+
+            iTextSharp.text.Font _standardFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
+                
+
+                //iTextSharp.text.Font _standardFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
+
+                // Escribimos el encabezamiento en el documento
+                //doc.Add(new Paragraph("RESUMEN DE CUENTAS POR PAGAR AL DÍA "+fecha.ToString("dd/MM/yyyy")));
+                //doc.Add(Chunk.NEWLINE);
+
+                //Creamos nuestra tabla 
+                PdfPTable table = new PdfPTable(DG_reporte.Columns.Count);
+
+            table.WidthPercentage = 100;
+            float[] widths = new float[] { 40f, 110f, 30f, 45f };
+            table.SetWidths(widths);
+            table.SkipLastFooter = true;
+            table.SpacingAfter = 10;
+
+            //Encabezados
+            for (int j = 0; j < DG_reporte.Columns.Count; j++)
+            {
+                table.AddCell(new Phrase(DG_reporte.Columns[j].HeaderText));
+                   
+            }
+
+            //flag the first row as a header
+            table.HeaderRows = 1;
+               
+              
+            for (int i = 0; i < DG_reporte.Rows.Count; i++)
+            {
+                for (int k = 0; k < DG_reporte.Columns.Count; k++)
+                {
+                       
+
+                    if (DG_reporte[k, i].Value != null)
+                    {
+                        table.AddCell(new Phrase(DG_reporte[k, i].Value.ToString()));
+                    }
+                }
+            }
+                
+                doc.Add(table);
+
+
+            doc.Close();
+            writer.Close();
+
+            Process prc = new System.Diagnostics.Process();
+            prc.StartInfo.FileName = filename;
+            prc.Start();
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Error al crear PDF");
+            }
+
+        }
+           
+
+
+
+
+
+
+
+
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            ReportePDF();
+
+
+
+        }
 
         private void CB_sucursal_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -156,8 +331,11 @@ namespace appSugerencias
                 {
                     con = BDConexicon.VelazquezOpen();
                 }
-
+               sucursal(con);//mmm a ver, pon un breack point en esta linea, y al crear el objeto checa si esta linea se ejecuta
+           
+              
                 llenarGrid(con);
+                
                 LB_estado.Text = "Conectado";
                 LB_estado.ForeColor = Color.DarkGreen;
             }
@@ -174,5 +352,68 @@ namespace appSugerencias
         {
           
         }
+
+
+
+
+       //busque como hacerlo, y encontre esta clase asi que la agregue y la use, la mando a llamar por aca rriba
+
+
     }//FIN CLASE
+
+
+
+
+    public partial class HeaderFooter : PdfPageEventHelper
+    {
+        
+
+        public override void OnEndPage(PdfWriter writer, Document document)
+        {
+            Singleton s = Singleton.obtenerInstancia();
+            string sucursal = s.getNombreTienda();
+
+          
+
+
+            //base.OnEndPage(writer, document);
+
+
+            DateTime fecha = DateTime.Today;
+            PdfPTable tbHeader = new PdfPTable(1);
+            tbHeader.TotalWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
+            tbHeader.DefaultCell.Border = 0;
+
+            tbHeader.AddCell(new Paragraph());
+
+
+            PdfPCell _cell = new PdfPCell(new Paragraph("" + sucursal + " RESUMEN DE CUENTAS POR PAGAR AL DIA " + fecha.ToString("dd/MM/yyyy")));
+            _cell.Border = 0;
+         
+            tbHeader.AddCell(_cell);
+            tbHeader.AddCell(new Paragraph());
+
+
+            tbHeader.WriteSelectedRows(0, -1, document.LeftMargin, writer.PageSize.GetTop(document.TopMargin) + 25, writer.DirectContent);
+
+            PdfPTable tbFooter = new PdfPTable(1);
+            tbFooter.TotalWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
+            tbFooter.DefaultCell.Border = 0;
+
+            PdfPCell cell = new PdfPCell(new Paragraph());
+            tbFooter.AddCell(cell);
+           
+            cell = new PdfPCell(new Paragraph("Pagina " + writer.PageNumber));
+            cell.HorizontalAlignment = Element.ALIGN_RIGHT;
+            cell.Border = 0;
+
+            tbFooter.AddCell(cell);
+
+            tbFooter.WriteSelectedRows(0, -1, document.LeftMargin, writer.PageSize.GetBottom(document.BottomMargin) - 5, writer.DirectContent);
+
+
+
+        }
+    }
+
 }//FIN NAMES PACE

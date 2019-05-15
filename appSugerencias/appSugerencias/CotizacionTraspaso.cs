@@ -660,23 +660,7 @@ namespace appSugerencias
 
                 parrafo.Clear();
 
-                //parrafo.Add(new Chunk("Aplico: ", negritas));
-                //parrafo.Add(new Chunk(lblUsuarioAplica.Text, normal));
-                //doc.Add(parrafo);
-
-                //parrafo.Clear();
-
-                //parrafo.Add(new Chunk("Observaciones: ", negritas));
-                //parrafo.Add(new Chunk(observaciones, normal));
-                //doc.Add(parrafo);
-
-                //parrafo.Clear();
-
-                //parrafo.Add(new Chunk("Estado: ", negritas));
-                //parrafo.Add(new Chunk(estatus, normal));
-                //doc.Add(parrafo);
-
-                //parrafo.Clear();
+          
 
                 doc.Add(Chunk.NEWLINE);
                 doc.Add(Chunk.NEWLINE);

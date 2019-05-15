@@ -29,12 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RPT_SaldoProveedores));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.CB_sucursal = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.DG_reporte = new System.Windows.Forms.DataGridView();
             this.LB_estado = new System.Windows.Forms.Label();
+            this.CHB_saldo = new System.Windows.Forms.CheckBox();
+            this.DT_fecha = new System.Windows.Forms.DateTimePicker();
+            this.TB_suc = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DG_reporte)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,8 +84,8 @@
             // DG_reporte
             // 
             this.DG_reporte.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.DG_reporte.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.DG_reporte.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DG_reporte.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DG_reporte.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DG_reporte.Location = new System.Drawing.Point(13, 50);
@@ -98,12 +101,40 @@
             this.LB_estado.Size = new System.Drawing.Size(0, 13);
             this.LB_estado.TabIndex = 4;
             // 
+            // CHB_saldo
+            // 
+            this.CHB_saldo.AutoSize = true;
+            this.CHB_saldo.Location = new System.Drawing.Point(463, 16);
+            this.CHB_saldo.Name = "CHB_saldo";
+            this.CHB_saldo.Size = new System.Drawing.Size(188, 17);
+            this.CHB_saldo.TabIndex = 5;
+            this.CHB_saldo.Text = "Solo incluir proveedores con saldo";
+            this.CHB_saldo.UseVisualStyleBackColor = true;
+            // 
+            // DT_fecha
+            // 
+            this.DT_fecha.Location = new System.Drawing.Point(239, 15);
+            this.DT_fecha.Name = "DT_fecha";
+            this.DT_fecha.Size = new System.Drawing.Size(200, 20);
+            this.DT_fecha.TabIndex = 6;
+            this.DT_fecha.Visible = false;
+            // 
+            // TB_suc
+            // 
+            this.TB_suc.Location = new System.Drawing.Point(13, 223);
+            this.TB_suc.Name = "TB_suc";
+            this.TB_suc.Size = new System.Drawing.Size(169, 20);
+            this.TB_suc.TabIndex = 7;
+            // 
             // RPT_SaldoProveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(663, 283);
+            this.Controls.Add(this.TB_suc);
+            this.Controls.Add(this.DT_fecha);
+            this.Controls.Add(this.CHB_saldo);
             this.Controls.Add(this.LB_estado);
             this.Controls.Add(this.DG_reporte);
             this.Controls.Add(this.button1);
@@ -119,11 +150,13 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox CB_sucursal;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView DG_reporte;
         private System.Windows.Forms.Label LB_estado;
+        private System.Windows.Forms.CheckBox CHB_saldo;
+        private System.Windows.Forms.DateTimePicker DT_fecha;
+        public System.Windows.Forms.ComboBox CB_sucursal;
+        public System.Windows.Forms.TextBox TB_suc;
     }
 }

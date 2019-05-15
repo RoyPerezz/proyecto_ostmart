@@ -248,6 +248,7 @@
     <Compile Include="Rp_pagocomisiones.Designer.cs">
       <DependentUpon>Rp_pagocomisiones.cs</DependentUpon>
     </Compile>
+    <Compile Include="Singleton.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="TraspasoTiendas.cs">
       <SubType>Form</SubType>
