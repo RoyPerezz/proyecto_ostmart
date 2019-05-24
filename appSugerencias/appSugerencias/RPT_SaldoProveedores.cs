@@ -32,8 +32,8 @@ namespace appSugerencias
         {
             return suc;
         }
-        //tengo mi metodo sucursal, la cual me trae la suc a la cual me estoy conectando
-        public void sucursal(MySqlConnection con)// aqui ya hice pruebas y si me lo trae, de hecho ya viste el textbox en mi form que si se guarda
+       
+        public void sucursal(MySqlConnection con)
         {
             try
             {
@@ -43,7 +43,7 @@ namespace appSugerencias
                 while (dr.Read())
                 {
                     suc = dr["empresa"].ToString();
-                    TB_suc.Text = dr["empresa"].ToString();// aqui lo guardo en un textbox porque estaba haciendo unas pruebas, hice publico el textbox para obtener la suc que guarde ahi pero...
+                    TB_suc.Text = dr["empresa"].ToString();
                 }
                 Singleton s = Singleton.obtenerInstancia();
                 s.nombreTienda(suc);
@@ -58,7 +58,7 @@ namespace appSugerencias
                 MessageBox.Show("falló traer el nombre de la empresa");
             }
 
-            //Aja pero en que parte de la otra clase ejecutas esta funcion?   ok
+          
         }
 
 
@@ -66,7 +66,8 @@ namespace appSugerencias
         public void llenarGrid(MySqlConnection con)
         {
 
-            MySqlCommand cmd = null;
+            MySqlCommand cmd = null; //saldos
+            MySqlCommand cmd2 = null;//fechas
             if (CHB_saldo.Checked == true)
             {
                 //Si el checkbox CHB_saldo ha sido marcado, ejecutara esta consulta, obteniendo solo los provedores con saldo positivo
@@ -84,15 +85,28 @@ namespace appSugerencias
 
 
 
+
+
             MySqlDataAdapter ad = new MySqlDataAdapter(cmd);
             ad.Fill(dt);
 
 
 
-            //Se obtiene la fecha del ultimo moviento en las cuentas pendientes
-            MySqlCommand cmd2 = new MySqlCommand("select max(pd.fecha) as FECHA from cuenxpdet pd inner join proveed p on pd.proveedor = p.PROVEEDOR GROUP BY p.PROVEEDOR order by p.PROVEEDOR", con);
+
+            if (CHB_saldo.Checked == true)
+            {
+                //Se obtiene la fecha del ultimo moviento en las cuentas pendientes sin saldo negativo
+                cmd2 = new MySqlCommand("select max(pd.fecha) as FECHA,p.proveedor from cuenxpdet pd inner join CUENXPAG p on pd.proveedor = p.PROVEEDOR GROUP BY p.PROVEEDOR  having sum(p.saldo)>0 order by p.PROVEEDOR ", con);
+            }
+            else
+            {
+                //se obtiene todas las fechas de los ultimos mov de cada proveedor
+                cmd2 = new MySqlCommand("select max(pd.fecha) as FECHA from cuenxpdet pd inner join proveed p on pd.proveedor = p.PROVEEDOR GROUP BY p.PROVEEDOR order by p.PROVEEDOR ", con);
+            }
+
+
             
-            MySqlDataReader d = cmd.ExecuteReader();
+            MySqlDataReader d = cmd.ExecuteReader();//datareader para obtener los proveedores con su saldo
 
 
 
@@ -116,8 +130,7 @@ namespace appSugerencias
 
 
                 }
-                //ahora pon el breack point donde creas el objeto y debuguealo con f11
-
+             
             }
             d.Close();
 
@@ -147,7 +160,7 @@ namespace appSugerencias
             //DG_reporte.Columns[3].HeaderCell.Style.BackColor = Color.LightGray;
 
 
-            //MySqlCommand cmd2 = new MySqlCommand(" select max(fecha) FECHA from cuenxpdet GROUP BY PROVEEDOR order by PROVEEDOR",con);
+           
 
             con.Close();
         }
@@ -213,7 +226,7 @@ namespace appSugerencias
             try { 
          
             Document doc = new Document(PageSize.A4);
-            string filename = "ResumenSaldo\\ResumenSaldo"+fecha.ToString("dd-MM-yyyy")+".pdf";
+            string filename = "ResumenSaldo\\ResumenSaldo"+fecha.ToString("dd-MM-yyyy")+"_"+suc+".pdf";
              
                 PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(@filename, FileMode.Create));
              
@@ -222,26 +235,52 @@ namespace appSugerencias
             doc.AddTitle("Reporte de saldos de proveedor");
             doc.AddCreator("RoyP3r3z");
 
-            // Abrimos el archivo
-            doc.Open();
+              
+                // Abrimos el archivo
+                doc.Open();
 
             iTextSharp.text.Font _standardFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
-                
 
-                //iTextSharp.text.Font _standardFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
 
-                // Escribimos el encabezamiento en el documento
-                //doc.Add(new Paragraph("RESUMEN DE CUENTAS POR PAGAR AL DÍA "+fecha.ToString("dd/MM/yyyy")));
-                //doc.Add(Chunk.NEWLINE);
+
+                Paragraph paragraph = new Paragraph("");
+                doc.Add(paragraph);
+
+                //Este codigo agrega una imagen al pdf
+                string imageURL = "imagenes/logo.png";
+                iTextSharp.text.Image jpg = iTextSharp.text.Image.GetInstance(imageURL);
+
+                ////Resize image depend upon your need
+                jpg.ScaleToFit(140f, 120f);
+
+                ////Give space before image
+                jpg.SpacingBefore = 10f;
+
+                ////Give some space after the image
+                jpg.SpacingAfter = 10f;
+                jpg.Alignment = Element.ALIGN_CENTER;
+                doc.Add(jpg);
+                ////fin del codigo de la imagen
+              
+
+                Paragraph parrafoEnc = new Paragraph();
+                parrafoEnc.Add("");
+                doc.Add(parrafoEnc);
+                parrafoEnc.Clear();
+
+                doc.Add(Chunk.NEWLINE);
+            
+
 
                 //Creamos nuestra tabla 
                 PdfPTable table = new PdfPTable(DG_reporte.Columns.Count);
-
+               
+           
             table.WidthPercentage = 100;
             float[] widths = new float[] { 40f, 110f, 30f, 45f };
             table.SetWidths(widths);
             table.SkipLastFooter = true;
-            table.SpacingAfter = 10;
+            table.SpacingAfter = 50;
 
             //Encabezados
             for (int j = 0; j < DG_reporte.Columns.Count; j++)
@@ -278,7 +317,7 @@ namespace appSugerencias
             prc.Start();
             }catch(Exception ex)
             {
-                MessageBox.Show("Error al crear PDF");
+                MessageBox.Show("Error al crear PDF" + ex);
             }
 
         }
@@ -353,10 +392,16 @@ namespace appSugerencias
           
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //Reporte en excel
+            ReporteExcel();
+        }
 
 
 
-       //busque como hacerlo, y encontre esta clase asi que la agregue y la use, la mando a llamar por aca rriba
+
+        
 
 
     }//FIN CLASE
@@ -373,8 +418,8 @@ namespace appSugerencias
             Singleton s = Singleton.obtenerInstancia();
             string sucursal = s.getNombreTienda();
 
-          
 
+      
 
             //base.OnEndPage(writer, document);
 
@@ -387,10 +432,15 @@ namespace appSugerencias
             tbHeader.AddCell(new Paragraph());
 
 
-            PdfPCell _cell = new PdfPCell(new Paragraph("" + sucursal + " RESUMEN DE CUENTAS POR PAGAR AL DIA " + fecha.ToString("dd/MM/yyyy")));
+            PdfPCell _cell = new PdfPCell(new Paragraph("RESUMEN DE CUENTAS POR PAGAR AL DIA " + fecha.ToString("dd/MM/yyyy                    ")+  sucursal));
+           
             _cell.Border = 0;
+            _cell.PaddingTop = 10;
+            _cell.PaddingBottom = 10;
          
             tbHeader.AddCell(_cell);
+
+           
             tbHeader.AddCell(new Paragraph());
 
 
