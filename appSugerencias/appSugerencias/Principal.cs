@@ -94,16 +94,16 @@ namespace appSugerencias
                 toolsmAplicaTraspaso.Enabled = false;
             }
 
-            //=======================================================================
+
             if (Area == "BODEGA" || Area == "SISTEMAS" || Area == "SUPER")
             {
-                traspasosToolStripMenuItem.Enabled = true;
+                toolsmCreaTraspaso.Enabled = true;
             }
             else
             {
-                traspasosToolStripMenuItem.Enabled = false;
+                toolsmCreaTraspaso.Enabled = false;
             }
-            //=======================================================================
+
             if (Area == "PAGOS" || Area == "SISTEMAS" || Area == "SUPER")
             {
                pagosToolStripMenuItem.Enabled = true;
@@ -111,15 +111,6 @@ namespace appSugerencias
             else
             {
                 pagosToolStripMenuItem.Enabled = false;
-            }
-            //=======================================================================
-            if (Area == "COMPRAS" || Area == "SISTEMAS" || Area == "SUPER")
-            {
-                comprasToolStripMenuItem.Enabled = true;
-            }
-            else
-            {
-                comprasToolStripMenuItem.Enabled = false;
             }
 
             string IP = optieneIp();
@@ -301,21 +292,21 @@ namespace appSugerencias
             frm2.Show();
         }
 
-        private void datagridsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form frm3 = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is ExistenciaXProveedor);
+        //private void datagridsToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    Form frm3 = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is ExistenciaXProveedor);
 
-            if (frm3 != null)
-            {
-                //si la instancia existe la pongo en primer plano
-                frm3.BringToFront();
-                return;
-            }
+        //    if (frm3 != null)
+        //    {
+        //        //si la instancia existe la pongo en primer plano
+        //        frm3.BringToFront();
+        //        return;
+        //    }
 
-            //sino existe la instancia se crea una nueva
-            frm3 = new ExistenciaXProveedor();
-            frm3.Show();
-        }
+        //    //sino existe la instancia se crea una nueva
+        //    frm3 = new ExistenciaXProveedor();
+        //    frm3.Show();
+        //}
 
         //private void elQueVaASerElBuenoToolStripMenuItem_Click(object sender, EventArgs e)
         //{
@@ -351,22 +342,7 @@ namespace appSugerencias
 
         private void cargarCompraToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //se localiza el formulario buscandolo entre los forms abiertos 
-            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_Compras);
 
-            if (frm != null)
-            {
-                //si la instancia existe la pongo en primer plano
-                frm.BringToFront();
-                return;
-            }
-
-            //sino existe la instancia se crea una nueva
-            frm = new frm_Compras(Usuario);
-            frm.Show();
-
-            //CotizacionTraspaso traspaso = new CotizacionTraspaso(Usuario);
-            //traspaso.Show();
         }
     }
 }

@@ -740,7 +740,6 @@ C:\Users\Admin\source\repos\proyecto_ostmart - pruebas\appSugerencias\appSugeren
 C:\Users\Admin\source\repos\proyecto_ostmart - pruebas\appSugerencias\appSugerencias\obj\Debug\appSugerencias.exe
 C:\Users\Admin\source\repos\proyecto_ostmart - pruebas\appSugerencias\appSugerencias\obj\Debug\appSugerencias.pdb
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.RPT_SaldoProveedores.resources
-C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.ExistenciaXProveedor.resources
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.ExProductosProveedor.resources
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_kardex.resources
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Principal2.resources
