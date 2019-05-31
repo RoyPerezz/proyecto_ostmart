@@ -51,10 +51,10 @@ namespace appSugerencias
         {
 
             MySqlConnection con = BDConexicon.conectar(); ;
-
+            
             double precio1, precio2;
             //articulo  LIKE '%?articulo%'  OR
-            MySqlCommand cmd = new MySqlCommand("SELECT articulo,descrip,precio1,precio2,existencia FROM prods  WHERE   articulo  LIKE '%"+ busqueda + "%' OR descrip LIKE '%" + busqueda + "%' ORDER BY articulo ASC LIMIT 100", con);
+            MySqlCommand cmd = new MySqlCommand("SELECT articulo,descrip,precio1,precio2,existencia,impuesto FROM prods  WHERE   articulo  LIKE '%"+ busqueda + "%' OR descrip LIKE '%" + busqueda + "%' ORDER BY articulo ASC LIMIT 100", con);
             //cmd.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = txtArticulo.Text;
             MySqlDataAdapter adaptador = new MySqlDataAdapter(cmd);
             System.Data.DataTable dt = new System.Data.DataTable();
@@ -73,13 +73,32 @@ namespace appSugerencias
                 
                 
 
-                precio1 = Convert.ToDouble( item["precio1"]);
-                precio2 = Convert.ToDouble(item["precio2"]);
+                
+               
+                if (item["impuesto"].ToString() == "SYS")
+                {
+                    precio1 = Convert.ToDouble(item["precio1"]);
+                    precio2 = Convert.ToDouble(item["precio2"]);
 
-                precio1 = precio1 + (precio1 * 0.16);
-                precio2 = precio2 + (precio2 * 0.16);
+                    dgvArticulos.Rows[n].Cells[2].Value = precio1.ToString("0.00");
+                    dgvArticulos.Rows[n].Cells[3].Value = precio2.ToString("0.00");
+
+                }
+                else
+                {
+                    precio1 = Convert.ToDouble(item["precio1"]) + (Convert.ToDouble(item["precio1"]) * 0.16);
+                    precio2 = Convert.ToDouble(item["precio2"]) + (Convert.ToDouble(item["precio2"]) * 0.16);
+                    dgvArticulos.Rows[n].Cells[2].Value = precio1.ToString("0.00");
+                    dgvArticulos.Rows[n].Cells[3].Value = precio2.ToString("0.00");
+
+                }
+
+                //precio1 = precio1 + (precio1 * 0.16);
+                //precio2 = precio2 + (precio2 * 0.16);
+
                 dgvArticulos.Rows[n].Cells[2].Value = precio1.ToString("0.00");
                 dgvArticulos.Rows[n].Cells[3].Value = precio2.ToString("0.00");
+
                 dgvArticulos.Rows[n].Cells[4].Value = item["existencia"].ToString();
 
             }
