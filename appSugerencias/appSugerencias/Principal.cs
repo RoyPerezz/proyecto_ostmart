@@ -342,6 +342,19 @@ namespace appSugerencias
 
         private void cargarCompraToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //se localiza el formulario buscandolo entre los forms abiertos 
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_Compras);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm = new frm_Compras(Usuario);
+            frm.Show();
 
         }
     }
