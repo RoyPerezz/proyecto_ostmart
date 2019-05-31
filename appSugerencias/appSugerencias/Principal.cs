@@ -292,21 +292,21 @@ namespace appSugerencias
             frm2.Show();
         }
 
-        private void datagridsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form frm3 = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is ExistenciaXProveedor);
+        //private void datagridsToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    Form frm3 = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is ExistenciaXProveedor);
 
-            if (frm3 != null)
-            {
-                //si la instancia existe la pongo en primer plano
-                frm3.BringToFront();
-                return;
-            }
+        //    if (frm3 != null)
+        //    {
+        //        //si la instancia existe la pongo en primer plano
+        //        frm3.BringToFront();
+        //        return;
+        //    }
 
-            //sino existe la instancia se crea una nueva
-            frm3 = new ExistenciaXProveedor();
-            frm3.Show();
-        }
+        //    //sino existe la instancia se crea una nueva
+        //    frm3 = new ExistenciaXProveedor();
+        //    frm3.Show();
+        //}
 
         //private void elQueVaASerElBuenoToolStripMenuItem_Click(object sender, EventArgs e)
         //{
