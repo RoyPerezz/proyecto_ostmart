@@ -37,8 +37,8 @@ namespace appSugerencias
 
         private void Principal2_Load(object sender, EventArgs e)
         {
-            lblBD.Text = optieneBd();
-            lblIP.Text = optieneIp();
+            //lblBD.Text = optieneBd();
+            //lblIP.Text = optieneIp();
         }
 
         private void verificadorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -83,6 +83,11 @@ namespace appSugerencias
             //sino existe la instancia se crea una nueva
             frm = new frm_kardex();
             frm.Show();
+        }
+
+        private void showMeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Ip: "+ optieneIp()+Environment.NewLine +"BD: "+ optieneBd());
         }
     }
 }
