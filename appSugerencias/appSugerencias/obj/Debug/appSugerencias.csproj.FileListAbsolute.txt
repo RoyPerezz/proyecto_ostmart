@@ -743,7 +743,6 @@ C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\D
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.ExProductosProveedor.resources
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_kardex.resources
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Principal2.resources
-C:\Users\danxd\source\repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.ExistenciaXProveedor.resources
 C:\Users\danxd\source\repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.ExProductosProveedor.resources
 C:\Users\danxd\source\repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_kardex.resources
 C:\Users\danxd\source\repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Principal2.resources
