@@ -192,6 +192,66 @@ namespace appSugerencias
 
         }
 
+        //###################################### METODOS DE CONEXION A LAS VITRINAS ########################################################
 
+        public static MySqlConnection V_vallarta()
+        {
+
+
+            string IP = optieneIp();
+            string BD = optieneBd();
+            MySqlConnection Vvallarta = new MySqlConnection("server=192.168.1.196; database=" + BD + "; Uid=root; pwd=;");
+            Vvallarta.Open();
+
+
+
+            return Vvallarta;
+
+        }
+
+        public static MySqlConnection V_rena()
+        {
+
+
+            string IP = optieneIp();
+            string BD = optieneBd();
+            MySqlConnection Vrena = new MySqlConnection("server=192.168.2.3; database=" + BD + "; Uid=root; pwd=;");
+            Vrena.Open();
+
+
+
+            return Vrena;
+
+        }
+
+        public static MySqlConnection V_coloso()
+        {
+
+
+            string IP = optieneIp();
+            string BD = optieneBd();
+            MySqlConnection Vcoloso = new MySqlConnection("server=192.168.3.3; database=" + BD + "; Uid=root; pwd=;");
+            Vcoloso.Open();
+
+
+
+            return Vcoloso;
+
+        }
+
+        public static MySqlConnection V_velazquez()
+        {
+
+
+            string IP = optieneIp();
+            string BD = optieneBd();
+            MySqlConnection Vvelazquez = new MySqlConnection("server=192.168.4.3; database=" + BD + "; Uid=root; pwd=;");
+            Vvelazquez.Open();
+
+
+
+            return Vvelazquez;
+
+        }
     }
 }

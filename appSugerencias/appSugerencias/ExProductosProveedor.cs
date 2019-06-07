@@ -141,12 +141,16 @@ namespace appSugerencias
 
                 //Agrego las columnas al DaTable donde se mostrarán las existencias de los productos en cada sucursal
                 // master.DefaultView.ToTable(true, "articulo");
+
+            
                 master.Columns.Add("BODEGA", typeof(String));
                 master.Columns.Add("VALLARTA", typeof(String));
                 master.Columns.Add("RENA", typeof(String));
                 master.Columns.Add("COLOSO", typeof(String));
                 master.Columns.Add("VELAZQUEZ", typeof(String));
                 master.Columns.Remove("existencia");
+              
+             
 
 
                 // se recorren los datatables con los registros de cada suc.
@@ -155,15 +159,15 @@ namespace appSugerencias
                 RecorreRena(DTrena);
                 RecorreColoso(DTcoloso);
                 RecorreVelazquez(DTvelazquez);
-                
 
 
 
 
+               
                 DG_existencias.DataSource = master;
 
-                DG_existencias.Columns["ARTICULO"].SortMode = DataGridViewColumnSortMode.NotSortable;
-                DG_existencias.Columns["DESCRIPCION"].SortMode = DataGridViewColumnSortMode.NotSortable;
+                //DG_existencias.Columns["ARTICULO"].SortMode = DataGridViewColumnSortMode.NotSortable;
+                //DG_existencias.Columns["DESCRIPCION"].SortMode = DataGridViewColumnSortMode.NotSortable;
                 DG_existencias.Columns["BODEGA"].SortMode = DataGridViewColumnSortMode.NotSortable;
                 DG_existencias.Columns["VALLARTA"].SortMode = DataGridViewColumnSortMode.NotSortable;
                 DG_existencias.Columns["RENA"].SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -181,7 +185,7 @@ namespace appSugerencias
 
 
 
-
+             
 
                 conbodega.Close();
                 convallarta.Close();
@@ -209,6 +213,8 @@ namespace appSugerencias
             {
                 foreach (DataRow row in master.Rows)
                 {
+
+                   
                     string valor = row["articulo"].ToString();
 
                     foreach (DataRow row1 in DTbodega.Rows)
@@ -217,7 +223,7 @@ namespace appSugerencias
                         if (valor.Equals(row1["articulo"].ToString()))
 
                         {
-
+                            
                             row["BODEGA"] = row1["existencia"].ToString();
                         }
 

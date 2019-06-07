@@ -142,6 +142,12 @@
     <Compile Include="Existencias.Designer.cs">
       <DependentUpon>Existencias.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExistenciasVitrina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExistenciasVitrina.Designer.cs">
+      <DependentUpon>ExistenciasVitrina.cs</DependentUpon>
+    </Compile>
     <Compile Include="ExProductosProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -273,6 +279,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Existencias.resx">
       <DependentUpon>Existencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExistenciasVitrina.resx">
+      <DependentUpon>ExistenciasVitrina.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ExProductosProveedor.resx">
       <DependentUpon>ExProductosProveedor.cs</DependentUpon>
