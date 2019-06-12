@@ -59,6 +59,8 @@ namespace appSugerencias
                         "from prods where fabricante= '" + CB_proveedores.SelectedItem.ToString() + "'order by DESCRIPCION", conbodega);
                     MySqlDataAdapter adBodega = new MySqlDataAdapter(cmdBodega);
                     adBodega.Fill(DTbodega);
+
+                  
                 }
                 catch (Exception)
                 {
@@ -97,11 +99,14 @@ namespace appSugerencias
 
                 try
                 {
-                    concoloso = BDConexicon.ColosoOpen();
-                    MySqlCommand cmdColoso = new MySqlCommand("SELECT articulo AS ARTICULO,descrip AS DESCRIPCION, existencia " +
-                        "from prods where fabricante= '" + CB_proveedores.SelectedItem.ToString() + "'order by DESCRIPCION", concoloso);
-                    MySqlDataAdapter adColoso = new MySqlDataAdapter(cmdColoso);
-                    adColoso.Fill(DTcoloso);
+                  
+                    convelazquez = BDConexicon.VelazquezOpen();
+                    MySqlCommand cmdVelazquez = new MySqlCommand("SELECT articulo AS ARTICULO,descrip AS DESCRIPCION, existencia " +
+                        "from prods where fabricante= '" + CB_proveedores.SelectedItem.ToString() + "'order by DESCRIPCION", convelazquez);
+                    MySqlDataAdapter adVelazquez = new MySqlDataAdapter(cmdVelazquez);
+
+                    adVelazquez.Fill(DTvelazquez);
+                    
                 }
                 catch (Exception)
                 {
@@ -112,12 +117,13 @@ namespace appSugerencias
 
                 try
                 {
-                    convelazquez = BDConexicon.VelazquezOpen();
-                    MySqlCommand cmdVelazquez = new MySqlCommand("SELECT articulo AS ARTICULO,descrip AS DESCRIPCION, existencia " +
-                        "from prods where fabricante= '" + CB_proveedores.SelectedItem.ToString() + "'order by DESCRIPCION", convelazquez);
-                    MySqlDataAdapter adVelazquez = new MySqlDataAdapter(cmdVelazquez);
+                   
 
-                    adVelazquez.Fill(DTvelazquez);
+                    concoloso = BDConexicon.ColosoOpen();
+                    MySqlCommand cmdColoso = new MySqlCommand("SELECT articulo AS ARTICULO,descrip AS DESCRIPCION, existencia " +
+                        "from prods where fabricante= '" + CB_proveedores.SelectedItem.ToString() + "'order by DESCRIPCION", concoloso);
+                    MySqlDataAdapter adColoso = new MySqlDataAdapter(cmdColoso);
+                    adColoso.Fill(DTcoloso);
 
                 }
                 catch (Exception)
@@ -134,36 +140,42 @@ namespace appSugerencias
                 DataTable master1 = DTbodega.AsEnumerable()
                 .Union(DTvallarta.AsEnumerable())
                 .Union(DTrena.AsEnumerable())
-                .Union(DTcoloso.AsEnumerable())
-                .Union(DTvelazquez.AsEnumerable()).Distinct(DataRowComparer.Default).CopyToDataTable<DataRow>();
+                .Union(DTvelazquez.AsEnumerable())
+                .Union(DTcoloso.AsEnumerable()).Distinct(DataRowComparer.Default).CopyToDataTable<DataRow>();
 
                 master = repetidos(master1, "articulo");//se llama al metodo repetidos para que elimine los regitros iguales
 
                 //Agrego las columnas al DaTable donde se mostrarán las existencias de los productos en cada sucursal
                 // master.DefaultView.ToTable(true, "articulo");
+
+            
                 master.Columns.Add("BODEGA", typeof(String));
                 master.Columns.Add("VALLARTA", typeof(String));
                 master.Columns.Add("RENA", typeof(String));
-                master.Columns.Add("COLOSO", typeof(String));
                 master.Columns.Add("VELAZQUEZ", typeof(String));
+                master.Columns.Add("COLOSO", typeof(String));
+              
                 master.Columns.Remove("existencia");
+              
+             
 
 
                 // se recorren los datatables con los registros de cada suc.
                 RecorreBodega( DTbodega);
                 RecorreVallarta(DTvallarta);
                 RecorreRena(DTrena);
-                RecorreColoso(DTcoloso);
                 RecorreVelazquez(DTvelazquez);
-                
+                RecorreColoso(DTcoloso);
+               
 
 
 
 
+               
                 DG_existencias.DataSource = master;
 
-                DG_existencias.Columns["ARTICULO"].SortMode = DataGridViewColumnSortMode.NotSortable;
-                DG_existencias.Columns["DESCRIPCION"].SortMode = DataGridViewColumnSortMode.NotSortable;
+                //DG_existencias.Columns["ARTICULO"].SortMode = DataGridViewColumnSortMode.NotSortable;
+                //DG_existencias.Columns["DESCRIPCION"].SortMode = DataGridViewColumnSortMode.NotSortable;
                 DG_existencias.Columns["BODEGA"].SortMode = DataGridViewColumnSortMode.NotSortable;
                 DG_existencias.Columns["VALLARTA"].SortMode = DataGridViewColumnSortMode.NotSortable;
                 DG_existencias.Columns["RENA"].SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -181,7 +193,7 @@ namespace appSugerencias
 
 
 
-
+             
 
                 conbodega.Close();
                 convallarta.Close();
@@ -209,6 +221,8 @@ namespace appSugerencias
             {
                 foreach (DataRow row in master.Rows)
                 {
+
+                   
                     string valor = row["articulo"].ToString();
 
                     foreach (DataRow row1 in DTbodega.Rows)
@@ -217,7 +231,7 @@ namespace appSugerencias
                         if (valor.Equals(row1["articulo"].ToString()))
 
                         {
-
+                            
                             row["BODEGA"] = row1["existencia"].ToString();
                         }
 
