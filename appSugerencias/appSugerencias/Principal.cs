@@ -14,6 +14,7 @@ namespace appSugerencias
     {
         string Usuario="";
         string Area;
+       
         
         public Principal()
         {
@@ -104,7 +105,7 @@ namespace appSugerencias
                 toolsmCreaTraspaso.Enabled = false;
             }
 
-            if (Area == "PAGOS" || Area == "SISTEMAS" || Area == "SUPER")
+            if (Area == "PAGOS" || Area == "SISTEMAS" || Area == "SUPER" || Area == "CXPAGAR" || Area == "ADMON GRAL")
             {
                pagosToolStripMenuItem.Enabled = true;
             }
@@ -112,6 +113,16 @@ namespace appSugerencias
             {
                 pagosToolStripMenuItem.Enabled = false;
             }
+
+            if (Area == "COMPRAS" || Area == "SISTEMAS" || Area == "SUPER" || Area == "ADMON GRAL")
+            {
+                comprasToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                comprasToolStripMenuItem.Enabled = false;
+            }
+
 
             string IP = optieneIp();
             string BD = optieneBd();

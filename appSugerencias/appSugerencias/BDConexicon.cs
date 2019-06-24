@@ -213,7 +213,7 @@ namespace appSugerencias
         {
 
 
-            string IP = optieneIp();
+            //string IP = optieneIp();
             string BD = optieneBd();
             MySqlConnection Vrena = new MySqlConnection("server=192.168.2.3; database=" + BD + "; Uid=root; pwd=;");
             Vrena.Open();

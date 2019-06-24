@@ -136,6 +136,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_conexion.xsd</DependentUpon>
     </Compile>
+    <Compile Include="EntradaMercancia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntradaMercancia.Designer.cs">
+      <DependentUpon>EntradaMercancia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Existencias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,12 @@
       <DependentUpon>ImprimirReporte.cs</DependentUpon>
     </Compile>
     <Compile Include="InterfaceComunicacion.cs" />
+    <Compile Include="LoginVitrina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginVitrina.Designer.cs">
+      <DependentUpon>LoginVitrina.cs</DependentUpon>
+    </Compile>
     <Compile Include="PagoComisiones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,6 +251,12 @@
     </Compile>
     <Compile Include="Principal2.Designer.cs">
       <DependentUpon>Principal2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Principal_vitrina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal_vitrina.Designer.cs">
+      <DependentUpon>Principal_vitrina.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -276,6 +294,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Desglose.resx">
       <DependentUpon>Desglose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntradaMercancia.resx">
+      <DependentUpon>EntradaMercancia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Existencias.resx">
       <DependentUpon>Existencias.cs</DependentUpon>
@@ -319,6 +340,9 @@
     <EmbeddedResource Include="ImprimirReporte.resx">
       <DependentUpon>ImprimirReporte.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LoginVitrina.resx">
+      <DependentUpon>LoginVitrina.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PagoComisiones.resx">
       <DependentUpon>PagoComisiones.cs</DependentUpon>
     </EmbeddedResource>
@@ -327,6 +351,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Principal2.resx">
       <DependentUpon>Principal2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal_vitrina.resx">
+      <DependentUpon>Principal_vitrina.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
