@@ -40,7 +40,7 @@ namespace appSugerencias
         MySqlConnection conectar;
         double IVA = 1.16;
         int idMovsinv, idCompra, idPartcomp, idCuentasxPag, existenciaTotal, existenciaCompra, existenciaPrevia, itemsCompra, cantidadArticompra;
-        double importeArticulo, IVAcompra, costoArticulo, importeCompra, TotalCompra;
+        double importeArticulo, IVAcompra, costoArticulo, importeCompra,importecompraSinIVA, TotalCompra;
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -59,7 +59,8 @@ namespace appSugerencias
 
         private void button3_Click(object sender, EventArgs e)
         {
-            CargaCompra();
+            string fecha = getDate(DateTime.Now);
+            MessageBox.Show(fecha);
         }
 
         public void ElegirSucursar()
@@ -194,13 +195,14 @@ namespace appSugerencias
             
         }
 
+        
 
         //################################################## METODO CARGA COMPRA ##############################################################
         public void CargaCompra()
         {
             int nItems = DGCompra.Rows.Count;
             string comando;
-            string Fecha = DateTime.Now.ToString("yy-mm-dd");
+            string Fecha = getDate(DateTime.Now);
             string Hora = DateTime.Now.ToString("hh:mm:ss");
 
 
@@ -293,7 +295,8 @@ namespace appSugerencias
 
 
                 importeCompra = 0;
-                descuento = descuento * 0.01;
+              importecompraSinIVA = 0;
+             descuento = descuento * 0.01;
                 itemsCompra = DGCompra.Rows.Count;
 
                 MySqlCommand cmdpro = new MySqlCommand("SELECT PROVEEDOR FROM proveed WHERE NOMBRE='" + CBFabricante.Text + "'", conectar);
@@ -346,9 +349,8 @@ namespace appSugerencias
 
 
                     costoArtiCompra = Convert.ToDouble(DGCompra[2, i].Value);
-
                     costoArtiCompra = costoArtiCompra - (costoArtiCompra * descuento);
-                    costoArtiCompra = costoArtiCompra / IVA;
+                    
 
                     mayoreoArtiCompra = Convert.ToDouble(DGCompra[3, i].Value);
                     
@@ -462,7 +464,10 @@ namespace appSugerencias
                     {
                         mayoreoArtiCompra = mayoreoArtiCompra / IVA;
                         menudeoArtiCompra = menudeoArtiCompra / IVA;
-                     }
+
+                        
+                        costoArtiCompra = costoArtiCompra / IVA;
+                    }
 
 
 
@@ -477,7 +482,15 @@ namespace appSugerencias
                         existenciaPrevia = mdrart.GetInt32("EXISTENCIA");
                         importeArticulo = existenciaCompra * costoArtiCompra;
                         existenciaTotal = existenciaPrevia + existenciaCompra;
-                        importeCompra = importeCompra + importeArticulo;
+                        if (impuesto == "IVA" || impuesto == "iva")
+                        {
+                            importeCompra = importeCompra + importeArticulo;
+                        }
+                        else
+                        {
+                            importecompraSinIVA = importecompraSinIVA + importeArticulo;
+                        }
+                        
 
                         comando = "UPDATE prods SET EXISTENCIA='" + existenciaTotal + "', ALM1='" + existenciaTotal + "',DESCRIP='" + descripArtiCompra + "',COSTO_U='" + costoArtiCompra + "',PRECIO1='" + menudeoArtiCompra + "', PRECIO2='" + mayoreoArtiCompra + "' WHERE ARTICULO='" + articuloCompra + "'";
                     }
@@ -486,9 +499,16 @@ namespace appSugerencias
                         existenciaPrevia = 0;
                         importeArticulo = existenciaCompra * costoArtiCompra;
                         existenciaTotal = existenciaPrevia + existenciaCompra;
-                        importeCompra = importeCompra + importeArticulo;
+                        if (impuesto == "IVA" || impuesto == "iva")
+                        {
+                            importeCompra = importeCompra + importeArticulo;
+                        }
+                        else
+                        {
+                            importecompraSinIVA = importecompraSinIVA + importeArticulo;
+                        }
 
-                        comando = "INSERT INTO prods (ARTICULO,LINEA,MARCA,FABRICANTE,UNIDAD,IMPUESTO,INVENT,PARAVENTA,EXISTENCIA,ALM1,DESCRIP,COSTO_U,PRECIO1,PRECIO2)" +
+                    comando = "INSERT INTO prods (ARTICULO,LINEA,MARCA,FABRICANTE,UNIDAD,IMPUESTO,INVENT,PARAVENTA,EXISTENCIA,ALM1,DESCRIP,COSTO_U,PRECIO1,PRECIO2)" +
                             " VALUES('" + articuloCompra + "','" + lineaCompra + "','" + marcaCompra + "','" + fabricanteCompra + "','PZA','IVA','1','1','" + existenciaTotal + "','" + existenciaTotal + "','" + descripArtiCompra + "','" + costoArtiCompra + "','" + menudeoArtiCompra + "','" + mayoreoArtiCompra + "')";
                     }
 
@@ -501,7 +521,7 @@ namespace appSugerencias
 
                     //################## GUARDA EN PARTCOMP ##############################
                     comando = "INSERT INTO partcomp (COMPRA,TIPO_DOC,NO_REFEREN,ARTICULO,CANTIDAD,PRECIO,DESCUENTO,IMPUESTO,OBSERV,PARTIDA,ID_ENTRADA,Usuario,UsuFecha,UsuHora,PRCANTIDAD,PRDESCRIP) " +
-                        "VALUES('" + idCompra + "','COM','" + idCompra + "','" + articuloCompra + "','" + existenciaCompra + "','" + costoArtiCompra + "','" + tbDescuento.Text + "','16','" + descripArtiCompra + "','0','" + idPartcomp + "','" + Usuario + "','" + DateTime.Now.ToString("yy-mm-dd") + "','" + Hora + "','0','0')";
+                        "VALUES('" + idCompra + "','COM','" + idCompra + "','" + articuloCompra + "','" + existenciaCompra + "','" + costoArtiCompra + "','" + tbDescuento.Text + "','16','" + descripArtiCompra + "','0','" + idPartcomp + "','" + Usuario + "','" + Fecha + "','" + Hora + "','0','0')";
 
                     MySqlCommand cmdpart = new MySqlCommand(comando, conectar);
                     cmdpart.ExecuteNonQuery();
@@ -511,7 +531,7 @@ namespace appSugerencias
                     //################# GUARDAR EN MOVSINV #################################
 
                     comando = "INSERT INTO movsinv (CONSEC,OPERACION,MOVIMIENTO , ENT_SAL, TIPO_MOVIM, NO_REFEREN, ARTICULO, F_MOVIM,CANTIDAD,COSTO, EXISTENCIA, ALMACEN,EXIST_ALM,PRECIO_VTA, POR_COSTEA,Usuario,UsuFecha,UsuHora,ID_SALIDA,ID_ENTRADA) " +
-                        "VALUES('" + idMovsinv + "','CO','" + idCompra + "','E','COM','" + idCompra + "','" + articuloCompra + "','" + DateTime.Now.ToString("yy-mm-dd") + "','" + existenciaCompra + "','" + costoArtiCompra + "','" + existenciaTotal + "','1','" + existenciaTotal + "','" + costoArtiCompra + "','" + existenciaTotal + "','" + Usuario + "','" + DateTime.Now.ToString("yy-mm-dd") + "','" + Hora + "','0','" + idPartcomp + "') ";
+                        "VALUES('" + idMovsinv + "','CO','" + idCompra + "','E','COM','" + idCompra + "','" + articuloCompra + "','" + Fecha + "','" + existenciaCompra + "','" + costoArtiCompra + "','" + existenciaTotal + "','1','" + existenciaTotal + "','" + costoArtiCompra + "','" + existenciaTotal + "','" + Usuario + "','" + Fecha + "','" + Hora + "','0','" + idPartcomp + "') ";
 
                     MySqlCommand cmdmov = new MySqlCommand(comando, conectar);
                     cmdmov.ExecuteNonQuery();
@@ -527,26 +547,27 @@ namespace appSugerencias
 
 
                 impuestoCompra = importeCompra * 0.16;
-                TotalCompra = importeCompra + impuestoCompra;
+            
+                TotalCompra = importeCompra + impuestoCompra+importecompraSinIVA;
 
                 //########################### GENERAR COMPRA###############################
 
                 comando = "INSERT INTO compras(COMPRA,TIPO_DOC,FACTURA,F_EMISION,F_VENC,PROVEEDOR,IMPORTE,DESCUENTO,IMPUESTO,COSTO,ALMACEN,ESTADO,OBSERV,TIPO_CAM,MONEDA,DESC1,DESC2,DESC3,DESC4,DESC5,DATOS,DESGLOSE,CUENXPAG,USUFECHA,USUHORA,vencimiento) " +
-                    "VALUES('" + idCompra + "','COM','" + tbFactura.Text.ToUpper() + "','" + DateTime.Now.ToString("yy-mm-dd") + "','" + DateTime.Now.ToString("yy-mm-dd") + "','" + idFabricante + "','" + importeCompra + "','" + tbDescuento.Text + "','" + impuestoCompra + "','0','1','CO','" + tbObservaciones.Text.ToUpper() + "','1','MN','MN','MN','MN','MN','MN','1','1','" + idCuentasxPag + "','" + DateTime.Now.ToString("yy-mm-dd") + "','" + Hora + "','" + DateTime.Now.ToString("yy-mm-dd") + "')";
+                    "VALUES('" + idCompra + "','COM','" + tbFactura.Text.ToUpper() + "','" + Fecha + "','" + Fecha + "','" + idFabricante + "','" + (importeCompra+importecompraSinIVA)  + "','" + tbDescuento.Text + "','" + impuestoCompra + "','0','1','CO','" + tbObservaciones.Text.ToUpper() + "','1','MN','MN','MN','MN','MN','MN','1','1','" + idCuentasxPag + "','" + Fecha + "','" + Hora + "','" + Fecha + "')";
 
                 MySqlCommand cmdcom = new MySqlCommand(comando, conectar);
                 cmdcom.ExecuteNonQuery();
 
                 //######################### GUARDAR DATOS EN CUENXPAG ##############################
                 comando = "INSERT INTO cuenxpag(CUENXPAG, PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, FECHA_VENC, FACTURA, IMPORTE, MONEDA, SALDO, TIP_CAM, COMPRA, ESTADO, USUARIO, USUFECHA, USUHORA) " +
-                    "VALUES('" + idCuentasxPag + "','" + idFabricante + "','" + DateTime.Now.ToString("yy-mm-dd") + "','COM','" + idCompra + "','" + DateTime.Now.ToString("yy-mm-dd") + "','" + tbFactura.Text.ToUpper() + "','" + TotalCompra + "','MN','" + TotalCompra + "','1','" + idCompra + "','P','" + Usuario + "','" + DateTime.Now.ToString("yy-mm-dd") + "','" + Hora + "')";
+                    "VALUES('" + idCuentasxPag + "','" + idFabricante + "','" + Fecha + "','COM','" + idCompra + "','" + Fecha + "','" + tbFactura.Text.ToUpper() + "','" + TotalCompra + "','MN','" + TotalCompra + "','1','" + idCompra + "','P','" + Usuario + "','" + Fecha + "','" + Hora + "')";
 
 
                 MySqlCommand cmdcuen = new MySqlCommand(comando, conectar);
                 cmdcuen.ExecuteNonQuery();
 
                 comando = "INSERT INTO cuenxpdet(CUENXPAG, PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, Cargo_ab, IMPORTE,MONEDA, TIP_CAM,COMPRA, USUARIO, USUFECHA,USUHORA)" +
-                    " VALUES('" + idCuentasxPag + "','" + idFabricante + "','" + DateTime.Now.ToString("yy-mm-dd") + "','COM','" + tbFactura.Text.ToUpper() + "','C','" + TotalCompra + "','MN','1','" + idCompra + "','" + Usuario + "','" + DateTime.Now.ToString("yy-mm-dd") + "','" + Hora + "')";
+                    " VALUES('" + idCuentasxPag + "','" + idFabricante + "','" + Fecha + "','COM','" + tbFactura.Text.ToUpper() + "','C','" + TotalCompra + "','MN','1','" + idCompra + "','" + Usuario + "','" + Fecha + "','" + Hora + "')";
 
                 MySqlCommand cmdpdet = new MySqlCommand(comando, conectar);
                 cmdpdet.ExecuteNonQuery();
