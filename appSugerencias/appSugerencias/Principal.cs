@@ -86,7 +86,7 @@ namespace appSugerencias
 
         private void Principal_Load(object sender, EventArgs e)
         {
-            if (Area == "TRASPASOS" || Area == "SISTEMAS")
+            if (Area == "TRASPASOS" || Area == "SISTEMAS" || Area == "ADMON GRAL")
             {
                 toolsmAplicaTraspaso.Enabled = true;
             }
@@ -96,7 +96,7 @@ namespace appSugerencias
             }
 
 
-            if (Area == "BODEGA" || Area == "SISTEMAS" || Area == "SUPER")
+            if (Area == "BODEGA" || Area == "SISTEMAS" || Area == "SUPER" || Area == "ADMON GRAL")
             {
                 toolsmCreaTraspaso.Enabled = true;
             }
