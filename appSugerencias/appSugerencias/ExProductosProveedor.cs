@@ -450,7 +450,7 @@ namespace appSugerencias
             excel.Application.Workbooks.Add(true);
 
 
-
+            excel.Range["A1:A1000"].NumberFormat = "@";
             int indiceColumna = 0;
 
             foreach (DataGridViewColumn col in DG_existencias.Columns)
