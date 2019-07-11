@@ -197,7 +197,7 @@ namespace appSugerencias
         {
             //Crea reporte en pdf sobre los saldos de los proveedores
 
-            if (DG_detalle.DataSource==null)
+            if (DG_detalle.DataSource==null || LB_estado.Text.Equals("Sin entradas"))
             {
                 MessageBox.Show("No hay datos que mostrar");
             }
