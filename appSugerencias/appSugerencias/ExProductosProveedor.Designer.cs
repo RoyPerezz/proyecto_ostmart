@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExProductosProveedor));
             this.DG_existencias = new System.Windows.Forms.DataGridView();
             this.CB_proveedores = new System.Windows.Forms.ComboBox();
@@ -45,8 +45,8 @@
             // DG_existencias
             // 
             this.DG_existencias.AllowUserToAddRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver;
-            this.DG_existencias.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
+            this.DG_existencias.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DG_existencias.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DG_existencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DG_existencias.EnableHeadersVisualStyles = false;
@@ -140,7 +140,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(1092, 531);
+            this.ClientSize = new System.Drawing.Size(1092, 537);
             this.Controls.Add(this.LB_estadoVelazquez);
             this.Controls.Add(this.LB_Coloso);
             this.Controls.Add(this.LB_Rena);
