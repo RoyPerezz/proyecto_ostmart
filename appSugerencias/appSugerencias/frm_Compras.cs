@@ -42,6 +42,11 @@ namespace appSugerencias
         int idMovsinv, idCompra, idPartcomp, idCuentasxPag, existenciaTotal, existenciaCompra, existenciaPrevia, itemsCompra, cantidadArticompra;
         double importeArticulo, IVAcompra, costoArticulo, importeCompra,importecompraSinIVA, TotalCompra;
 
+        private void TBArchivo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void button4_Click(object sender, EventArgs e)
         {
             
@@ -170,6 +175,10 @@ namespace appSugerencias
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
+
+            
             OpenFileDialog open = new OpenFileDialog();
             if(open.ShowDialog()==DialogResult.OK)
             {
@@ -177,6 +186,11 @@ namespace appSugerencias
             }
 
             CargarExcel();
+            }
+            catch(Exception ed)
+            {
+                MessageBox.Show("Error archivo de Excel / Cierre Archivo de Excel");
+            }
         }
 
         public void CargarExcel()
@@ -460,18 +474,18 @@ namespace appSugerencias
 
 
 
-                    if(impuesto=="IVA" || impuesto == "iva")
-                    {
-                        mayoreoArtiCompra = mayoreoArtiCompra / IVA;
+                if (impuesto == "IVA" || impuesto == "iva")
+                {
+                    mayoreoArtiCompra = mayoreoArtiCompra / IVA;
                         menudeoArtiCompra = menudeoArtiCompra / IVA;
 
                         
                         costoArtiCompra = costoArtiCompra / IVA;
-                    }
+                }
 
 
 
-                    MySqlCommand cmdart = new MySqlCommand("SELECT EXISTENCIA FROM prods WHERE ARTICULO ='" + articuloCompra + "'", conectar);
+                MySqlCommand cmdart = new MySqlCommand("SELECT EXISTENCIA FROM prods WHERE ARTICULO ='" + articuloCompra + "'", conectar);
                     MySqlDataReader mdrart;
                     mdrart = cmdart.ExecuteReader();
 
@@ -492,7 +506,7 @@ namespace appSugerencias
                         }
                         
 
-                        comando = "UPDATE prods SET EXISTENCIA='" + existenciaTotal + "', ALM1='" + existenciaTotal + "',DESCRIP='" + descripArtiCompra + "',COSTO_U='" + costoArtiCompra + "',PRECIO1='" + menudeoArtiCompra + "', PRECIO2='" + mayoreoArtiCompra + "' WHERE ARTICULO='" + articuloCompra + "'";
+                        comando = "UPDATE prods SET EXISTENCIA='" + existenciaTotal + "', ALM1='" + existenciaTotal + "',DESCRIP='" + descripArtiCompra + "',FABRICANTE='" + fabricanteCompra + "',COSTO_U='" + costoArtiCompra + "',PRECIO1='" + menudeoArtiCompra + "', PRECIO2='" + mayoreoArtiCompra + "', IMPUESTO='" + impuesto + "' WHERE ARTICULO='" + articuloCompra + "'";
                     }
                     else
                     {
@@ -509,7 +523,7 @@ namespace appSugerencias
                         }
 
                     comando = "INSERT INTO prods (ARTICULO,LINEA,MARCA,FABRICANTE,UNIDAD,IMPUESTO,INVENT,PARAVENTA,EXISTENCIA,ALM1,DESCRIP,COSTO_U,PRECIO1,PRECIO2)" +
-                            " VALUES('" + articuloCompra + "','" + lineaCompra + "','" + marcaCompra + "','" + fabricanteCompra + "','PZA','IVA','1','1','" + existenciaTotal + "','" + existenciaTotal + "','" + descripArtiCompra + "','" + costoArtiCompra + "','" + menudeoArtiCompra + "','" + mayoreoArtiCompra + "')";
+                            " VALUES('" + articuloCompra + "','" + lineaCompra + "','" + marcaCompra + "','" + fabricanteCompra + "','PZA','"+impuesto+"','1','1','" + existenciaTotal + "','" + existenciaTotal + "','" + descripArtiCompra + "','" + costoArtiCompra + "','" + menudeoArtiCompra + "','" + mayoreoArtiCompra + "')";
                     }
 
                     mdrart.Close();
@@ -649,7 +663,16 @@ namespace appSugerencias
 
                 MessageBox.Show("Seleccione una Tienda");
             }
-            if (string.IsNullOrEmpty(TBArchivo.Text))
+            else if (string.IsNullOrEmpty(CBFabricante.Text))
+            {
+
+                MessageBox.Show("Seleccione una Proveedor");
+            }
+            else if (string.IsNullOrEmpty(tbFactura.Text))
+            {
+                MessageBox.Show("Especifique la Factura");
+            }
+            else if (string.IsNullOrEmpty(TBArchivo.Text))
             {
                 MessageBox.Show("Cargue el archivo de excel");
             }

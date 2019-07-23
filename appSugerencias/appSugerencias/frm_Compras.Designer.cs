@@ -44,7 +44,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.DGCompra = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -189,6 +188,7 @@
             this.TBArchivo.Name = "TBArchivo";
             this.TBArchivo.Size = new System.Drawing.Size(239, 20);
             this.TBArchivo.TabIndex = 22;
+            this.TBArchivo.TextChanged += new System.EventHandler(this.TBArchivo_TextChanged);
             // 
             // button1
             // 
@@ -209,7 +209,7 @@
             this.DGCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGCompra.Location = new System.Drawing.Point(21, 328);
             this.DGCompra.Name = "DGCompra";
-            this.DGCompra.Size = new System.Drawing.Size(976, 336);
+            this.DGCompra.Size = new System.Drawing.Size(1411, 336);
             this.DGCompra.TabIndex = 24;
             // 
             // button2
@@ -225,20 +225,10 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(869, 266);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(109, 40);
-            this.button3.TabIndex = 26;
-            this.button3.Text = "Aprietame DaN";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(654, 86);
+            this.label5.Location = new System.Drawing.Point(847, 89);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 13);
             this.label5.TabIndex = 27;
@@ -247,7 +237,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(654, 121);
+            this.label6.Location = new System.Drawing.Point(847, 124);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(37, 13);
             this.label6.TabIndex = 28;
@@ -256,7 +246,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(654, 156);
+            this.label7.Location = new System.Drawing.Point(847, 159);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(51, 13);
             this.label7.TabIndex = 29;
@@ -265,7 +255,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(654, 191);
+            this.label8.Location = new System.Drawing.Point(847, 194);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(71, 13);
             this.label8.TabIndex = 30;
@@ -274,7 +264,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(654, 51);
+            this.label9.Location = new System.Drawing.Point(847, 54);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(52, 13);
             this.label9.TabIndex = 31;
@@ -283,7 +273,7 @@
             // lblVaId
             // 
             this.lblVaId.AutoSize = true;
-            this.lblVaId.Location = new System.Drawing.Point(760, 86);
+            this.lblVaId.Location = new System.Drawing.Point(953, 89);
             this.lblVaId.Name = "lblVaId";
             this.lblVaId.Size = new System.Drawing.Size(22, 13);
             this.lblVaId.TabIndex = 32;
@@ -292,7 +282,7 @@
             // lblBoImpor
             // 
             this.lblBoImpor.AutoSize = true;
-            this.lblBoImpor.Location = new System.Drawing.Point(853, 51);
+            this.lblBoImpor.Location = new System.Drawing.Point(1046, 54);
             this.lblBoImpor.Name = "lblBoImpor";
             this.lblBoImpor.Size = new System.Drawing.Size(22, 13);
             this.lblBoImpor.TabIndex = 33;
@@ -301,7 +291,7 @@
             // lblBoId
             // 
             this.lblBoId.AutoSize = true;
-            this.lblBoId.Location = new System.Drawing.Point(760, 51);
+            this.lblBoId.Location = new System.Drawing.Point(953, 54);
             this.lblBoId.Name = "lblBoId";
             this.lblBoId.Size = new System.Drawing.Size(22, 13);
             this.lblBoId.TabIndex = 34;
@@ -310,7 +300,7 @@
             // lblVaImpor
             // 
             this.lblVaImpor.AutoSize = true;
-            this.lblVaImpor.Location = new System.Drawing.Point(853, 86);
+            this.lblVaImpor.Location = new System.Drawing.Point(1046, 89);
             this.lblVaImpor.Name = "lblVaImpor";
             this.lblVaImpor.Size = new System.Drawing.Size(22, 13);
             this.lblVaImpor.TabIndex = 35;
@@ -319,7 +309,7 @@
             // lblReId
             // 
             this.lblReId.AutoSize = true;
-            this.lblReId.Location = new System.Drawing.Point(760, 121);
+            this.lblReId.Location = new System.Drawing.Point(953, 124);
             this.lblReId.Name = "lblReId";
             this.lblReId.Size = new System.Drawing.Size(22, 13);
             this.lblReId.TabIndex = 36;
@@ -328,7 +318,7 @@
             // lblReImpor
             // 
             this.lblReImpor.AutoSize = true;
-            this.lblReImpor.Location = new System.Drawing.Point(853, 121);
+            this.lblReImpor.Location = new System.Drawing.Point(1046, 124);
             this.lblReImpor.Name = "lblReImpor";
             this.lblReImpor.Size = new System.Drawing.Size(22, 13);
             this.lblReImpor.TabIndex = 37;
@@ -337,7 +327,7 @@
             // lblCoId
             // 
             this.lblCoId.AutoSize = true;
-            this.lblCoId.Location = new System.Drawing.Point(760, 156);
+            this.lblCoId.Location = new System.Drawing.Point(953, 159);
             this.lblCoId.Name = "lblCoId";
             this.lblCoId.Size = new System.Drawing.Size(22, 13);
             this.lblCoId.TabIndex = 38;
@@ -346,7 +336,7 @@
             // lblCoImpor
             // 
             this.lblCoImpor.AutoSize = true;
-            this.lblCoImpor.Location = new System.Drawing.Point(853, 156);
+            this.lblCoImpor.Location = new System.Drawing.Point(1046, 159);
             this.lblCoImpor.Name = "lblCoImpor";
             this.lblCoImpor.Size = new System.Drawing.Size(22, 13);
             this.lblCoImpor.TabIndex = 39;
@@ -355,7 +345,7 @@
             // lblVeId
             // 
             this.lblVeId.AutoSize = true;
-            this.lblVeId.Location = new System.Drawing.Point(760, 191);
+            this.lblVeId.Location = new System.Drawing.Point(953, 194);
             this.lblVeId.Name = "lblVeId";
             this.lblVeId.Size = new System.Drawing.Size(22, 13);
             this.lblVeId.TabIndex = 40;
@@ -364,7 +354,7 @@
             // lblVeImpor
             // 
             this.lblVeImpor.AutoSize = true;
-            this.lblVeImpor.Location = new System.Drawing.Point(853, 191);
+            this.lblVeImpor.Location = new System.Drawing.Point(1046, 194);
             this.lblVeImpor.Name = "lblVeImpor";
             this.lblVeImpor.Size = new System.Drawing.Size(22, 13);
             this.lblVeImpor.TabIndex = 41;
@@ -374,7 +364,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(729, 24);
+            this.label10.Location = new System.Drawing.Point(922, 27);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(83, 15);
             this.label10.TabIndex = 43;
@@ -384,7 +374,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(837, 24);
+            this.label11.Location = new System.Drawing.Point(1030, 27);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(56, 15);
             this.label11.TabIndex = 44;
@@ -394,7 +384,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(922, 24);
+            this.label12.Location = new System.Drawing.Point(1115, 27);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(72, 15);
             this.label12.TabIndex = 45;
@@ -403,7 +393,7 @@
             // lblProBo
             // 
             this.lblProBo.AutoSize = true;
-            this.lblProBo.Location = new System.Drawing.Point(937, 51);
+            this.lblProBo.Location = new System.Drawing.Point(1130, 54);
             this.lblProBo.Name = "lblProBo";
             this.lblProBo.Size = new System.Drawing.Size(22, 13);
             this.lblProBo.TabIndex = 46;
@@ -412,7 +402,7 @@
             // lblProVa
             // 
             this.lblProVa.AutoSize = true;
-            this.lblProVa.Location = new System.Drawing.Point(937, 86);
+            this.lblProVa.Location = new System.Drawing.Point(1130, 89);
             this.lblProVa.Name = "lblProVa";
             this.lblProVa.Size = new System.Drawing.Size(22, 13);
             this.lblProVa.TabIndex = 47;
@@ -421,7 +411,7 @@
             // lblProRe
             // 
             this.lblProRe.AutoSize = true;
-            this.lblProRe.Location = new System.Drawing.Point(937, 121);
+            this.lblProRe.Location = new System.Drawing.Point(1130, 124);
             this.lblProRe.Name = "lblProRe";
             this.lblProRe.Size = new System.Drawing.Size(22, 13);
             this.lblProRe.TabIndex = 48;
@@ -430,7 +420,7 @@
             // lblProCo
             // 
             this.lblProCo.AutoSize = true;
-            this.lblProCo.Location = new System.Drawing.Point(937, 156);
+            this.lblProCo.Location = new System.Drawing.Point(1130, 159);
             this.lblProCo.Name = "lblProCo";
             this.lblProCo.Size = new System.Drawing.Size(22, 13);
             this.lblProCo.TabIndex = 49;
@@ -439,7 +429,7 @@
             // lblProVe
             // 
             this.lblProVe.AutoSize = true;
-            this.lblProVe.Location = new System.Drawing.Point(937, 191);
+            this.lblProVe.Location = new System.Drawing.Point(1130, 194);
             this.lblProVe.Name = "lblProVe";
             this.lblProVe.Size = new System.Drawing.Size(22, 13);
             this.lblProVe.TabIndex = 50;
@@ -450,7 +440,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(1009, 676);
+            this.ClientSize = new System.Drawing.Size(1444, 676);
             this.Controls.Add(this.lblProVe);
             this.Controls.Add(this.lblProCo);
             this.Controls.Add(this.lblProRe);
@@ -474,7 +464,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.DGCompra);
             this.Controls.Add(this.button1);
@@ -517,7 +506,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView DGCompra;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
