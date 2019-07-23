@@ -314,6 +314,7 @@
             this.Controls.Add(this.TB_descripcion);
             this.Controls.Add(this.TB_clave);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "ExistenciasVitrina";
             this.Text = "Existencias Vitrina";
             this.Load += new System.EventHandler(this.ExistenciasVitrina_Load);

@@ -14,6 +14,7 @@ namespace appSugerencias
     {
         string Usuario="";
         string Area;
+       
         
         public Principal()
         {
@@ -85,7 +86,7 @@ namespace appSugerencias
 
         private void Principal_Load(object sender, EventArgs e)
         {
-            if (Area == "TRASPASOS" || Area == "SISTEMAS")
+            if (Area == "TRASPASOS" || Area == "SISTEMAS" || Area == "ADMON GRAL")
             {
                 toolsmAplicaTraspaso.Enabled = true;
             }
@@ -95,7 +96,7 @@ namespace appSugerencias
             }
 
 
-            if (Area == "BODEGA" || Area == "SISTEMAS" || Area == "SUPER")
+            if (Area == "BODEGA" || Area == "SISTEMAS" || Area == "SUPER" || Area == "ADMON GRAL")
             {
                 toolsmCreaTraspaso.Enabled = true;
             }
@@ -104,7 +105,7 @@ namespace appSugerencias
                 toolsmCreaTraspaso.Enabled = false;
             }
 
-            if (Area == "PAGOS" || Area == "SISTEMAS" || Area == "SUPER")
+            if (Area == "PAGOS" || Area == "SISTEMAS" || Area == "SUPER" || Area == "CXPAGAR" || Area == "ADMON GRAL")
             {
                pagosToolStripMenuItem.Enabled = true;
             }
@@ -112,6 +113,16 @@ namespace appSugerencias
             {
                 pagosToolStripMenuItem.Enabled = false;
             }
+
+            if (Area == "COMPRAS" || Area == "SISTEMAS" || Area == "SUPER" || Area == "ADMON GRAL")
+            {
+                comprasToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                comprasToolStripMenuItem.Enabled = false;
+            }
+
 
             string IP = optieneIp();
             string BD = optieneBd();
@@ -354,6 +365,24 @@ namespace appSugerencias
 
             //sino existe la instancia se crea una nueva
             frm = new frm_Compras(Usuario);
+            frm.Show();
+
+        }
+
+        private void existenciasPorProveedorVitrinaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //se localiza el formulario buscandolo entre los forms abiertos 
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is EXP_vitrina);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm = new EXP_vitrina();
             frm.Show();
 
         }

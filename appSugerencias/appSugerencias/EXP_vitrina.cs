@@ -10,24 +10,24 @@ using System.Windows.Forms;
 
 namespace appSugerencias
 {
-    public partial class ExProductosProveedor : Form
+    public partial class EXP_vitrina : Form
     {
-        public ExProductosProveedor()
+        public EXP_vitrina()
         {
             InitializeComponent();
         }
-
-        MySqlConnection conbodega;
+        MySqlConnection con;
         MySqlConnection convallarta;
         MySqlConnection conrena;
         MySqlConnection concoloso;
         MySqlConnection convelazquez;
         DataTable master;
 
-        //############################ LLENA EL DATAGRID CON LOS PRODUCTOS DEL PROVEEDOR Y SUS RESPECTIVAS EXISTENCIAS EN CADA TIENDA ##################
+
+
         public void Existencias()
         {
-          
+
             try
             {
 
@@ -35,43 +35,43 @@ namespace appSugerencias
                 //Los datos del datagrid DG_existencias los cargamos como null, para que a la hora de elegir proveedor se limpie el datagrid y muestre
                 //los datos del nuevo proveedor seleccionado
                 DG_existencias.DataSource = null;
-                LB_estadoBodega.Text = "";
+                //LB_estadoBodega.Text = "";
                 LB_estadoVallarta.Text = "";
                 LB_Rena.Text = "";
                 LB_Coloso.Text = "";
                 LB_estadoVelazquez.Text = "";
 
                 //Crear DataTables por cada sucursal para guardar la consulta
-                DataTable DTbodega = new DataTable();
+                //DataTable DTbodega = new DataTable();
                 DataTable DTvallarta = new DataTable();
                 DataTable DTrena = new DataTable();
                 DataTable DTcoloso = new DataTable();
                 DataTable DTvelazquez = new DataTable();
 
                 //DataTable extra para unir los demás
-                 master = new DataTable();
+                master = new DataTable();
 
+
+                //try
+                //{
+                //    conbodega = BDConexicon.BodegaOpen();
+                //    MySqlCommand cmdBodega = new MySqlCommand("SELECT articulo AS ARTICULO,descrip AS DESCRIPCION, existencia " +
+                //        "from prods where fabricante= '" + CB_proveedores.SelectedItem.ToString() + "'order by DESCRIPCION", conbodega);
+                //    MySqlDataAdapter adBodega = new MySqlDataAdapter(cmdBodega);
+                //    adBodega.Fill(DTbodega);
+
+
+                //}
+                //catch (Exception)
+                //{
+
+                //    LB_estadoBodega.Text = "Sin Conexión";
+                //    LB_estadoBodega.ForeColor = Color.Red;
+                //}
 
                 try
                 {
-                    conbodega = BDConexicon.BodegaOpen();
-                    MySqlCommand cmdBodega = new MySqlCommand("SELECT articulo AS ARTICULO,descrip AS DESCRIPCION, existencia " +
-                        "from prods where fabricante= '" + CB_proveedores.SelectedItem.ToString() + "'order by DESCRIPCION", conbodega);
-                    MySqlDataAdapter adBodega = new MySqlDataAdapter(cmdBodega);
-                    adBodega.Fill(DTbodega);
-
-                  
-                }
-                catch (Exception)
-                {
-
-                    LB_estadoBodega.Text = "Sin Conexión";
-                    LB_estadoBodega.ForeColor = Color.Red;
-                }
-
-                try
-                {
-                    convallarta = BDConexicon.VallartaOpen();
+                    convallarta = BDConexicon.V_vallarta();
                     MySqlCommand cmdVallarta = new MySqlCommand("SELECT articulo AS ARTICULO,descrip AS DESCRIPCION,existencia " +
                         "from prods where fabricante= '" + CB_proveedores.SelectedItem.ToString() + "'order by DESCRIPCION", convallarta);
 
@@ -82,9 +82,10 @@ namespace appSugerencias
                 {
                     LB_estadoVallarta.Text = "Sin Conexión";
                     LB_estadoVallarta.ForeColor = Color.Red;
-                }              try
+                }
+                try
                 {
-                     conrena = BDConexicon.RenaOpen();
+                    conrena = BDConexicon.V_rena();
                     MySqlCommand cmdRena = new MySqlCommand("SELECT articulo AS ARTICULO,descrip AS DESCRIPCION, existencia " +
                         "from prods where fabricante= '" + CB_proveedores.SelectedItem.ToString() + "'order by DESCRIPCION", conrena);
                     MySqlDataAdapter adRena = new MySqlDataAdapter(cmdRena);
@@ -99,27 +100,29 @@ namespace appSugerencias
 
                 try
                 {
-                  
-                    convelazquez = BDConexicon.VelazquezOpen();
+
+                    convelazquez = BDConexicon.V_velazquez();
                     MySqlCommand cmdVelazquez = new MySqlCommand("SELECT articulo AS ARTICULO,descrip AS DESCRIPCION, existencia " +
                         "from prods where fabricante= '" + CB_proveedores.SelectedItem.ToString() + "'order by DESCRIPCION", convelazquez);
                     MySqlDataAdapter adVelazquez = new MySqlDataAdapter(cmdVelazquez);
 
                     adVelazquez.Fill(DTvelazquez);
-                    
+
                 }
                 catch (Exception)
                 {
 
-                    LB_Coloso.Text = "Sin Conexión";
-                    LB_Coloso.ForeColor = Color.Red;
+                   
+                    LB_estadoVelazquez.Text = "Sin Conexión";
+                    LB_estadoVelazquez.ForeColor = Color.Red;
+
                 }
 
                 try
                 {
-                   
 
-                    concoloso = BDConexicon.ColosoOpen();
+
+                    concoloso = BDConexicon.V_coloso();
                     MySqlCommand cmdColoso = new MySqlCommand("SELECT articulo AS ARTICULO,descrip AS DESCRIPCION, existencia " +
                         "from prods where fabricante= '" + CB_proveedores.SelectedItem.ToString() + "'order by DESCRIPCION", concoloso);
                     MySqlDataAdapter adColoso = new MySqlDataAdapter(cmdColoso);
@@ -128,17 +131,16 @@ namespace appSugerencias
                 }
                 catch (Exception)
                 {
-                    LB_estadoVelazquez.Text = "Sin Conexión";
-                    LB_estadoVelazquez.ForeColor = Color.Red;
+                    LB_Coloso.Text = "Sin Conexión";
+                    LB_Coloso.ForeColor = Color.Red;
 
                 }
-             
-            
-              
+
+
+
                 //Combinar los 5 DataTables en DataTable master
 
-                DataTable master1 = DTbodega.AsEnumerable()
-                .Union(DTvallarta.AsEnumerable())
+                DataTable master1 = DTvallarta.AsEnumerable()
                 .Union(DTrena.AsEnumerable())
                 .Union(DTvelazquez.AsEnumerable())
                 .Union(DTcoloso.AsEnumerable()).Distinct(DataRowComparer.Default).CopyToDataTable<DataRow>();
@@ -148,35 +150,35 @@ namespace appSugerencias
                 //Agrego las columnas al DaTable donde se mostrarán las existencias de los productos en cada sucursal
                 // master.DefaultView.ToTable(true, "articulo");
 
-            
-                master.Columns.Add("BODEGA", typeof(String));
+
+                //master.Columns.Add("BODEGA", typeof(String));
                 master.Columns.Add("VALLARTA", typeof(String));
                 master.Columns.Add("RENA", typeof(String));
                 master.Columns.Add("VELAZQUEZ", typeof(String));
                 master.Columns.Add("COLOSO", typeof(String));
-              
+
                 master.Columns.Remove("existencia");
-              
-             
+
+
 
 
                 // se recorren los datatables con los registros de cada suc.
-                RecorreBodega( DTbodega);
+                //RecorreBodega(DTbodega);
                 RecorreVallarta(DTvallarta);
                 RecorreRena(DTrena);
                 RecorreVelazquez(DTvelazquez);
                 RecorreColoso(DTcoloso);
-               
 
 
 
 
-               
+
+
                 DG_existencias.DataSource = master;
 
                 //DG_existencias.Columns["ARTICULO"].SortMode = DataGridViewColumnSortMode.NotSortable;
                 //DG_existencias.Columns["DESCRIPCION"].SortMode = DataGridViewColumnSortMode.NotSortable;
-                DG_existencias.Columns["BODEGA"].SortMode = DataGridViewColumnSortMode.NotSortable;
+                //DG_existencias.Columns["BODEGA"].SortMode = DataGridViewColumnSortMode.NotSortable;
                 DG_existencias.Columns["VALLARTA"].SortMode = DataGridViewColumnSortMode.NotSortable;
                 DG_existencias.Columns["RENA"].SortMode = DataGridViewColumnSortMode.NotSortable;
                 DG_existencias.Columns["COLOSO"].SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -188,14 +190,14 @@ namespace appSugerencias
                 DG_existencias.Columns[3].HeaderCell.Style.BackColor = Color.DarkSeaGreen;
                 DG_existencias.Columns[4].HeaderCell.Style.BackColor = Color.DeepSkyBlue;
                 DG_existencias.Columns[5].HeaderCell.Style.BackColor = Color.DodgerBlue;
-            
-                DG_existencias.Columns[6].HeaderCell.Style.BackColor = Color.LightBlue;
+
+                //DG_existencias.Columns[6].HeaderCell.Style.BackColor = Color.LightBlue;
 
 
 
-             
 
-                conbodega.Close();
+
+                //conbodega.Close();
                 convallarta.Close();
                 conrena.Close();
                 concoloso.Close();
@@ -206,47 +208,45 @@ namespace appSugerencias
             catch (Exception ex)
             {
                 String mensaje = "EL PROVEEDOR NO TIENE REGISTROS Y/O NO HAY CONEXION CON UNA O VARIAS TIENDAS ";
-                
-                MessageBox.Show(mensaje+"  "+ex);
+
+                MessageBox.Show(mensaje + "  " + ex);
             }
-            
+
         }
 
 
+        //public void RecorreBodega(DataTable DTbodega)
+        //{
+        //    try
+        //    {
+        //        foreach (DataRow row in master.Rows)
+        //        {
 
 
-        public void RecorreBodega(DataTable DTbodega)
-        {
-            try
-            {
-                foreach (DataRow row in master.Rows)
-                {
+        //            string valor = row["articulo"].ToString();
 
-                   
-                    string valor = row["articulo"].ToString();
+        //            foreach (DataRow row1 in DTbodega.Rows)
+        //            {
 
-                    foreach (DataRow row1 in DTbodega.Rows)
-                    {
+        //                if (valor.Equals(row1["articulo"].ToString()))
 
-                        if (valor.Equals(row1["articulo"].ToString()))
+        //                {
 
-                        {
-                            
-                            row["BODEGA"] = row1["existencia"].ToString();
-                        }
+        //                    row["BODEGA"] = row1["existencia"].ToString();
+        //                }
 
-                    }
+        //            }
 
 
-                }
-            }
-            catch (Exception ex)
-            {
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                
-            }
-            
-        }
+
+        //    }
+
+        //}
 
         public void RecorreVallarta(DataTable DTVallarta)
         {
@@ -372,16 +372,14 @@ namespace appSugerencias
 
         }
 
-
-        //Trae de la base de datos de bodega principal los proveedores
         public void proveedores()
         {
             try
             {
 
-           
-                conbodega = BDConexicon.BodegaOpen();
-                MySqlCommand cmd = new MySqlCommand("SELECT distinct fabricante from prods order by fabricante",conbodega);
+
+                con = BDConexicon.V_rena();
+                MySqlCommand cmd = new MySqlCommand("SELECT distinct fabricante from prods order by fabricante", con);
 
                 //MySqlDataAdapter ad = new MySqlDataAdapter(cmd);
                 //DataTable prov = new DataTable();
@@ -402,25 +400,16 @@ namespace appSugerencias
             //NOTA: NO CIERRO LA VARIABLE conbodega, PORQUE SE USA Y SE CIERRA MAS ADELANTE EN EL PROGRAMA, AL FINAL DEL METODO Existencias
 
         }
-
-
-        //Al abrir el formulario ExProductosProveedores se carga en el combobox CB_proveedores los proveedores de la bd de bodega principal
-        private void ExProductosProveedor_Load(object sender, EventArgs e)
+        private void EXP_vitrina_Load(object sender, EventArgs e)
         {
             proveedores();
-            
         }
 
-
-        //cada vez que se cambia de proveedor se manda a llamar el metodo existencias, llenando el datagrid DG_existencias
         private void CB_proveedores_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
             Existencias();
         }
 
-
-        //Este método auxiliar ayuda a eliminar los productos repetidos retornando un datatable de productos sin repetir
         public DataTable repetidos(DataTable dtData, string sColumnName)
         {
             try
@@ -491,7 +480,6 @@ namespace appSugerencias
 
 
             excel.Visible = true;
-
         }
     }
 }

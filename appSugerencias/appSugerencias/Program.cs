@@ -35,7 +35,7 @@ namespace appSugerencias
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new VentasxTienda());
+                Application.Run(new GeneradorNumAl());
             }
             else
             {
