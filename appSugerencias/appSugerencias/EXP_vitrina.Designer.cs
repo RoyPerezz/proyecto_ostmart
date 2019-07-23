@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EXP_vitrina));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BT_exportar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.CB_proveedores = new System.Windows.Forms.ComboBox();
@@ -80,8 +80,8 @@
             // DG_existencias
             // 
             this.DG_existencias.AllowUserToAddRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
-            this.DG_existencias.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
+            this.DG_existencias.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DG_existencias.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DG_existencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DG_existencias.EnableHeadersVisualStyles = false;
@@ -152,7 +152,7 @@
             this.Controls.Add(this.CB_proveedores);
             this.Controls.Add(this.DG_existencias);
             this.Name = "EXP_vitrina";
-            this.Text = "EXP_vitrina";
+            this.Text = "Existencias Vitrina";
             this.Load += new System.EventHandler(this.EXP_vitrina_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DG_existencias)).EndInit();
             this.ResumeLayout(false);

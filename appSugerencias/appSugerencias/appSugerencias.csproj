@@ -227,6 +227,12 @@
     <Compile Include="frm_VerificadorItems.Designer.cs">
       <DependentUpon>frm_VerificadorItems.cs</DependentUpon>
     </Compile>
+    <Compile Include="GeneradorNumAl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GeneradorNumAl.Designer.cs">
+      <DependentUpon>GeneradorNumAl.cs</DependentUpon>
+    </Compile>
     <Compile Include="ImprimirReporte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -345,6 +351,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_VerificadorItems.resx">
       <DependentUpon>frm_VerificadorItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GeneradorNumAl.resx">
+      <DependentUpon>GeneradorNumAl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ImprimirReporte.resx">
       <DependentUpon>ImprimirReporte.cs</DependentUpon>
