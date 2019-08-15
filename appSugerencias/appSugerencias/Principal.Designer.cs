@@ -40,13 +40,14 @@
             this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cargarCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.existenciaPorProveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.existenciasPorProveedorVitrinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generadorDeClavesprototipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblIP = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblBD = new System.Windows.Forms.Label();
-            this.existenciasPorProveedorVitrinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -126,7 +127,8 @@
             this.comprasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cargarCompraToolStripMenuItem,
             this.existenciaPorProveedorToolStripMenuItem,
-            this.existenciasPorProveedorVitrinaToolStripMenuItem});
+            this.existenciasPorProveedorVitrinaToolStripMenuItem,
+            this.generadorDeClavesprototipoToolStripMenuItem});
             this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
             this.comprasToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.comprasToolStripMenuItem.Text = "Compras";
@@ -144,6 +146,20 @@
             this.existenciaPorProveedorToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
             this.existenciaPorProveedorToolStripMenuItem.Text = "Existencia por proveedor";
             this.existenciaPorProveedorToolStripMenuItem.Click += new System.EventHandler(this.existenciaPorProveedorToolStripMenuItem_Click);
+            // 
+            // existenciasPorProveedorVitrinaToolStripMenuItem
+            // 
+            this.existenciasPorProveedorVitrinaToolStripMenuItem.Name = "existenciasPorProveedorVitrinaToolStripMenuItem";
+            this.existenciasPorProveedorVitrinaToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.existenciasPorProveedorVitrinaToolStripMenuItem.Text = "Existencias por proveedor Vitrina";
+            this.existenciasPorProveedorVitrinaToolStripMenuItem.Click += new System.EventHandler(this.existenciasPorProveedorVitrinaToolStripMenuItem_Click);
+            // 
+            // generadorDeClavesprototipoToolStripMenuItem
+            // 
+            this.generadorDeClavesprototipoToolStripMenuItem.Name = "generadorDeClavesprototipoToolStripMenuItem";
+            this.generadorDeClavesprototipoToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.generadorDeClavesprototipoToolStripMenuItem.Text = "Generador de claves";
+            this.generadorDeClavesprototipoToolStripMenuItem.Click += new System.EventHandler(this.generadorDeClavesprototipoToolStripMenuItem_Click);
             // 
             // lblUsuario
             // 
@@ -202,13 +218,6 @@
             this.lblBD.TabIndex = 6;
             this.lblBD.Text = "Mysql";
             // 
-            // existenciasPorProveedorVitrinaToolStripMenuItem
-            // 
-            this.existenciasPorProveedorVitrinaToolStripMenuItem.Name = "existenciasPorProveedorVitrinaToolStripMenuItem";
-            this.existenciasPorProveedorVitrinaToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
-            this.existenciasPorProveedorVitrinaToolStripMenuItem.Text = "Existencias por proveedor Vitrina";
-            this.existenciasPorProveedorVitrinaToolStripMenuItem.Click += new System.EventHandler(this.existenciasPorProveedorVitrinaToolStripMenuItem_Click);
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -259,5 +268,6 @@
         private System.Windows.Forms.ToolStripMenuItem cargarCompraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem existenciaPorProveedorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem existenciasPorProveedorVitrinaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem generadorDeClavesprototipoToolStripMenuItem;
     }
 }

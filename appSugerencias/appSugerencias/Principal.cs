@@ -386,5 +386,23 @@ namespace appSugerencias
             frm.Show();
 
         }
+
+        private void generadorDeClavesprototipoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //se localiza el formulario buscandolo entre los forms abiertos 
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is GenClaves);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm = new GenClaves();
+            frm.Show();
+
+        }
     }
 }
