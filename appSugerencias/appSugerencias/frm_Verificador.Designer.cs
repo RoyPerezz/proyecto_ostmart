@@ -207,6 +207,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::appSugerencias.Properties.Resources.PREGOT_RGB_negro1;
             this.pictureBox1.Location = new System.Drawing.Point(179, 187);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(803, 333);

@@ -41,7 +41,6 @@
             this.cargarCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.existenciaPorProveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.existenciasPorProveedorVitrinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.generadorDeClavesprototipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -127,8 +126,7 @@
             this.comprasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cargarCompraToolStripMenuItem,
             this.existenciaPorProveedorToolStripMenuItem,
-            this.existenciasPorProveedorVitrinaToolStripMenuItem,
-            this.generadorDeClavesprototipoToolStripMenuItem});
+            this.existenciasPorProveedorVitrinaToolStripMenuItem});
             this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
             this.comprasToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.comprasToolStripMenuItem.Text = "Compras";
@@ -153,13 +151,6 @@
             this.existenciasPorProveedorVitrinaToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
             this.existenciasPorProveedorVitrinaToolStripMenuItem.Text = "Existencias por proveedor Vitrina";
             this.existenciasPorProveedorVitrinaToolStripMenuItem.Click += new System.EventHandler(this.existenciasPorProveedorVitrinaToolStripMenuItem_Click);
-            // 
-            // generadorDeClavesprototipoToolStripMenuItem
-            // 
-            this.generadorDeClavesprototipoToolStripMenuItem.Name = "generadorDeClavesprototipoToolStripMenuItem";
-            this.generadorDeClavesprototipoToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
-            this.generadorDeClavesprototipoToolStripMenuItem.Text = "Generador de claves";
-            this.generadorDeClavesprototipoToolStripMenuItem.Click += new System.EventHandler(this.generadorDeClavesprototipoToolStripMenuItem_Click);
             // 
             // lblUsuario
             // 
@@ -237,7 +228,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Principal";
-            this.Text = "SOFTMART 1.2";
+            this.Text = "SOFTMART 1.3";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Principal_FormClosed);
             this.Load += new System.EventHandler(this.Principal_Load);
@@ -268,6 +259,5 @@
         private System.Windows.Forms.ToolStripMenuItem cargarCompraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem existenciaPorProveedorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem existenciasPorProveedorVitrinaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem generadorDeClavesprototipoToolStripMenuItem;
     }
 }

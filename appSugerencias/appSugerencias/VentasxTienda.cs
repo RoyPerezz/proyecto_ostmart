@@ -138,7 +138,17 @@ namespace appSugerencias
         }
             catch (Exception)
             {
+                for (int i = 0; i < dgvVentas.Rows.Count; i++)
+                {
+
+                    dgvVentas.Rows[i].Cells[2].Value = 0;
+                    LisRena.Add(0);
+                }
+                LisRena.Add(0);
                 MessageBox.Show("rena sin conexion");
+
+
+
             }
 
             try
@@ -217,64 +227,100 @@ namespace appSugerencias
             }
 
 
-            for (int i = 0; i <LisVallarta.Count ; i++)
+            for (int i = 0; i <dgvVentas.Rows.Count ; i++)
             {
-                //for (int k = 1; k < dgvVentas.Columns.Count - 1; k++)
-                //{
-                //    importeDiaTo = importeDiaTo + Convert.ToDouble(dgvVentas.Rows[i].Cells[k].Value);
-
-                //}
+             
                 importeDiaTo = LisVallarta[i] + LisRena[i] +LisColoso[i] +LisVelazquez[i];
 
                 dgvVentas.Rows[i].Cells[5].Value = importeDiaTo.ToString("C");
                 importeDiaTo = 0;
 
             }
-           
-           
 
-            //dgvVentas.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
-            //dgvVentas.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
-            //dgvVentas.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
-            //dgvVentas.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
-            //dgvVentas.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            colocaFecha();
+            
+
+        }
+
+        public void colocaFecha()
+        {
+            string mes = DateTime.Now.ToString("MM");
+            string ano = DateTime.Now.ToString("yyyy");
+
+
+
+
+            for (int i = 0; i < dgvVentas.Rows.Count - 1; i++)
+            {
+                int aux = i + 1;
+                dgvVentas.Rows[i].Cells[0].Value = aux.ToString() + "/" + mes + "/" + ano;
+            }
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string dia = DateTime.Now.ToString("dd");
-            string mes = DateTime.Now.ToString("MM");
-            string ano = DateTime.Now.ToString("yyyy");
 
-            //int muestra;
-            //muestra = Convert.ToInt32(dia);
+            colocaFecha();
 
 
-            //for (int i = 0; i < muestra-1; i++)
-            //{
-            //    dgvVentas.Rows[i].Cells[0].Value = i.ToString() + "/" + mes + "/" + ano;
-            //}
-
-            
-            
         }
-        public void calculo()
-        {
-            double importeDiaTo = 0; ;
-            //for (int i = 0; i < dgvVentas.Rows.Count; i++)
-            //{
-            //    for (int k = 1; k < dgvVentas.Columns.Count - 1; k++)
-            //    {
-            //        importeDiaTo = importeDiaTo + Convert.ToDouble(dgvVentas.Rows[i].Cells[k].Value);
 
-            //    }
-            //    dgvVentas.Rows[i].Cells[5].Value = importeDiaTo.ToString("C");
-            //    importeDiaTo = 0;
-            //}
-            importeDiaTo =Convert.ToDouble( dgvVentas.Rows[0].Cells[1].Value);
-            MessageBox.Show(importeDiaTo.ToString());
-            
+
+        private void VentasxTienda_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BT_exportar_Click(object sender, EventArgs e)
+        {
+
+            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+            excel.Application.Workbooks.Add(true);
+
+
+            excel.Range["A1:A1000"].NumberFormat = "@";
+            int indiceColumna = 0;
+
+            foreach (DataGridViewColumn col in dgvVentas.Columns)
+            {
+                indiceColumna++;
+                excel.Cells[5, indiceColumna] = col.Name;
+
+            }
+
+            int indiceFila = 4;
+
+            foreach (DataGridViewRow row in dgvVentas.Rows)
+            {
+                indiceFila++;
+                indiceColumna = 0;
+
+
+
+
+                foreach (DataGridViewColumn col in dgvVentas.Columns)
+                {
+                    indiceColumna++;
+
+                    excel.Cells[indiceFila + 1, indiceColumna] = row.Cells[col.Name].Value;
+
+
+
+
+
+
+                }
+
+
+
+            }
+
+
+
+
+            excel.Visible = true;
         }
     }
 }
