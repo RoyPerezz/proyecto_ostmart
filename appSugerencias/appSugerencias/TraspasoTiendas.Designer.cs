@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TraspasoTiendas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbTienda = new System.Windows.Forms.ComboBox();
             this.dgvTraspasos = new System.Windows.Forms.DataGridView();
             this.traspaso = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,7 +82,8 @@
             "VALLARTA",
             "RENA",
             "VELAZQUEZ",
-            "COLOSO"});
+            "COLOSO",
+            "PREGOT"});
             this.cbTienda.Location = new System.Drawing.Point(75, 32);
             this.cbTienda.Margin = new System.Windows.Forms.Padding(2);
             this.cbTienda.Name = "cbTienda";
@@ -297,8 +298,8 @@
             // dgvItem
             // 
             this.dgvItem.AllowUserToAddRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.SteelBlue;
-            this.dgvItem.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SteelBlue;
+            this.dgvItem.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvItem.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvItem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

@@ -26,6 +26,14 @@ namespace appSugerencias
             return ipn;
         }
 
+        public static string optieneIPPregot()
+        {
+            TextReader IP;
+            IP = new StreamReader("IPPregot.txt");
+            string ipn = IP.ReadLine();
+            IP.Close();
+            return ipn;
+        }
         public static string optieneBd()
         {
             TextReader BD;
@@ -118,6 +126,9 @@ namespace appSugerencias
             return conBodega;
 
         }
+
+
+
 
         public static MySqlConnection VallartaClose()
         {
@@ -253,5 +264,24 @@ namespace appSugerencias
             return Vvelazquez;
 
         }
+
+
+        //#################################################### PAPELERIA ##################################################################//
+
+        public static MySqlConnection Papeleria1Open()
+        {
+            string BD = optieneBd();
+            string IPP = optieneIPPregot();
+            MySqlConnection conPapeleria1 = new MySqlConnection("server="+IPP+"; database=" + BD + "; Uid=root; pwd=;");
+            conPapeleria1.Open();
+
+
+
+            return conPapeleria1;
+
+        }
+
+
+
     }
 }

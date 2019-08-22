@@ -116,7 +116,14 @@ namespace appSugerencias
                     conectar = BDConexicon.VallartaOpen();
                     proveedores();
                 }
-            
+
+                if (CBTienda.SelectedItem.Equals("PREGOT"))
+                {
+
+                    conectar = BDConexicon.Papeleria1Open();
+                    proveedores();
+                }
+
         }
 
         public void proveedores()
@@ -338,7 +345,7 @@ namespace appSugerencias
                 // 11-velazquez
                 // 12-coloso
                 // 13-bodega
-                //
+                // 14-PREGOT
                 //=============================================
 
                 for (int i = 0; i < DGCompra.Rows.Count; i++)
@@ -384,7 +391,7 @@ namespace appSugerencias
                 }
 
                 // REVISAR ESTAS LINEAS DE CODIGO DAN
-                if (CBTienda.SelectedItem.Equals("BODEGA"))
+                    if (CBTienda.SelectedItem.Equals("BODEGA"))
                     {
                         if (string.IsNullOrEmpty(DGCompra[13, i].Value.ToString()))
                         {
@@ -445,7 +452,20 @@ namespace appSugerencias
                         }
                     }
 
-                    if (string.IsNullOrEmpty(DGCompra[6, i].Value.ToString()))
+                if (CBTienda.SelectedItem.Equals("PREGOT"))
+                {
+
+                    if (string.IsNullOrEmpty(DGCompra[14, i].Value.ToString()))
+                    {
+                        existenciaCompra = 0;
+                    }
+                    else
+                    {
+                        existenciaCompra = Convert.ToInt32(DGCompra[14, i].Value);
+                    }
+                }
+
+                if (string.IsNullOrEmpty(DGCompra[6, i].Value.ToString()))
                     {
                         lineaCompra = "SYS";
                     }
@@ -639,7 +659,18 @@ namespace appSugerencias
 
                 }
 
-                MessageBox.Show("Compra Registrada" + Environment.NewLine + "No. Compra: " + idCompra + Environment.NewLine + "Importe: " + TotalCompra);
+                if (CBTienda.SelectedItem.Equals("PREGOT"))
+                {
+                    lblPaId.Text = "-----";
+                    lblPaImpor.Text = "-----";
+                    lblPaPro.Text = "-----";
+                    lblPaId.Text = idCompra.ToString();
+                    lblPaImpor.Text = TotalCompra.ToString();
+                    lblPaPro.Text = CBFabricante.Text;
+
+                }
+
+            MessageBox.Show("Compra Registrada" + Environment.NewLine + "No. Compra: " + idCompra + Environment.NewLine + "Importe: " + TotalCompra);
 
 
 

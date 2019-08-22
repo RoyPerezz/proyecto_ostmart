@@ -33,6 +33,12 @@ namespace appSugerencias
         }
 
         int idMovsinv;
+        MySqlConnection conex_traspasos;
+        MySqlConnection conex_datostraspaso;
+        MySqlConnection conex_bajatraspaso;
+        MySqlConnection conex_altatraspaso;
+        MySqlConnection conex_cancelacion;
+        MySqlConnection conex_prueba;
 
         private void comboboxDepa_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -68,25 +74,25 @@ namespace appSugerencias
             {
                 tienda = "COLOSO";
             }
+            else if (tienda == "PREGOT")
+            {
+                tienda = "PREGOT";
+            }
             return tienda;
         }
-        public void CancelacionTraspaso(MySqlConnection conexionOpen)
+        public void CancelacionTraspaso()
         {
             //=================================================== ACTUALIZAR STATUS DEL TRASPASO ====================================================
-            MySqlCommand ccmdRr = new MySqlCommand("UPDATE rd_traspaso SET estatus='CANCELADO' WHERE idtraspaso=?idtraspaso", conexionOpen);
+            MySqlCommand ccmdRr = new MySqlCommand("UPDATE rd_traspaso SET estatus='CANCELADO' WHERE idtraspaso=?idtraspaso", conex_cancelacion);
             ccmdRr.Parameters.Add("?idtraspaso", MySqlDbType.VarChar).Value = txtId.Text;
             ccmdRr.ExecuteNonQuery();
-            // BDConexicon.VallartaClose();
+           
 
-            BDConexicon.BodegaClose();
-            BDConexicon.VallartaClose();
-            BDConexicon.RenaClose();
-            BDConexicon.VelazquezClose();
-            BDConexicon.ColosoClose();
+            
         }
 
         //################################################## METODO ALTA TRASPASO ##############################################################
-        public void altaTraspaso(MySqlConnection conexionOpen)
+        public void altaTraspaso()
         {
             int nItems = dgvItem.Rows.Count;
             string comando;
@@ -96,7 +102,7 @@ namespace appSugerencias
             List<int> itemExistencia = new List<int>();
 
             //=================================================== SELECCIONAR CONSECUTIVO BD DESTINO ====================================================
-            MySqlCommand cmdr = new MySqlCommand("SELECT Consec FROM consec WHERE Dato='movsinv'", conexionOpen);
+            MySqlCommand cmdr = new MySqlCommand("SELECT Consec FROM consec WHERE Dato='movsinv'", conex_altatraspaso);
             MySqlDataReader mdrr;
             mdrr = cmdr.ExecuteReader();
             if (mdrr.Read())
@@ -104,19 +110,19 @@ namespace appSugerencias
                 idMovsinv = mdrr.GetInt32("Consec");
 
             }
-            //BDConexicon.VelazquezClose();
+            
             mdrr.Close();
 
             //=================================================== ACTUALIZAR  CONSECUTIVO BD ORIGEN ====================================================
-            MySqlCommand cmdR = new MySqlCommand("UPDATE consec SET Consec=?Consec WHERE Dato='movsinv'", conexionOpen);
+            MySqlCommand cmdR = new MySqlCommand("UPDATE consec SET Consec=?Consec WHERE Dato='movsinv'", conex_altatraspaso);
             cmdR.Parameters.Add("?Consec", MySqlDbType.VarChar).Value = idMovsinv + nItems;
             cmdR.ExecuteNonQuery();
-            //BDConexicon.VelazquezClose();
+            
 
             //=================================================== SELECCIONAR EXISTENCIA DE ITEM'S ====================================================
             for (i = 0; i < nItems; i++)
             {
-                MySqlCommand cmd = new MySqlCommand("SELECT EXISTENCIA  FROM  prods WHERE ARTICULO=?ARTICULO", conexionOpen);
+                MySqlCommand cmd = new MySqlCommand("SELECT EXISTENCIA  FROM  prods WHERE ARTICULO=?ARTICULO", conex_altatraspaso);
                 cmd.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = dgvItem.Rows[i].Cells[0].Value.ToString();
                 itemArticulo.Add(dgvItem.Rows[i].Cells[0].Value.ToString());
                 itemCantidad.Add(Convert.ToInt32(dgvItem.Rows[i].Cells[2].Value.ToString()));
@@ -131,7 +137,7 @@ namespace appSugerencias
                 }
                 mdr.Close();
             }
-           // BDConexicon.VelazquezClose();
+           
 
 
             //=================================================== AFECTAR MOVIMIENTOS DEL INVENTARIO ====================================================
@@ -140,7 +146,7 @@ namespace appSugerencias
             {
                 idMovsinv = idMovsinv + 1;
 
-                MySqlCommand cmd = new MySqlCommand(comando, conexionOpen);
+                MySqlCommand cmd = new MySqlCommand(comando, conex_altatraspaso);
                 cmd.Parameters.Add("?consec", MySqlDbType.VarChar).Value = idMovsinv;
                 cmd.Parameters.Add("?operacion", MySqlDbType.VarChar).Value = "EN";
                 cmd.Parameters.Add("?movimiento", MySqlDbType.VarChar).Value = txtId.Text;
@@ -164,28 +170,24 @@ namespace appSugerencias
 
                 cmd.ExecuteNonQuery();
 
-               // BDConexicon.VelazquezClose();
+              
 
             }
 
             //=================================================== ACTUALIZAR EXISTENCIA DEL ALRTICULO ====================================================
             for (i = 0; i < nItems; i++)
             {
-                MySqlCommand ccmdR = new MySqlCommand("UPDATE prods SET existencia=?existencia,alm1=?alm1 WHERE articulo=?articulo", conexionOpen);
+                MySqlCommand ccmdR = new MySqlCommand("UPDATE prods SET existencia=?existencia,alm1=?alm1 WHERE articulo=?articulo", conex_altatraspaso);
                 ccmdR.Parameters.Add("?existencia", MySqlDbType.Int32).Value = itemExistencia[i] + itemCantidad[i];
                 ccmdR.Parameters.Add("?alm1", MySqlDbType.Int32).Value = itemExistencia[i] + itemCantidad[i];
                 ccmdR.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = itemArticulo[i].ToString();
                 ccmdR.ExecuteNonQuery();
-                //BDConexicon.VelazquezClose();
+               
 
             }
 
 
-            BDConexicon.BodegaClose();
-            BDConexicon.VallartaClose();
-            BDConexicon.RenaClose();
-            BDConexicon.VelazquezClose();
-            BDConexicon.ColosoClose();
+           
 
 
 
@@ -195,7 +197,7 @@ namespace appSugerencias
 
 
         //################################################## METODO BAJA TRASPASO ##############################################################
-        public void bajaTraspaso(MySqlConnection conexionOpen)
+        public void bajaTraspaso()
         {
             int nItems = dgvItem.Rows.Count;
             string comando;
@@ -205,7 +207,7 @@ namespace appSugerencias
             List<int> itemExistencia = new List<int>();
             
             //=================================================== SELECCIONAR CONSECUTIVO BD ORIGEN ====================================================
-            MySqlCommand cmdr = new MySqlCommand("SELECT Consec FROM consec WHERE Dato='movsinv'", conexionOpen);
+            MySqlCommand cmdr = new MySqlCommand("SELECT Consec FROM consec WHERE Dato='movsinv'", conex_bajatraspaso);
             MySqlDataReader mdrr;
             mdrr = cmdr.ExecuteReader();
             if (mdrr.Read())
@@ -217,7 +219,7 @@ namespace appSugerencias
             mdrr.Close();
 
             //=================================================== ACTUALIZAR  CONSECUTIVO BD ORIGEN ====================================================
-            MySqlCommand cmdR = new MySqlCommand("UPDATE consec SET Consec=?Consec WHERE Dato='movsinv'", conexionOpen);
+            MySqlCommand cmdR = new MySqlCommand("UPDATE consec SET Consec=?Consec WHERE Dato='movsinv'", conex_bajatraspaso);
             cmdR.Parameters.Add("?Consec", MySqlDbType.VarChar).Value = idMovsinv + nItems;
             cmdR.ExecuteNonQuery();
             
@@ -226,7 +228,7 @@ namespace appSugerencias
             //=================================================== SELECCIONAR EXISTENCIA DE ITEM'S ====================================================
             for (i = 0; i < nItems; i++)
             {
-                MySqlCommand cmd = new MySqlCommand("SELECT EXISTENCIA  FROM  prods WHERE ARTICULO=?ARTICULO", conexionOpen);
+                MySqlCommand cmd = new MySqlCommand("SELECT EXISTENCIA  FROM  prods WHERE ARTICULO=?ARTICULO", conex_bajatraspaso);
                 cmd.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = dgvItem.Rows[i].Cells[0].Value.ToString();
                 itemArticulo.Add(dgvItem.Rows[i].Cells[0].Value.ToString());
                 itemCantidad.Add(Convert.ToInt32(dgvItem.Rows[i].Cells[2].Value.ToString()));
@@ -250,7 +252,7 @@ namespace appSugerencias
             {
                 idMovsinv = idMovsinv + 1;
 
-                MySqlCommand cmd = new MySqlCommand(comando, conexionOpen);
+                MySqlCommand cmd = new MySqlCommand(comando, conex_bajatraspaso);
                 cmd.Parameters.Add("?consec", MySqlDbType.VarChar).Value = idMovsinv;
                 cmd.Parameters.Add("?operacion", MySqlDbType.VarChar).Value = "SA";
                 cmd.Parameters.Add("?movimiento", MySqlDbType.VarChar).Value = txtId.Text;
@@ -281,7 +283,7 @@ namespace appSugerencias
             //=================================================== ACTUALIZAR EXISTENCIA DEL ALRTICULO ====================================================
             for (i = 0; i < nItems; i++)
             {
-                MySqlCommand ccmdR = new MySqlCommand("UPDATE prods SET existencia=?existencia,alm1=?alm1 WHERE articulo=?articulo", conexionOpen);
+                MySqlCommand ccmdR = new MySqlCommand("UPDATE prods SET existencia=?existencia,alm1=?alm1 WHERE articulo=?articulo", conex_bajatraspaso);
                 ccmdR.Parameters.Add("?existencia", MySqlDbType.Int32).Value = itemExistencia[i] - itemCantidad[i];
                 ccmdR.Parameters.Add("?alm1", MySqlDbType.Int32).Value = itemExistencia[i] - itemCantidad[i];
                 ccmdR.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = itemArticulo[i].ToString(); 
@@ -291,7 +293,7 @@ namespace appSugerencias
             }
 
             //=================================================== ACTUALIZAR STATUS DEL TRASPASO ====================================================
-            MySqlCommand ccmdRr = new MySqlCommand("UPDATE rd_traspaso SET usuario_aplica=?usuario,estatus='APLICADO', observacion_aplica=?observaciones,fecha_aplica=?fecha_aplica WHERE idtraspaso=?idtraspaso", conexionOpen);
+            MySqlCommand ccmdRr = new MySqlCommand("UPDATE rd_traspaso SET usuario_aplica=?usuario,estatus='APLICADO', observacion_aplica=?observaciones,fecha_aplica=?fecha_aplica WHERE idtraspaso=?idtraspaso", conex_bajatraspaso);
             ccmdRr.Parameters.Add("?usuario", MySqlDbType.VarChar).Value = usuarioMyB;
             ccmdRr.Parameters.Add("?observaciones", MySqlDbType.VarChar).Value = txtObservaciones.Text.ToUpper();
             ccmdRr.Parameters.Add("?fecha_aplica", MySqlDbType.Date).Value = DateTime.Now;
@@ -300,11 +302,6 @@ namespace appSugerencias
             ccmdRr.ExecuteNonQuery();
            // BDConexicon.VallartaClose();
 
-            BDConexicon.BodegaClose();
-            BDConexicon.VallartaClose();
-            BDConexicon.RenaClose();
-            BDConexicon.VelazquezClose();
-            BDConexicon.ColosoClose();
         }
         //########## CIERRE ############
 
@@ -326,14 +323,14 @@ namespace appSugerencias
         //########## CIERRE ############
 
         //======================================================== ITEM'S TRASPASO
-        public void itemTraspaso(string idTraspaso, MySqlConnection conexion)
+        public void itemTraspaso(string idTraspaso)
         {
 
 
            
 
 
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM rd_traspaso_articulos where fk_idtraspaso=?idtraspaso ", conexion);
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM rd_traspaso_articulos where fk_idtraspaso=?idtraspaso ", conex_datostraspaso);
             cmd.Parameters.Add("?idtraspaso", MySqlDbType.VarChar).Value = idTraspaso;
             MySqlDataAdapter adaptador = new MySqlDataAdapter(cmd);
             System.Data.DataTable dt = new System.Data.DataTable();
@@ -351,22 +348,18 @@ namespace appSugerencias
                 dgvItem.Rows[n].Cells[2].Value = item["cantidad"].ToString();
 
             }
+            
 
-            BDConexicon.BodegaClose();
-            BDConexicon.VallartaClose();
-            BDConexicon.RenaClose();
-            BDConexicon.VelazquezClose();
-            BDConexicon.ColosoClose();
 
 
         }
         //########## CIERRE ############
 
         //=========================================================== CABECERA DEL TRASPASO ==================================================
-        public void selectDatosTraspaso(string idTraspaso, MySqlConnection conexion)
+        public void selectDatosTraspaso(string idTraspaso)
         {
             //MySqlConnection conexion = BDConexicon.conectar();
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM rd_traspaso where idtraspaso=?idtraspaso", conexion);
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM rd_traspaso where idtraspaso=?idtraspaso", conex_datostraspaso);
             cmd.Parameters.Add("?idtraspaso", MySqlDbType.VarChar).Value = idTraspaso;
             MySqlDataReader mdr;
             mdr = cmd.ExecuteReader();
@@ -457,16 +450,12 @@ namespace appSugerencias
                 MessageBox.Show("No se encotro el articulo");
             }
             mdr.Close();
-            BDConexicon.BodegaClose();
-            BDConexicon.VallartaClose();
-            BDConexicon.RenaClose();
-            BDConexicon.VelazquezClose();
-            BDConexicon.ColosoClose();
+           
         }
         //########## CIERRE ############
 
         //################################################## SELECCIONA LOS TRASPASOS DE LA TIENDA ORIGEN ##############################################################
-        public void selectDatos(MySqlConnection conexion)
+        public void selectDatos()
         {
 
             
@@ -480,7 +469,7 @@ namespace appSugerencias
 
 
             
-                MySqlCommand cmd = new MySqlCommand("SELECT rd_traspaso.idtraspaso,rd_traspaso.estatus FROM rd_traspaso   where rd_traspaso.fecha between '" + inicio + "'" + " and '" + fin + "' ", conexion);
+                MySqlCommand cmd = new MySqlCommand("SELECT rd_traspaso.idtraspaso,rd_traspaso.estatus FROM rd_traspaso   where rd_traspaso.fecha between '" + inicio + "'" + " and '" + fin + "' ", conex_traspasos);
 
                 MySqlDataAdapter adaptador = new MySqlDataAdapter(cmd);
                 System.Data.DataTable dt = new System.Data.DataTable();
@@ -501,14 +490,11 @@ namespace appSugerencias
 
                 }
 
-                BDConexicon.BodegaClose();
-                BDConexicon.VallartaClose();
-                BDConexicon.RenaClose();
-                 BDConexicon.VelazquezClose();
-                BDConexicon.ColosoClose();
+                conex_traspasos.Close();
 
-            
-            
+
+
+
         }
         //########## CIERRE ############
 
@@ -530,7 +516,8 @@ namespace appSugerencias
             {
                 try
                 {
-                    selectDatos(BDConexicon.BodegaOpen());
+                    conex_traspasos = BDConexicon.BodegaOpen();
+                    selectDatos();
                     lblConexion.Text = "Conectado Bo";
                     lblConexion.ForeColor = Color.DarkGreen;
 
@@ -546,7 +533,8 @@ namespace appSugerencias
             {
                 try
                 {
-                    selectDatos(BDConexicon.VallartaOpen());
+                    conex_traspasos = BDConexicon.VallartaOpen();
+                    selectDatos();
                     lblConexion.Text = "Conectado Va";
                     lblConexion.ForeColor = Color.DarkGreen;
 
@@ -562,7 +550,8 @@ namespace appSugerencias
             {
                 try
                 {
-                    selectDatos(BDConexicon.RenaOpen());
+                    conex_traspasos = BDConexicon.RenaOpen();
+                    selectDatos();
                     lblConexion.Text = "Conectado RE";
                     lblConexion.ForeColor = Color.DarkGreen;
                 }
@@ -580,7 +569,8 @@ namespace appSugerencias
                 
                 try
                 {
-                    selectDatos(BDConexicon.VelazquezOpen());
+                    conex_traspasos = BDConexicon.VelazquezOpen();
+                    selectDatos();
                     lblConexion.Text = "Conectado VE";
                     lblConexion.ForeColor = Color.DarkGreen;
                 }
@@ -597,13 +587,33 @@ namespace appSugerencias
                 
                 try
                 {
-                    selectDatos(BDConexicon.ColosoOpen());
+                    conex_traspasos = BDConexicon.ColosoOpen();
+                    selectDatos();
                     lblConexion.Text = "Conectado CO";
                     lblConexion.ForeColor = Color.DarkGreen;
                 }
                 catch (Exception e)
                 {
                     lblConexion.Text = "Sin Conexion CO";
+                    lblConexion.ForeColor = Color.Red;
+                    limpiarTraspaso();
+                }
+
+            }
+
+            else if (tienda == "PREGOT")
+            {
+
+                try
+                {
+                    conex_traspasos = BDConexicon.Papeleria1Open();
+                    selectDatos();
+                    lblConexion.Text = "Conectado PA";
+                    lblConexion.ForeColor = Color.DarkGreen;
+                }
+                catch (Exception e)
+                {
+                    lblConexion.Text = "Sin Conexion PA";
                     lblConexion.ForeColor = Color.Red;
                     limpiarTraspaso();
                 }
@@ -637,23 +647,39 @@ namespace appSugerencias
         {
             if (tienda == "BODEGA")
             {
-                bajaTraspaso(BDConexicon.BodegaOpen());
+                conex_bajatraspaso = BDConexicon.BodegaOpen();
+                bajaTraspaso();
+                conex_bajatraspaso.Close();
             }
             else if (tienda == "VALLARTA")
             {
-                bajaTraspaso(BDConexicon.VallartaOpen() );
+                conex_bajatraspaso = BDConexicon.VallartaOpen();
+                bajaTraspaso();
+                conex_bajatraspaso.Close();
             }
             else if (tienda == "RENA")
             {
-                bajaTraspaso(BDConexicon.RenaOpen() );
+                conex_bajatraspaso = BDConexicon.RenaOpen();
+                bajaTraspaso();
+                conex_bajatraspaso.Close();
             }
             else if (tienda == "VELAZQUEZ")
             {
-                bajaTraspaso(BDConexicon.VelazquezOpen() );
+                conex_bajatraspaso = BDConexicon.VelazquezOpen();
+                bajaTraspaso();
+                conex_bajatraspaso.Close();
             }
             else if (tienda == "COLOSO")
             {
-                bajaTraspaso(BDConexicon.ColosoOpen() );
+                conex_bajatraspaso = BDConexicon.ColosoOpen();
+                bajaTraspaso( );
+                conex_bajatraspaso.Close();
+            }
+            else if (tienda == "PREGOT")
+            {
+                conex_bajatraspaso = BDConexicon.Papeleria1Open();
+                bajaTraspaso();
+                conex_bajatraspaso.Close();
             }
 
 
@@ -665,25 +691,42 @@ namespace appSugerencias
         {
             if (tienda == "BODEGA")
             {
-                altaTraspaso(BDConexicon.BodegaOpen());
+                conex_altatraspaso = BDConexicon.BodegaOpen();
+                altaTraspaso();
+                conex_altatraspaso.Close();
             }
             else if (tienda == "VALLARTA")
             {
-                altaTraspaso(BDConexicon.VallartaOpen());
+                conex_altatraspaso = BDConexicon.VallartaOpen();
+                altaTraspaso();
+                conex_altatraspaso.Close();
             }
             else if (tienda == "RENA")
             {
-                
-                altaTraspaso(BDConexicon.RenaOpen());
-                
+                conex_altatraspaso = BDConexicon.RenaOpen();
+                altaTraspaso();
+                conex_altatraspaso.Close();
+
+
             }
             else if (tienda == "VELAZQUEZ")
             {
-                altaTraspaso(BDConexicon.VelazquezOpen());
+                conex_altatraspaso = BDConexicon.VelazquezOpen();
+                altaTraspaso();
+                conex_altatraspaso.Close();
             }
             else if (tienda == "COLOSO")
             {
-                altaTraspaso(BDConexicon.ColosoOpen());
+                conex_altatraspaso = BDConexicon.ColosoOpen();
+                altaTraspaso();
+                conex_altatraspaso.Close();
+            }
+
+            else if (tienda == "PREGOT")
+            {
+                conex_altatraspaso = BDConexicon.Papeleria1Open();
+                altaTraspaso();
+                conex_altatraspaso.Close();
             }
 
 
@@ -701,36 +744,48 @@ namespace appSugerencias
                 string idTraspaso = dgvTraspasos.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
                 if (cbTienda.Text == "BODEGA")
                 {
-                    selectDatosTraspaso(idTraspaso,BDConexicon.BodegaOpen());
-                    itemTraspaso(idTraspaso, BDConexicon.BodegaOpen());
-                    BDConexicon.BodegaClose();
+                    conex_datostraspaso = BDConexicon.BodegaOpen();
+                    selectDatosTraspaso(idTraspaso);
+                    itemTraspaso(idTraspaso);
+                    conex_datostraspaso.Close();
                 }
                 else if (cbTienda.Text == "VALLARTA")
                 {
-                    selectDatosTraspaso(idTraspaso, BDConexicon.VallartaOpen());
-                    itemTraspaso(idTraspaso,BDConexicon.VallartaOpen());
-                    BDConexicon.VallartaClose();
+                    conex_datostraspaso = BDConexicon.VallartaOpen();
+                    selectDatosTraspaso(idTraspaso);
+                    itemTraspaso(idTraspaso);
+                    conex_datostraspaso.Close();
                 }
                 else if (cbTienda.Text == "RENA")
                 {
-                    selectDatosTraspaso(idTraspaso, BDConexicon.RenaOpen());
-                    itemTraspaso(idTraspaso, BDConexicon.RenaOpen());
-                    BDConexicon.RenaClose();
+                    conex_datostraspaso = BDConexicon.RenaOpen();
+                    selectDatosTraspaso(idTraspaso);
+                    itemTraspaso(idTraspaso);
+                    conex_datostraspaso.Close();
                 }
                 else if (cbTienda.Text == "VELAZQUEZ")
                 {
-                    selectDatosTraspaso(idTraspaso, BDConexicon.VelazquezOpen());
-                    itemTraspaso(idTraspaso, BDConexicon.VelazquezOpen());
-                    BDConexicon.VelazquezClose();
+                    conex_datostraspaso = BDConexicon.VelazquezOpen();
+                    selectDatosTraspaso(idTraspaso);
+                    itemTraspaso(idTraspaso);
+                    conex_datostraspaso.Close();
                 }
                 else if (cbTienda.Text == "COLOSO")
                 {
-                    selectDatosTraspaso(idTraspaso, BDConexicon.ColosoOpen());
-                    itemTraspaso(idTraspaso, BDConexicon.ColosoOpen());
-                    BDConexicon.ColosoClose();
+                    conex_datostraspaso = BDConexicon.ColosoOpen();
+                    selectDatosTraspaso(idTraspaso);
+                    itemTraspaso(idTraspaso);
+                    conex_datostraspaso.Close();
                 }
-                //SE USA
-                //itemTraspaso(idTraspaso); 
+                else if (cbTienda.Text == "PREGOT")
+                {
+                    conex_datostraspaso = BDConexicon.Papeleria1Open();
+                    selectDatosTraspaso(idTraspaso);
+                    itemTraspaso(idTraspaso);
+                    conex_datostraspaso.Close();
+                }
+            //SE USA
+            //itemTraspaso(idTraspaso); 
             //}
             //catch (Exception ex)
             //{
@@ -763,8 +818,8 @@ namespace appSugerencias
             {
                 try
                 {
-                    BDConexicon.BodegaOpen();
-                    BDConexicon.BodegaClose();
+                    conex_prueba= BDConexicon.BodegaOpen(); ;
+                    conex_prueba.Close();
                     flag = true;
                 }
                 catch
@@ -776,8 +831,8 @@ namespace appSugerencias
             {
                 try
                 {
-                    BDConexicon.VallartaOpen();
-                    BDConexicon.VallartaClose();
+                    conex_prueba=BDConexicon.VallartaOpen();
+                    conex_prueba.Close();
                     flag = true;
                 }
                 catch
@@ -789,9 +844,9 @@ namespace appSugerencias
             else if (tienda == "RENA")
             {
                 try
-                { 
-                    BDConexicon.RenaOpen();
-                    BDConexicon.RenaClose();
+                {
+                    conex_prueba=BDConexicon.RenaOpen();
+                    conex_prueba.Close();
                     flag = true;
                 }
                 catch
@@ -804,8 +859,8 @@ namespace appSugerencias
             {
                 try
                 {
-                    BDConexicon.VelazquezOpen();
-                    BDConexicon.VelazquezClose();
+                    conex_prueba=BDConexicon.VelazquezOpen();
+                    conex_prueba.Close();
                     flag = true;
                 }
                 catch
@@ -817,8 +872,21 @@ namespace appSugerencias
             {
                 try
                 {
-                    BDConexicon.ColosoOpen();
-                    BDConexicon.ColosoClose();
+                    conex_prueba= BDConexicon.ColosoOpen();
+                    conex_prueba.Close();
+                    flag = true;
+                }
+                catch
+                {
+                    flag = false;
+                }
+            }
+            else if (tienda == "PREGOT")
+            {
+                try
+                {
+                    conex_prueba = BDConexicon.Papeleria1Open();
+                    conex_prueba.Close();
                     flag = true;
                 }
                 catch
@@ -1093,23 +1161,40 @@ namespace appSugerencias
         {
             if (tienda == "BODEGA")
             {
-                CancelacionTraspaso(BDConexicon.BodegaOpen());
+                conex_cancelacion = BDConexicon.BodegaOpen();
+                CancelacionTraspaso();
+                conex_cancelacion.Close();
             }
             else if (tienda == "VALLARTA")
             {
-                CancelacionTraspaso(BDConexicon.VallartaOpen());
+                conex_cancelacion = BDConexicon.VallartaOpen();
+                CancelacionTraspaso();
+                conex_cancelacion.Close();
             }
             else if (tienda == "RENA")
             {
-                CancelacionTraspaso(BDConexicon.RenaOpen());
+                conex_cancelacion = BDConexicon.RenaOpen();
+                CancelacionTraspaso();
+                conex_cancelacion.Close();
             }
             else if (tienda == "VELAZQUEZ")
             {
-                CancelacionTraspaso(BDConexicon.VelazquezOpen());
+                conex_cancelacion = BDConexicon.VelazquezOpen();
+                CancelacionTraspaso();
+                conex_cancelacion.Close();
             }
             else if (tienda == "COLOSO")
             {
-                CancelacionTraspaso(BDConexicon.ColosoOpen());
+                conex_cancelacion = BDConexicon.ColosoOpen();
+                CancelacionTraspaso();
+                conex_cancelacion.Close();
+            }
+
+            else if (tienda == "PREGOT")
+            {
+                conex_cancelacion = BDConexicon.Papeleria1Open();
+                CancelacionTraspaso();
+                conex_cancelacion.Close();
             }
 
 

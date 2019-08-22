@@ -40,13 +40,13 @@
             this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cargarCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.existenciaPorProveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.existenciasPorProveedorVitrinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblIP = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblBD = new System.Windows.Forms.Label();
-            this.existenciasPorProveedorVitrinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -145,6 +145,13 @@
             this.existenciaPorProveedorToolStripMenuItem.Text = "Existencia por proveedor";
             this.existenciaPorProveedorToolStripMenuItem.Click += new System.EventHandler(this.existenciaPorProveedorToolStripMenuItem_Click);
             // 
+            // existenciasPorProveedorVitrinaToolStripMenuItem
+            // 
+            this.existenciasPorProveedorVitrinaToolStripMenuItem.Name = "existenciasPorProveedorVitrinaToolStripMenuItem";
+            this.existenciasPorProveedorVitrinaToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.existenciasPorProveedorVitrinaToolStripMenuItem.Text = "Existencias por proveedor Vitrina";
+            this.existenciasPorProveedorVitrinaToolStripMenuItem.Click += new System.EventHandler(this.existenciasPorProveedorVitrinaToolStripMenuItem_Click);
+            // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
@@ -202,13 +209,6 @@
             this.lblBD.TabIndex = 6;
             this.lblBD.Text = "Mysql";
             // 
-            // existenciasPorProveedorVitrinaToolStripMenuItem
-            // 
-            this.existenciasPorProveedorVitrinaToolStripMenuItem.Name = "existenciasPorProveedorVitrinaToolStripMenuItem";
-            this.existenciasPorProveedorVitrinaToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
-            this.existenciasPorProveedorVitrinaToolStripMenuItem.Text = "Existencias por proveedor Vitrina";
-            this.existenciasPorProveedorVitrinaToolStripMenuItem.Click += new System.EventHandler(this.existenciasPorProveedorVitrinaToolStripMenuItem_Click);
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,7 +228,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Principal";
-            this.Text = "SOFTMART 1.2";
+            this.Text = "SOFTMART 1.3";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Principal_FormClosed);
             this.Load += new System.EventHandler(this.Principal_Load);
