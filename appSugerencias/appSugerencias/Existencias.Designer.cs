@@ -110,7 +110,7 @@
             // 
             this.TB_articulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TB_articulo.Location = new System.Drawing.Point(74, 26);
-            this.TB_articulo.MaxLength = 15;
+            this.TB_articulo.MaxLength = 20;
             this.TB_articulo.Name = "TB_articulo";
             this.TB_articulo.Size = new System.Drawing.Size(370, 44);
             this.TB_articulo.TabIndex = 1;
@@ -610,7 +610,7 @@
             // 
             this.TB_desc.Enabled = false;
             this.TB_desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_desc.Location = new System.Drawing.Point(74, 73);
+            this.TB_desc.Location = new System.Drawing.Point(74, 75);
             this.TB_desc.MaxLength = 16;
             this.TB_desc.Multiline = true;
             this.TB_desc.Name = "TB_desc";

@@ -82,7 +82,9 @@ namespace appSugerencias
                 {
                     LB_estadoVallarta.Text = "Sin Conexión";
                     LB_estadoVallarta.ForeColor = Color.Red;
-                }              try
+                }
+
+                try
                 {
                      conrena = BDConexicon.RenaOpen();
                     MySqlCommand cmdRena = new MySqlCommand("SELECT articulo AS ARTICULO,descrip AS DESCRIPCION, existencia " +
