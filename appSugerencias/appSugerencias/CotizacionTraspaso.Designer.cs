@@ -146,7 +146,8 @@
             "CO",
             "RE",
             "VA",
-            "VE"});
+            "VE",
+            "PREGOT"});
             this.CB_destino.Location = new System.Drawing.Point(541, 51);
             this.CB_destino.Name = "CB_destino";
             this.CB_destino.Size = new System.Drawing.Size(121, 21);

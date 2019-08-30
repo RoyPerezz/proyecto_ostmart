@@ -124,6 +124,17 @@ namespace appSugerencias
             }
 
 
+
+            if (Area == "SISTEMAS" || Area == "ADMON GRAL")
+            {
+                ventasPTiendasToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                ventasPTiendasToolStripMenuItem.Enabled = false;
+            }
+
+
             string IP = optieneIp();
             string BD = optieneBd();
 
@@ -385,6 +396,23 @@ namespace appSugerencias
             frm = new EXP_vitrina();
             frm.Show();
 
+        }
+
+        private void ventasPTiendasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //se localiza el formulario buscandolo entre los forms abiertos 
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is VentasxTienda);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm = new VentasxTienda();
+            frm.Show();
         }
     }
 }

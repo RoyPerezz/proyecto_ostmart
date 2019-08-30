@@ -67,6 +67,10 @@
             this.lblProRe = new System.Windows.Forms.Label();
             this.lblProCo = new System.Windows.Forms.Label();
             this.lblProVe = new System.Windows.Forms.Label();
+            this.lblPa = new System.Windows.Forms.Label();
+            this.lblPaId = new System.Windows.Forms.Label();
+            this.lblPaImpor = new System.Windows.Forms.Label();
+            this.lblPaPro = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGCompra)).BeginInit();
             this.SuspendLayout();
             // 
@@ -161,7 +165,8 @@
             "VALLARTA",
             "RENA",
             "VELAZQUEZ",
-            "COLOSO"});
+            "COLOSO",
+            "PREGOT"});
             this.CBTienda.Location = new System.Drawing.Point(147, 24);
             this.CBTienda.Margin = new System.Windows.Forms.Padding(2);
             this.CBTienda.Name = "CBTienda";
@@ -435,12 +440,52 @@
             this.lblProVe.TabIndex = 50;
             this.lblProVe.Text = "-----";
             // 
+            // lblPa
+            // 
+            this.lblPa.AutoSize = true;
+            this.lblPa.Location = new System.Drawing.Point(847, 225);
+            this.lblPa.Name = "lblPa";
+            this.lblPa.Size = new System.Drawing.Size(66, 13);
+            this.lblPa.TabIndex = 51;
+            this.lblPa.Text = "PAPELERIA";
+            // 
+            // lblPaId
+            // 
+            this.lblPaId.AutoSize = true;
+            this.lblPaId.Location = new System.Drawing.Point(953, 225);
+            this.lblPaId.Name = "lblPaId";
+            this.lblPaId.Size = new System.Drawing.Size(22, 13);
+            this.lblPaId.TabIndex = 52;
+            this.lblPaId.Text = "-----";
+            // 
+            // lblPaImpor
+            // 
+            this.lblPaImpor.AutoSize = true;
+            this.lblPaImpor.Location = new System.Drawing.Point(1046, 225);
+            this.lblPaImpor.Name = "lblPaImpor";
+            this.lblPaImpor.Size = new System.Drawing.Size(22, 13);
+            this.lblPaImpor.TabIndex = 53;
+            this.lblPaImpor.Text = "-----";
+            // 
+            // lblPaPro
+            // 
+            this.lblPaPro.AutoSize = true;
+            this.lblPaPro.Location = new System.Drawing.Point(1130, 225);
+            this.lblPaPro.Name = "lblPaPro";
+            this.lblPaPro.Size = new System.Drawing.Size(22, 13);
+            this.lblPaPro.TabIndex = 54;
+            this.lblPaPro.Text = "-----";
+            // 
             // frm_Compras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(1444, 676);
+            this.Controls.Add(this.lblPaPro);
+            this.Controls.Add(this.lblPaImpor);
+            this.Controls.Add(this.lblPaId);
+            this.Controls.Add(this.lblPa);
             this.Controls.Add(this.lblProVe);
             this.Controls.Add(this.lblProCo);
             this.Controls.Add(this.lblProRe);
@@ -529,5 +574,9 @@
         private System.Windows.Forms.Label lblProRe;
         private System.Windows.Forms.Label lblProCo;
         private System.Windows.Forms.Label lblProVe;
+        private System.Windows.Forms.Label lblPa;
+        private System.Windows.Forms.Label lblPaId;
+        private System.Windows.Forms.Label lblPaImpor;
+        private System.Windows.Forms.Label lblPaPro;
     }
 }

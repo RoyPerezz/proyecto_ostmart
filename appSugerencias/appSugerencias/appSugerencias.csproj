@@ -179,6 +179,12 @@
     <Compile Include="frm_Compras.Designer.cs">
       <DependentUpon>frm_Compras.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_Concentrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Concentrador.Designer.cs">
+      <DependentUpon>frm_Concentrador.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_FormatoCajera.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +196,12 @@
     </Compile>
     <Compile Include="frm_kardex.Designer.cs">
       <DependentUpon>frm_kardex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_KardexMulti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_KardexMulti.Designer.cs">
+      <DependentUpon>frm_KardexMulti.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_Login.cs">
       <SubType>Form</SubType>
@@ -340,11 +352,17 @@
     <EmbeddedResource Include="frm_Compras.resx">
       <DependentUpon>frm_Compras.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_Concentrador.resx">
+      <DependentUpon>frm_Concentrador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_FormatoCajera.resx">
       <DependentUpon>frm_FormatoCajera.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_kardex.resx">
       <DependentUpon>frm_kardex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_KardexMulti.resx">
+      <DependentUpon>frm_KardexMulti.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Login.resx">
       <DependentUpon>frm_Login.cs</DependentUpon>
@@ -436,6 +454,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\PREGOT_RGB-negro.png" />
+    <None Include="Resources\PREGOT_RGB-negro1.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

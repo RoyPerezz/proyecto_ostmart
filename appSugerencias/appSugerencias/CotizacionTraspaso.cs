@@ -64,6 +64,10 @@ namespace appSugerencias
                 {
                     TB_origen.Text = "BO";
                 }
+                if (sucursal.Equals("PREGOT"))
+                {
+                    TB_origen.Text = "PREGOT";
+                }
             }
 
             BDConexicon.ConectarClose();

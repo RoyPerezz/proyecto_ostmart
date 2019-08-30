@@ -72,6 +72,9 @@ namespace appSugerencias
 
                 adaptador.Fill(dt);
 
+                lblVallarta.Text = "Conectado";
+                lblVallarta.ForeColor = Color.DarkGreen;
+
                 dgvVentas.Rows.Clear();
                 totalVa = 0;
 
@@ -98,7 +101,15 @@ namespace appSugerencias
             }
             catch (Exception)
             {
-                MessageBox.Show("Vallarta sin conexion");
+                for (int i = 0; i < dgvVentas.Rows.Count; i++)
+                {
+
+                    dgvVentas.Rows[i].Cells[1].Value = 0;
+                    LisVallarta.Add(0);
+                }
+                LisVallarta.Add(0);
+                lblVallarta.Text = "Sin Conexion";
+                lblVallarta.ForeColor = Color.Red;
             }
 
            
@@ -115,6 +126,10 @@ namespace appSugerencias
                 MySqlCommand cmdr = new MySqlCommand(comando, conrena);
 
                 MySqlDataReader dr = cmdr.ExecuteReader();
+
+                lblRena.Text = "Conectado";
+                lblRena.ForeColor = Color.DarkGreen;
+
                 int y = 0;
                 totalRe = 0;
                 while (dr.Read())
@@ -138,7 +153,18 @@ namespace appSugerencias
         }
             catch (Exception)
             {
-                MessageBox.Show("rena sin conexion");
+                for (int i = 0; i < dgvVentas.Rows.Count; i++)
+                {
+
+                    dgvVentas.Rows[i].Cells[2].Value = 0;
+                    LisRena.Add(0);
+                }
+                LisRena.Add(0);
+                lblRena.Text = "Sin Conexion";
+                lblRena.ForeColor = Color.Red;
+
+
+
             }
 
             try
@@ -154,6 +180,10 @@ namespace appSugerencias
                 MySqlCommand cmdr = new MySqlCommand(comando, convelazquez);
 
                 MySqlDataReader dr = cmdr.ExecuteReader();
+
+                lblVelazquez.Text = "Conectado";
+                lblVelazquez.ForeColor = Color.DarkGreen;
+
                 int y = 0;
                 totalVe = 0;
                 while (dr.Read())
@@ -175,7 +205,15 @@ namespace appSugerencias
             }
             catch (Exception)
             {
-                MessageBox.Show("Velazquez sin conexion");
+                for (int i = 0; i < dgvVentas.Rows.Count; i++)
+                {
+
+                    dgvVentas.Rows[i].Cells[3].Value = 0;
+                    LisVelazquez.Add(0);
+                }
+                LisVelazquez.Add(0);
+                lblVelazquez.Text = "Sin Conexion";
+                lblVelazquez.ForeColor = Color.Red;
             }
 
 
@@ -192,6 +230,10 @@ namespace appSugerencias
                 MySqlCommand cmdr = new MySqlCommand(comando, concoloso);
 
                 MySqlDataReader dr = cmdr.ExecuteReader();
+
+                lblColoso.Text = "Conectado";
+                lblColoso.ForeColor = Color.DarkGreen;
+
                 int y = 0;
                 totalCo = 0;
                 while (dr.Read())
@@ -210,71 +252,116 @@ namespace appSugerencias
                 dr.Close();
                 dgvVentas.Rows[y].Cells[4].Value = totalCo.ToString("C");
                 LisColoso.Add(totalCo);
+
             }
             catch (Exception)
             {
-                MessageBox.Show("Velazquez sin conexion");
+                for (int i = 0; i < dgvVentas.Rows.Count; i++)
+                {
+
+                    dgvVentas.Rows[i].Cells[4].Value = 0;
+                    LisColoso.Add(0);
+                }
+                LisColoso.Add(0);
+                lblColoso.Text = "Sin Conexion";
+                lblColoso.ForeColor = Color.Red;
             }
 
 
-            for (int i = 0; i <LisVallarta.Count ; i++)
+            for (int i = 0; i <dgvVentas.Rows.Count ; i++)
             {
-                //for (int k = 1; k < dgvVentas.Columns.Count - 1; k++)
-                //{
-                //    importeDiaTo = importeDiaTo + Convert.ToDouble(dgvVentas.Rows[i].Cells[k].Value);
-
-                //}
+             
                 importeDiaTo = LisVallarta[i] + LisRena[i] +LisColoso[i] +LisVelazquez[i];
 
                 dgvVentas.Rows[i].Cells[5].Value = importeDiaTo.ToString("C");
                 importeDiaTo = 0;
 
             }
-           
-           
 
-            //dgvVentas.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
-            //dgvVentas.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
-            //dgvVentas.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
-            //dgvVentas.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
-            //dgvVentas.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            colocaFecha();
+            
+
+        }
+
+        public void colocaFecha()
+        {
+            string mes = DateTime.Now.ToString("MM");
+            string ano = DateTime.Now.ToString("yyyy");
+
+
+
+
+            for (int i = 0; i < dgvVentas.Rows.Count - 1; i++)
+            {
+                int aux = i + 1;
+                dgvVentas.Rows[i].Cells[0].Value = aux.ToString() + "/" + mes + "/" + ano;
+            }
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string dia = DateTime.Now.ToString("dd");
-            string mes = DateTime.Now.ToString("MM");
-            string ano = DateTime.Now.ToString("yyyy");
 
-            //int muestra;
-            //muestra = Convert.ToInt32(dia);
+            colocaFecha();
 
 
-            //for (int i = 0; i < muestra-1; i++)
-            //{
-            //    dgvVentas.Rows[i].Cells[0].Value = i.ToString() + "/" + mes + "/" + ano;
-            //}
-
-            
-            
         }
-        public void calculo()
-        {
-            double importeDiaTo = 0; ;
-            //for (int i = 0; i < dgvVentas.Rows.Count; i++)
-            //{
-            //    for (int k = 1; k < dgvVentas.Columns.Count - 1; k++)
-            //    {
-            //        importeDiaTo = importeDiaTo + Convert.ToDouble(dgvVentas.Rows[i].Cells[k].Value);
 
-            //    }
-            //    dgvVentas.Rows[i].Cells[5].Value = importeDiaTo.ToString("C");
-            //    importeDiaTo = 0;
-            //}
-            importeDiaTo =Convert.ToDouble( dgvVentas.Rows[0].Cells[1].Value);
-            MessageBox.Show(importeDiaTo.ToString());
-            
+
+        private void VentasxTienda_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BT_exportar_Click(object sender, EventArgs e)
+        {
+
+            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+            excel.Application.Workbooks.Add(true);
+
+
+            excel.Range["A1:A1000"].NumberFormat = "@";
+            int indiceColumna = 0;
+
+            foreach (DataGridViewColumn col in dgvVentas.Columns)
+            {
+                indiceColumna++;
+                excel.Cells[5, indiceColumna] = col.Name;
+
+            }
+
+            int indiceFila = 4;
+
+            foreach (DataGridViewRow row in dgvVentas.Rows)
+            {
+                indiceFila++;
+                indiceColumna = 0;
+
+
+
+
+                foreach (DataGridViewColumn col in dgvVentas.Columns)
+                {
+                    indiceColumna++;
+
+                    excel.Cells[indiceFila + 1, indiceColumna] = row.Cells[col.Name].Value;
+
+
+
+
+
+
+                }
+
+
+
+            }
+
+
+
+
+            excel.Visible = true;
         }
     }
 }

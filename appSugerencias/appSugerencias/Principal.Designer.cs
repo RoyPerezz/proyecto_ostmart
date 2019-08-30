@@ -40,13 +40,14 @@
             this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cargarCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.existenciaPorProveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.existenciasPorProveedorVitrinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblIP = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblBD = new System.Windows.Forms.Label();
-            this.existenciasPorProveedorVitrinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ventasPTiendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +59,8 @@
             this.traspasosToolStripMenuItem,
             this.ofertasToolStripMenuItem,
             this.pagosToolStripMenuItem,
-            this.comprasToolStripMenuItem});
+            this.comprasToolStripMenuItem,
+            this.ventasPTiendasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(883, 24);
@@ -145,6 +147,13 @@
             this.existenciaPorProveedorToolStripMenuItem.Text = "Existencia por proveedor";
             this.existenciaPorProveedorToolStripMenuItem.Click += new System.EventHandler(this.existenciaPorProveedorToolStripMenuItem_Click);
             // 
+            // existenciasPorProveedorVitrinaToolStripMenuItem
+            // 
+            this.existenciasPorProveedorVitrinaToolStripMenuItem.Name = "existenciasPorProveedorVitrinaToolStripMenuItem";
+            this.existenciasPorProveedorVitrinaToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.existenciasPorProveedorVitrinaToolStripMenuItem.Text = "Existencias por proveedor Vitrina";
+            this.existenciasPorProveedorVitrinaToolStripMenuItem.Click += new System.EventHandler(this.existenciasPorProveedorVitrinaToolStripMenuItem_Click);
+            // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
@@ -202,12 +211,12 @@
             this.lblBD.TabIndex = 6;
             this.lblBD.Text = "Mysql";
             // 
-            // existenciasPorProveedorVitrinaToolStripMenuItem
+            // ventasPTiendasToolStripMenuItem
             // 
-            this.existenciasPorProveedorVitrinaToolStripMenuItem.Name = "existenciasPorProveedorVitrinaToolStripMenuItem";
-            this.existenciasPorProveedorVitrinaToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
-            this.existenciasPorProveedorVitrinaToolStripMenuItem.Text = "Existencias por proveedor Vitrina";
-            this.existenciasPorProveedorVitrinaToolStripMenuItem.Click += new System.EventHandler(this.existenciasPorProveedorVitrinaToolStripMenuItem_Click);
+            this.ventasPTiendasToolStripMenuItem.Name = "ventasPTiendasToolStripMenuItem";
+            this.ventasPTiendasToolStripMenuItem.Size = new System.Drawing.Size(113, 20);
+            this.ventasPTiendasToolStripMenuItem.Text = "Ventas p/Tiendas";
+            this.ventasPTiendasToolStripMenuItem.Click += new System.EventHandler(this.ventasPTiendasToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -228,7 +237,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Principal";
-            this.Text = "SOFTMART 1.2";
+            this.Text = "SOFTMART 1.3";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Principal_FormClosed);
             this.Load += new System.EventHandler(this.Principal_Load);
@@ -259,5 +268,6 @@
         private System.Windows.Forms.ToolStripMenuItem cargarCompraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem existenciaPorProveedorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem existenciasPorProveedorVitrinaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ventasPTiendasToolStripMenuItem;
     }
 }
