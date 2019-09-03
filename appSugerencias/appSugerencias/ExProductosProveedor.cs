@@ -159,7 +159,7 @@ namespace appSugerencias
 
 
 
-                //Combinar los 5 DataTables en DataTable master
+                //Combinar los 5 DataTables en DataTable master1
 
                 DataTable master1 = DTbodega.AsEnumerable()
                 .Union(DTvallarta.AsEnumerable())
@@ -510,7 +510,7 @@ namespace appSugerencias
             excel.Application.Workbooks.Add(true);
 
 
-            excel.Range["A1:A1000"].NumberFormat = "@";
+            excel.Range["A1:A4000"].NumberFormat = "@";
             int indiceColumna = 0;
 
             foreach (DataGridViewColumn col in DG_existencias.Columns)

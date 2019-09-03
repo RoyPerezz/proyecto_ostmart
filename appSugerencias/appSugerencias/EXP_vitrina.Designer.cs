@@ -141,7 +141,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(959, 501);
+            this.ClientSize = new System.Drawing.Size(959, 508);
             this.Controls.Add(this.LB_estadoVelazquez);
             this.Controls.Add(this.LB_Coloso);
             this.Controls.Add(this.LB_Rena);
