@@ -296,12 +296,6 @@
     <Compile Include="reporte.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="reporte1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>reporte.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="ReporteComisiones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -309,18 +303,6 @@
       <DependentUpon>ReporteComisiones.cs</DependentUpon>
     </Compile>
     <Compile Include="ReporteTraspasoR.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ReporteTraspasoR1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ReporteTraspasoR.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ReporteTraspasoRrpt.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ReporteTraspasoRrpt.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RPT_SaldoProveedores.cs">
@@ -337,18 +319,6 @@
     </Compile>
     <Compile Include="Singleton.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="Traspaso.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Traspaso.Designer.cs">
-      <DependentUpon>Traspaso.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Traspasos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Traspasos.Designer.cs">
-      <DependentUpon>Traspasos.cs</DependentUpon>
-    </Compile>
     <Compile Include="TraspasoTiendas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -473,8 +443,6 @@
     <EmbeddedResource Include="obj\Debug\appSugerencias.Properties.Resources.resources" />
     <EmbeddedResource Include="obj\Debug\appSugerencias.RPT_SaldoProveedores.resources" />
     <EmbeddedResource Include="obj\Debug\appSugerencias.Rp_pagocomisiones.resources" />
-    <EmbeddedResource Include="obj\Debug\appSugerencias.Traspaso.resources" />
-    <EmbeddedResource Include="obj\Debug\appSugerencias.Traspasos.resources" />
     <EmbeddedResource Include="obj\Debug\appSugerencias.TraspasoTiendas.resources" />
     <EmbeddedResource Include="obj\Debug\appSugerencias.VentasxTienda.resources" />
     <EmbeddedResource Include="PagoComisiones.resx">
@@ -499,29 +467,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="reporte.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>reporte1.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ReporteTraspasoR.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ReporteTraspasoR1.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ReporteTraspasoRrpt.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ReporteTraspasoRrpt.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="RPT_SaldoProveedores.resx">
       <DependentUpon>RPT_SaldoProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rp_pagocomisiones.resx">
       <DependentUpon>Rp_pagocomisiones.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Traspaso.resx">
-      <DependentUpon>Traspaso.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Traspasos.resx">
-      <DependentUpon>Traspasos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TraspasoTiendas.resx">
       <DependentUpon>TraspasoTiendas.cs</DependentUpon>
