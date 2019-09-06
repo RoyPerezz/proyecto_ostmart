@@ -219,9 +219,6 @@ C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\D
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\appSugerencias.pdb
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\Microsoft.ReportViewer.Common.dll
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
-C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
-C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\Microsoft.ReportViewer.WinForms.dll
-C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\Microsoft.SqlServer.Types.dll
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
@@ -277,7 +274,6 @@ C:\Users\Roy\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\obj
 C:\Users\Roy\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.csproj.CoreCompileInputs.cache
 C:\Users\Roy\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.exe
 C:\Users\Roy\Documents\GitHub\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.pdb
-C:\Users\Admin\source\repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\MySql.Data.dll
 C:\Users\SISTEMAS\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_Login.resources
 C:\Users\SISTEMAS\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\MySql.Data.xml
 C:\Users\Admin\source\repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_Login.resources
@@ -438,12 +434,6 @@ C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\D
 C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.CotizacionTraspaso.resources
 C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_Verificador.resources
 C:\Users\danxd\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_VerificadorItems.resources
-C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
-C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\CrystalDecisions.ReportSource.dll
-C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\CrystalDecisions.Shared.dll
-C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\itextsharp.dll
-C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\itextsharp.pdfa.dll
-C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\itextsharp.xtra.dll
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
@@ -765,3 +755,5 @@ C:\Users\danxd\source\repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\D
 C:\Users\danxd\source\repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_KardexMulti.resources
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_KardexMulti.resources
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.GenClaves.resources
+C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Concentrador.resources
+C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_recalcular.resources

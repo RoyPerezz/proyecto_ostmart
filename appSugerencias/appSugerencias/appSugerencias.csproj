@@ -179,6 +179,12 @@
     <Compile Include="frm_Compras.Designer.cs">
       <DependentUpon>frm_Compras.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_Concentrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Concentrador.Designer.cs">
+      <DependentUpon>frm_Concentrador.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_FormatoCajera.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +208,12 @@
     </Compile>
     <Compile Include="frm_Login.Designer.cs">
       <DependentUpon>frm_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_recalcular.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_recalcular.Designer.cs">
+      <DependentUpon>frm_recalcular.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_ReporteASinVentas.cs">
       <SubType>Form</SubType>
@@ -252,6 +264,9 @@
     <Compile Include="LoginVitrina.Designer.cs">
       <DependentUpon>LoginVitrina.cs</DependentUpon>
     </Compile>
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="PagoComisiones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,6 +293,36 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="reporte.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reporte1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>reporte.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReporteComisiones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteComisiones.Designer.cs">
+      <DependentUpon>ReporteComisiones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReporteTraspasoR.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReporteTraspasoR1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteTraspasoR.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReporteTraspasoRrpt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteTraspasoRrpt.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RPT_SaldoProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,11 +337,29 @@
     </Compile>
     <Compile Include="Singleton.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Traspaso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Traspaso.Designer.cs">
+      <DependentUpon>Traspaso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Traspasos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Traspasos.Designer.cs">
+      <DependentUpon>Traspasos.cs</DependentUpon>
+    </Compile>
     <Compile Include="TraspasoTiendas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TraspasoTiendas.Designer.cs">
       <DependentUpon>TraspasoTiendas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentasxTienda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentasxTienda.Designer.cs">
+      <DependentUpon>VentasxTienda.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="ArticuloSinVentas.resx">
       <DependentUpon>ArticuloSinVentas.cs</DependentUpon>
@@ -334,6 +397,9 @@
     <EmbeddedResource Include="frm_Compras.resx">
       <DependentUpon>frm_Compras.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_Concentrador.resx">
+      <DependentUpon>frm_Concentrador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_FormatoCajera.resx">
       <DependentUpon>frm_FormatoCajera.cs</DependentUpon>
     </EmbeddedResource>
@@ -345,6 +411,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Login.resx">
       <DependentUpon>frm_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_recalcular.resx">
+      <DependentUpon>frm_recalcular.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_ReporteASinVentas.resx">
       <DependentUpon>frm_ReporteASinVentas.cs</DependentUpon>
@@ -370,6 +439,44 @@
     <EmbeddedResource Include="LoginVitrina.resx">
       <DependentUpon>LoginVitrina.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\appSugerencias.ArticuloSinVentas.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.Calificacionescs.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.Concentrador.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.CotizacionTraspaso.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.CReporte.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.CuentasXPagar.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.Desglose.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.EntradaMercancia.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.Existencias.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.ExistenciasVitrina.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.ExProductosProveedor.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.EXP_vitrina.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.frm_clientes.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.frm_Compras.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.frm_FormatoCajera.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.frm_kardex.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.frm_KardexMulti.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.frm_Login.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.frm_recalcular.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.frm_ReporteASinVentas.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.frm_Sugerencias.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.frm_validarcajas.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.frm_Verificador.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.frm_VerificadorItems.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.GenClaves.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.ImprimirReporte.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.LoginVitrina.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.PagoComisiones.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.Principal.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.Principal2.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.Principal_vitrina.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.Properties.Resources.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.RPT_SaldoProveedores.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.Rp_pagocomisiones.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.Traspaso.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.Traspasos.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.TraspasoTiendas.resources" />
+    <EmbeddedResource Include="obj\Debug\appSugerencias.VentasxTienda.resources" />
     <EmbeddedResource Include="PagoComisiones.resx">
       <DependentUpon>PagoComisiones.cs</DependentUpon>
     </EmbeddedResource>
@@ -392,15 +499,52 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="reporte.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>reporte1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteTraspasoR.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteTraspasoR1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteTraspasoRrpt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteTraspasoRrpt.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="RPT_SaldoProveedores.resx">
       <DependentUpon>RPT_SaldoProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rp_pagocomisiones.resx">
       <DependentUpon>Rp_pagocomisiones.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Traspaso.resx">
+      <DependentUpon>Traspaso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Traspasos.resx">
+      <DependentUpon>Traspasos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TraspasoTiendas.resx">
       <DependentUpon>TraspasoTiendas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VentasxTienda.resx">
+      <DependentUpon>VentasxTienda.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="bin\Debug\appSugerencias.exe.config" />
+    <None Include="bin\Debug\appSugerencias.vshost.exe.config" />
+    <None Include="bin\Debug\appSugerencias.vshost.exe.manifest" />
+    <None Include="bin\Debug\imagenes\baseline-search-white-36.zip" />
+    <None Include="bin\Debug\prueba.pdf" />
+    <None Include="bin\Debug\ResumenSaldo\ResumenSaldo12-05-2019.pdf" />
+    <None Include="bin\Debug\ResumenSaldo\ResumenSaldo14-05-2019.pdf" />
+    <None Include="bin\Debug\ResumenSaldo\ResumenSaldo15-05-2019.pdf" />
+    <None Include="bin\Debug\ResumenSaldo\ResumenSaldo16-05-2019.pdf" />
+    <None Include="bin\Debug\ResumenSaldo\ResumenSaldo22-05-2019.pdf" />
+    <None Include="bin\Debug\ResumenSaldo\ResumenSaldo22-05-2019_OSMART VALLARTA.pdf" />
+    <None Include="bin\Debug\ResumenSaldo\ResumenSaldo23-05-2019_OSMART VALLARTA.pdf" />
+    <None Include="bin\Debug\ResumenSaldo\ResumenSaldo29-08-2019_BODEGA.pdf" />
+    <None Include="bin\Debug\TraspasosPDF\TRASPASO 487 BODEGA.pdf" />
+    <None Include="bin\Debug\TraspasosPDF\TRASPASO 63 VALLARTA.pdf" />
+    <None Include="bin\Debug\TraspasosPDF\TRASPASO VALLARTA PREGOT 02_08_2019_63.pdf" />
     <None Include="DS_conexion.xsc">
       <DependentUpon>DS_conexion.xsd</DependentUpon>
     </None>
@@ -412,6 +556,16 @@
     <None Include="DS_conexion.xss">
       <DependentUpon>DS_conexion.xsd</DependentUpon>
     </None>
+    <None Include="obj\Debug\appSugerencias.csproj.CopyComplete" />
+    <None Include="obj\Debug\appSugerencias.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\appSugerencias.csproj.GenerateResource.cache" />
+    <None Include="obj\Debug\appSugerencias.csproj.ResolveComReference.cache" />
+    <None Include="obj\Debug\appSugerencias.csprojAssemblyReference.cache" />
+    <None Include="obj\Debug\build.force" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Release\appSugerencias.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Release\appSugerencias.csproj.ResolveComReference.cache" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -429,6 +583,104 @@
   <ItemGroup>
     <None Include="Resources\PREGOT_RGB-negro.png" />
     <None Include="Resources\PREGOT_RGB-negro1.png" />
+    <Content Include="bin\Debug\appSugerencias.exe" />
+    <Content Include="bin\Debug\appSugerencias.pdb" />
+    <Content Include="bin\Debug\appSugerencias.vshost.exe" />
+    <Content Include="bin\Debug\BD.txt" />
+    <Content Include="bin\Debug\CrystalDecisions.CrystalReports.Engine.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.ReportSource.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.Shared.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.Windows.Forms.dll" />
+    <Content Include="bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\Debug\FlashControlV71.dll" />
+    <Content Include="bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\Debug\Google.Protobuf.dll" />
+    <Content Include="bin\Debug\imagenes\2x\baseline_search_white_36dp.png" />
+    <Content Include="bin\Debug\imagenes\baseline_add_circle_outline_black_18dp.png" />
+    <Content Include="bin\Debug\imagenes\baseline_add_circle_outline_black_24dp.png" />
+    <Content Include="bin\Debug\imagenes\baseline_add_circle_outline_black_36dp.png" />
+    <Content Include="bin\Debug\imagenes\baseline_e_36dp.png" />
+    <Content Include="bin\Debug\imagenes\baseline_picture_as_pdf_white_36dp.png" />
+    <Content Include="bin\Debug\imagenes\baseline_search_black_36dp.png" />
+    <Content Include="bin\Debug\imagenes\baseline_search_white_36dp.png" />
+    <Content Include="bin\Debug\imagenes\icons8-ccleaner-50.png" />
+    <Content Include="bin\Debug\imagenes\icons8-microsoft-excel-32.png" />
+    <Content Include="bin\Debug\imagenes\icons8-rules-64.png" />
+    <Content Include="bin\Debug\imagenes\logo.png" />
+    <Content Include="bin\Debug\imagenes\SAVE1x\baseline_save_white_36dp.png" />
+    <Content Include="bin\Debug\imagenes\SAVE2x\baseline_save_white_36dp.png" />
+    <Content Include="bin\Debug\IP.txt" />
+    <Content Include="bin\Debug\IPPregot.txt" />
+    <Content Include="bin\Debug\itextsharp.dll" />
+    <Content Include="bin\Debug\itextsharp.pdfa.dll" />
+    <Content Include="bin\Debug\itextsharp.xml" />
+    <Content Include="bin\Debug\itextsharp.xtra.dll" />
+    <Content Include="bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\Debug\Microsoft.ReportViewer.Common.dll" />
+    <Content Include="bin\Debug\Microsoft.ReportViewer.DataVisualization.dll" />
+    <Content Include="bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll" />
+    <Content Include="bin\Debug\Microsoft.ReportViewer.WinForms.dll" />
+    <Content Include="bin\Debug\Microsoft.SqlServer.Types.dll" />
+    <Content Include="bin\Debug\MySql.Data.dll" />
+    <Content Include="bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\Debug\ShockwaveFlashObjects.dll" />
+    <Content Include="bin\Debug\SqlServerTypes\x64\msvcr120.dll" />
+    <Content Include="bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll" />
+    <Content Include="bin\Debug\SqlServerTypes\x86\msvcr120.dll" />
+    <Content Include="bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll" />
+    <Content Include="bin\Debug\stdole.dll" />
+    <Content Include="bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="itextsharp.dll" />
+    <Content Include="itextsharp.pdfa.dll" />
+    <Content Include="iTextSharp.xml" />
+    <Content Include="itextsharp.xtra.dll" />
+    <Content Include="obj\Debug\appSugerencias.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\appSugerencias.exe" />
+    <Content Include="obj\Debug\appSugerencias.pdb" />
+    <Content Include="obj\Debug\Interop.Microsoft.Office.Core.dll" />
+    <Content Include="obj\Debug\TempPE\DS_conexion.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\miReporte.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\reporte.cs.dll" />
+    <Content Include="obj\Debug\TempPE\ReporteTraspasoR.cs.dll" />
+    <Content Include="obj\Debug\TempPE\sugerencias.cs.dll" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -484,6 +736,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
