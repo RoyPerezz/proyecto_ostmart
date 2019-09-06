@@ -179,12 +179,6 @@
     <Compile Include="frm_Compras.Designer.cs">
       <DependentUpon>frm_Compras.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_Concentrador.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_Concentrador.Designer.cs">
-      <DependentUpon>frm_Concentrador.cs</DependentUpon>
-    </Compile>
     <Compile Include="frm_FormatoCajera.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,12 +202,6 @@
     </Compile>
     <Compile Include="frm_Login.Designer.cs">
       <DependentUpon>frm_Login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_recalcular.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_recalcular.Designer.cs">
-      <DependentUpon>frm_recalcular.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_ReporteASinVentas.cs">
       <SubType>Form</SubType>
@@ -245,11 +233,11 @@
     <Compile Include="frm_VerificadorItems.Designer.cs">
       <DependentUpon>frm_VerificadorItems.cs</DependentUpon>
     </Compile>
-    <Compile Include="GeneradorNumAl.cs">
+    <Compile Include="GenClaves.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GeneradorNumAl.Designer.cs">
-      <DependentUpon>GeneradorNumAl.cs</DependentUpon>
+    <Compile Include="GenClaves.Designer.cs">
+      <DependentUpon>GenClaves.cs</DependentUpon>
     </Compile>
     <Compile Include="ImprimirReporte.cs">
       <SubType>Form</SubType>
@@ -310,12 +298,6 @@
     <Compile Include="TraspasoTiendas.Designer.cs">
       <DependentUpon>TraspasoTiendas.cs</DependentUpon>
     </Compile>
-    <Compile Include="VentasxTienda.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VentasxTienda.Designer.cs">
-      <DependentUpon>VentasxTienda.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="ArticuloSinVentas.resx">
       <DependentUpon>ArticuloSinVentas.cs</DependentUpon>
     </EmbeddedResource>
@@ -352,9 +334,6 @@
     <EmbeddedResource Include="frm_Compras.resx">
       <DependentUpon>frm_Compras.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_Concentrador.resx">
-      <DependentUpon>frm_Concentrador.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frm_FormatoCajera.resx">
       <DependentUpon>frm_FormatoCajera.cs</DependentUpon>
     </EmbeddedResource>
@@ -366,9 +345,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Login.resx">
       <DependentUpon>frm_Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_recalcular.resx">
-      <DependentUpon>frm_recalcular.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_ReporteASinVentas.resx">
       <DependentUpon>frm_ReporteASinVentas.cs</DependentUpon>
@@ -385,8 +361,8 @@
     <EmbeddedResource Include="frm_VerificadorItems.resx">
       <DependentUpon>frm_VerificadorItems.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GeneradorNumAl.resx">
-      <DependentUpon>GeneradorNumAl.cs</DependentUpon>
+    <EmbeddedResource Include="GenClaves.resx">
+      <DependentUpon>GenClaves.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ImprimirReporte.resx">
       <DependentUpon>ImprimirReporte.cs</DependentUpon>
@@ -424,9 +400,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TraspasoTiendas.resx">
       <DependentUpon>TraspasoTiendas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VentasxTienda.resx">
-      <DependentUpon>VentasxTienda.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DS_conexion.xsc">
       <DependentUpon>DS_conexion.xsd</DependentUpon>

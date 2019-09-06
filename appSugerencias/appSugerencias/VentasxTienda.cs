@@ -72,9 +72,6 @@ namespace appSugerencias
 
                 adaptador.Fill(dt);
 
-                lblVallarta.Text = "Conectado";
-                lblVallarta.ForeColor = Color.DarkGreen;
-
                 dgvVentas.Rows.Clear();
                 totalVa = 0;
 
@@ -101,15 +98,7 @@ namespace appSugerencias
             }
             catch (Exception)
             {
-                for (int i = 0; i < dgvVentas.Rows.Count; i++)
-                {
-
-                    dgvVentas.Rows[i].Cells[1].Value = 0;
-                    LisVallarta.Add(0);
-                }
-                LisVallarta.Add(0);
-                lblVallarta.Text = "Sin Conexion";
-                lblVallarta.ForeColor = Color.Red;
+                MessageBox.Show("Vallarta sin conexion");
             }
 
            
@@ -126,10 +115,6 @@ namespace appSugerencias
                 MySqlCommand cmdr = new MySqlCommand(comando, conrena);
 
                 MySqlDataReader dr = cmdr.ExecuteReader();
-
-                lblRena.Text = "Conectado";
-                lblRena.ForeColor = Color.DarkGreen;
-
                 int y = 0;
                 totalRe = 0;
                 while (dr.Read())
@@ -160,8 +145,7 @@ namespace appSugerencias
                     LisRena.Add(0);
                 }
                 LisRena.Add(0);
-                lblRena.Text = "Sin Conexion";
-                lblRena.ForeColor = Color.Red;
+                MessageBox.Show("rena sin conexion");
 
 
 
@@ -180,10 +164,6 @@ namespace appSugerencias
                 MySqlCommand cmdr = new MySqlCommand(comando, convelazquez);
 
                 MySqlDataReader dr = cmdr.ExecuteReader();
-
-                lblVelazquez.Text = "Conectado";
-                lblVelazquez.ForeColor = Color.DarkGreen;
-
                 int y = 0;
                 totalVe = 0;
                 while (dr.Read())
@@ -205,15 +185,7 @@ namespace appSugerencias
             }
             catch (Exception)
             {
-                for (int i = 0; i < dgvVentas.Rows.Count; i++)
-                {
-
-                    dgvVentas.Rows[i].Cells[3].Value = 0;
-                    LisVelazquez.Add(0);
-                }
-                LisVelazquez.Add(0);
-                lblVelazquez.Text = "Sin Conexion";
-                lblVelazquez.ForeColor = Color.Red;
+                MessageBox.Show("Velazquez sin conexion");
             }
 
 
@@ -230,10 +202,6 @@ namespace appSugerencias
                 MySqlCommand cmdr = new MySqlCommand(comando, concoloso);
 
                 MySqlDataReader dr = cmdr.ExecuteReader();
-
-                lblColoso.Text = "Conectado";
-                lblColoso.ForeColor = Color.DarkGreen;
-
                 int y = 0;
                 totalCo = 0;
                 while (dr.Read())
@@ -252,19 +220,10 @@ namespace appSugerencias
                 dr.Close();
                 dgvVentas.Rows[y].Cells[4].Value = totalCo.ToString("C");
                 LisColoso.Add(totalCo);
-
             }
             catch (Exception)
             {
-                for (int i = 0; i < dgvVentas.Rows.Count; i++)
-                {
-
-                    dgvVentas.Rows[i].Cells[4].Value = 0;
-                    LisColoso.Add(0);
-                }
-                LisColoso.Add(0);
-                lblColoso.Text = "Sin Conexion";
-                lblColoso.ForeColor = Color.Red;
+                MessageBox.Show("Velazquez sin conexion");
             }
 
 

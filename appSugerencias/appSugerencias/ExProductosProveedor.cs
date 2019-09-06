@@ -22,6 +22,7 @@ namespace appSugerencias
         MySqlConnection conrena;
         MySqlConnection concoloso;
         MySqlConnection convelazquez;
+        MySqlConnection conpregot;
         DataTable master;
 
         //############################ LLENA EL DATAGRID CON LOS PRODUCTOS DEL PROVEEDOR Y SUS RESPECTIVAS EXISTENCIAS EN CADA TIENDA ##################
@@ -40,6 +41,7 @@ namespace appSugerencias
                 LB_Rena.Text = "";
                 LB_Coloso.Text = "";
                 LB_estadoVelazquez.Text = "";
+               
 
                 //Crear DataTables por cada sucursal para guardar la consulta
                 DataTable DTbodega = new DataTable();
@@ -47,9 +49,10 @@ namespace appSugerencias
                 DataTable DTrena = new DataTable();
                 DataTable DTcoloso = new DataTable();
                 DataTable DTvelazquez = new DataTable();
+                DataTable DTpregot = new DataTable();
 
                 //DataTable extra para unir los demás
-                 master = new DataTable();
+                master = new DataTable();
 
 
                 try
@@ -82,7 +85,9 @@ namespace appSugerencias
                 {
                     LB_estadoVallarta.Text = "Sin Conexión";
                     LB_estadoVallarta.ForeColor = Color.Red;
-                }              try
+                }
+
+                try
                 {
                      conrena = BDConexicon.RenaOpen();
                     MySqlCommand cmdRena = new MySqlCommand("SELECT articulo AS ARTICULO,descrip AS DESCRIPCION, existencia " +
@@ -132,16 +137,35 @@ namespace appSugerencias
                     LB_estadoVelazquez.ForeColor = Color.Red;
 
                 }
-             
-            
-              
-                //Combinar los 5 DataTables en DataTable master
+
+                try
+                {
+
+
+                    conpregot = BDConexicon.Papeleria1Open();
+                    MySqlCommand cmdPregot = new MySqlCommand("SELECT articulo AS ARTICULO,descrip AS DESCRIPCION, existencia " +
+                        "from prods where fabricante= '" + CB_proveedores.SelectedItem.ToString() + "'order by DESCRIPCION", conpregot);
+                    MySqlDataAdapter adColoso = new MySqlDataAdapter(cmdPregot);
+                    adColoso.Fill(DTpregot);
+
+                }
+                catch (Exception)
+                {
+                    LB_pregot.Text = "Sin Conexión";
+                    LB_pregot.ForeColor = Color.Red;
+                    
+
+                }
+
+
+
+                //Combinar los 5 DataTables en DataTable master1
 
                 DataTable master1 = DTbodega.AsEnumerable()
                 .Union(DTvallarta.AsEnumerable())
                 .Union(DTrena.AsEnumerable())
                 .Union(DTvelazquez.AsEnumerable())
-                .Union(DTcoloso.AsEnumerable()).Distinct(DataRowComparer.Default).CopyToDataTable<DataRow>();
+                .Union(DTcoloso.AsEnumerable()).Union(DTpregot.AsEnumerable()).Distinct(DataRowComparer.Default).CopyToDataTable<DataRow>();
 
                 master = repetidos(master1, "articulo");//se llama al metodo repetidos para que elimine los regitros iguales
 
@@ -154,7 +178,8 @@ namespace appSugerencias
                 master.Columns.Add("RENA", typeof(String));
                 master.Columns.Add("VELAZQUEZ", typeof(String));
                 master.Columns.Add("COLOSO", typeof(String));
-              
+                master.Columns.Add("PREGOT", typeof(String));
+
                 master.Columns.Remove("existencia");
               
              
@@ -166,6 +191,7 @@ namespace appSugerencias
                 RecorreRena(DTrena);
                 RecorreVelazquez(DTvelazquez);
                 RecorreColoso(DTcoloso);
+                RecorrerPregot(DTpregot);
                
 
 
@@ -181,6 +207,7 @@ namespace appSugerencias
                 DG_existencias.Columns["RENA"].SortMode = DataGridViewColumnSortMode.NotSortable;
                 DG_existencias.Columns["COLOSO"].SortMode = DataGridViewColumnSortMode.NotSortable;
                 DG_existencias.Columns["VELAZQUEZ"].SortMode = DataGridViewColumnSortMode.NotSortable;
+                DG_existencias.Columns["PREGOT"].SortMode = DataGridViewColumnSortMode.NotSortable;
 
                 DG_existencias.Columns["DESCRIPCION"].Width = 375;
 
@@ -201,7 +228,7 @@ namespace appSugerencias
                 concoloso.Close();
 
                 convelazquez.Close();
-
+                conpregot.Close();
             }
             catch (Exception ex)
             {
@@ -372,6 +399,39 @@ namespace appSugerencias
 
         }
 
+        public void RecorrerPregot(DataTable DTpregot)
+        {
+            try
+            {
+                foreach (DataRow row in master.Rows)
+                {
+
+
+                    string valor = row["articulo"].ToString();
+
+                    foreach (DataRow row1 in DTpregot.Rows)
+                    {
+
+                        if (valor.Equals(row1["articulo"].ToString()))
+
+                        {
+
+                            row["PREGOT"] = row1["existencia"].ToString();
+                        }
+
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+
+            }
+
+        }
+
 
         //Trae de la base de datos de bodega principal los proveedores
         public void proveedores()
@@ -450,7 +510,7 @@ namespace appSugerencias
             excel.Application.Workbooks.Add(true);
 
 
-            excel.Range["A1:A1000"].NumberFormat = "@";
+            excel.Range["A1:A4000"].NumberFormat = "@";
             int indiceColumna = 0;
 
             foreach (DataGridViewColumn col in DG_existencias.Columns)
@@ -491,6 +551,11 @@ namespace appSugerencias
 
 
             excel.Visible = true;
+
+        }
+
+        private void DG_existencias_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

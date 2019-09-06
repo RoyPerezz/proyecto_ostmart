@@ -92,6 +92,9 @@
             this.label17 = new System.Windows.Forms.Label();
             this.tbPrecio1 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.TB_pregot = new System.Windows.Forms.TextBox();
+            this.LB_pregot = new System.Windows.Forms.Label();
             this.panelOfertas.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panelPrecio.SuspendLayout();
@@ -110,7 +113,7 @@
             // 
             this.TB_articulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TB_articulo.Location = new System.Drawing.Point(74, 26);
-            this.TB_articulo.MaxLength = 15;
+            this.TB_articulo.MaxLength = 20;
             this.TB_articulo.Name = "TB_articulo";
             this.TB_articulo.Size = new System.Drawing.Size(370, 44);
             this.TB_articulo.TabIndex = 1;
@@ -465,6 +468,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label18);
+            this.groupBox2.Controls.Add(this.TB_pregot);
+            this.groupBox2.Controls.Add(this.LB_pregot);
             this.groupBox2.Controls.Add(this.BT_limpiar);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.label14);
@@ -610,7 +616,7 @@
             // 
             this.TB_desc.Enabled = false;
             this.TB_desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_desc.Location = new System.Drawing.Point(74, 73);
+            this.TB_desc.Location = new System.Drawing.Point(74, 75);
             this.TB_desc.MaxLength = 16;
             this.TB_desc.Multiline = true;
             this.TB_desc.Name = "TB_desc";
@@ -786,6 +792,34 @@
             this.label16.Text = "Mayoreo";
             this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(26, 444);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(38, 13);
+            this.label18.TabIndex = 30;
+            this.label18.Text = "Pregot";
+            // 
+            // TB_pregot
+            // 
+            this.TB_pregot.Enabled = false;
+            this.TB_pregot.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_pregot.Location = new System.Drawing.Point(74, 441);
+            this.TB_pregot.Name = "TB_pregot";
+            this.TB_pregot.Size = new System.Drawing.Size(49, 22);
+            this.TB_pregot.TabIndex = 31;
+            // 
+            // LB_pregot
+            // 
+            this.LB_pregot.AutoSize = true;
+            this.LB_pregot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_pregot.ForeColor = System.Drawing.Color.DarkGreen;
+            this.LB_pregot.Location = new System.Drawing.Point(129, 445);
+            this.LB_pregot.Name = "LB_pregot";
+            this.LB_pregot.Size = new System.Drawing.Size(0, 13);
+            this.LB_pregot.TabIndex = 32;
+            // 
             // Existencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -873,5 +907,8 @@
         private System.Windows.Forms.Label lblCoPre;
         private System.Windows.Forms.Label lblVePre;
         private System.Windows.Forms.Label lblRePre;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox TB_pregot;
+        private System.Windows.Forms.Label LB_pregot;
     }
 }
