@@ -346,21 +346,7 @@ namespace appSugerencias
         //    frm3.Show();
         //}
 
-        private void existenciaPorProveedorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form frm3 = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is ExProductosProveedor);
-
-            if (frm3 != null)
-            {
-                //si la instancia existe la pongo en primer plano
-                frm3.BringToFront();
-                return;
-            }
-
-            //sino existe la instancia se crea una nueva
-            frm3 = new ExProductosProveedor();
-            frm3.Show();
-        }
+       
 
         private void cargarCompraToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -380,7 +366,45 @@ namespace appSugerencias
 
         }
 
-        private void existenciasPorProveedorVitrinaToolStripMenuItem_Click(object sender, EventArgs e)
+       
+
+        
+
+        private void generadorDeClavesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //se localiza el formulario buscandolo entre los forms abiertos 
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is GenClaves);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm = new GenClaves();
+            frm.Show();
+
+        }
+
+        private void tiendasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form frm3 = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is ExProductosProveedor);
+
+            if (frm3 != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm3.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm3 = new ExProductosProveedor();
+            frm3.Show();
+        }
+
+        private void vitrinasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //se localiza el formulario buscandolo entre los forms abiertos 
             Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is EXP_vitrina);
@@ -395,7 +419,6 @@ namespace appSugerencias
             //sino existe la instancia se crea una nueva
             frm = new EXP_vitrina();
             frm.Show();
-
         }
 
         private void ventasPTiendasToolStripMenuItem_Click(object sender, EventArgs e)

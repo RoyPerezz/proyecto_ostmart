@@ -195,11 +195,7 @@ namespace appSugerencias
                 MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'", con);
                 MySqlDataReader rd = cmd.ExecuteReader();
 
-                //while (rd.Read())
-                //{
-                //    TB_bodega.Text = rd[0].ToString();
-                //    Lb_bodega.Text = "Conectado";
-                //}
+              
 
                 if (rd.Read())
                 {
@@ -224,6 +220,38 @@ namespace appSugerencias
 
            
         }
+
+        public void Pregot()
+        {
+            try
+            {
+                MySqlConnection con = BDConexicon.Papeleria1Open();
+            MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'", con);
+            MySqlDataReader rd = cmd.ExecuteReader();
+
+
+
+            if (rd.Read())
+            {
+                TB_pregot.Text = rd["existencia"].ToString();
+                LB_pregot.Text = "Conectado";
+                LB_pregot.ForeColor = Color.DarkGreen;
+            }
+            else
+            {
+                LB_pregot.Text = "No existe";
+                LB_pregot.ForeColor = Color.Red;
+            }
+
+            rd.Close();
+            con.Close();
+
+        }catch (Exception e)
+            {
+                LB_pregot.Text = "Sin conexion";
+                LB_pregot.ForeColor = Color.Red;
+            }
+    }
 
 
         public void DatosProducto()
@@ -310,8 +338,10 @@ namespace appSugerencias
                 Velazquez();
                 
                 Coloso();
-                
-                
+                Pregot();
+
+
+
 
             }
 
@@ -319,6 +349,7 @@ namespace appSugerencias
 
         }
 
+ //################################################################# CODIGO DE DANIEL ####################################################################################
         private void checkBox5_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -857,12 +888,14 @@ namespace appSugerencias
             TB_rena.Text = "";
             TB_vallarta.Text = "";
             TB_velazquez.Text = "";
+            TB_pregot.Text = "";
 
             Lb_bodega.Text = "";
             LB_rena.Text = "";
             LB_coloso.Text = "";
             LB_vallarta.Text = "";
             LB_velazquez.Text = "";
+            LB_pregot.Text = "";
         }
 
         private void BT_limpiar_Click(object sender, EventArgs e)
@@ -1297,7 +1330,7 @@ namespace appSugerencias
                     Velazquez();
 
                     Coloso();
-
+                    Pregot();
 
 
                 }

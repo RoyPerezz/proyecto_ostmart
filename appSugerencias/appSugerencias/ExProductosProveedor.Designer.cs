@@ -39,6 +39,7 @@
             this.LB_Rena = new System.Windows.Forms.Label();
             this.LB_Coloso = new System.Windows.Forms.Label();
             this.LB_estadoVelazquez = new System.Windows.Forms.Label();
+            this.LB_pregot = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DG_existencias)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,17 +51,18 @@
             this.DG_existencias.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DG_existencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DG_existencias.EnableHeadersVisualStyles = false;
-            this.DG_existencias.Location = new System.Drawing.Point(27, 79);
+            this.DG_existencias.Location = new System.Drawing.Point(27, 77);
             this.DG_existencias.Name = "DG_existencias";
-            this.DG_existencias.Size = new System.Drawing.Size(1035, 379);
+            this.DG_existencias.Size = new System.Drawing.Size(1127, 379);
             this.DG_existencias.TabIndex = 0;
+            this.DG_existencias.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_existencias_CellContentClick);
             // 
             // CB_proveedores
             // 
             this.CB_proveedores.FormattingEnabled = true;
             this.CB_proveedores.Location = new System.Drawing.Point(152, 34);
             this.CB_proveedores.Name = "CB_proveedores";
-            this.CB_proveedores.Size = new System.Drawing.Size(910, 21);
+            this.CB_proveedores.Size = new System.Drawing.Size(1002, 21);
             this.CB_proveedores.TabIndex = 1;
             this.CB_proveedores.SelectedIndexChanged += new System.EventHandler(this.CB_proveedores_SelectedIndexChanged);
             // 
@@ -81,7 +83,7 @@
             this.BT_exportar.ForeColor = System.Drawing.Color.White;
             this.BT_exportar.Image = ((System.Drawing.Image)(resources.GetObject("BT_exportar.Image")));
             this.BT_exportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BT_exportar.Location = new System.Drawing.Point(950, 464);
+            this.BT_exportar.Location = new System.Drawing.Point(1042, 464);
             this.BT_exportar.Name = "BT_exportar";
             this.BT_exportar.Size = new System.Drawing.Size(112, 51);
             this.BT_exportar.TabIndex = 3;
@@ -129,18 +131,28 @@
             // LB_estadoVelazquez
             // 
             this.LB_estadoVelazquez.AutoSize = true;
-            this.LB_estadoVelazquez.Location = new System.Drawing.Point(969, 60);
+            this.LB_estadoVelazquez.Location = new System.Drawing.Point(962, 60);
             this.LB_estadoVelazquez.Name = "LB_estadoVelazquez";
             this.LB_estadoVelazquez.Size = new System.Drawing.Size(0, 13);
             this.LB_estadoVelazquez.TabIndex = 8;
             this.LB_estadoVelazquez.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LB_pregot
+            // 
+            this.LB_pregot.AutoSize = true;
+            this.LB_pregot.Location = new System.Drawing.Point(1053, 60);
+            this.LB_pregot.Name = "LB_pregot";
+            this.LB_pregot.Size = new System.Drawing.Size(0, 13);
+            this.LB_pregot.TabIndex = 9;
+            this.LB_pregot.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ExProductosProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(1092, 537);
+            this.ClientSize = new System.Drawing.Size(1184, 537);
+            this.Controls.Add(this.LB_pregot);
             this.Controls.Add(this.LB_estadoVelazquez);
             this.Controls.Add(this.LB_Coloso);
             this.Controls.Add(this.LB_Rena);
@@ -170,5 +182,6 @@
         private System.Windows.Forms.Label LB_Rena;
         private System.Windows.Forms.Label LB_Coloso;
         private System.Windows.Forms.Label LB_estadoVelazquez;
+        private System.Windows.Forms.Label LB_pregot;
     }
 }
