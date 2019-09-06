@@ -505,7 +505,7 @@ namespace appSugerencias
 
 
 
-                MySqlCommand cmdart = new MySqlCommand("SELECT EXISTENCIA FROM prods WHERE ARTICULO ='" + articuloCompra + "'", conectar);
+                    MySqlCommand cmdart = new MySqlCommand("SELECT EXISTENCIA FROM prods WHERE ARTICULO ='" + articuloCompra + "'", conectar);
                     MySqlDataReader mdrart;
                     mdrart = cmdart.ExecuteReader();
 
