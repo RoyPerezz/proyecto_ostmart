@@ -27,174 +27,193 @@ namespace appSugerencias
         MySqlConnection conrena;
         MySqlConnection convelazquez;
         MySqlConnection concoloso;
+        MySqlConnection conpregot;
 
-
-        public void Generar()
+        public void Generar()//GENERA Y COMPARA LOS NUMEROS ALEATORIOS CON LAS CLAVES DE LOS PRODUCTOS QUE YA EXISTEN EN LAS BD
         {
+           
+                DG_numeros.Rows.Clear();
+                Random rnd = new Random();
 
-            DG_numeros.Rows.Clear();
-            Random rnd = new Random();
+                DataTable DTbodega = new DataTable();
+                DataTable DTvallarta = new DataTable();
+                DataTable DTrena = new DataTable();
+                DataTable DTcoloso = new DataTable();
+                DataTable DTvelazquez = new DataTable();
+                DataTable DTpregot = new DataTable();
 
-            DataTable DTbodega = new DataTable();
-            DataTable DTvallarta = new DataTable();
-            DataTable DTrena = new DataTable();
-            DataTable DTcoloso = new DataTable();
-            DataTable DTvelazquez = new DataTable();
-
-            //**************************************** SE RELLENAN LOS DATATABLES CON LAS CLAVES DE ARTICULOS DE LAS TIENDAS ]*****************************
-
-
-
-            try
-            {
-                conbodega = BDConexicon.BodegaOpen();
-                MySqlCommand cmdBodega = new MySqlCommand("SELECT articulo AS ARTICULO from prods", conbodega);
-                MySqlDataAdapter adBodega = new MySqlDataAdapter(cmdBodega);
-                adBodega.Fill(DTbodega);
-                TB_estatusBodega.BackColor = Color.Green;
-                conbodega.Close();
-            }
-            catch (Exception)
-            {
-
-                TB_estatusBodega.BackColor = Color.Red;
-
-            }
-
-
-            try
-            {
-                convallarta = BDConexicon.V_vallarta();
-                MySqlCommand cmdVallarta = new MySqlCommand("SELECT articulo AS ARTICULO from prods", convallarta);
-
-                MySqlDataAdapter adVallarta = new MySqlDataAdapter(cmdVallarta);
-                adVallarta.Fill(DTvallarta);
-                TB_estatusVallarta.BackColor = Color.Green;
-
-                convallarta.Close();
-            }
-            catch (Exception)
-            {
-
-                TB_estatusVallarta.BackColor = Color.Red;
-            }
-
-            try
-            {
-                conrena = BDConexicon.RenaOpen();
-                MySqlCommand cmdRena = new MySqlCommand("SELECT articulo AS ARTICULO from prods", conrena);
-                MySqlDataAdapter adRena = new MySqlDataAdapter(cmdRena);
-                adRena.Fill(DTrena);
-                TB_estatusRena.BackColor = Color.Green;
-                conrena.Close();
-            }
-            catch (Exception)
-            {
-
-                TB_estatusRena.BackColor = Color.Red;
-            }
-
-
-            try
-            {
-
-                convelazquez = BDConexicon.VelazquezOpen();
-                MySqlCommand cmdVelazquez = new MySqlCommand("SELECT articulo AS ARTICULO from prods", convelazquez);
-                MySqlDataAdapter adVelazquez = new MySqlDataAdapter(cmdVelazquez);
-
-                adVelazquez.Fill(DTvelazquez);
-                TB_estatusVelazquez.BackColor = Color.Green;
-                convelazquez.Close();
-            }
-            catch (Exception)
-            {
-
-
-                TB_estatusVelazquez.BackColor = Color.Red;
-            }
-
-
-            try
-            {
-
-
-                concoloso = BDConexicon.ColosoOpen();
-                MySqlCommand cmdColoso = new MySqlCommand("SELECT articulo AS ARTICULO from prods", concoloso);
-                MySqlDataAdapter adColoso = new MySqlDataAdapter(cmdColoso);
-                adColoso.Fill(DTcoloso);
-                TB_estatusColoso.BackColor = Color.Green;
-                concoloso.Close();
-
-            }
-            catch (Exception)
-            {
-
-                TB_estatusColoso.BackColor = Color.Red;
-
-            }
-
-
-            //************************************* UNIR LOS DATATABLES EN UNO PROVISIONAL *****************************************************
-            DataTable master1 = DTbodega.AsEnumerable()
-                .Union(DTvallarta.AsEnumerable())
-                .Union(DTrena.AsEnumerable())
-                .Union(DTvelazquez.AsEnumerable())
-                .Union(DTcoloso.AsEnumerable()).Distinct(DataRowComparer.Default).CopyToDataTable<DataRow>();
-
-            //master = repetidos(master1, "articulo");
-            
-            string departamento = TB_depto.Text;
-            string proveedor = TB_proveedor.Text;
-
-            int clavesRep = 0;
-            bool bandera = false;
-            try
-            {
+                //**************************************** SE RELLENAN LOS DATATABLES CON LAS CLAVES DE ARTICULOS DE LAS TIENDAS ]*****************************
 
 
 
-                for (int i = 0; i < 50; i++)
+                try
+                {
+                    conbodega = BDConexicon.BodegaOpen();
+                    MySqlCommand cmdBodega = new MySqlCommand("SELECT articulo AS ARTICULO from prods", conbodega);
+                    MySqlDataAdapter adBodega = new MySqlDataAdapter(cmdBodega);
+                    adBodega.Fill(DTbodega);
+                    TB_estatusBodega.BackColor = Color.Green;
+                    conbodega.Close();
+                }
+                catch (Exception)
                 {
 
-                    int n = rnd.Next(100000, 999999);
-                    string numero = Convert.ToString(n);
-
-                    foreach (DataRow row in master1.Rows)
-                    {
-
-                        string num = row["ARTICULO"].ToString();
-                        if (numero.Equals(num))
-                        {
-                            bandera = true;
-                            clavesRep++;
-
-                        }
-
-                    }
-                    if (bandera == false)
-                    {
-                        DG_numeros.Rows.Add(TB_depto.Text + TB_proveedor.Text + Convert.ToString(numero));
-                    }
+                    TB_estatusBodega.BackColor = Color.Red;
 
                 }
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex);
 
-            }
+                try
+                {
+                    convallarta = BDConexicon.V_vallarta();
+                    MySqlCommand cmdVallarta = new MySqlCommand("SELECT articulo AS ARTICULO from prods", convallarta);
+
+                    MySqlDataAdapter adVallarta = new MySqlDataAdapter(cmdVallarta);
+                    adVallarta.Fill(DTvallarta);
+                    TB_estatusVallarta.BackColor = Color.Green;
+
+                    convallarta.Close();
+                }
+                catch (Exception)
+                {
+
+                    TB_estatusVallarta.BackColor = Color.Red;
+                }
+
+                try
+                {
+                    conrena = BDConexicon.RenaOpen();
+                    MySqlCommand cmdRena = new MySqlCommand("SELECT articulo AS ARTICULO from prods", conrena);
+                    MySqlDataAdapter adRena = new MySqlDataAdapter(cmdRena);
+                    adRena.Fill(DTrena);
+                    TB_estatusRena.BackColor = Color.Green;
+                    conrena.Close();
+                }
+                catch (Exception)
+                {
+
+                    TB_estatusRena.BackColor = Color.Red;
+                }
 
 
-            LB_generadas.Text = Convert.ToString(DG_numeros.RowCount);
-            LB_rep.Text = Convert.ToString(clavesRep);
+                try
+                {
 
+                    convelazquez = BDConexicon.VelazquezOpen();
+                    MySqlCommand cmdVelazquez = new MySqlCommand("SELECT articulo AS ARTICULO from prods", convelazquez);
+                    MySqlDataAdapter adVelazquez = new MySqlDataAdapter(cmdVelazquez);
+
+                    adVelazquez.Fill(DTvelazquez);
+                    TB_estatusVelazquez.BackColor = Color.Green;
+                    convelazquez.Close();
+                }
+                catch (Exception)
+                {
+
+
+                    TB_estatusVelazquez.BackColor = Color.Red;
+                }
+
+
+                try
+                {
+
+
+                    concoloso = BDConexicon.ColosoOpen();
+                    MySqlCommand cmdColoso = new MySqlCommand("SELECT articulo AS ARTICULO from prods", concoloso);
+                    MySqlDataAdapter adColoso = new MySqlDataAdapter(cmdColoso);
+                    adColoso.Fill(DTcoloso);
+                    TB_estatusColoso.BackColor = Color.Green;
+                    concoloso.Close();
+
+                }
+                catch (Exception)
+                {
+
+                    TB_estatusColoso.BackColor = Color.Red;
+
+                }
+
+                try
+                {
+                    conpregot = BDConexicon.Papeleria1Open();
+                    MySqlCommand cmdPregot = new MySqlCommand("SELECT articulo AS ARTICULO from prods", conpregot);
+                    MySqlDataAdapter adBodega = new MySqlDataAdapter(cmdPregot);
+                    adBodega.Fill(DTpregot);
+                    TB_estatuspregot.BackColor = Color.Green;
+                    conbodega.Close();
+                }
+                catch (Exception)
+                {
+
+                    TB_estatuspregot.BackColor = Color.Red;
+
+                }
+
+
+
+                //************************************* UNIR LOS DATATABLES EN UNO PROVISIONAL *****************************************************
+                DataTable master1 = DTbodega.AsEnumerable()
+                    .Union(DTvallarta.AsEnumerable())
+                    .Union(DTrena.AsEnumerable())
+                    .Union(DTvelazquez.AsEnumerable())
+                    .Union(DTcoloso.AsEnumerable()).Union(DTpregot.AsEnumerable()).Distinct(DataRowComparer.Default).CopyToDataTable<DataRow>();
+
+                //master = repetidos(master1, "articulo");
+
+                string departamento = TB_depto.Text;
+                string proveedor = TB_proveedor.Text;
+
+                int clavesRep = 0;
+                bool bandera = false;
+                try
+                {
+
+
+
+                    for (int i = 0; i < 20; i++)
+                    {
+
+                        int n = rnd.Next(100000, 999999);
+                        string numero = Convert.ToString(n);
+
+                        foreach (DataRow row in master1.Rows)
+                        {
+
+                            string num = row["ARTICULO"].ToString();
+                            if (numero.Equals(num))
+                            {
+                                bandera = true;
+                                clavesRep++;
+
+                            }
+
+                        }
+                        if (bandera == false)
+                        {
+                            DG_numeros.Rows.Add(TB_depto.Text + TB_proveedor.Text + Convert.ToString(numero));
+                        }
+
+                    }
+                    LB_mensaje.Text = "Realizando comprobación...";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex);
+
+                }
+
+
+                LB_generadas.Text = Convert.ToString(DG_numeros.RowCount);
+                //LB_rep.Text = Convert.ToString(clavesRep);
+
+          
 
 
 
         }
 
-
+        //########################################## EL METODO RESETEAR REGRESA A SU ESTADO INICIAL("EN BLANCO") A ESTOS ELEMENTOS ##################
         public void Resetar()
         {
             TB_estatusBodega.BackColor = Color.White;
@@ -202,17 +221,29 @@ namespace appSugerencias
             TB_estatusRena.BackColor = Color.White;
             TB_estatusColoso.BackColor = Color.White;
             TB_estatusVelazquez.BackColor = Color.White;
+            TB_estatuspregot.BackColor = Color.White;
             PB_proceso.Value = 0;
             DG_numeros.Rows.Clear();
             LB_mensaje.Text = "";
             LB_generadas.Text = "";
-            LB_rep.Text = "";
+           
+            //LB_rep.Text = "";
         }
+
 
         private void BT_generar_Click(object sender, EventArgs e)
         {
-            Resetar();
-            Timer.Enabled = true;
+            if (TB_proveedor.Text.Equals("")||TB_depto.Text.Equals(""))
+            {
+                MessageBox.Show("Se debe agregar el código del departamento y el de proveedor");
+            }
+            else
+            {
+                Resetar();
+                Timer.Enabled = true;
+            }
+
+            
            
         }
 
@@ -241,68 +272,52 @@ namespace appSugerencias
             }
         }
 
-        //private void BT_consultar_Click(object sender, EventArgs e)
-        //{
-        //    MySqlDataReader dr = null;
-        //    MySqlConnection con;
-        //    string valor = "";
-        //    con = BDConexicon.VallartaOpen();
-        //    foreach(DataGridViewRow row in DG_numeros.Rows)
-        //    {
-        //       valor= row.Cells[0].Value.ToString();
-              
-        //        MySqlCommand cmd = new MySqlCommand("SELECT descrip from prods where articulo ='"+valor+"'",con);
-        //      dr = cmd.ExecuteReader();
-        //       if(dr.Read())
-        //        {
-        //            //row.DefaultCellStyle.ForeColor = Color.Red;
 
-        //        }
-        //        else
-        //        {
-
-        //        }
-        //        dr.Close();
-        //    }
-            
-        //    con.Close();
-        //    MessageBox.Show("Se ha generado el resultado de la verificación");
-        //}
 
         private void BT_exportar_Click(object sender, EventArgs e)
         {
-            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
-            excel.Application.Workbooks.Add(true);
-
-
-            excel.Range["A1:A1000"].NumberFormat = "@";
-            int indiceColumna = 0;
-
-            foreach (DataGridViewColumn col in DG_numeros.Columns)
+            if (DG_numeros.Rows.Count==0)
             {
-                indiceColumna++;
-                excel.Cells[5, indiceColumna] = col.Name;
-
+                MessageBox.Show("Debes generar claves");
             }
-
-            int indiceFila = 4;
-
-            foreach (DataGridViewRow row in DG_numeros.Rows)
+            else
             {
-                indiceFila++;
-                indiceColumna = 0;
+                Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+                excel.Application.Workbooks.Add(true);
 
 
-
+                excel.Range["A1:A1000"].NumberFormat = "@";
+                int indiceColumna = 0;
 
                 foreach (DataGridViewColumn col in DG_numeros.Columns)
                 {
                     indiceColumna++;
+                    excel.Cells[5, indiceColumna] = col.Name;
 
-                    excel.Cells[indiceFila + 1, indiceColumna] = row.Cells[col.Name].Value;
+                }
+
+                int indiceFila = 4;
+
+                foreach (DataGridViewRow row in DG_numeros.Rows)
+                {
+                    indiceFila++;
+                    indiceColumna = 0;
 
 
 
+
+                    foreach (DataGridViewColumn col in DG_numeros.Columns)
+                    {
+                        indiceColumna++;
+
+                        excel.Cells[indiceFila + 1, indiceColumna] = row.Cells[col.Name].Value;
+
+
+
+
+
+
+                    }
 
 
 
@@ -310,12 +325,9 @@ namespace appSugerencias
 
 
 
+
+                excel.Visible = true;
             }
-
-
-
-
-            excel.Visible = true;
         }
 
         private void GenClaves_Load(object sender, EventArgs e)
@@ -332,13 +344,33 @@ namespace appSugerencias
                 PB_proceso.Value = PB_proceso.Value + 10;
                 LB_mensaje.Text = "Generando Claves...";
             }
+          
             else
             {
-                Generar();
-                Timer.Enabled = false;
-                LB_mensaje.Text = "Proceso finalizado";
+                
+                    Generar();
+                    Timer.Enabled = false;
+                    LB_mensaje.Text = "Proceso finalizado";
+                
+                  
                
             }
+        }
+
+        private void BT_limpiar_Click(object sender, EventArgs e)
+        {
+            TB_depto.Text = "";
+            TB_proveedor.Text = "";
+            TB_estatusBodega.BackColor = Color.White;
+            TB_estatusVallarta.BackColor = Color.White;
+            TB_estatusRena.BackColor = Color.White;
+            TB_estatusColoso.BackColor = Color.White;
+            TB_estatusVelazquez.BackColor = Color.White;
+            TB_estatuspregot.BackColor = Color.White;
+            PB_proceso.Value = 0;
+            DG_numeros.Rows.Clear();
+            LB_mensaje.Text = "";
+            LB_generadas.Text = "";
         }
     }
 }

@@ -39,8 +39,6 @@
             this.BT_exportar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.LB_generadas = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.LB_rep = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -54,6 +52,9 @@
             this.PB_proceso = new System.Windows.Forms.ProgressBar();
             this.Timer = new System.Windows.Forms.Timer(this.components);
             this.LB_mensaje = new System.Windows.Forms.Label();
+            this.TB_estatuspregot = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.BT_limpiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DG_numeros)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,7 +116,7 @@
             this.BT_generar.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_generar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_generar.ForeColor = System.Drawing.Color.White;
-            this.BT_generar.Location = new System.Drawing.Point(204, 328);
+            this.BT_generar.Location = new System.Drawing.Point(204, 277);
             this.BT_generar.Name = "BT_generar";
             this.BT_generar.Size = new System.Drawing.Size(105, 59);
             this.BT_generar.TabIndex = 7;
@@ -128,7 +129,7 @@
             this.BT_exportar.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_exportar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_exportar.ForeColor = System.Drawing.Color.White;
-            this.BT_exportar.Location = new System.Drawing.Point(332, 328);
+            this.BT_exportar.Location = new System.Drawing.Point(332, 277);
             this.BT_exportar.Name = "BT_exportar";
             this.BT_exportar.Size = new System.Drawing.Size(107, 59);
             this.BT_exportar.TabIndex = 9;
@@ -153,23 +154,6 @@
             this.LB_generadas.Size = new System.Drawing.Size(0, 13);
             this.LB_generadas.TabIndex = 11;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(340, 38);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 13);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Repetidas";
-            // 
-            // LB_rep
-            // 
-            this.LB_rep.AutoSize = true;
-            this.LB_rep.Location = new System.Drawing.Point(401, 38);
-            this.LB_rep.Name = "LB_rep";
-            this.LB_rep.Size = new System.Drawing.Size(0, 13);
-            this.LB_rep.TabIndex = 13;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -184,7 +168,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(225, 67);
+            this.label7.Location = new System.Drawing.Point(225, 66);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(49, 18);
             this.label7.TabIndex = 15;
@@ -204,7 +188,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(224, 117);
+            this.label9.Location = new System.Drawing.Point(224, 116);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(95, 18);
             this.label9.TabIndex = 17;
@@ -221,7 +205,7 @@
             // TB_estatusRena
             // 
             this.TB_estatusRena.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_estatusRena.Location = new System.Drawing.Point(197, 64);
+            this.TB_estatusRena.Location = new System.Drawing.Point(197, 63);
             this.TB_estatusRena.Name = "TB_estatusRena";
             this.TB_estatusRena.Size = new System.Drawing.Size(25, 24);
             this.TB_estatusRena.TabIndex = 19;
@@ -237,7 +221,7 @@
             // TB_estatusVelazquez
             // 
             this.TB_estatusVelazquez.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_estatusVelazquez.Location = new System.Drawing.Point(197, 114);
+            this.TB_estatusVelazquez.Location = new System.Drawing.Point(197, 113);
             this.TB_estatusVelazquez.Name = "TB_estatusVelazquez";
             this.TB_estatusVelazquez.Size = new System.Drawing.Size(25, 24);
             this.TB_estatusVelazquez.TabIndex = 21;
@@ -279,12 +263,46 @@
             this.LB_mensaje.Size = new System.Drawing.Size(0, 13);
             this.LB_mensaje.TabIndex = 25;
             // 
+            // TB_estatuspregot
+            // 
+            this.TB_estatuspregot.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_estatuspregot.Location = new System.Drawing.Point(197, 138);
+            this.TB_estatuspregot.Name = "TB_estatuspregot";
+            this.TB_estatuspregot.Size = new System.Drawing.Size(25, 24);
+            this.TB_estatuspregot.TabIndex = 27;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(224, 141);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 18);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "PREGOT";
+            // 
+            // BT_limpiar
+            // 
+            this.BT_limpiar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BT_limpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_limpiar.ForeColor = System.Drawing.Color.White;
+            this.BT_limpiar.Location = new System.Drawing.Point(204, 342);
+            this.BT_limpiar.Name = "BT_limpiar";
+            this.BT_limpiar.Size = new System.Drawing.Size(235, 46);
+            this.BT_limpiar.TabIndex = 28;
+            this.BT_limpiar.Text = "Limpiar";
+            this.BT_limpiar.UseVisualStyleBackColor = false;
+            this.BT_limpiar.Click += new System.EventHandler(this.BT_limpiar_Click);
+            // 
             // GenClaves
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(459, 450);
+            this.Controls.Add(this.BT_limpiar);
+            this.Controls.Add(this.TB_estatuspregot);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.LB_mensaje);
             this.Controls.Add(this.PB_proceso);
             this.Controls.Add(this.TB_estatusBodega);
@@ -297,8 +315,6 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.LB_rep);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.LB_generadas);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.BT_exportar);
@@ -329,8 +345,6 @@
         private System.Windows.Forms.Button BT_exportar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label LB_generadas;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label LB_rep;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -344,5 +358,8 @@
         private System.Windows.Forms.ProgressBar PB_proceso;
         private System.Windows.Forms.Timer Timer;
         private System.Windows.Forms.Label LB_mensaje;
+        private System.Windows.Forms.TextBox TB_estatuspregot;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button BT_limpiar;
     }
 }

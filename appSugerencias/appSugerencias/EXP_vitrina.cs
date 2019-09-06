@@ -378,7 +378,7 @@ namespace appSugerencias
             {
 
 
-                con = BDConexicon.V_rena();
+                con = BDConexicon.V_vallarta();
                 MySqlCommand cmd = new MySqlCommand("SELECT distinct fabricante from prods order by fabricante", con);
 
                 //MySqlDataAdapter ad = new MySqlDataAdapter(cmd);
@@ -439,7 +439,7 @@ namespace appSugerencias
             excel.Application.Workbooks.Add(true);
 
 
-            excel.Range["A1:A1000"].NumberFormat = "@";
+            excel.Range["A1:A4000"].NumberFormat = "@";
             int indiceColumna = 0;
 
             foreach (DataGridViewColumn col in DG_existencias.Columns)

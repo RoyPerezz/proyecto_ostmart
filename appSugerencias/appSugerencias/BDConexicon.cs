@@ -16,7 +16,7 @@ namespace appSugerencias
         MySqlConnection conVelazquez;
         MySqlConnection conColoso;
         MySqlConnection conBodega;
-       
+
         public static string optieneIp()
         {
             TextReader IP;
@@ -48,10 +48,10 @@ namespace appSugerencias
 
 
 
-            
+
             string IP = optieneIp();
             string BD = optieneBd();
-            MySqlConnection con = new MySqlConnection("server="+IP+ "; database="+BD+"; Uid=root; pwd=;");
+            MySqlConnection con = new MySqlConnection("server=" + IP + "; database=" + BD + "; Uid=root; pwd=;");
             con.Open();
 
 
@@ -68,7 +68,7 @@ namespace appSugerencias
             string BD = optieneBd();
             MySqlConnection conVallarta = new MySqlConnection("server=192.168.1.2; database=" + BD + "; Uid=root; pwd=;");
             conVallarta.Open();
-           
+
 
 
             return conVallarta;
@@ -105,13 +105,13 @@ namespace appSugerencias
 
         public static MySqlConnection ColosoOpen()
         {
-       
-                string BD = optieneBd();
-                MySqlConnection conColoso = new MySqlConnection("server=192.168.3.2; database=" + BD + "; Uid=root; pwd=;");
-                conColoso.Open();
 
-                return conColoso;
-             
+            string BD = optieneBd();
+            MySqlConnection conColoso = new MySqlConnection("server=192.168.3.2; database=" + BD + "; Uid=root; pwd=;");
+            conColoso.Open();
+
+            return conColoso;
+
 
         }
 
@@ -127,6 +127,7 @@ namespace appSugerencias
 
         }
 
+     
 
 
 
@@ -141,6 +142,8 @@ namespace appSugerencias
             return conVallarta;
 
         }
+
+    
 
         public static MySqlConnection RenaClose()
         {
