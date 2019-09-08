@@ -724,3 +724,4 @@ C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\D
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Concentrador.resources
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_recalcular.resources
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.VentasxTienda.resources
+C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.csprojAssemblyReference.cache
