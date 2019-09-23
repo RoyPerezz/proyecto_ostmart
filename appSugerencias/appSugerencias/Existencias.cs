@@ -38,7 +38,7 @@ namespace appSugerencias
             {
                 MySqlConnection con = BDConexicon.VallartaOpen();
 
-                MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'",con );
+                MySqlCommand cmd = new MySqlCommand("select existencia,fabricante from prods where articulo='" + TB_articulo.Text + "'",con );
                 MySqlDataReader rd = cmd.ExecuteReader();
 
                 //while (rd.Read())
@@ -51,6 +51,7 @@ namespace appSugerencias
                 {
 
                     TB_vallarta.Text = rd[0].ToString();
+                    LB_prov_vallarta.Text= rd["fabricante"].ToString();
                     LB_vallarta.Text = "Conectado";
                     LB_vallarta.ForeColor = Color.DarkGreen;
                 }
@@ -75,7 +76,7 @@ namespace appSugerencias
           
             try {
                 MySqlConnection con = BDConexicon.VelazquezOpen();
-                MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'",con );
+                MySqlCommand cmd = new MySqlCommand("select existencia,fabricante from prods where articulo='" + TB_articulo.Text + "'",con );
             MySqlDataReader rd = cmd.ExecuteReader();
 
             //while (rd.Read())
@@ -87,6 +88,7 @@ namespace appSugerencias
                 if (rd.Read())
                 {
                     TB_velazquez.Text = rd[0].ToString();
+                    LB_prov_velazquez.Text= rd["fabricante"].ToString();
                     LB_velazquez.Text = "Conectado";
                     LB_velazquez.ForeColor = Color.DarkGreen;
                 }
@@ -113,7 +115,7 @@ namespace appSugerencias
           
             try {
                 MySqlConnection con = BDConexicon.RenaOpen();
-                MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'",con);
+                MySqlCommand cmd = new MySqlCommand("select existencia,fabricante from prods where articulo='" + TB_articulo.Text + "'",con);
             MySqlDataReader rd = cmd.ExecuteReader();
 
             //while (rd.Read())
@@ -125,6 +127,7 @@ namespace appSugerencias
                 if (rd.Read())
                 {
                     TB_rena.Text = rd[0].ToString();
+                    LB_prov_rena.Text= rd["fabricante"].ToString();
                     LB_rena.Text = "Conectado";
                     LB_rena.ForeColor = Color.DarkGreen;
                 }
@@ -153,7 +156,7 @@ namespace appSugerencias
             try {
                 MySqlConnection con = BDConexicon.ColosoOpen();
 
-                MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'", con);
+                MySqlCommand cmd = new MySqlCommand("select existencia,fabricante from prods where articulo='" + TB_articulo.Text + "'", con);
             MySqlDataReader rd = cmd.ExecuteReader();
 
             //while (rd.Read())
@@ -166,6 +169,7 @@ namespace appSugerencias
                 if (rd.Read())
                 {
                     TB_coloso.Text = rd[0].ToString();
+                    LB_prov_coloso.Text= rd["fabricante"].ToString();
                     LB_coloso.Text = "Conectado";
                     LB_coloso.ForeColor = Color.DarkGreen;
                 }
@@ -192,7 +196,7 @@ namespace appSugerencias
             try
             {
                 MySqlConnection con = BDConexicon.BodegaOpen();
-                MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'", con);
+                MySqlCommand cmd = new MySqlCommand("select existencia,fabricante from prods where articulo='" + TB_articulo.Text + "'", con);
                 MySqlDataReader rd = cmd.ExecuteReader();
 
               
@@ -200,6 +204,7 @@ namespace appSugerencias
                 if (rd.Read())
                 {
                     TB_bodega.Text = rd["existencia"].ToString();
+                    LB_prov_bodega.Text= rd["fabricante"].ToString();
                     Lb_bodega.Text = "Conectado";
                     Lb_bodega.ForeColor = Color.DarkGreen;
                 }
@@ -226,7 +231,7 @@ namespace appSugerencias
             try
             {
                 MySqlConnection con = BDConexicon.Papeleria1Open();
-            MySqlCommand cmd = new MySqlCommand("select existencia from prods where articulo='" + TB_articulo.Text + "'", con);
+            MySqlCommand cmd = new MySqlCommand("select existencia,fabricante from prods where articulo='" + TB_articulo.Text + "'", con);
             MySqlDataReader rd = cmd.ExecuteReader();
 
 
@@ -234,6 +239,7 @@ namespace appSugerencias
             if (rd.Read())
             {
                 TB_pregot.Text = rd["existencia"].ToString();
+                LB_prov_pregot.Text = rd["fabricante"].ToString();
                 LB_pregot.Text = "Conectado";
                 LB_pregot.ForeColor = Color.DarkGreen;
             }
@@ -262,32 +268,41 @@ namespace appSugerencias
             try
             {
                 MySqlConnection con = BDConexicon.conectar();
-                MySqlCommand cmd = new MySqlCommand("select descrip, precio1,precio2, costo_u, existencia,fabricante from prods where articulo ='" + TB_articulo.Text + "'",con);
+                MySqlCommand cmd = new MySqlCommand("select descrip, precio1,precio2, costo_u, existencia,fabricante,impuesto from prods where articulo ='" + TB_articulo.Text + "'",con);
                 MySqlDataReader rd = cmd.ExecuteReader();
 
                 if(rd.Read())
                 {
-                    TB_desc.Text = rd["DESCRIP"].ToString();
-
-                    double precio1 = Convert.ToDouble(rd["PRECIO1"].ToString());
-                    double ivaPrecio1 = precio1 + precio1 * 0.16;
-
-                    double precio2 = Convert.ToDouble(rd["PRECIO2"].ToString());
-                    double ivaPrecio2 = precio2 + precio2 * 0.16;
-
-                    TB_precio1.Text = ivaPrecio1.ToString();
-                    TB_precio2.Text = ivaPrecio2.ToString();
-
-                    //TB_bodega.Text = rd["existencia"].ToString();
-                    //Lb_bodega.Text = "Conectado";
-                    //Lb_bodega.ForeColor = Color.DarkGreen;
+                    if (rd["impuesto"].ToString().Equals("SYS")||rd["impuesto"].ToString().Equals("sys"))
+                    {
+                        TB_desc.Text = rd["DESCRIP"].ToString();
+                        TB_precio1.Text = rd["PRECIO1"].ToString();
+                        TB_precio2.Text = rd["PRECIO2"].ToString();
+                        TB_costo.Text = rd["COSTO_U"].ToString();
+                        TB_fabricante.Text = rd["fabricante"].ToString();
 
 
-                    double costo = Convert.ToDouble(rd["COSTO_U"].ToString());
-                    double IvaCosto = costo + costo * 0.16;
+                      }
+                    else
+                    {
+                        TB_desc.Text = rd["DESCRIP"].ToString();
 
-                    TB_costo.Text = IvaCosto.ToString();
-                    TB_fabricante.Text = rd["fabricante"].ToString();
+                        double precio1 = Convert.ToDouble(rd["PRECIO1"].ToString());
+                        double ivaPrecio1 = precio1 + precio1 * 0.16;
+
+                        double precio2 = Convert.ToDouble(rd["PRECIO2"].ToString());
+                        double ivaPrecio2 = precio2 + precio2 * 0.16;
+
+                        TB_precio1.Text = ivaPrecio1.ToString();
+                        TB_precio2.Text = ivaPrecio2.ToString();
+
+
+                        double costo = Convert.ToDouble(rd["COSTO_U"].ToString());
+                        double IvaCosto = costo + costo * 0.16;
+
+                        TB_costo.Text = IvaCosto.ToString();
+                        TB_fabricante.Text = rd["fabricante"].ToString();
+                    }
                 }
                 else
                 {
@@ -1430,6 +1445,13 @@ namespace appSugerencias
             lblVePre.Text = "";
             lblCoPre.Text = "";
             lblPre2.Text = "";
+
+            LB_prov_bodega.Text = "";
+            LB_prov_coloso.Text = "";
+            LB_prov_pregot.Text = "";
+            LB_prov_rena.Text = "";
+            LB_prov_vallarta.Text = "";
+            LB_prov_velazquez.Text = "";
         }
 
         private void TB_articulo_KeyPress(object sender, KeyPressEventArgs e)
@@ -1486,6 +1508,14 @@ namespace appSugerencias
                 lblVePre.Text = "";
                 lblCoPre.Text = "";
                 lblPre2.Text = "";
+
+
+                LB_prov_bodega.Text = "";
+                LB_prov_coloso.Text = "";
+                LB_prov_pregot.Text = "";
+                LB_prov_rena.Text = "";
+                LB_prov_vallarta.Text = "";
+                LB_prov_velazquez.Text = "";
 
                 TB_articulo.Focus();
                 TB_articulo.SelectAll();
