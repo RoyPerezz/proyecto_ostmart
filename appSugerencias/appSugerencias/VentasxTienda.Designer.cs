@@ -38,6 +38,7 @@
             this.RENA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VELAZQUEZ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.COLOSO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PREGOT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TOTAL_DIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             this.SuspendLayout();
@@ -53,10 +54,11 @@
             this.RENA,
             this.VELAZQUEZ,
             this.COLOSO,
+            this.PREGOT,
             this.TOTAL_DIA});
             this.dgvVentas.Location = new System.Drawing.Point(29, 95);
             this.dgvVentas.Name = "dgvVentas";
-            this.dgvVentas.Size = new System.Drawing.Size(679, 683);
+            this.dgvVentas.Size = new System.Drawing.Size(749, 683);
             this.dgvVentas.TabIndex = 0;
             // 
             // button1
@@ -127,6 +129,11 @@
             this.COLOSO.Name = "COLOSO";
             this.COLOSO.ReadOnly = true;
             // 
+            // PREGOT
+            // 
+            this.PREGOT.HeaderText = "Pregot";
+            this.PREGOT.Name = "PREGOT";
+            // 
             // TOTAL_DIA
             // 
             this.TOTAL_DIA.HeaderText = "Total del Dia";
@@ -136,7 +143,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(734, 846);
+            this.ClientSize = new System.Drawing.Size(818, 846);
             this.Controls.Add(this.BT_exportar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
@@ -161,6 +168,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn RENA;
         private System.Windows.Forms.DataGridViewTextBoxColumn VELAZQUEZ;
         private System.Windows.Forms.DataGridViewTextBoxColumn COLOSO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PREGOT;
         private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL_DIA;
     }
 }

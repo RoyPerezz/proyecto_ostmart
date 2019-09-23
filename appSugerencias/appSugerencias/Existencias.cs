@@ -590,6 +590,54 @@ namespace appSugerencias
             BDConexicon.ColosoClose();
         }
 
+
+        public void PregotOferta()
+        {
+
+            MySqlConnection con = BDConexicon.Papeleria1Open();
+            try
+            {
+                DateTime Finicio = dt_Inicio.Value;
+                DateTime Ffin = dt_Fin.Value;
+
+                string inicio = getDate(Finicio);
+                string fin = getDate(Ffin);
+
+
+
+                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET oferta=1  WHERE articulo=?articulo", con);
+                cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
+                MySqlDataReader mdrr;
+                mdrr = cmdoo.ExecuteReader();
+                mdrr.Close();
+
+                MySqlCommand cmdo = new MySqlCommand("DELETE FROM ofertas WHERE articulo=?articulo", con);
+                cmdo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
+                MySqlDataReader mdr;
+                mdr = cmdo.ExecuteReader();
+                mdr.Close();
+
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO ofertas(articulo,fechainicial,fechafinal,porporcentaje,porcentaje) VALUES(?articulo,?fechainicial,?fechafinal,?porporcentaje,?porcentaje)", con);
+                cmd.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
+                cmd.Parameters.Add("?fechainicial", MySqlDbType.VarChar).Value = inicio;
+                cmd.Parameters.Add("?fechafinal", MySqlDbType.VarChar).Value = fin;
+                cmd.Parameters.Add("?porporcentaje", MySqlDbType.Int16).Value = 1;
+                cmd.Parameters.Add("?porcentaje", MySqlDbType.Float).Value = (float)Convert.ToDouble(tbporcentaje.Text);
+                cmd.ExecuteNonQuery();
+
+                //limpiarOferta();
+
+                lblPre.Text = "OK";
+                //MessageBox.Show("Los datos se Guardaron");
+            }
+            catch (Exception e)
+            {
+                lblPre.Text = "N/A";
+                lblPre.ForeColor = Color.Red;
+            }
+            con.Close();
+        }
+
         public void limpiarPrecio()
         {
             cBoxTodasPrecio.Checked = false;
@@ -597,6 +645,8 @@ namespace appSugerencias
             cBoxRePrecio.Checked = false;
             cBoxVePrecio.Checked = false;
             cBoxCoPrecio.Checked = false;
+            cBoxPre2.Checked = false;
+
             tbPrecio1.Text = "";
             tbPrecio2.Text = "";
         }
@@ -608,6 +658,7 @@ namespace appSugerencias
             cBoxRe.Checked = false;
             cBoxVe.Checked = false;
             cBoxCo.Checked = false;
+            cBoxPre.Checked = false;
             tbporcentaje.Text = "";
         }
 
@@ -624,7 +675,7 @@ namespace appSugerencias
         private void Existencias_Load_1(object sender, EventArgs e)
         {
             //#################################################### ACTUALIZACION PARA ACTIVAR  SEGUN USUARIO #####################################
-            if (Area == "TRASPASOS" || Area == "SISTEMAS" || Area == "SUPER")
+            if (Area == "TRASPASOS" || Area == "SISTEMAS" || Area == "SUPER" || Area == "ADMON GRAL")
             {
                 panelOfertas.Enabled = true;
             }
@@ -634,7 +685,7 @@ namespace appSugerencias
             }
 
 
-            if (Area == "TRASPASOS" || Area == "SISTEMAS" || Area == "SUPER")
+            if (Area == "TRASPASOS" || Area == "SISTEMAS" || Area == "SUPER" || Area == "ADMON GRAL")
             {
                 panelPrecio.Enabled = true;
             }
@@ -1001,6 +1052,23 @@ namespace appSugerencias
                     //MessageBox.Show("Coloso");
                 }
             }
+            if (cBoxPre.Checked)
+            {
+                if (string.IsNullOrEmpty(TB_articulo.Text))
+                {
+                    MessageBox.Show("Inserta Codigo de Articulo");
+
+                }
+                else if (string.IsNullOrEmpty(tbporcentaje.Text))
+                {
+                    MessageBox.Show("Inserta Porcentaje de Descuento");
+                }
+                else
+                {
+                    PregotOferta();
+                    //MessageBox.Show("Coloso");
+                }
+            }
             else
             {
                 limpiarOferta();
@@ -1102,8 +1170,28 @@ namespace appSugerencias
                     //MessageBox.Show("Coloso");
                 }
             }
-            
-                limpiarPrecio();
+            if (cBoxPre2.Checked)
+            {
+                if (string.IsNullOrEmpty(TB_articulo.Text))
+                {
+                    MessageBox.Show("Inserta Codigo de Articulo");
+
+                }
+                else if (string.IsNullOrEmpty(tbPrecio1.Text))
+                {
+                    MessageBox.Show("Inserta Precio Menudeo");
+                }
+                else if (string.IsNullOrEmpty(tbPrecio2.Text))
+                {
+                    MessageBox.Show("Inserta Precio Mayoreo");
+                }
+                {
+                    PregotPrecio();
+                    //MessageBox.Show("Coloso");
+                }
+            }
+
+            limpiarPrecio();
             
         }
 
@@ -1247,7 +1335,43 @@ namespace appSugerencias
             BDConexicon.ColosoClose();
         }
 
-        
+
+        public void PregotPrecio()
+        {
+
+            MySqlConnection con = BDConexicon.Papeleria1Open();
+            try
+            {
+
+                double Precio1 = Convert.ToDouble(tbPrecio1.Text);
+                double Precio2 = Convert.ToDouble(tbPrecio2.Text);
+                Precio1 = Precio1 / 1.16;
+                Precio2 = Precio2 / 1.16;
+
+
+                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET precio1=?precio1,precio2=?precio2  WHERE articulo=?articulo", con);
+                cmdoo.Parameters.Add("?precio1", MySqlDbType.VarChar).Value = Precio1;
+                cmdoo.Parameters.Add("?precio2", MySqlDbType.VarChar).Value = Precio2;
+                cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
+                MySqlDataReader mdrr;
+                mdrr = cmdoo.ExecuteReader();
+                mdrr.Close();
+
+
+                lblPre2.Text = "OK";
+                lblPre2.ForeColor = Color.DarkGreen;
+
+            }
+            catch (Exception e)
+            {
+                lblPre2.Text = "N/A";
+                lblPre2.ForeColor = Color.Red;
+            }
+            con.Close();
+        }
+
+
+
         private void cBoxTodasPrecio_CheckedChanged(object sender, EventArgs e)
         {
             if (cBoxTodasPrecio.Checked)
@@ -1256,6 +1380,7 @@ namespace appSugerencias
                 cBoxRePrecio.Checked = true;
                 cBoxVePrecio.Checked = true;
                 cBoxCoPrecio.Checked = true;
+                cBoxPre2.Checked = true;
             }
             else if (!cBoxTodasPrecio.Checked)
             {
@@ -1263,6 +1388,7 @@ namespace appSugerencias
                 cBoxRePrecio.Checked = false;
                 cBoxVePrecio.Checked = false;
                 cBoxCoPrecio.Checked = false;
+                cBoxPre2.Checked = false;
             }
         }
 
@@ -1274,6 +1400,7 @@ namespace appSugerencias
                 cBoxRe.Checked = true;
                 cBoxVe.Checked = true;
                 cBoxCo.Checked = true;
+                cBoxPre.Checked = true;
             }
             else if (!cBoxTodas.Checked)
             {
@@ -1281,6 +1408,8 @@ namespace appSugerencias
                 cBoxRe.Checked = false;
                 cBoxVe.Checked = false;
                 cBoxCo.Checked = false;
+                cBoxPre.Checked = false;
+
             }
         }
 
@@ -1294,11 +1423,13 @@ namespace appSugerencias
             lblRe.Text = "";
             lblVe.Text = "";
             lblCo.Text = "";
+            lblPre.Text = "";
 
             lblVaPre.Text = "";
             lblRePre.Text = "";
             lblVePre.Text = "";
             lblCoPre.Text = "";
+            lblPre2.Text = "";
         }
 
         private void TB_articulo_KeyPress(object sender, KeyPressEventArgs e)
@@ -1317,11 +1448,13 @@ namespace appSugerencias
                     lblRe.Text = "";
                     lblVe.Text = "";
                     lblCo.Text = "";
+                    lblPre.Text = "";
 
                     lblVaPre.Text = "";
                     lblRePre.Text = "";
                     lblVePre.Text = "";
                     lblCoPre.Text = "";
+                    lblPre2.Text = "";
 
                     DatosProducto();
                     Bodega();
@@ -1346,15 +1479,23 @@ namespace appSugerencias
                 lblRe.Text = "";
                 lblVe.Text = "";
                 lblCo.Text = "";
+                lblPre.Text = "";
 
                 lblVaPre.Text = "";
                 lblRePre.Text = "";
                 lblVePre.Text = "";
                 lblCoPre.Text = "";
+                lblPre2.Text = "";
+
                 TB_articulo.Focus();
                 TB_articulo.SelectAll();
                 SendKeys.Send("{BACKSPACE}");
             }
+        }
+
+        private void panelOfertas_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -50,6 +50,7 @@
             this.lblIP = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblBD = new System.Windows.Forms.Label();
+            this.cONCENTRADORToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -130,7 +131,8 @@
             this.comprasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cargarCompraToolStripMenuItem,
             this.existenciasPorProveedorToolStripMenuItem,
-            this.generadorDeClavesToolStripMenuItem});
+            this.generadorDeClavesToolStripMenuItem,
+            this.cONCENTRADORToolStripMenuItem});
             this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
             this.comprasToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.comprasToolStripMenuItem.Text = "Compras";
@@ -176,8 +178,8 @@
             // 
             this.ventasPTiendasToolStripMenuItem.Name = "ventasPTiendasToolStripMenuItem";
             this.ventasPTiendasToolStripMenuItem.Size = new System.Drawing.Size(105, 20);
-            this.ventasPTiendasToolStripMenuItem.Text = "ventasPTiendas";
-            //this.ventasPTiendasToolStripMenuItem.Click += new System.EventHandler(this.ventasPTiendasToolStripMenuItem_Click);
+            this.ventasPTiendasToolStripMenuItem.Text = "VentasPTiendas";
+            this.ventasPTiendasToolStripMenuItem.Click += new System.EventHandler(this.ventasPTiendasToolStripMenuItem_Click);
             // 
             // lblUsuario
             // 
@@ -236,6 +238,13 @@
             this.lblBD.TabIndex = 6;
             this.lblBD.Text = "Mysql";
             // 
+            // cONCENTRADORToolStripMenuItem
+            // 
+            this.cONCENTRADORToolStripMenuItem.Name = "cONCENTRADORToolStripMenuItem";
+            this.cONCENTRADORToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.cONCENTRADORToolStripMenuItem.Text = "CONCENTRADOR";
+            this.cONCENTRADORToolStripMenuItem.Click += new System.EventHandler(this.cONCENTRADORToolStripMenuItem_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,5 +298,6 @@
         private System.Windows.Forms.ToolStripMenuItem tiendasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vitrinasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ventasPTiendasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cONCENTRADORToolStripMenuItem;
     }
 }

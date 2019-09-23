@@ -66,6 +66,9 @@
             this.TB_bodega = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.TB_pregot = new System.Windows.Forms.TextBox();
+            this.LB_pregot = new System.Windows.Forms.Label();
             this.BT_limpiar = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -92,9 +95,10 @@
             this.label17 = new System.Windows.Forms.Label();
             this.tbPrecio1 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.TB_pregot = new System.Windows.Forms.TextBox();
-            this.LB_pregot = new System.Windows.Forms.Label();
+            this.lblPre = new System.Windows.Forms.Label();
+            this.cBoxPre = new System.Windows.Forms.CheckBox();
+            this.lblPre2 = new System.Windows.Forms.Label();
+            this.cBoxPre2 = new System.Windows.Forms.CheckBox();
             this.panelOfertas.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panelPrecio.SuspendLayout();
@@ -248,6 +252,8 @@
             // 
             // panelOfertas
             // 
+            this.panelOfertas.Controls.Add(this.lblPre);
+            this.panelOfertas.Controls.Add(this.cBoxPre);
             this.panelOfertas.Controls.Add(this.lblCo);
             this.panelOfertas.Controls.Add(this.lblVe);
             this.panelOfertas.Controls.Add(this.lblRe);
@@ -271,6 +277,7 @@
             this.panelOfertas.TabIndex = 17;
             this.panelOfertas.TabStop = false;
             this.panelOfertas.Text = "Ofertas";
+            this.panelOfertas.Enter += new System.EventHandler(this.panelOfertas_Enter);
             // 
             // lblCo
             // 
@@ -508,6 +515,34 @@
             this.groupBox2.Text = "Existencias";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter_2);
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(26, 444);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(38, 13);
+            this.label18.TabIndex = 30;
+            this.label18.Text = "Pregot";
+            // 
+            // TB_pregot
+            // 
+            this.TB_pregot.Enabled = false;
+            this.TB_pregot.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_pregot.Location = new System.Drawing.Point(74, 441);
+            this.TB_pregot.Name = "TB_pregot";
+            this.TB_pregot.Size = new System.Drawing.Size(49, 22);
+            this.TB_pregot.TabIndex = 31;
+            // 
+            // LB_pregot
+            // 
+            this.LB_pregot.AutoSize = true;
+            this.LB_pregot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_pregot.ForeColor = System.Drawing.Color.DarkGreen;
+            this.LB_pregot.Location = new System.Drawing.Point(129, 445);
+            this.LB_pregot.Name = "LB_pregot";
+            this.LB_pregot.Size = new System.Drawing.Size(0, 13);
+            this.LB_pregot.TabIndex = 32;
+            // 
             // BT_limpiar
             // 
             this.BT_limpiar.BackColor = System.Drawing.Color.DodgerBlue;
@@ -625,6 +660,8 @@
             // 
             // panelPrecio
             // 
+            this.panelPrecio.Controls.Add(this.lblPre2);
+            this.panelPrecio.Controls.Add(this.cBoxPre2);
             this.panelPrecio.Controls.Add(this.lblCoPre);
             this.panelPrecio.Controls.Add(this.lblVePre);
             this.panelPrecio.Controls.Add(this.lblRePre);
@@ -792,33 +829,45 @@
             this.label16.Text = "Mayoreo";
             this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
-            // label18
+            // lblPre
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(26, 444);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(38, 13);
-            this.label18.TabIndex = 30;
-            this.label18.Text = "Pregot";
+            this.lblPre.AutoSize = true;
+            this.lblPre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPre.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblPre.Location = new System.Drawing.Point(292, 68);
+            this.lblPre.Name = "lblPre";
+            this.lblPre.Size = new System.Drawing.Size(0, 16);
+            this.lblPre.TabIndex = 18;
             // 
-            // TB_pregot
+            // cBoxPre
             // 
-            this.TB_pregot.Enabled = false;
-            this.TB_pregot.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_pregot.Location = new System.Drawing.Point(74, 441);
-            this.TB_pregot.Name = "TB_pregot";
-            this.TB_pregot.Size = new System.Drawing.Size(49, 22);
-            this.TB_pregot.TabIndex = 31;
+            this.cBoxPre.AutoSize = true;
+            this.cBoxPre.Location = new System.Drawing.Point(286, 49);
+            this.cBoxPre.Name = "cBoxPre";
+            this.cBoxPre.Size = new System.Drawing.Size(57, 17);
+            this.cBoxPre.TabIndex = 17;
+            this.cBoxPre.Text = "Pregot";
+            this.cBoxPre.UseVisualStyleBackColor = true;
             // 
-            // LB_pregot
+            // lblPre2
             // 
-            this.LB_pregot.AutoSize = true;
-            this.LB_pregot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_pregot.ForeColor = System.Drawing.Color.DarkGreen;
-            this.LB_pregot.Location = new System.Drawing.Point(129, 445);
-            this.LB_pregot.Name = "LB_pregot";
-            this.LB_pregot.Size = new System.Drawing.Size(0, 13);
-            this.LB_pregot.TabIndex = 32;
+            this.lblPre2.AutoSize = true;
+            this.lblPre2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPre2.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblPre2.Location = new System.Drawing.Point(291, 63);
+            this.lblPre2.Name = "lblPre2";
+            this.lblPre2.Size = new System.Drawing.Size(0, 16);
+            this.lblPre2.TabIndex = 43;
+            // 
+            // cBoxPre2
+            // 
+            this.cBoxPre2.AutoSize = true;
+            this.cBoxPre2.Location = new System.Drawing.Point(285, 43);
+            this.cBoxPre2.Name = "cBoxPre2";
+            this.cBoxPre2.Size = new System.Drawing.Size(57, 17);
+            this.cBoxPre2.TabIndex = 42;
+            this.cBoxPre2.Text = "Pregot";
+            this.cBoxPre2.UseVisualStyleBackColor = true;
             // 
             // Existencias
             // 
@@ -910,5 +959,9 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox TB_pregot;
         private System.Windows.Forms.Label LB_pregot;
+        private System.Windows.Forms.Label lblPre;
+        private System.Windows.Forms.CheckBox cBoxPre;
+        private System.Windows.Forms.Label lblPre2;
+        private System.Windows.Forms.CheckBox cBoxPre2;
     }
 }

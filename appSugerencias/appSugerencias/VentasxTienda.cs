@@ -23,11 +23,13 @@ namespace appSugerencias
         MySqlConnection conrena;
         MySqlConnection concoloso;
         MySqlConnection convelazquez;
+        MySqlConnection conpregot;
 
         List<double> LisVallarta = new List<double>();
         List<double> LisRena = new List<double>();
         List<double> LisColoso = new List<double>();
         List<double> LisVelazquez = new List<double>();
+        List<double> LisPregot = new List<double>();
 
 
         private void button1_Click(object sender, EventArgs e)
@@ -37,8 +39,8 @@ namespace appSugerencias
 
         public void ventas()
         {
-            double importeDiaVa,importeDiaRe, importeDiaVe, importeDiaCo,importeDiaTo;
-            double totalVa, totalRe, totalCo, totalVe, Total;
+            double importeDiaVa,importeDiaRe, importeDiaVe, importeDiaCo,importeDiaPre,importeDiaTo;
+            double totalVa, totalRe, totalCo, totalVe, totalPre,Total;
 
             //int dan;
             importeDiaTo = 0;
@@ -226,13 +228,50 @@ namespace appSugerencias
                 MessageBox.Show("Velazquez sin conexion");
             }
 
+            try
+            {
+                conpregot = BDConexicon.Papeleria1Open();
+                string comando = "SELECT ventas.F_EMISION AS 'Fecha', " +
+                    "SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam)) + SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam) * (partvta.impuesto / 100)) As 'Total' " +
+                    "FROM(partvta LEFT JOIN ventas ON ventas.VENTA = partvta.VENTA) INNER JOIN prods ON partvta.ARTICULO = prods.ARTICULO " +
+                    "WHERE ventas.ESTADO = 'CO' AND(ventas.TIPO_DOC = 'FAC' OR ventas.TIPO_DOC = 'DV' OR ventas.TIPO_DOC = 'REM') AND ventas.CIERRE = 0 " +
+                    "GROUP BY ventas.F_EMISION " +
+                    "ORDER BY ventas.F_EMISION";
+
+                MySqlCommand cmdr = new MySqlCommand(comando, conpregot);
+
+                MySqlDataReader dr = cmdr.ExecuteReader();
+                int y = 0;
+                totalPre = 0;
+                while (dr.Read())
+                {
+                    importeDiaPre = Convert.ToDouble(dr["total"].ToString());
+                    LisColoso.Add(importeDiaPre);
+                    totalPre = totalPre + importeDiaPre;
+
+                    dgvVentas.Rows[y].Cells[5].Value = importeDiaPre.ToString("C");
+                    y = y + 1;
+
+
+
+                }
+                //conectar.Close();
+                dr.Close();
+                dgvVentas.Rows[y].Cells[5].Value = totalPre.ToString("C");
+                LisPregot.Add(totalPre);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Velazquez sin conexion");
+            }
+
 
             for (int i = 0; i <dgvVentas.Rows.Count ; i++)
             {
              
                 importeDiaTo = LisVallarta[i] + LisRena[i] +LisColoso[i] +LisVelazquez[i];
 
-                dgvVentas.Rows[i].Cells[5].Value = importeDiaTo.ToString("C");
+                dgvVentas.Rows[i].Cells[6].Value = importeDiaTo.ToString("C");
                 importeDiaTo = 0;
 
             }

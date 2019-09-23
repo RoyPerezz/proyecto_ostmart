@@ -288,11 +288,11 @@ namespace appSugerencias
 
                 if (mdrart.Read())
                 {
-                    comando="UPDATE prods SET descrip=?descrip,costo_u=?costo_u,precio1=?precio1,precio2=?precio2,impuesto=?impuesto,linea=?linea,marca=?marca,fabricante=?fabricante,peso=?peso,unidad=?unidad  WHERE articulo=?articulo";
+                    comando= "UPDATE prods SET descrip=?descrip,costo_u=?costo_u,precio1=?precio1,precio2=?precio2,impuesto=?impuesto,linea=?linea,marca=?marca,fabricante=?fabricante,peso=?peso,unidad=?unidad,paraventa=?paraventa,invent=?invent   WHERE articulo=?articulo";
                 }
                 else
                 {
-                    comando = "INSERT INTO  prods (articulo,descrip,costo_u,precio1,precio2,impuesto,linea,marca,fabricante,peso,unidad) VALUES (?articulo,?descrip,?costo_u,?precio1,?precio2,?impuesto,?linea,?marca,?fabricante,?peso,?unidad) ";
+                    comando = "INSERT INTO  prods (articulo,descrip,costo_u,precio1,precio2,impuesto,linea,marca,fabricante,peso,unidad,invent,paraventa) VALUES (?articulo,?descrip,?costo_u,?precio1,?precio2,?impuesto,?linea,?marca,?fabricante,?peso,?unidad,?invent,?paraventa) ";
                 }
 
                 mdrart.Close();
@@ -311,6 +311,8 @@ namespace appSugerencias
                 cmdoo.Parameters.Add("?fabricante", MySqlDbType.VarChar).Value = tbFabricante.Text;
                 cmdoo.Parameters.Add("?peso", MySqlDbType.VarChar).Value = tbPresentacion.Text;
                 cmdoo.Parameters.Add("?unidad", MySqlDbType.VarChar).Value = tbUnidad.Text;
+                 cmdoo.Parameters.Add("?invent", MySqlDbType.VarChar).Value =1;
+                cmdoo.Parameters.Add("?paraventa", MySqlDbType.VarChar).Value = 1;
                 MySqlDataReader mdrr;
                 mdrr = cmdoo.ExecuteReader();
                 mdrr.Close();
@@ -357,6 +359,9 @@ namespace appSugerencias
 
         public void limpiaTiendas()
         {
+            lblBo.Text = "---";
+            lblBo.ForeColor = Color.Black;
+
             lblVa.Text = "---";
             lblVa.ForeColor = Color.Black;
 
@@ -368,6 +373,11 @@ namespace appSugerencias
 
             lblVe.Text = "---";
             lblVe.ForeColor = Color.Black;
+
+
+            lblPre.Text = "---";
+            lblPre.ForeColor = Color.Black;
+
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -532,11 +542,11 @@ namespace appSugerencias
 
                     if (mdrart.Read())
                     {
-                        comando = "UPDATE prods SET descrip=?descrip,costo_u=?costo_u,precio1=?precio1,precio2=?precio2,impuesto=?impuesto,linea=?linea,marca=?marca,fabricante=?fabricante,unidad=?unidad  WHERE articulo=?articulo";
+                        comando = "UPDATE prods SET descrip=?descrip,costo_u=?costo_u,precio1=?precio1,precio2=?precio2,impuesto=?impuesto,linea=?linea,marca=?marca,fabricante=?fabricante,unidad=?unidad,paraventa=?paraventa,invent=?invent  WHERE articulo=?articulo";
                     }
                     else
                     {
-                        comando = "INSERT INTO  prods (articulo,descrip,costo_u,precio1,precio2,impuesto,linea,marca,fabricante,unidad) VALUES (?articulo,?descrip,?costo_u,?precio1,?precio2,?impuesto,?linea,?marca,?fabricante,?unidad) ";
+                        comando = "INSERT INTO  prods (articulo,descrip,costo_u,precio1,precio2,impuesto,linea,marca,fabricante,unidad,invent,paraventa) VALUES (?articulo,?descrip,?costo_u,?precio1,?precio2,?impuesto,?linea,?marca,?fabricante,?unidad,?invent,?paraventa) ";
                     }
 
                     mdrart.Close();
@@ -555,6 +565,8 @@ namespace appSugerencias
                     cmdoo.Parameters.Add("?fabricante", MySqlDbType.VarChar).Value = fabricante;
                     //cmdoo.Parameters.Add("?peso", MySqlDbType.VarChar).Value = tbPresentacion.Text;
                     cmdoo.Parameters.Add("?unidad", MySqlDbType.VarChar).Value = unidad;
+                    cmdoo.Parameters.Add("?paraventa", MySqlDbType.VarChar).Value = 1;
+                    cmdoo.Parameters.Add("?invent", MySqlDbType.VarChar).Value = 1;
                     MySqlDataReader mdrr;
                     mdrr = cmdoo.ExecuteReader();
                     mdrr.Close();
