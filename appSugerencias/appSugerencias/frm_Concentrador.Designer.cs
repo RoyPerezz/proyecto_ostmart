@@ -30,6 +30,19 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.lblPre = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.lblBo = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.lblCo = new System.Windows.Forms.Label();
+            this.lblVe = new System.Windows.Forms.Label();
+            this.lblRe = new System.Windows.Forms.Label();
+            this.lblVa = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.chbNuevo = new System.Windows.Forms.CheckBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tbCosto = new System.Windows.Forms.TextBox();
             this.btGuardar = new System.Windows.Forms.Button();
@@ -70,19 +83,10 @@
             this.tbBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.chbNuevo = new System.Windows.Forms.CheckBox();
-            this.tbArchivo = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.dgvArticulos = new System.Windows.Forms.DataGridView();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.lblVa = new System.Windows.Forms.Label();
-            this.lblRe = new System.Windows.Forms.Label();
-            this.lblVe = new System.Windows.Forms.Label();
-            this.lblCo = new System.Windows.Forms.Label();
-            this.btExcel = new System.Windows.Forms.Button();
+            this.lblPre2 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.lblBo2 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.lblCo2 = new System.Windows.Forms.Label();
             this.lblVe2 = new System.Windows.Forms.Label();
             this.lblRe2 = new System.Windows.Forms.Label();
@@ -91,14 +95,10 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.lblBo2 = new System.Windows.Forms.Label();
-            this.lblBo = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.lblPre = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.lblPre2 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
+            this.btExcel = new System.Windows.Forms.Button();
+            this.dgvArticulos = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
+            this.tbArchivo = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).BeginInit();
@@ -161,11 +161,137 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1106, 620);
+            this.tabPage1.Size = new System.Drawing.Size(1106, 641);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "1 Producto";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // lblPre
+            // 
+            this.lblPre.AutoSize = true;
+            this.lblPre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPre.Location = new System.Drawing.Point(1033, 405);
+            this.lblPre.Name = "lblPre";
+            this.lblPre.Size = new System.Drawing.Size(23, 16);
+            this.lblPre.TabIndex = 46;
+            this.lblPre.Text = "---";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(942, 405);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(52, 13);
+            this.label24.TabIndex = 45;
+            this.label24.Text = "PREGOT";
+            // 
+            // lblBo
+            // 
+            this.lblBo.AutoSize = true;
+            this.lblBo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBo.Location = new System.Drawing.Point(1033, 284);
+            this.lblBo.Name = "lblBo";
+            this.lblBo.Size = new System.Drawing.Size(23, 16);
+            this.lblBo.TabIndex = 44;
+            this.lblBo.Text = "---";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(942, 284);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(52, 13);
+            this.label18.TabIndex = 43;
+            this.label18.Text = "BODEGA";
+            // 
+            // lblCo
+            // 
+            this.lblCo.AutoSize = true;
+            this.lblCo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCo.Location = new System.Drawing.Point(1033, 380);
+            this.lblCo.Name = "lblCo";
+            this.lblCo.Size = new System.Drawing.Size(23, 16);
+            this.lblCo.TabIndex = 42;
+            this.lblCo.Text = "---";
+            // 
+            // lblVe
+            // 
+            this.lblVe.AutoSize = true;
+            this.lblVe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVe.Location = new System.Drawing.Point(1033, 356);
+            this.lblVe.Name = "lblVe";
+            this.lblVe.Size = new System.Drawing.Size(23, 16);
+            this.lblVe.TabIndex = 41;
+            this.lblVe.Text = "---";
+            // 
+            // lblRe
+            // 
+            this.lblRe.AutoSize = true;
+            this.lblRe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRe.Location = new System.Drawing.Point(1033, 331);
+            this.lblRe.Name = "lblRe";
+            this.lblRe.Size = new System.Drawing.Size(23, 16);
+            this.lblRe.TabIndex = 40;
+            this.lblRe.Text = "---";
+            // 
+            // lblVa
+            // 
+            this.lblVa.AutoSize = true;
+            this.lblVa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVa.Location = new System.Drawing.Point(1033, 307);
+            this.lblVa.Name = "lblVa";
+            this.lblVa.Size = new System.Drawing.Size(23, 16);
+            this.lblVa.TabIndex = 39;
+            this.lblVa.Text = "---";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(942, 380);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(51, 13);
+            this.label15.TabIndex = 38;
+            this.label15.Text = "COLOSO";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(942, 356);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(71, 13);
+            this.label14.TabIndex = 37;
+            this.label14.Text = "VELAZQUEZ";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(942, 331);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(37, 13);
+            this.label13.TabIndex = 36;
+            this.label13.Text = "RENA";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(942, 307);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(62, 13);
+            this.label12.TabIndex = 35;
+            this.label12.Text = "VALLARTA";
+            // 
+            // chbNuevo
+            // 
+            this.chbNuevo.AutoSize = true;
+            this.chbNuevo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbNuevo.Location = new System.Drawing.Point(741, 31);
+            this.chbNuevo.Name = "chbNuevo";
+            this.chbNuevo.Size = new System.Drawing.Size(143, 22);
+            this.chbNuevo.TabIndex = 34;
+            this.chbNuevo.Text = "Producto Nuevo";
+            this.chbNuevo.UseVisualStyleBackColor = true;
+            this.chbNuevo.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label11
             // 
@@ -185,12 +311,15 @@
             // 
             // btGuardar
             // 
-            this.btGuardar.Location = new System.Drawing.Point(914, 525);
+            this.btGuardar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btGuardar.ForeColor = System.Drawing.Color.White;
+            this.btGuardar.Location = new System.Drawing.Point(884, 525);
             this.btGuardar.Name = "btGuardar";
-            this.btGuardar.Size = new System.Drawing.Size(113, 41);
+            this.btGuardar.Size = new System.Drawing.Size(143, 67);
             this.btGuardar.TabIndex = 30;
             this.btGuardar.Text = "Guardar";
-            this.btGuardar.UseVisualStyleBackColor = true;
+            this.btGuardar.UseVisualStyleBackColor = false;
             this.btGuardar.Click += new System.EventHandler(this.button2_Click);
             // 
             // Unidad
@@ -292,7 +421,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 405);
+            this.label5.Location = new System.Drawing.Point(12, 432);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 13);
             this.label5.TabIndex = 17;
@@ -300,15 +429,15 @@
             // 
             // tbMayoreo
             // 
-            this.tbMayoreo.Location = new System.Drawing.Point(87, 398);
+            this.tbMayoreo.Location = new System.Drawing.Point(87, 425);
             this.tbMayoreo.Name = "tbMayoreo";
             this.tbMayoreo.Size = new System.Drawing.Size(181, 20);
-            this.tbMayoreo.TabIndex = 13;
+            this.tbMayoreo.TabIndex = 14;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 435);
+            this.label4.Location = new System.Drawing.Point(12, 402);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 15;
@@ -316,10 +445,10 @@
             // 
             // tbMenudeo
             // 
-            this.tbMenudeo.Location = new System.Drawing.Point(87, 432);
+            this.tbMenudeo.Location = new System.Drawing.Point(87, 399);
             this.tbMenudeo.Name = "tbMenudeo";
             this.tbMenudeo.Size = new System.Drawing.Size(181, 20);
-            this.tbMenudeo.TabIndex = 14;
+            this.tbMenudeo.TabIndex = 13;
             // 
             // label3
             // 
@@ -356,12 +485,15 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(329, 31);
+            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(319, 25);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(79, 34);
             this.button1.TabIndex = 9;
             this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dgvArticulo
@@ -505,129 +637,43 @@
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
-            // chbNuevo
+            // lblPre2
             // 
-            this.chbNuevo.AutoSize = true;
-            this.chbNuevo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbNuevo.Location = new System.Drawing.Point(741, 31);
-            this.chbNuevo.Name = "chbNuevo";
-            this.chbNuevo.Size = new System.Drawing.Size(143, 22);
-            this.chbNuevo.TabIndex = 34;
-            this.chbNuevo.Text = "Producto Nuevo";
-            this.chbNuevo.UseVisualStyleBackColor = true;
-            this.chbNuevo.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.lblPre2.AutoSize = true;
+            this.lblPre2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPre2.Location = new System.Drawing.Point(118, 615);
+            this.lblPre2.Name = "lblPre2";
+            this.lblPre2.Size = new System.Drawing.Size(23, 16);
+            this.lblPre2.TabIndex = 54;
+            this.lblPre2.Text = "---";
             // 
-            // tbArchivo
+            // label19
             // 
-            this.tbArchivo.Location = new System.Drawing.Point(6, 41);
-            this.tbArchivo.Name = "tbArchivo";
-            this.tbArchivo.Size = new System.Drawing.Size(245, 20);
-            this.tbArchivo.TabIndex = 0;
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(27, 615);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(52, 13);
+            this.label19.TabIndex = 53;
+            this.label19.Text = "PREGOT";
             // 
-            // button2
+            // lblBo2
             // 
-            this.button2.Location = new System.Drawing.Point(284, 27);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(131, 46);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Cargar Archivo";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.lblBo2.AutoSize = true;
+            this.lblBo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBo2.Location = new System.Drawing.Point(118, 493);
+            this.lblBo2.Name = "lblBo2";
+            this.lblBo2.Size = new System.Drawing.Size(23, 16);
+            this.lblBo2.TabIndex = 52;
+            this.lblBo2.Text = "---";
             // 
-            // dgvArticulos
+            // label16
             // 
-            this.dgvArticulos.AllowUserToAddRows = false;
-            this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvArticulos.Location = new System.Drawing.Point(6, 120);
-            this.dgvArticulos.Name = "dgvArticulos";
-            this.dgvArticulos.Size = new System.Drawing.Size(1077, 366);
-            this.dgvArticulos.TabIndex = 2;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(942, 307);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(62, 13);
-            this.label12.TabIndex = 35;
-            this.label12.Text = "VALLARTA";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(942, 331);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(37, 13);
-            this.label13.TabIndex = 36;
-            this.label13.Text = "RENA";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(942, 356);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(71, 13);
-            this.label14.TabIndex = 37;
-            this.label14.Text = "VELAZQUEZ";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(942, 380);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(51, 13);
-            this.label15.TabIndex = 38;
-            this.label15.Text = "COLOSO";
-            // 
-            // lblVa
-            // 
-            this.lblVa.AutoSize = true;
-            this.lblVa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVa.Location = new System.Drawing.Point(1033, 307);
-            this.lblVa.Name = "lblVa";
-            this.lblVa.Size = new System.Drawing.Size(23, 16);
-            this.lblVa.TabIndex = 39;
-            this.lblVa.Text = "---";
-            // 
-            // lblRe
-            // 
-            this.lblRe.AutoSize = true;
-            this.lblRe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRe.Location = new System.Drawing.Point(1033, 331);
-            this.lblRe.Name = "lblRe";
-            this.lblRe.Size = new System.Drawing.Size(23, 16);
-            this.lblRe.TabIndex = 40;
-            this.lblRe.Text = "---";
-            // 
-            // lblVe
-            // 
-            this.lblVe.AutoSize = true;
-            this.lblVe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVe.Location = new System.Drawing.Point(1033, 356);
-            this.lblVe.Name = "lblVe";
-            this.lblVe.Size = new System.Drawing.Size(23, 16);
-            this.lblVe.TabIndex = 41;
-            this.lblVe.Text = "---";
-            // 
-            // lblCo
-            // 
-            this.lblCo.AutoSize = true;
-            this.lblCo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCo.Location = new System.Drawing.Point(1033, 380);
-            this.lblCo.Name = "lblCo";
-            this.lblCo.Size = new System.Drawing.Size(23, 16);
-            this.lblCo.TabIndex = 42;
-            this.lblCo.Text = "---";
-            // 
-            // btExcel
-            // 
-            this.btExcel.Location = new System.Drawing.Point(871, 511);
-            this.btExcel.Name = "btExcel";
-            this.btExcel.Size = new System.Drawing.Size(139, 56);
-            this.btExcel.TabIndex = 3;
-            this.btExcel.Text = "Cargar";
-            this.btExcel.UseVisualStyleBackColor = true;
-            this.btExcel.Click += new System.EventHandler(this.button3_Click);
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(27, 494);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(52, 13);
+            this.label16.TabIndex = 51;
+            this.label16.Text = "BODEGA";
             // 
             // lblCo2
             // 
@@ -705,87 +751,54 @@
             this.label23.TabIndex = 43;
             this.label23.Text = "VALLARTA";
             // 
-            // label16
+            // btExcel
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(27, 494);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(52, 13);
-            this.label16.TabIndex = 51;
-            this.label16.Text = "BODEGA";
+            this.btExcel.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btExcel.ForeColor = System.Drawing.Color.White;
+            this.btExcel.Location = new System.Drawing.Point(874, 528);
+            this.btExcel.Name = "btExcel";
+            this.btExcel.Size = new System.Drawing.Size(139, 56);
+            this.btExcel.TabIndex = 3;
+            this.btExcel.Text = "Cargar";
+            this.btExcel.UseVisualStyleBackColor = false;
+            this.btExcel.Click += new System.EventHandler(this.button3_Click);
             // 
-            // lblBo2
+            // dgvArticulos
             // 
-            this.lblBo2.AutoSize = true;
-            this.lblBo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBo2.Location = new System.Drawing.Point(118, 493);
-            this.lblBo2.Name = "lblBo2";
-            this.lblBo2.Size = new System.Drawing.Size(23, 16);
-            this.lblBo2.TabIndex = 52;
-            this.lblBo2.Text = "---";
+            this.dgvArticulos.AllowUserToAddRows = false;
+            this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvArticulos.Location = new System.Drawing.Point(6, 120);
+            this.dgvArticulos.Name = "dgvArticulos";
+            this.dgvArticulos.Size = new System.Drawing.Size(1077, 366);
+            this.dgvArticulos.TabIndex = 2;
             // 
-            // lblBo
+            // button2
             // 
-            this.lblBo.AutoSize = true;
-            this.lblBo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBo.Location = new System.Drawing.Point(1033, 284);
-            this.lblBo.Name = "lblBo";
-            this.lblBo.Size = new System.Drawing.Size(23, 16);
-            this.lblBo.TabIndex = 44;
-            this.lblBo.Text = "---";
+            this.button2.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(284, 27);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(131, 46);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Cargar Archivo";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
-            // label18
+            // tbArchivo
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(942, 284);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(52, 13);
-            this.label18.TabIndex = 43;
-            this.label18.Text = "BODEGA";
-            // 
-            // lblPre
-            // 
-            this.lblPre.AutoSize = true;
-            this.lblPre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPre.Location = new System.Drawing.Point(1033, 405);
-            this.lblPre.Name = "lblPre";
-            this.lblPre.Size = new System.Drawing.Size(23, 16);
-            this.lblPre.TabIndex = 46;
-            this.lblPre.Text = "---";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(942, 405);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(52, 13);
-            this.label24.TabIndex = 45;
-            this.label24.Text = "PREGOT";
-            // 
-            // lblPre2
-            // 
-            this.lblPre2.AutoSize = true;
-            this.lblPre2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPre2.Location = new System.Drawing.Point(118, 615);
-            this.lblPre2.Name = "lblPre2";
-            this.lblPre2.Size = new System.Drawing.Size(23, 16);
-            this.lblPre2.TabIndex = 54;
-            this.lblPre2.Text = "---";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(27, 615);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(52, 13);
-            this.label19.TabIndex = 53;
-            this.label19.Text = "PREGOT";
+            this.tbArchivo.Location = new System.Drawing.Point(6, 41);
+            this.tbArchivo.Name = "tbArchivo";
+            this.tbArchivo.Size = new System.Drawing.Size(245, 20);
+            this.tbArchivo.TabIndex = 0;
             // 
             // Concentrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1129, 681);
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.ClientSize = new System.Drawing.Size(1141, 696);
             this.Controls.Add(this.tabControl1);
             this.Name = "Concentrador";
             this.Text = "Concentrador";
