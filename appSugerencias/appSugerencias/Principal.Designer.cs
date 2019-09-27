@@ -33,7 +33,6 @@
             this.traspasosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsmCreaTraspaso = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsmAplicaTraspaso = new System.Windows.Forms.ToolStripMenuItem();
-            this.ofertasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estadosDeCuentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteGeneralToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,6 +42,7 @@
             this.tiendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vitrinasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generadorDeClavesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cONCENTRADORToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasPTiendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,7 +50,8 @@
             this.lblIP = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblBD = new System.Windows.Forms.Label();
-            this.cONCENTRADORToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ofertasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ofertasVitrinasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,13 +96,6 @@
             this.toolsmAplicaTraspaso.Text = "Aplicar Traspaso";
             this.toolsmAplicaTraspaso.Click += new System.EventHandler(this.aplicarTraspasoToolStripMenuItem_Click);
             // 
-            // ofertasToolStripMenuItem
-            // 
-            this.ofertasToolStripMenuItem.Name = "ofertasToolStripMenuItem";
-            this.ofertasToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.ofertasToolStripMenuItem.Text = "Ofertas";
-            this.ofertasToolStripMenuItem.Click += new System.EventHandler(this.ofertasToolStripMenuItem_Click);
-            // 
             // pagosToolStripMenuItem
             // 
             this.pagosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -115,14 +109,14 @@
             // estadosDeCuentaToolStripMenuItem
             // 
             this.estadosDeCuentaToolStripMenuItem.Name = "estadosDeCuentaToolStripMenuItem";
-            this.estadosDeCuentaToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.estadosDeCuentaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.estadosDeCuentaToolStripMenuItem.Text = "Estados de cuenta";
             this.estadosDeCuentaToolStripMenuItem.Click += new System.EventHandler(this.estadosDeCuentaToolStripMenuItem_Click);
             // 
             // reporteGeneralToolStripMenuItem
             // 
             this.reporteGeneralToolStripMenuItem.Name = "reporteGeneralToolStripMenuItem";
-            this.reporteGeneralToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.reporteGeneralToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.reporteGeneralToolStripMenuItem.Text = "Reporte general";
             this.reporteGeneralToolStripMenuItem.Click += new System.EventHandler(this.reporteGeneralToolStripMenuItem_Click);
             // 
@@ -132,7 +126,8 @@
             this.cargarCompraToolStripMenuItem,
             this.existenciasPorProveedorToolStripMenuItem,
             this.generadorDeClavesToolStripMenuItem,
-            this.cONCENTRADORToolStripMenuItem});
+            this.cONCENTRADORToolStripMenuItem,
+            this.ofertasVitrinasToolStripMenuItem});
             this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
             this.comprasToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.comprasToolStripMenuItem.Text = "Compras";
@@ -173,6 +168,13 @@
             this.generadorDeClavesToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.generadorDeClavesToolStripMenuItem.Text = "Generador de Claves";
             this.generadorDeClavesToolStripMenuItem.Click += new System.EventHandler(this.generadorDeClavesToolStripMenuItem_Click);
+            // 
+            // cONCENTRADORToolStripMenuItem
+            // 
+            this.cONCENTRADORToolStripMenuItem.Name = "cONCENTRADORToolStripMenuItem";
+            this.cONCENTRADORToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.cONCENTRADORToolStripMenuItem.Text = "CONCENTRADOR";
+            this.cONCENTRADORToolStripMenuItem.Click += new System.EventHandler(this.cONCENTRADORToolStripMenuItem_Click);
             // 
             // ventasPTiendasToolStripMenuItem
             // 
@@ -238,12 +240,19 @@
             this.lblBD.TabIndex = 6;
             this.lblBD.Text = "Mysql";
             // 
-            // cONCENTRADORToolStripMenuItem
+            // ofertasToolStripMenuItem
             // 
-            this.cONCENTRADORToolStripMenuItem.Name = "cONCENTRADORToolStripMenuItem";
-            this.cONCENTRADORToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
-            this.cONCENTRADORToolStripMenuItem.Text = "CONCENTRADOR";
-            this.cONCENTRADORToolStripMenuItem.Click += new System.EventHandler(this.cONCENTRADORToolStripMenuItem_Click);
+            this.ofertasToolStripMenuItem.Name = "ofertasToolStripMenuItem";
+            this.ofertasToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.ofertasToolStripMenuItem.Text = "Ofertas";
+            this.ofertasToolStripMenuItem.Click += new System.EventHandler(this.ofertasToolStripMenuItem_Click);
+            // 
+            // ofertasVitrinasToolStripMenuItem
+            // 
+            this.ofertasVitrinasToolStripMenuItem.Name = "ofertasVitrinasToolStripMenuItem";
+            this.ofertasVitrinasToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.ofertasVitrinasToolStripMenuItem.Text = "Ofertas Vitrinas";
+            this.ofertasVitrinasToolStripMenuItem.Click += new System.EventHandler(this.ofertasVitrinasToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -283,7 +292,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolsmCreaTraspaso;
         private System.Windows.Forms.ToolStripMenuItem toolsmAplicaTraspaso;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ToolStripMenuItem ofertasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pagosToolStripMenuItem;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblIP;
@@ -299,5 +307,7 @@
         private System.Windows.Forms.ToolStripMenuItem vitrinasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ventasPTiendasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cONCENTRADORToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ofertasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ofertasVitrinasToolStripMenuItem;
     }
 }

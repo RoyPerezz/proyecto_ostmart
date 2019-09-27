@@ -350,9 +350,11 @@ namespace appSugerencias
         public void VallartaOferta()
         {
 
-            MySqlConnection con = BDConexicon.V_vallarta();
+            MySqlConnection con;
+        
             try
             {
+                con = BDConexicon.V_vallarta();
                 DateTime Finicio = dt_Inicio.Value;
                 DateTime Ffin = dt_Fin.Value;
 
@@ -384,6 +386,7 @@ namespace appSugerencias
                 //limpiarOferta();
 
                 lblVa.Text = "OK";
+                con.Close();
                 //MessageBox.Show("Los datos se Guardaron");
             }
             catch (Exception e)
@@ -391,16 +394,17 @@ namespace appSugerencias
                 lblVa.Text = "N/A";
                 lblVa.ForeColor = Color.Red;
             }
-            con.Close();
+            
         }
 
 
         public void RenaOferta()
         {
 
-            MySqlConnection con = BDConexicon.V_rena();
+            MySqlConnection con;
             try
             {
+                con = BDConexicon.V_rena();
                 DateTime Finicio = dt_Inicio.Value;
                 DateTime Ffin = dt_Fin.Value;
 
@@ -432,6 +436,7 @@ namespace appSugerencias
                 //limpiarOferta();
 
                 lblRe.Text = "OK";
+                con.Close();
                 //MessageBox.Show("Los datos se Guardaron");
             }
             catch (Exception e)
@@ -439,15 +444,17 @@ namespace appSugerencias
                 lblRe.Text = "N/A";
                 lblRe.ForeColor = Color.Red;
             }
-            con.Close();
+          
         }
 
         public void VelazquezOferta()
         {
 
-            MySqlConnection con = BDConexicon.V_velazquez();
+            MySqlConnection con;
             try
             {
+
+                con = BDConexicon.V_velazquez();
                 DateTime Finicio = dt_Inicio.Value;
                 DateTime Ffin = dt_Fin.Value;
 
@@ -480,6 +487,7 @@ namespace appSugerencias
 
                 lblVe.Text = "OK";
                 //MessageBox.Show("Los datos se Guardaron");
+                con.Close();
             }
             catch (Exception e)
             {
@@ -487,15 +495,16 @@ namespace appSugerencias
                 lblVe.ForeColor = Color.Red;
             }
 
-            con.Close();
+           
         }
 
         public void ColosoOferta()
         {
 
-            MySqlConnection con = BDConexicon.V_coloso();
+            MySqlConnection con;
             try
             {
+                con = BDConexicon.V_coloso();
                 DateTime Finicio = dt_Inicio.Value;
                 DateTime Ffin = dt_Fin.Value;
 
@@ -528,6 +537,7 @@ namespace appSugerencias
 
                 lblCo.Text = "OK";
                 //MessageBox.Show("Los datos se Guardaron");
+                con.Close();
             }
             catch (Exception e)
             {
@@ -535,7 +545,6 @@ namespace appSugerencias
                 lblCo.ForeColor = Color.Red;
             }
 
-            BDConexicon.ColosoClose();
         }
 
         public void limpiarPrecio()
@@ -726,22 +735,7 @@ namespace appSugerencias
 
 
 
-        //private void BT_limpiar_Click(object sender, EventArgs e)
-        //{
-        //    borrarArticulo();
-        //    limpiarOferta();
-        //    limpiarPrecio();
-
-        //    lblVa.Text = "";
-        //    lblRe.Text = "";
-        //    lblVe.Text = "";
-        //    lblCo.Text = "";
-
-        //    lblVaPre.Text = "";
-        //    lblRePre.Text = "";
-        //    lblVePre.Text = "";
-        //    lblCoPre.Text = "";
-        //}
+  
 
         private void label17_Click(object sender, EventArgs e)
         {
@@ -939,10 +933,10 @@ namespace appSugerencias
         public void VallartaPrecio()
         {
 
-            MySqlConnection con = BDConexicon.V_vallarta();
+            MySqlConnection con;
             try
             {
-
+                con = BDConexicon.V_vallarta();
                 double Precio1 = Convert.ToDouble(tbPrecio1.Text);
                 double Precio2 = Convert.ToDouble(tbPrecio2.Text);
                 Precio1 = Precio1 / 1.16;
@@ -960,14 +954,14 @@ namespace appSugerencias
 
                 lblVaPre.Text = "OK";
                 lblVaPre.ForeColor = Color.DarkGreen;
-
+                con.Close();
             }
             catch (Exception e)
             {
                 lblVaPre.Text = "N/A";
                 lblVaPre.ForeColor = Color.Red;
             }
-            BDConexicon.VallartaClose();
+        
         }
 
 
@@ -975,10 +969,10 @@ namespace appSugerencias
         private void RenaPrecio()
         {
 
-            MySqlConnection con = BDConexicon.V_rena();
+            MySqlConnection con;
             try
             {
-
+                con = BDConexicon.V_rena();
                 double Precio1 = Convert.ToDouble(tbPrecio1.Text);
                 double Precio2 = Convert.ToDouble(tbPrecio2.Text);
                 Precio1 = Precio1 / 1.16;
@@ -996,23 +990,23 @@ namespace appSugerencias
 
                 lblRePre.Text = "OK";
                 lblRePre.ForeColor = Color.DarkGreen;
-
+                con.Close();
             }
             catch (Exception e)
             {
                 lblRePre.Text = "N/A";
                 lblRePre.ForeColor = Color.Red;
             }
-            BDConexicon.RenaClose();
+           
         }
 
         private void VelazquezPrecio()
         {
 
-            MySqlConnection con = BDConexicon.V_velazquez();
+            MySqlConnection con;
             try
             {
-
+                con = BDConexicon.V_velazquez();
                 double Precio1 = Convert.ToDouble(tbPrecio1.Text);
                 double Precio2 = Convert.ToDouble(tbPrecio2.Text);
                 Precio1 = Precio1 / 1.16;
@@ -1030,24 +1024,24 @@ namespace appSugerencias
 
                 lblVePre.Text = "OK";
                 lblVePre.ForeColor = Color.DarkGreen;
-
+                con.Close();
             }
             catch (Exception e)
             {
                 lblVePre.Text = "N/A";
                 lblVePre.ForeColor = Color.Red;
             }
-            BDConexicon.VelazquezClose();
+           
         }
 
         private void ColosoPrecio()
         {
 
 
-            MySqlConnection con = BDConexicon.V_coloso();
+            MySqlConnection con;
             try
             {
-
+                con = BDConexicon.V_coloso();
                 double Precio1 = Convert.ToDouble(tbPrecio1.Text);
                 double Precio2 = Convert.ToDouble(tbPrecio2.Text);
                 Precio1 = Precio1 / 1.16;
@@ -1065,14 +1059,14 @@ namespace appSugerencias
 
                 lblCoPre.Text = "OK";
                 lblCoPre.ForeColor = Color.DarkGreen;
-
+                con.Close();
             }
             catch (Exception e)
             {
                 lblCoPre.Text = "N/A";
                 lblCoPre.ForeColor = Color.Red;
             }
-            BDConexicon.ColosoClose();
+           
         }
 
 

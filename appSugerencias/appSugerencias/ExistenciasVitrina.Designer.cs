@@ -209,7 +209,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(232, 317);
+            this.label8.Location = new System.Drawing.Point(69, 306);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(62, 16);
             this.label8.TabIndex = 16;
@@ -218,11 +218,11 @@
             // TB_vallarta
             // 
             this.TB_vallarta.Enabled = false;
-            this.TB_vallarta.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_vallarta.Location = new System.Drawing.Point(300, 309);
+            this.TB_vallarta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_vallarta.Location = new System.Drawing.Point(137, 303);
             this.TB_vallarta.Multiline = true;
             this.TB_vallarta.Name = "TB_vallarta";
-            this.TB_vallarta.Size = new System.Drawing.Size(175, 32);
+            this.TB_vallarta.Size = new System.Drawing.Size(132, 24);
             this.TB_vallarta.TabIndex = 15;
             this.TB_vallarta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -230,7 +230,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(246, 356);
+            this.label9.Location = new System.Drawing.Point(83, 345);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(45, 16);
             this.label9.TabIndex = 18;
@@ -239,11 +239,11 @@
             // TB_rena
             // 
             this.TB_rena.Enabled = false;
-            this.TB_rena.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_rena.Location = new System.Drawing.Point(300, 348);
+            this.TB_rena.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_rena.Location = new System.Drawing.Point(137, 341);
             this.TB_rena.Multiline = true;
             this.TB_rena.Name = "TB_rena";
-            this.TB_rena.Size = new System.Drawing.Size(175, 32);
+            this.TB_rena.Size = new System.Drawing.Size(132, 24);
             this.TB_rena.TabIndex = 17;
             this.TB_rena.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -251,7 +251,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(232, 429);
+            this.label10.Location = new System.Drawing.Point(69, 418);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(57, 16);
             this.label10.TabIndex = 20;
@@ -260,11 +260,11 @@
             // TB_coloso
             // 
             this.TB_coloso.Enabled = false;
-            this.TB_coloso.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_coloso.Location = new System.Drawing.Point(300, 424);
+            this.TB_coloso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_coloso.Location = new System.Drawing.Point(137, 413);
             this.TB_coloso.Multiline = true;
             this.TB_coloso.Name = "TB_coloso";
-            this.TB_coloso.Size = new System.Drawing.Size(175, 32);
+            this.TB_coloso.Size = new System.Drawing.Size(132, 24);
             this.TB_coloso.TabIndex = 19;
             this.TB_coloso.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -272,7 +272,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(212, 393);
+            this.label11.Location = new System.Drawing.Point(49, 382);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(80, 16);
             this.label11.TabIndex = 22;
@@ -281,11 +281,11 @@
             // TB_velazquez
             // 
             this.TB_velazquez.Enabled = false;
-            this.TB_velazquez.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_velazquez.Location = new System.Drawing.Point(300, 386);
+            this.TB_velazquez.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_velazquez.Location = new System.Drawing.Point(137, 374);
             this.TB_velazquez.Multiline = true;
             this.TB_velazquez.Name = "TB_velazquez";
-            this.TB_velazquez.Size = new System.Drawing.Size(175, 32);
+            this.TB_velazquez.Size = new System.Drawing.Size(132, 24);
             this.TB_velazquez.TabIndex = 21;
             this.TB_velazquez.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -296,7 +296,7 @@
             this.BT_buscar.ForeColor = System.Drawing.Color.White;
             this.BT_buscar.Image = ((System.Drawing.Image)(resources.GetObject("BT_buscar.Image")));
             this.BT_buscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BT_buscar.Location = new System.Drawing.Point(62, 317);
+            this.BT_buscar.Location = new System.Drawing.Point(365, 451);
             this.BT_buscar.Name = "BT_buscar";
             this.BT_buscar.Size = new System.Drawing.Size(110, 68);
             this.BT_buscar.TabIndex = 23;
@@ -312,7 +312,7 @@
             this.BT_limpiar.ForeColor = System.Drawing.Color.White;
             this.BT_limpiar.Image = ((System.Drawing.Image)(resources.GetObject("BT_limpiar.Image")));
             this.BT_limpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BT_limpiar.Location = new System.Drawing.Point(62, 393);
+            this.BT_limpiar.Location = new System.Drawing.Point(202, 451);
             this.BT_limpiar.Name = "BT_limpiar";
             this.BT_limpiar.Size = new System.Drawing.Size(110, 68);
             this.BT_limpiar.TabIndex = 24;
@@ -668,7 +668,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(996, 514);
+            this.ClientSize = new System.Drawing.Size(996, 527);
             this.Controls.Add(this.panelPrecios);
             this.Controls.Add(this.panelOfertas);
             this.Controls.Add(this.BT_limpiar);

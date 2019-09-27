@@ -993,7 +993,7 @@ namespace appSugerencias
 
         private void AplicaOferta_Click_3(object sender, EventArgs e)
         {
-            if (cBoxVa.Checked == false & cBoxRe.Checked == false & cBoxVe.Checked == false & cBoxCo.Checked == false)
+            if (cBoxVa.Checked == false & cBoxRe.Checked == false & cBoxVe.Checked == false & cBoxCo.Checked == false & cBoxPre.Checked==false)
             {
                 MessageBox.Show("Selecciona una Tienda para aplicar la Oferta");
             }
@@ -1095,7 +1095,7 @@ namespace appSugerencias
             // APLICACION DE PRECIO
             
 
-            if (cBoxVaPrecio.Checked == false & cBoxRePrecio.Checked == false & cBoxVePrecio.Checked == false & cBoxCoPrecio.Checked == false)
+            if (cBoxVaPrecio.Checked == false & cBoxRePrecio.Checked == false & cBoxVePrecio.Checked == false & cBoxCoPrecio.Checked == false &cBoxPre2.Checked==false)
             {
                 MessageBox.Show("Selecciona una Tienda para aplicar la Oferta");
             }
@@ -1319,10 +1319,10 @@ namespace appSugerencias
         {
 
 
-            MySqlConnection con = BDConexicon.ColosoOpen();
+            MySqlConnection con = null;
             try
             {
-
+                 con= BDConexicon.ColosoOpen();
                 double Precio1 = Convert.ToDouble(tbPrecio1.Text);
                 double Precio2 = Convert.ToDouble(tbPrecio2.Text);
                 Precio1 = Precio1 / 1.16;
@@ -1340,24 +1340,25 @@ namespace appSugerencias
 
                 lblCoPre.Text = "OK";
                 lblCoPre.ForeColor = Color.DarkGreen;
-
+                con.Close();
             }
             catch (Exception e)
             {
                 lblCoPre.Text = "N/A";
                 lblCoPre.ForeColor = Color.Red;
             }
-            BDConexicon.ColosoClose();
+           
         }
 
 
         public void PregotPrecio()
         {
 
-            MySqlConnection con = BDConexicon.Papeleria1Open();
+            MySqlConnection con=null;            
+                
             try
             {
-
+               con = BDConexicon.Papeleria1Open();
                 double Precio1 = Convert.ToDouble(tbPrecio1.Text);
                 double Precio2 = Convert.ToDouble(tbPrecio2.Text);
                 Precio1 = Precio1 / 1.16;
@@ -1524,6 +1525,11 @@ namespace appSugerencias
         }
 
         private void panelOfertas_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelPrecio_Enter(object sender, EventArgs e)
         {
 
         }

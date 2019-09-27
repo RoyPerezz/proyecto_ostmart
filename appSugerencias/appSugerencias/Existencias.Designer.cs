@@ -138,9 +138,9 @@
             this.BTN_aceptar.ForeColor = System.Drawing.Color.White;
             this.BTN_aceptar.Image = ((System.Drawing.Image)(resources.GetObject("BTN_aceptar.Image")));
             this.BTN_aceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BTN_aceptar.Location = new System.Drawing.Point(108, 504);
+            this.BTN_aceptar.Location = new System.Drawing.Point(108, 496);
             this.BTN_aceptar.Name = "BTN_aceptar";
-            this.BTN_aceptar.Size = new System.Drawing.Size(129, 48);
+            this.BTN_aceptar.Size = new System.Drawing.Size(129, 56);
             this.BTN_aceptar.TabIndex = 2;
             this.BTN_aceptar.Text = "Buscar";
             this.BTN_aceptar.UseVisualStyleBackColor = false;
@@ -584,9 +584,9 @@
             this.BT_limpiar.ForeColor = System.Drawing.Color.White;
             this.BT_limpiar.Image = ((System.Drawing.Image)(resources.GetObject("BT_limpiar.Image")));
             this.BT_limpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BT_limpiar.Location = new System.Drawing.Point(253, 504);
+            this.BT_limpiar.Location = new System.Drawing.Point(253, 496);
             this.BT_limpiar.Name = "BT_limpiar";
-            this.BT_limpiar.Size = new System.Drawing.Size(129, 48);
+            this.BT_limpiar.Size = new System.Drawing.Size(129, 56);
             this.BT_limpiar.TabIndex = 29;
             this.BT_limpiar.Text = "Limpiar";
             this.BT_limpiar.UseVisualStyleBackColor = false;
@@ -716,6 +716,7 @@
             this.panelPrecio.TabIndex = 22;
             this.panelPrecio.TabStop = false;
             this.panelPrecio.Text = "Cambiar Precio";
+            this.panelPrecio.Enter += new System.EventHandler(this.panelPrecio_Enter);
             // 
             // lblPre2
             // 
