@@ -365,7 +365,7 @@ namespace appSugerencias
                     }
                     else
                     {
-                        descripArtiCompra = DGCompra[1, i].Value.ToString();
+                        descripArtiCompra = DGCompra[1, i].Value.ToString().TrimEnd();
                     }
 
 
@@ -381,13 +381,13 @@ namespace appSugerencias
                 
                 //revisa el impuesto no este en blanco
 
-                if (string.IsNullOrEmpty(DGCompra[5, i].Value.ToString()))
+                if (string.IsNullOrEmpty(DGCompra[5, i].Value.ToString().TrimEnd()))
                 {
                     impuesto = "IVA";
                 }
                 else
                 {
-                    impuesto = DGCompra[5, i].Value.ToString();
+                    impuesto = DGCompra[5, i].Value.ToString().TrimEnd();
                 }
 
                 // REVISAR ESTAS LINEAS DE CODIGO DAN
@@ -494,7 +494,7 @@ namespace appSugerencias
 
 
 
-                if (impuesto == "IVA" || impuesto == "iva")
+                if (impuesto != "SYS" || impuesto != "sys")
                 {
                     mayoreoArtiCompra = mayoreoArtiCompra / IVA;
                         menudeoArtiCompra = menudeoArtiCompra / IVA;
