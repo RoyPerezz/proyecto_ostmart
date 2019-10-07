@@ -79,7 +79,7 @@ namespace appSugerencias
                     dgvArticulo.Rows[n].Cells[1].Value = item["descrip"].ToString();
                     dgvArticulo.Rows[n].Cells[2].Value = item["existencia"].ToString();
 
-                    if(item["impuesto"].ToString()=="IVA" || item["impuesto"].ToString() == "iva")
+                    if(item["impuesto"].ToString()!="SYS" || item["impuesto"].ToString() != "sys")
                     {
                         mayoreo = mayoreo +(mayoreo * 0.16);
                         menudeo = menudeo +(menudeo * 0.16);
@@ -273,7 +273,7 @@ namespace appSugerencias
                 menudeo = Convert.ToDouble(tbMenudeo.Text);
                 costo = Convert.ToDouble(tbCosto.Text);
 
-                if (tbImpuesto.Text== "IVA" || tbImpuesto.Text == "iva")
+                if (tbImpuesto.Text!= "SYS" || tbImpuesto.Text != "sys")
                 {
                     mayoreo = mayoreo / IVA;
                     menudeo = menudeo / IVA;
@@ -525,7 +525,7 @@ namespace appSugerencias
                     
                     unidad = dgvArticulos[9, i].Value.ToString();
 
-                    if (impuesto == "IVA" || impuesto == "iva")
+                    if (impuesto != "SYS" || impuesto != "sys")
                     {
                         mayoreo = mayoreo / IVA;
                         menudeo = menudeo / IVA;
@@ -533,6 +533,7 @@ namespace appSugerencias
 
                         costo = costo / IVA;
                     }
+                    
 
 
                     MySqlCommand cmdart = new MySqlCommand("SELECT ARTICULO FROM prods WHERE ARTICULO ='" + articulo + "'", conex_excel);

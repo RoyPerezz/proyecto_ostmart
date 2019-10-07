@@ -97,6 +97,7 @@ namespace appSugerencias
             int nItems = dgvItem.Rows.Count;
             string comando;
             int i = 0;
+            List<int> ExisteArticulo = new List<int>();
             List<string> itemArticulo = new List<string>();
             List<int> itemCantidad = new List<int>();
             List<int> itemExistencia = new List<int>();
@@ -129,11 +130,17 @@ namespace appSugerencias
                 MySqlDataReader mdr;
                 mdr = cmd.ExecuteReader();
 
-                while (mdr.Read())
+                if(mdr.Read())
                 {
 
                     itemExistencia.Add(Convert.ToInt32(mdr["EXISTENCIA"].ToString()));
+                    ExisteArticulo.Add(1);
 
+                }
+                else
+                {
+                    itemExistencia.Add(0);
+                    ExisteArticulo.Add(0);
                 }
                 mdr.Close();
             }
@@ -177,18 +184,52 @@ namespace appSugerencias
             //=================================================== ACTUALIZAR EXISTENCIA DEL ALRTICULO ====================================================
             for (i = 0; i < nItems; i++)
             {
-                MySqlCommand ccmdR = new MySqlCommand("UPDATE prods SET existencia=?existencia,alm1=?alm1 WHERE articulo=?articulo", conex_altatraspaso);
-                ccmdR.Parameters.Add("?existencia", MySqlDbType.Int32).Value = itemExistencia[i] + itemCantidad[i];
-                ccmdR.Parameters.Add("?alm1", MySqlDbType.Int32).Value = itemExistencia[i] + itemCantidad[i];
-                ccmdR.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = itemArticulo[i].ToString();
-                ccmdR.ExecuteNonQuery();
+                if (ExisteArticulo[i] == 1)
+                {
+                    MySqlCommand ccmdR = new MySqlCommand("UPDATE prods SET existencia=?existencia,alm1=?alm1 WHERE articulo=?articulo", conex_altatraspaso);
+                    ccmdR.Parameters.Add("?existencia", MySqlDbType.Int32).Value = itemExistencia[i] + itemCantidad[i];
+                    ccmdR.Parameters.Add("?alm1", MySqlDbType.Int32).Value = itemExistencia[i] + itemCantidad[i];
+                    ccmdR.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = itemArticulo[i].ToString();
+                    ccmdR.ExecuteNonQuery();
+
+                }
+                else if (ExisteArticulo[i] == 0)
+                {
+                    comando = "INSERT INTO prods (ARTICULO,LINEA,MARCA,FABRICANTE,UNIDAD,IMPUESTO,INVENT,PARAVENTA,EXISTENCIA,ALM1,DESCRIP)" +
+                    "VALUES (?ARTICULO,?LINEA,?MARCA,?FABRICANTE,?UNIDAD,?IMPUESTO,?INVENT,?PARAVENTA,?EXISTENCIA,?ALM1,?DESCRIP)";
+                    MySqlCommand cmd = new MySqlCommand(comando, conex_altatraspaso);
+                    cmd.Parameters.Add("?ARTICULO", MySqlDbType.VarChar).Value = dgvItem.Rows[i].Cells[0].Value.ToString();
+                    cmd.Parameters.Add("?LINEA", MySqlDbType.VarChar).Value = "SYS";
+                    cmd.Parameters.Add("?MARCA", MySqlDbType.VarChar).Value = "SYS";
+                    cmd.Parameters.Add("?FABRICANTE", MySqlDbType.VarChar).Value = "SYS";
+                    cmd.Parameters.Add("?UNIDAD", MySqlDbType.VarChar).Value = "PZA";
+                    cmd.Parameters.Add("?IMPUESTO", MySqlDbType.VarChar).Value = "IVA";
+                    cmd.Parameters.Add("?INVENT", MySqlDbType.VarChar).Value = "1";
+
+                    cmd.Parameters.Add("?PARAVENTA", MySqlDbType.VarChar).Value = "1";
+
+                    cmd.Parameters.Add("?EXISTENCIA", MySqlDbType.Int32).Value = itemExistencia[i] + itemCantidad[i];
+                    cmd.Parameters.Add("?ALM1", MySqlDbType.Int32).Value = itemExistencia[i] + itemCantidad[i];
+                    cmd.Parameters.Add("?DESCRIP", MySqlDbType.VarChar).Value = dgvItem.Rows[i].Cells[1].Value.ToString();
+
+
+                    cmd.ExecuteNonQuery();
+
+                }
                
 
             }
+            string cadena1 = "";
+            for (i = 0; i < nItems; i++)
+            {
+                if (ExisteArticulo[i] == 0)
+                {
+                    cadena1 = cadena1 + dgvItem.Rows[i].Cells[0].Value.ToString();
+                    cadena1 = cadena1 + " - ";
+                }
+            }
 
-
-           
-
+            MessageBox.Show("Estos articulos no existian en la tienda destino: (" + cadena1 + ") se crearon pero se les debe dar precio.");
 
 
         }
@@ -202,6 +243,7 @@ namespace appSugerencias
             int nItems = dgvItem.Rows.Count;
             string comando;
             int i = 0;
+            //List<int> ExisteArticulo = new List<int>();
             List<string> itemArticulo = new List<string>();
             List<int> itemCantidad = new List<int>();
             List<int> itemExistencia = new List<int>();
@@ -239,8 +281,11 @@ namespace appSugerencias
                 {
                    
                     itemExistencia.Add(Convert.ToInt32(mdr["EXISTENCIA"].ToString()));
+                    //ExisteArticulo.Add(1);
                     
                 }
+
+                
                 mdr.Close();
             }
            // BDConexicon.VallartaClose();
@@ -283,12 +328,14 @@ namespace appSugerencias
             //=================================================== ACTUALIZAR EXISTENCIA DEL ALRTICULO ====================================================
             for (i = 0; i < nItems; i++)
             {
-                MySqlCommand ccmdR = new MySqlCommand("UPDATE prods SET existencia=?existencia,alm1=?alm1 WHERE articulo=?articulo", conex_bajatraspaso);
-                ccmdR.Parameters.Add("?existencia", MySqlDbType.Int32).Value = itemExistencia[i] - itemCantidad[i];
-                ccmdR.Parameters.Add("?alm1", MySqlDbType.Int32).Value = itemExistencia[i] - itemCantidad[i];
-                ccmdR.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = itemArticulo[i].ToString(); 
-                ccmdR.ExecuteNonQuery();
-                //BDConexicon.VallartaClose();
+                
+                    MySqlCommand ccmdR = new MySqlCommand("UPDATE prods SET existencia=?existencia,alm1=?alm1 WHERE articulo=?articulo", conex_bajatraspaso);
+                    ccmdR.Parameters.Add("?existencia", MySqlDbType.Int32).Value = itemExistencia[i] - itemCantidad[i];
+                    ccmdR.Parameters.Add("?alm1", MySqlDbType.Int32).Value = itemExistencia[i] - itemCantidad[i];
+                    ccmdR.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = itemArticulo[i].ToString();
+                    ccmdR.ExecuteNonQuery();
+               
+                
 
             }
 
@@ -300,7 +347,7 @@ namespace appSugerencias
             ccmdRr.Parameters.Add("?idtraspaso", MySqlDbType.VarChar).Value = txtId.Text;
 
             ccmdRr.ExecuteNonQuery();
-           // BDConexicon.VallartaClose();
+           
 
         }
         //########## CIERRE ############
