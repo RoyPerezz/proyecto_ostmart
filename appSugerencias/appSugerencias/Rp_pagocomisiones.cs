@@ -103,5 +103,10 @@ namespace appSugerencias
             datos();
             exportarExcel(tabla);
         }
+
+        private void Rp_pagocomisiones_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
