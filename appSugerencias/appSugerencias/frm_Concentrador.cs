@@ -651,7 +651,7 @@ namespace appSugerencias
                 //COLOSO
                 try
                 {
-                    conex_excel = BDConexicon.RenaOpen();
+                    conex_excel = BDConexicon.ColosoOpen();
                     cargarArticulos();
                     conex_excel.Close();
 
