@@ -35,7 +35,7 @@ namespace appSugerencias
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new form_existXlinea());
+                Application.Run(new PagoComisiones());
             }
             else
             {

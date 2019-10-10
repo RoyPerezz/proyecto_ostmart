@@ -34,6 +34,8 @@ namespace appSugerencias
             this.CB_usuario = new System.Windows.Forms.ComboBox();
             this.GP_principal = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -41,6 +43,9 @@ namespace appSugerencias
             this.TB_informacion = new System.Windows.Forms.TextBox();
             this.TB_cobro = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
@@ -51,6 +56,9 @@ namespace appSugerencias
             this.TB_foco = new System.Windows.Forms.TextBox();
             this.TB_cancelacion = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
@@ -61,6 +69,10 @@ namespace appSugerencias
             this.TB_area = new System.Windows.Forms.TextBox();
             this.TB_caja = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -74,6 +86,9 @@ namespace appSugerencias
             this.TB_maquillaje = new System.Windows.Forms.TextBox();
             this.TB_uniforme = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -106,24 +121,9 @@ namespace appSugerencias
             this.TB_Ctotal = new System.Windows.Forms.TextBox();
             this.BT_calcular = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.DT_fecha = new System.Windows.Forms.DateTimePicker();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
-            this.label50 = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
-            this.label56 = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
-            this.label58 = new System.Windows.Forms.Label();
-            this.label59 = new System.Windows.Forms.Label();
-            this.BT_llenar = new System.Windows.Forms.Button();
             this.BT_validar = new System.Windows.Forms.Button();
+            this.BT_llenar = new System.Windows.Forms.Button();
+            this.DT_fecha = new System.Windows.Forms.DateTimePicker();
             this.GP_principal.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -180,6 +180,26 @@ namespace appSugerencias
             this.groupBox5.TabIndex = 11;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Cobro";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.ForeColor = System.Drawing.Color.Blue;
+            this.label59.Location = new System.Drawing.Point(105, 89);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(21, 13);
+            this.label59.TabIndex = 36;
+            this.label59.Text = "5%";
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.ForeColor = System.Drawing.Color.Blue;
+            this.label58.Location = new System.Drawing.Point(25, 89);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(21, 13);
+            this.label58.TabIndex = 38;
+            this.label58.Text = "6%";
             // 
             // label33
             // 
@@ -251,6 +271,36 @@ namespace appSugerencias
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Errores";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.ForeColor = System.Drawing.Color.Blue;
+            this.label57.Location = new System.Drawing.Point(30, 74);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(21, 13);
+            this.label57.TabIndex = 37;
+            this.label57.Text = "4%";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.ForeColor = System.Drawing.Color.Blue;
+            this.label56.Location = new System.Drawing.Point(30, 35);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(21, 13);
+            this.label56.TabIndex = 36;
+            this.label56.Text = "4%";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.ForeColor = System.Drawing.Color.Blue;
+            this.label55.Location = new System.Drawing.Point(30, 113);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(21, 13);
+            this.label55.TabIndex = 35;
+            this.label55.Text = "6%";
             // 
             // label31
             // 
@@ -347,6 +397,36 @@ namespace appSugerencias
             this.groupBox4.TabIndex = 10;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Limpieza";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.ForeColor = System.Drawing.Color.Blue;
+            this.label54.Location = new System.Drawing.Point(127, 89);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(21, 13);
+            this.label54.TabIndex = 34;
+            this.label54.Text = "6%";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.ForeColor = System.Drawing.Color.Blue;
+            this.label53.Location = new System.Drawing.Point(76, 89);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(21, 13);
+            this.label53.TabIndex = 34;
+            this.label53.Text = "6%";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.ForeColor = System.Drawing.Color.Blue;
+            this.label52.Location = new System.Drawing.Point(22, 89);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(21, 13);
+            this.label52.TabIndex = 34;
+            this.label52.Text = "6%";
             // 
             // label28
             // 
@@ -447,6 +527,46 @@ namespace appSugerencias
             this.groupBox3.TabIndex = 10;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Presentación";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.ForeColor = System.Drawing.Color.Blue;
+            this.label51.Location = new System.Drawing.Point(195, 89);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(21, 13);
+            this.label51.TabIndex = 35;
+            this.label51.Text = "5%";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.ForeColor = System.Drawing.Color.Blue;
+            this.label50.Location = new System.Drawing.Point(144, 89);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(21, 13);
+            this.label50.TabIndex = 34;
+            this.label50.Text = "5%";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.ForeColor = System.Drawing.Color.Blue;
+            this.label49.Location = new System.Drawing.Point(91, 89);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(21, 13);
+            this.label49.TabIndex = 33;
+            this.label49.Text = "5%";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.ForeColor = System.Drawing.Color.Blue;
+            this.label48.Location = new System.Drawing.Point(34, 89);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(27, 13);
+            this.label48.TabIndex = 32;
+            this.label48.Text = "12%";
             // 
             // label25
             // 
@@ -569,6 +689,36 @@ namespace appSugerencias
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Trato al cliente";
             // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.ForeColor = System.Drawing.Color.Blue;
+            this.label47.Location = new System.Drawing.Point(155, 89);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(27, 13);
+            this.label47.TabIndex = 15;
+            this.label47.Text = "10%";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.ForeColor = System.Drawing.Color.Blue;
+            this.label46.Location = new System.Drawing.Point(104, 89);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(27, 13);
+            this.label46.TabIndex = 14;
+            this.label46.Text = "10%";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.ForeColor = System.Drawing.Color.Blue;
+            this.label45.Location = new System.Drawing.Point(50, 89);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(27, 13);
+            this.label45.TabIndex = 13;
+            this.label45.Text = "10%";
+            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -672,13 +822,16 @@ namespace appSugerencias
             // 
             // BT_guardar
             // 
+            this.BT_guardar.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_guardar.Enabled = false;
+            this.BT_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_guardar.ForeColor = System.Drawing.Color.White;
             this.BT_guardar.Location = new System.Drawing.Point(180, 108);
             this.BT_guardar.Name = "BT_guardar";
             this.BT_guardar.Size = new System.Drawing.Size(113, 43);
             this.BT_guardar.TabIndex = 12;
             this.BT_guardar.Text = "Guardar";
-            this.BT_guardar.UseVisualStyleBackColor = true;
+            this.BT_guardar.UseVisualStyleBackColor = false;
             this.BT_guardar.Click += new System.EventHandler(this.button1_Click);
             // 
             // label34
@@ -842,13 +995,16 @@ namespace appSugerencias
             // 
             // BT_calcular
             // 
+            this.BT_calcular.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_calcular.Enabled = false;
+            this.BT_calcular.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_calcular.ForeColor = System.Drawing.Color.White;
             this.BT_calcular.Location = new System.Drawing.Point(54, 108);
             this.BT_calcular.Name = "BT_calcular";
             this.BT_calcular.Size = new System.Drawing.Size(115, 43);
             this.BT_calcular.TabIndex = 30;
             this.BT_calcular.Text = "Calcular";
-            this.BT_calcular.UseVisualStyleBackColor = true;
+            this.BT_calcular.UseVisualStyleBackColor = false;
             this.BT_calcular.Click += new System.EventHandler(this.BT_calcular_Click);
             // 
             // groupBox6
@@ -881,6 +1037,33 @@ namespace appSugerencias
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Ventas y Comisiones";
             // 
+            // BT_validar
+            // 
+            this.BT_validar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BT_validar.Enabled = false;
+            this.BT_validar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_validar.ForeColor = System.Drawing.Color.White;
+            this.BT_validar.Location = new System.Drawing.Point(178, 52);
+            this.BT_validar.Name = "BT_validar";
+            this.BT_validar.Size = new System.Drawing.Size(115, 41);
+            this.BT_validar.TabIndex = 32;
+            this.BT_validar.Text = "Validar";
+            this.BT_validar.UseVisualStyleBackColor = false;
+            this.BT_validar.Click += new System.EventHandler(this.BT_validar_Click);
+            // 
+            // BT_llenar
+            // 
+            this.BT_llenar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BT_llenar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_llenar.ForeColor = System.Drawing.Color.White;
+            this.BT_llenar.Location = new System.Drawing.Point(54, 52);
+            this.BT_llenar.Name = "BT_llenar";
+            this.BT_llenar.Size = new System.Drawing.Size(115, 43);
+            this.BT_llenar.TabIndex = 12;
+            this.BT_llenar.Text = "Llenar";
+            this.BT_llenar.UseVisualStyleBackColor = false;
+            this.BT_llenar.Click += new System.EventHandler(this.button2_Click);
+            // 
             // DT_fecha
             // 
             this.DT_fecha.Location = new System.Drawing.Point(258, 19);
@@ -888,181 +1071,11 @@ namespace appSugerencias
             this.DT_fecha.Size = new System.Drawing.Size(200, 20);
             this.DT_fecha.TabIndex = 31;
             // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.ForeColor = System.Drawing.Color.Blue;
-            this.label45.Location = new System.Drawing.Point(50, 89);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(27, 13);
-            this.label45.TabIndex = 13;
-            this.label45.Text = "10%";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.ForeColor = System.Drawing.Color.Blue;
-            this.label46.Location = new System.Drawing.Point(104, 89);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(27, 13);
-            this.label46.TabIndex = 14;
-            this.label46.Text = "10%";
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.ForeColor = System.Drawing.Color.Blue;
-            this.label47.Location = new System.Drawing.Point(155, 89);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(27, 13);
-            this.label47.TabIndex = 15;
-            this.label47.Text = "10%";
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.ForeColor = System.Drawing.Color.Blue;
-            this.label48.Location = new System.Drawing.Point(34, 89);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(27, 13);
-            this.label48.TabIndex = 32;
-            this.label48.Text = "12%";
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.ForeColor = System.Drawing.Color.Blue;
-            this.label49.Location = new System.Drawing.Point(91, 89);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(21, 13);
-            this.label49.TabIndex = 33;
-            this.label49.Text = "5%";
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.ForeColor = System.Drawing.Color.Blue;
-            this.label50.Location = new System.Drawing.Point(144, 89);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(21, 13);
-            this.label50.TabIndex = 34;
-            this.label50.Text = "5%";
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.ForeColor = System.Drawing.Color.Blue;
-            this.label51.Location = new System.Drawing.Point(195, 89);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(21, 13);
-            this.label51.TabIndex = 35;
-            this.label51.Text = "5%";
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.ForeColor = System.Drawing.Color.Blue;
-            this.label52.Location = new System.Drawing.Point(22, 89);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(21, 13);
-            this.label52.TabIndex = 34;
-            this.label52.Text = "6%";
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.ForeColor = System.Drawing.Color.Blue;
-            this.label53.Location = new System.Drawing.Point(76, 89);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(21, 13);
-            this.label53.TabIndex = 34;
-            this.label53.Text = "6%";
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.ForeColor = System.Drawing.Color.Blue;
-            this.label54.Location = new System.Drawing.Point(127, 89);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(21, 13);
-            this.label54.TabIndex = 34;
-            this.label54.Text = "6%";
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.ForeColor = System.Drawing.Color.Blue;
-            this.label55.Location = new System.Drawing.Point(30, 113);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(21, 13);
-            this.label55.TabIndex = 35;
-            this.label55.Text = "6%";
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.ForeColor = System.Drawing.Color.Blue;
-            this.label56.Location = new System.Drawing.Point(30, 35);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(21, 13);
-            this.label56.TabIndex = 36;
-            this.label56.Text = "4%";
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.ForeColor = System.Drawing.Color.Blue;
-            this.label57.Location = new System.Drawing.Point(30, 74);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(21, 13);
-            this.label57.TabIndex = 37;
-            this.label57.Text = "4%";
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.ForeColor = System.Drawing.Color.Blue;
-            this.label58.Location = new System.Drawing.Point(25, 89);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(21, 13);
-            this.label58.TabIndex = 38;
-            this.label58.Text = "6%";
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.ForeColor = System.Drawing.Color.Blue;
-            this.label59.Location = new System.Drawing.Point(105, 89);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(21, 13);
-            this.label59.TabIndex = 36;
-            this.label59.Text = "5%";
-            // 
-            // BT_llenar
-            // 
-            this.BT_llenar.Location = new System.Drawing.Point(54, 52);
-            this.BT_llenar.Name = "BT_llenar";
-            this.BT_llenar.Size = new System.Drawing.Size(115, 43);
-            this.BT_llenar.TabIndex = 12;
-            this.BT_llenar.Text = "Llenar";
-            this.BT_llenar.UseVisualStyleBackColor = true;
-            this.BT_llenar.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // BT_validar
-            // 
-            this.BT_validar.Enabled = false;
-            this.BT_validar.Location = new System.Drawing.Point(178, 52);
-            this.BT_validar.Name = "BT_validar";
-            this.BT_validar.Size = new System.Drawing.Size(115, 41);
-            this.BT_validar.TabIndex = 32;
-            this.BT_validar.Text = "Validar";
-            this.BT_validar.UseVisualStyleBackColor = true;
-            this.BT_validar.Click += new System.EventHandler(this.BT_validar_Click);
-            // 
             // Calificacionescs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(711, 589);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.label18);

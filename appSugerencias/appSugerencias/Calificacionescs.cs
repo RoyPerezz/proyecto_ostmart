@@ -233,7 +233,7 @@ namespace appSugerencias
         public void cajeras()
         {
             
-            MySqlCommand cmd = new MySqlCommand("select usuario from usuarios where area = '"+"cajas"+"'",BDConexicon.conectar());
+            MySqlCommand cmd = new MySqlCommand("select usuario from usuarios where area = '"+"cajas"+"' order by usuario",BDConexicon.conectar());
             MySqlDataReader rd = cmd.ExecuteReader();
             Console.WriteLine(rd);
             while(rd.Read())
@@ -318,7 +318,7 @@ namespace appSugerencias
         {
             //guarda registro calificaciones y comisiones
 
-            MySqlCommand cmd = new MySqlCommand("insert into rd_comisiones(usuario, fecha, saludo, sonrisa, pedido, maquillaje, uniforme, gafete, peinado, area, equipo, foco," +
+            MySqlCommand cmd = new MySqlCommand("insert into rd_calificaciones(usuario, fecha, saludo, sonrisa, pedido, maquillaje, uniforme, gafete, peinado, area, equipo, foco," +
                "cancelacion, merc_caja, informacion, cobro, promedio, Vtotales, Cbruta, Cneta, cant_clientes,Ccliente,Ctotal) values(?usuario, ?fecha, ?saludo, ?sonrisa, ?pedido, ?maquillaje, ?uniforme, ?gafete, ?peinado, ?area, ?equipo, ?foco, ?cancelacion, ?merc_caja, ?informacion, ?cobro, ?promedio, ?Vtotales, ?Cbruta, ?Cneta, ?cant_clientes,?Ccliente,?Ctotal)", BDConexicon.conectar());
 
 
@@ -366,14 +366,16 @@ namespace appSugerencias
             String f = FormatoFecha.getDate(fecha);
            
             double total = 0.0;
-            MySqlCommand cmd = new MySqlCommand("select sum(importe) as total from ventas where usuario ='"+CB_usuario.SelectedItem.ToString()+"' and f_emision ='"+f+"'", BDConexicon.conectar());
+            MySqlCommand cmd = new MySqlCommand("select sum(importe) as total from ventas where usuario ='"+CB_usuario.SelectedItem.ToString()+"' and USUFECHA ='"+f+"'", BDConexicon.conectar());
             MySqlDataReader rd = cmd.ExecuteReader();
             while(rd.Read())
             {
                 try
                 {
                     total = Convert.ToDouble(rd["total"]);
-                }catch(Exception e)
+                    BT_guardar.Enabled = true;
+                }
+                catch(Exception e)
                 {
                     MessageBox.Show("No hay registros para su solicitud, verifique el nombre de la cajera y la fecha");
                 }
@@ -451,7 +453,7 @@ namespace appSugerencias
             clientesAtendidos();
             comisionCliente();
             comisionTotal();
-            BT_guardar.Enabled = true;
+            //BT_guardar.Enabled = true;
 
             
         }
