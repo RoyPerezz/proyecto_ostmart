@@ -20,6 +20,33 @@ namespace appSugerencias
         }
         int numCol = 0;
         ArrayList fechas = new ArrayList();
+        double T_incentivo = 0;
+        double T_total = 0;
+
+        public void setIncentivo(double incentivo)
+        {
+            T_incentivo = incentivo;
+           
+        }
+
+        public void setTotal(double total)
+        {
+            T_total = total;
+            
+        }
+
+        public string getIncentivo()
+        {
+            
+            return String.Format("{0:0.##}", T_incentivo.ToString("C"));
+        }
+
+        public string getTotal()
+        {
+            return String.Format("{0:0.##}", T_total.ToString("C"));
+        }
+
+
         public void Comisiones()
         {
             DateTime inicio = DT_inicio.Value;
@@ -143,6 +170,7 @@ namespace appSugerencias
                 double sumaIncentivo = 0;
                 double sumaTotal = 0;
 
+
                 if (DG_comisiones.Columns[e.ColumnIndex].Name == "INCENTIVO")
                 {
                     if (DG_comisiones.Rows[e.RowIndex].Cells[1].Value.ToString() == String.Empty)
@@ -242,6 +270,7 @@ namespace appSugerencias
 
                        
                         sumaIncentivo += Convert.ToDouble(DG_comisiones.Rows[fila].Cells[8].Value.ToString());
+                        setIncentivo(sumaIncentivo);
                         LB_incentivo.Text = Convert.ToString(String.Format("{0:0.##}", sumaIncentivo.ToString("C")));
 
                     }
@@ -251,6 +280,7 @@ namespace appSugerencias
                         //decimal digito = decimal.Parse(DG_comisiones.Rows[e.RowIndex].Cells[9].Value.ToString(), NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"));
                         //string texto = digito.ToString("G0");
                         sumaTotal += Convert.ToDouble(DG_comisiones.Rows[fila].Cells[9].Value.ToString());
+                        setTotal(sumaTotal);
                         LB_comision.Text = Convert.ToString(String.Format("{0:0.##}", sumaTotal.ToString("C")));
 
 
@@ -270,6 +300,16 @@ namespace appSugerencias
 
         private void BT_exportar_Click(object sender, EventArgs e)
         {
+            DateTime F_ini, F_fin;
+            string inicio = "", fin = "";
+
+            F_ini = DT_inicio.Value;
+            F_fin = DT_fin.Value;
+
+            inicio = F_ini.ToLongDateString();
+            fin = F_fin.ToLongDateString();
+
+
             Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
             excel.Application.Workbooks.Add(true);
 
@@ -311,8 +351,16 @@ namespace appSugerencias
 
             }
 
+            excel.Cells.Range["A4:J4"].Merge();
+            excel.Cells.Range["A4"].Value = "COMISIONES DE LA SEMANA DEL  "+inicio.ToUpper()+"  AL  "+fin.ToUpper();
 
+            excel.Cells.Range["I17"].Value = "TOTAL INCENTIVO =";
+            excel.Cells.Range["J17"].Value = getIncentivo();
+            excel.Cells.Range["I18"].Value = "TOTAL COMISION =";
+            excel.Cells.Range["J18"].Value = getTotal();
 
+            excel.Cells.Range["I6:I16"].NumberFormat = "$#,##0.00";
+            excel.Cells.Range["J6:J16"].NumberFormat = "$#,##0.00";
 
             excel.Visible = true;
         }
