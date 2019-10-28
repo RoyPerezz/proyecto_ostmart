@@ -48,22 +48,22 @@
             this.DG_comisiones.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.DG_comisiones.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DG_comisiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DG_comisiones.Location = new System.Drawing.Point(39, 71);
+            this.DG_comisiones.Location = new System.Drawing.Point(12, 71);
             this.DG_comisiones.Name = "DG_comisiones";
-            this.DG_comisiones.Size = new System.Drawing.Size(1039, 259);
+            this.DG_comisiones.Size = new System.Drawing.Size(1234, 259);
             this.DG_comisiones.TabIndex = 0;
             this.DG_comisiones.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_comisiones_CellEndEdit);
             // 
             // DT_fin
             // 
-            this.DT_fin.Location = new System.Drawing.Point(76, 41);
+            this.DT_fin.Location = new System.Drawing.Point(59, 45);
             this.DT_fin.Name = "DT_fin";
             this.DT_fin.Size = new System.Drawing.Size(200, 20);
             this.DT_fin.TabIndex = 1;
             // 
             // DT_inicio
             // 
-            this.DT_inicio.Location = new System.Drawing.Point(76, 15);
+            this.DT_inicio.Location = new System.Drawing.Point(59, 19);
             this.DT_inicio.Name = "DT_inicio";
             this.DT_inicio.Size = new System.Drawing.Size(200, 20);
             this.DT_inicio.TabIndex = 2;
@@ -71,7 +71,7 @@
             // LB_inicio
             // 
             this.LB_inicio.AutoSize = true;
-            this.LB_inicio.Location = new System.Drawing.Point(38, 18);
+            this.LB_inicio.Location = new System.Drawing.Point(21, 22);
             this.LB_inicio.Name = "LB_inicio";
             this.LB_inicio.Size = new System.Drawing.Size(32, 13);
             this.LB_inicio.TabIndex = 3;
@@ -80,7 +80,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 44);
+            this.label1.Location = new System.Drawing.Point(28, 48);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(21, 13);
             this.label1.TabIndex = 4;
@@ -91,7 +91,7 @@
             this.BT_comisiones.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_comisiones.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_comisiones.ForeColor = System.Drawing.Color.White;
-            this.BT_comisiones.Location = new System.Drawing.Point(854, 12);
+            this.BT_comisiones.Location = new System.Drawing.Point(1016, 17);
             this.BT_comisiones.Name = "BT_comisiones";
             this.BT_comisiones.Size = new System.Drawing.Size(109, 50);
             this.BT_comisiones.TabIndex = 5;
@@ -142,7 +142,7 @@
             this.BT_exportar.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_exportar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_exportar.ForeColor = System.Drawing.Color.White;
-            this.BT_exportar.Location = new System.Drawing.Point(969, 12);
+            this.BT_exportar.Location = new System.Drawing.Point(1131, 17);
             this.BT_exportar.Name = "BT_exportar";
             this.BT_exportar.Size = new System.Drawing.Size(109, 50);
             this.BT_exportar.TabIndex = 10;
@@ -155,7 +155,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(1096, 472);
+            this.ClientSize = new System.Drawing.Size(1258, 472);
             this.Controls.Add(this.BT_exportar);
             this.Controls.Add(this.LB_comision);
             this.Controls.Add(this.LB_incentivo);

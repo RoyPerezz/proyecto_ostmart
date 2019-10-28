@@ -19,10 +19,13 @@ namespace appSugerencias
             InitializeComponent();
         }
         int numCol = 0;
-        ArrayList fechas = new ArrayList();
-        double T_incentivo = 0;
-        double T_total = 0;
+        ArrayList fechas = new ArrayList();//GUARDO LAS FECHAS EN ESTE ARRAY PARA COLOCARLAS COMO NOMBRES DE COLUMNA
+        double T_incentivo = 0;//GUARDA EL TOTAL DE INCENTIVO A PAGAR
+        double T_total = 0;//GUARDA EL TOTAL DE COMISION A PAGAR
 
+
+
+        //############## METODOS PARA SETEAR LAS VARIABLES T_INCENTIVO Y T_TOTAL #####################################################
         public void setIncentivo(double incentivo)
         {
             T_incentivo = incentivo;
@@ -45,9 +48,9 @@ namespace appSugerencias
         {
             return String.Format("{0:0.##}", T_total.ToString("C"));
         }
+        //#########################################################################################################################################
 
-
-        public void Comisiones()
+        public void Comisiones()// ESTE METODO LLENA EL DATAGRIDVIEW CON LAS COMISIONES DE LAS CAJERAS EN EL DIA CORRESPONDIENTE
         {
             DateTime inicio = DT_inicio.Value;
             DateTime fin = DT_fin.Value;
@@ -55,7 +58,8 @@ namespace appSugerencias
             DataTable dt = new DataTable();
             DataRow fila;
             fila = dt.NewRow();
-            //Creo las columnas de mi DataTable
+
+            //OBTENGO LAS FECHAS DE LA BD PARA PONERLAS COMO NOMBRES DE COLUMNAS
             MySqlCommand cmd = new MySqlCommand("Select DISTINCT Fecha from rd_calificaciones where Fecha between '" + inicio.ToString("yyyy-MM-dd") + "' and '" + fin.ToString("yyyy-MM-dd") + "'order by fecha", BDConexicon.conectar());
 
             MySqlDataReader dr = cmd.ExecuteReader();
@@ -90,17 +94,19 @@ namespace appSugerencias
             MySqlCommand cmd3 = new MySqlCommand("Select  USUARIO,FECHA,Ctotal from rd_calificaciones where Fecha between '" + inicio.ToString("yyyy-MM-dd") + "' and '" + fin.ToString("yyyy-MM-dd") + "'order by USUARIO", BDConexicon.conectar());
             MySqlDataReader dr3 = null; ;
 
-            //MySqlDataAdapter ad = new MySqlDataAdapter(cmd3);
+          
             DataTable pagos = new DataTable();
-            //ad.Fill(pagos);
+       
             int i = 1;
             int x = 0;
             int filas = 0;
             string fecha = "";
             string usuario = "", cajera = "", comision = "";
             DateTime f2;
-
+            dt.Columns.Add("COMISION TIKCETS");
+            
             dt.Columns.Add("INCENTIVO");
+            dt.Columns.Add("REPORTES DE CÁMARA");
             dt.Columns.Add("TOTAL");
             try
             {
@@ -159,14 +165,17 @@ namespace appSugerencias
         {
             Comisiones();
             numCol = DG_comisiones.ColumnCount;
+            
         }
 
+
+        //###################### SE REALIZAN LOS CALCULOS DE LAS COMISIONES A PAGAR CUANDO SE TERMINA DE EDITAR LAS CELDAS DE LA COLUMNA INCENTIVO
         private void DG_comisiones_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
 
             try
             {
-                double suma = 0, col1 = 0, col2 = 0, col3 = 0, col4 = 0, col5 = 0, col6 = 0, col7 = 0, incentivo = 0;
+                double suma = 0, col1 = 0, col2 = 0, col3 = 0, col4 = 0, col5 = 0, col6 = 0, col7 = 0,col8=0,col10=0, incentivo = 0;
                 double sumaIncentivo = 0;
                 double sumaTotal = 0;
 
@@ -257,11 +266,38 @@ namespace appSugerencias
                         col7 = Convert.ToDouble(texto);
                     }
 
+                    if (DG_comisiones.Rows[e.RowIndex].Cells[8].Value.ToString() == String.Empty)
+                    {
+                        col8 = 0;
+                    }
+                    else
+                    {
 
-                    incentivo = Convert.ToDouble(DG_comisiones.Rows[e.RowIndex].Cells[8].Value.ToString());
+                        decimal digito = decimal.Parse(DG_comisiones.Rows[e.RowIndex].Cells[8].Value.ToString(), NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"));
+                        string texto = digito.ToString("G0");
+                        col8 = Convert.ToDouble(texto);
+                    }
 
-                    suma = col1 + col2 + col3 + col4 + col5 + col6 +col7+ incentivo;
-                    DG_comisiones.Rows[e.RowIndex].Cells[9].Value = Convert.ToString(suma);
+
+                    if (DG_comisiones.Rows[e.RowIndex].Cells[10].Value.ToString() == String.Empty)
+                    {
+                        col10 = 0;
+                    }
+                    else
+                    {
+
+                        decimal digito = decimal.Parse(DG_comisiones.Rows[e.RowIndex].Cells[10].Value.ToString(), NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"));
+                        string texto = digito.ToString("G0");
+                        col10 = Convert.ToDouble(texto);
+                    }
+
+
+                    //SE CAPTURA EL INCENTIVO ASENTADO EN LA CELDA DE LA COLUMNA INCENTIVO
+                    incentivo = Convert.ToDouble(DG_comisiones.Rows[e.RowIndex].Cells[9].Value.ToString());
+
+                    //SE SUMAN LAS COMISIONES Y SE LE RESTA LA COLUMNA 10 (REPORTES DE CAMARA)
+                    suma = (col1 + col2 + col3 + col4 + col5 + col6 +col7+col8+incentivo)-col10;
+                    DG_comisiones.Rows[e.RowIndex].Cells[11].Value = Convert.ToString(suma);
 
 
                    
@@ -269,7 +305,7 @@ namespace appSugerencias
                     {
 
                        
-                        sumaIncentivo += Convert.ToDouble(DG_comisiones.Rows[fila].Cells[8].Value.ToString());
+                        sumaIncentivo += Convert.ToDouble(DG_comisiones.Rows[fila].Cells[9].Value.ToString());
                         setIncentivo(sumaIncentivo);
                         LB_incentivo.Text = Convert.ToString(String.Format("{0:0.##}", sumaIncentivo.ToString("C")));
 
@@ -277,9 +313,8 @@ namespace appSugerencias
 
                     for (int fila = 0; fila < DG_comisiones.RowCount; fila++)
                     {
-                        //decimal digito = decimal.Parse(DG_comisiones.Rows[e.RowIndex].Cells[9].Value.ToString(), NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"));
-                        //string texto = digito.ToString("G0");
-                        sumaTotal += Convert.ToDouble(DG_comisiones.Rows[fila].Cells[9].Value.ToString());
+                        
+                        sumaTotal += Convert.ToDouble(DG_comisiones.Rows[fila].Cells[11].Value.ToString());
                         setTotal(sumaTotal);
                         LB_comision.Text = Convert.ToString(String.Format("{0:0.##}", sumaTotal.ToString("C")));
 
@@ -352,15 +387,17 @@ namespace appSugerencias
             }
 
             excel.Cells.Range["A4:J4"].Merge();
-            excel.Cells.Range["A4"].Value = "COMISIONES DE LA SEMANA DEL  "+inicio.ToUpper()+"  AL  "+fin.ToUpper();
+            excel.Cells.Range["A4"].Value = "COMISIONES DE LA SEMANA DEL    "+inicio.ToUpper()+  "   AL    "+fin.ToUpper();
 
-            excel.Cells.Range["I17"].Value = "TOTAL INCENTIVO =";
-            excel.Cells.Range["J17"].Value = getIncentivo();
-            excel.Cells.Range["I18"].Value = "TOTAL COMISION =";
-            excel.Cells.Range["J18"].Value = getTotal();
+            excel.Cells.Range["K17"].Value = "TOTAL INCENTIVO =";
+            excel.Cells.Range["L17"].Value = getIncentivo();
+            excel.Cells.Range["K18"].Value = "TOTAL COMISION =";
+            excel.Cells.Range["L18"].Value = getTotal();
 
             excel.Cells.Range["I6:I16"].NumberFormat = "$#,##0.00";
             excel.Cells.Range["J6:J16"].NumberFormat = "$#,##0.00";
+            excel.Cells.Range["K6:K16"].NumberFormat = "$#,##0.00";
+            excel.Cells.Range["L6:L16"].NumberFormat = "$#,##0.00";
 
             excel.Visible = true;
         }
