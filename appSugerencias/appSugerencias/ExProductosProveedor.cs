@@ -181,23 +181,23 @@ namespace appSugerencias
                 master.Columns.Add("PREGOT", typeof(String));
 
                 master.Columns.Remove("existencia");
-              
-             
+
+
 
 
                 // se recorren los datatables con los registros de cada suc.
-                RecorreBodega( DTbodega);
+                RecorreBodega(DTbodega);
                 RecorreVallarta(DTvallarta);
                 RecorreRena(DTrena);
                 RecorreVelazquez(DTvelazquez);
                 RecorreColoso(DTcoloso);
                 RecorrerPregot(DTpregot);
-               
 
 
 
 
-               
+
+
                 DG_existencias.DataSource = master;
 
                 //DG_existencias.Columns["ARTICULO"].SortMode = DataGridViewColumnSortMode.NotSortable;
