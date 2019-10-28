@@ -84,6 +84,10 @@
             this.cBoxRePrecio = new System.Windows.Forms.CheckBox();
             this.cBoxVaPrecio = new System.Windows.Forms.CheckBox();
             this.cBoxTodasPrecio = new System.Windows.Forms.CheckBox();
+            this.LB_prov_vallarta = new System.Windows.Forms.Label();
+            this.LB_prov_rena = new System.Windows.Forms.Label();
+            this.LB_prov_velazquez = new System.Windows.Forms.Label();
+            this.LB_prov_coloso = new System.Windows.Forms.Label();
             this.panelOfertas.SuspendLayout();
             this.panelPrecios.SuspendLayout();
             this.SuspendLayout();
@@ -663,12 +667,48 @@
             this.cBoxTodasPrecio.UseVisualStyleBackColor = true;
             this.cBoxTodasPrecio.CheckedChanged += new System.EventHandler(this.cBoxTodasPrecio_CheckedChanged);
             // 
+            // LB_prov_vallarta
+            // 
+            this.LB_prov_vallarta.AutoSize = true;
+            this.LB_prov_vallarta.Location = new System.Drawing.Point(276, 306);
+            this.LB_prov_vallarta.Name = "LB_prov_vallarta";
+            this.LB_prov_vallarta.Size = new System.Drawing.Size(0, 13);
+            this.LB_prov_vallarta.TabIndex = 29;
+            // 
+            // LB_prov_rena
+            // 
+            this.LB_prov_rena.AutoSize = true;
+            this.LB_prov_rena.Location = new System.Drawing.Point(276, 348);
+            this.LB_prov_rena.Name = "LB_prov_rena";
+            this.LB_prov_rena.Size = new System.Drawing.Size(0, 13);
+            this.LB_prov_rena.TabIndex = 30;
+            // 
+            // LB_prov_velazquez
+            // 
+            this.LB_prov_velazquez.AutoSize = true;
+            this.LB_prov_velazquez.Location = new System.Drawing.Point(276, 382);
+            this.LB_prov_velazquez.Name = "LB_prov_velazquez";
+            this.LB_prov_velazquez.Size = new System.Drawing.Size(0, 13);
+            this.LB_prov_velazquez.TabIndex = 31;
+            // 
+            // LB_prov_coloso
+            // 
+            this.LB_prov_coloso.AutoSize = true;
+            this.LB_prov_coloso.Location = new System.Drawing.Point(276, 420);
+            this.LB_prov_coloso.Name = "LB_prov_coloso";
+            this.LB_prov_coloso.Size = new System.Drawing.Size(0, 13);
+            this.LB_prov_coloso.TabIndex = 32;
+            // 
             // ExistenciasVitrina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(996, 527);
+            this.Controls.Add(this.LB_prov_coloso);
+            this.Controls.Add(this.LB_prov_velazquez);
+            this.Controls.Add(this.LB_prov_rena);
+            this.Controls.Add(this.LB_prov_vallarta);
             this.Controls.Add(this.panelPrecios);
             this.Controls.Add(this.panelOfertas);
             this.Controls.Add(this.BT_limpiar);
@@ -763,5 +803,9 @@
         private System.Windows.Forms.Label lblVePre;
         private System.Windows.Forms.Label lblRePre;
         private System.Windows.Forms.Label lblVaPre;
+        private System.Windows.Forms.Label LB_prov_vallarta;
+        private System.Windows.Forms.Label LB_prov_rena;
+        private System.Windows.Forms.Label LB_prov_velazquez;
+        private System.Windows.Forms.Label LB_prov_coloso;
     }
 }
