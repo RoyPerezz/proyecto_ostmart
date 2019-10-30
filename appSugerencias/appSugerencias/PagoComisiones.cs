@@ -25,7 +25,7 @@ namespace appSugerencias
 
 
 
-        //############## METODOS PARA SETEAR LAS VARIABLES T_INCENTIVO Y T_TOTAL #####################################################
+        //############## METODOS PARA SETEAR Y OBTENER LOS VALORES DE LAS VARIABLES T_INCENTIVO Y T_TOTAL #####################################################
         public void setIncentivo(double incentivo)
         {
             T_incentivo = incentivo;
