@@ -248,7 +248,7 @@ namespace appSugerencias
 
                 CB_usuario.Items.Add(rd[0].ToString());
             }
-            
+            rd.Close();
 
         }
 
@@ -263,12 +263,13 @@ namespace appSugerencias
                 MySqlDataReader rd = cmd.ExecuteReader();
 
                 int clientes = 0;
-                while (rd.Read())
+                if (rd.Read())
                 {
                     clientes = Convert.ToInt32(rd["Tventas"]);
                 }
 
                 TB_clientes.Text = Convert.ToString(clientes);
+                rd.Close();
             }
             catch (Exception ex)
             {
@@ -287,7 +288,7 @@ namespace appSugerencias
                 clientes = Convert.ToInt32(TB_clientes.Text);
                
 
-                comisionClientes = (clientes * 0.1) / 2;
+                comisionClientes = clientes * 0.1;
 
                 TB_Ccliente.Text = Convert.ToString(comisionClientes);
             }
@@ -424,6 +425,8 @@ namespace appSugerencias
                 }
                 
             }
+
+            rd.Close();
             return total;
         }
 
@@ -444,7 +447,7 @@ namespace appSugerencias
                         impuesto = Convert.ToDouble(rd["impuesto"]);
                
                 }
-            
+                rd.Close();
             }
             catch (Exception e)
             {

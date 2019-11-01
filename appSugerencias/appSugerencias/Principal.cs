@@ -135,6 +135,15 @@ namespace appSugerencias
             }
 
 
+            if (Area=="SISTEMAS" || Area =="SUPER" || Area =="ADMIN GRAL" || Area =="ENC CAJAS" || Area =="ENC. CAJAS" )
+            {
+                comisionesToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                comisionesToolStripMenuItem.Enabled = false;
+            }
+
             
 
             string IP = optieneIp();
