@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using MySql.Data.Types;
 using Microsoft.Office.Interop.Excel;
-using Microsoft.Office.Core;
+
 
 
 namespace appSugerencias
