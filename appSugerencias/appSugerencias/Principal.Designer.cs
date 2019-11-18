@@ -46,16 +46,16 @@
             this.cONCENTRADORToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ofertasVitrinasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasPTiendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cajasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comisionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.calificacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.calculoDeComisionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblIP = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblBD = new System.Windows.Forms.Label();
-            this.cajasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comisionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.calificacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.calculoDeComisionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -202,6 +202,39 @@
             this.ventasPTiendasToolStripMenuItem.Text = "VentasPTiendas";
             this.ventasPTiendasToolStripMenuItem.Click += new System.EventHandler(this.ventasPTiendasToolStripMenuItem_Click);
             // 
+            // cajasToolStripMenuItem
+            // 
+            this.cajasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.comisionesToolStripMenuItem});
+            this.cajasToolStripMenuItem.Name = "cajasToolStripMenuItem";
+            this.cajasToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.cajasToolStripMenuItem.Text = "Cajas";
+            this.cajasToolStripMenuItem.Click += new System.EventHandler(this.cajasToolStripMenuItem_Click);
+            // 
+            // comisionesToolStripMenuItem
+            // 
+            this.comisionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.calificacionesToolStripMenuItem,
+            this.calculoDeComisionesToolStripMenuItem});
+            this.comisionesToolStripMenuItem.Name = "comisionesToolStripMenuItem";
+            this.comisionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.comisionesToolStripMenuItem.Text = "Comisiones";
+            this.comisionesToolStripMenuItem.Click += new System.EventHandler(this.comisionesToolStripMenuItem_Click);
+            // 
+            // calificacionesToolStripMenuItem
+            // 
+            this.calificacionesToolStripMenuItem.Name = "calificacionesToolStripMenuItem";
+            this.calificacionesToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.calificacionesToolStripMenuItem.Text = "Calificaciones";
+            this.calificacionesToolStripMenuItem.Click += new System.EventHandler(this.calificacionesToolStripMenuItem_Click);
+            // 
+            // calculoDeComisionesToolStripMenuItem
+            // 
+            this.calculoDeComisionesToolStripMenuItem.Name = "calculoDeComisionesToolStripMenuItem";
+            this.calculoDeComisionesToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.calculoDeComisionesToolStripMenuItem.Text = "Cálculo de comisiones";
+            this.calculoDeComisionesToolStripMenuItem.Click += new System.EventHandler(this.calculoDeComisionesToolStripMenuItem_Click);
+            // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
@@ -258,38 +291,6 @@
             this.lblBD.Size = new System.Drawing.Size(34, 13);
             this.lblBD.TabIndex = 6;
             this.lblBD.Text = "Mysql";
-            // 
-            // cajasToolStripMenuItem
-            // 
-            this.cajasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.comisionesToolStripMenuItem});
-            this.cajasToolStripMenuItem.Name = "cajasToolStripMenuItem";
-            this.cajasToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
-            this.cajasToolStripMenuItem.Text = "Cajas";
-            // 
-            // comisionesToolStripMenuItem
-            // 
-            this.comisionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.calificacionesToolStripMenuItem,
-            this.calculoDeComisionesToolStripMenuItem});
-            this.comisionesToolStripMenuItem.Name = "comisionesToolStripMenuItem";
-            this.comisionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.comisionesToolStripMenuItem.Text = "Comisiones";
-            this.comisionesToolStripMenuItem.Click += new System.EventHandler(this.comisionesToolStripMenuItem_Click);
-            // 
-            // calificacionesToolStripMenuItem
-            // 
-            this.calificacionesToolStripMenuItem.Name = "calificacionesToolStripMenuItem";
-            this.calificacionesToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.calificacionesToolStripMenuItem.Text = "Calificaciones";
-            this.calificacionesToolStripMenuItem.Click += new System.EventHandler(this.calificacionesToolStripMenuItem_Click);
-            // 
-            // calculoDeComisionesToolStripMenuItem
-            // 
-            this.calculoDeComisionesToolStripMenuItem.Name = "calculoDeComisionesToolStripMenuItem";
-            this.calculoDeComisionesToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.calculoDeComisionesToolStripMenuItem.Text = "Cálculo de comisiones";
-            this.calculoDeComisionesToolStripMenuItem.Click += new System.EventHandler(this.calculoDeComisionesToolStripMenuItem_Click);
             // 
             // Principal
             // 

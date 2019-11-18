@@ -39,6 +39,19 @@
             this.LB_incentivo = new System.Windows.Forms.Label();
             this.LB_comision = new System.Windows.Forms.Label();
             this.BT_exportar = new System.Windows.Forms.Button();
+            this.BT_calcular = new System.Windows.Forms.Button();
+            this.CAJERA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FECHA1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FECHA2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FECHA3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FECHA4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FECHA5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FECHA6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FECHA7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ETIQUETAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.INCENTIVO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.REPORTES = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DG_comisiones)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,13 +59,24 @@
             // 
             this.DG_comisiones.AllowUserToAddRows = false;
             this.DG_comisiones.BackgroundColor = System.Drawing.Color.LightSteelBlue;
-            this.DG_comisiones.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DG_comisiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DG_comisiones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CAJERA,
+            this.FECHA1,
+            this.FECHA2,
+            this.FECHA3,
+            this.FECHA4,
+            this.FECHA5,
+            this.FECHA6,
+            this.FECHA7,
+            this.ETIQUETAS,
+            this.INCENTIVO,
+            this.REPORTES,
+            this.TOTAL});
             this.DG_comisiones.Location = new System.Drawing.Point(12, 71);
             this.DG_comisiones.Name = "DG_comisiones";
             this.DG_comisiones.Size = new System.Drawing.Size(1234, 259);
             this.DG_comisiones.TabIndex = 0;
-            this.DG_comisiones.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_comisiones_CellEndEdit);
             // 
             // DT_fin
             // 
@@ -91,11 +115,11 @@
             this.BT_comisiones.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_comisiones.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_comisiones.ForeColor = System.Drawing.Color.White;
-            this.BT_comisiones.Location = new System.Drawing.Point(1016, 17);
+            this.BT_comisiones.Location = new System.Drawing.Point(884, 12);
             this.BT_comisiones.Name = "BT_comisiones";
             this.BT_comisiones.Size = new System.Drawing.Size(109, 50);
             this.BT_comisiones.TabIndex = 5;
-            this.BT_comisiones.Text = "Comisiones";
+            this.BT_comisiones.Text = "Importar Datos";
             this.BT_comisiones.UseVisualStyleBackColor = false;
             this.BT_comisiones.Click += new System.EventHandler(this.BT_comisiones_Click);
             // 
@@ -142,13 +166,86 @@
             this.BT_exportar.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_exportar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_exportar.ForeColor = System.Drawing.Color.White;
-            this.BT_exportar.Location = new System.Drawing.Point(1131, 17);
+            this.BT_exportar.Location = new System.Drawing.Point(1138, 11);
             this.BT_exportar.Name = "BT_exportar";
             this.BT_exportar.Size = new System.Drawing.Size(109, 50);
             this.BT_exportar.TabIndex = 10;
-            this.BT_exportar.Text = "Exportar";
+            this.BT_exportar.Text = "Exportar Datos";
             this.BT_exportar.UseVisualStyleBackColor = false;
             this.BT_exportar.Click += new System.EventHandler(this.BT_exportar_Click);
+            // 
+            // BT_calcular
+            // 
+            this.BT_calcular.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BT_calcular.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_calcular.ForeColor = System.Drawing.Color.White;
+            this.BT_calcular.Location = new System.Drawing.Point(1012, 11);
+            this.BT_calcular.Name = "BT_calcular";
+            this.BT_calcular.Size = new System.Drawing.Size(109, 50);
+            this.BT_calcular.TabIndex = 11;
+            this.BT_calcular.Text = "Calcular";
+            this.BT_calcular.UseVisualStyleBackColor = false;
+            this.BT_calcular.Click += new System.EventHandler(this.BT_calcular_Click);
+            // 
+            // CAJERA
+            // 
+            this.CAJERA.HeaderText = "CAJERA";
+            this.CAJERA.Name = "CAJERA";
+            // 
+            // FECHA1
+            // 
+            this.FECHA1.HeaderText = "FECHA1";
+            this.FECHA1.Name = "FECHA1";
+            // 
+            // FECHA2
+            // 
+            this.FECHA2.HeaderText = "FECHA2";
+            this.FECHA2.Name = "FECHA2";
+            // 
+            // FECHA3
+            // 
+            this.FECHA3.HeaderText = "FECHA3";
+            this.FECHA3.Name = "FECHA3";
+            // 
+            // FECHA4
+            // 
+            this.FECHA4.HeaderText = "FECHA4";
+            this.FECHA4.Name = "FECHA4";
+            // 
+            // FECHA5
+            // 
+            this.FECHA5.HeaderText = "FECHA5";
+            this.FECHA5.Name = "FECHA5";
+            // 
+            // FECHA6
+            // 
+            this.FECHA6.HeaderText = "FECHA6";
+            this.FECHA6.Name = "FECHA6";
+            // 
+            // FECHA7
+            // 
+            this.FECHA7.HeaderText = "FECHA7";
+            this.FECHA7.Name = "FECHA7";
+            // 
+            // ETIQUETAS
+            // 
+            this.ETIQUETAS.HeaderText = "ETIQUETAS";
+            this.ETIQUETAS.Name = "ETIQUETAS";
+            // 
+            // INCENTIVO
+            // 
+            this.INCENTIVO.HeaderText = "INCENTIVO";
+            this.INCENTIVO.Name = "INCENTIVO";
+            // 
+            // REPORTES
+            // 
+            this.REPORTES.HeaderText = "REPORTES";
+            this.REPORTES.Name = "REPORTES";
+            // 
+            // TOTAL
+            // 
+            this.TOTAL.HeaderText = "TOTAL";
+            this.TOTAL.Name = "TOTAL";
             // 
             // PagoComisiones
             // 
@@ -156,6 +253,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(1258, 472);
+            this.Controls.Add(this.BT_calcular);
             this.Controls.Add(this.BT_exportar);
             this.Controls.Add(this.LB_comision);
             this.Controls.Add(this.LB_incentivo);
@@ -168,7 +266,7 @@
             this.Controls.Add(this.DT_fin);
             this.Controls.Add(this.DG_comisiones);
             this.Name = "PagoComisiones";
-            this.Text = "PagoComisiones";
+            this.Text = "Pago de comisiones de Cajeras";
             this.Load += new System.EventHandler(this.PagoComisiones_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DG_comisiones)).EndInit();
             this.ResumeLayout(false);
@@ -189,5 +287,18 @@
         private System.Windows.Forms.Label LB_incentivo;
         private System.Windows.Forms.Label LB_comision;
         private System.Windows.Forms.Button BT_exportar;
+        private System.Windows.Forms.Button BT_calcular;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CAJERA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FECHA1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FECHA2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FECHA3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FECHA4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FECHA5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FECHA6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FECHA7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ETIQUETAS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn INCENTIVO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn REPORTES;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL;
     }
 }

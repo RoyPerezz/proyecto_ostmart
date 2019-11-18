@@ -522,6 +522,11 @@ namespace appSugerencias
             frm.Show();
         }
 
+        private void cajasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
 
         //private void ventasPTiendasToolStripMenuItem_Click(object sender, EventArgs e)

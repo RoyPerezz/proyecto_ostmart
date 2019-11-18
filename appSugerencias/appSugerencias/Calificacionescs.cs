@@ -239,8 +239,8 @@ namespace appSugerencias
 
         public void cajeras()
         {
-            
-            MySqlCommand cmd = new MySqlCommand("select usuario from usuarios where area = '"+"cajas"+"' order by usuario",BDConexicon.conectar());
+            MySqlConnection con = BDConexicon.conectar();
+            MySqlCommand cmd = new MySqlCommand("select usuario from usuarios where area = '"+"cajas"+"' order by usuario",con);
             MySqlDataReader rd = cmd.ExecuteReader();
             Console.WriteLine(rd);
             while(rd.Read())
@@ -249,6 +249,7 @@ namespace appSugerencias
                 CB_usuario.Items.Add(rd[0].ToString());
             }
             rd.Close();
+            con.Close();
 
         }
 
@@ -256,10 +257,11 @@ namespace appSugerencias
         {
             DateTime fecha = DT_fecha.Value;
             String f = FormatoFecha.getDate(fecha);
+            MySqlConnection con = BDConexicon.conectar();
 
             try
             {
-                MySqlCommand cmd = new MySqlCommand("select count(venta) as Tventas from ventas where usuario ='" + CB_usuario.SelectedItem.ToString() + "' and f_emision ='" + f + "'", BDConexicon.conectar());
+                MySqlCommand cmd = new MySqlCommand("select count(venta) as Tventas from ventas where usuario ='" + CB_usuario.SelectedItem.ToString() + "' and f_emision ='" + f + "'", con);
                 MySqlDataReader rd = cmd.ExecuteReader();
 
                 int clientes = 0;
@@ -276,6 +278,8 @@ namespace appSugerencias
 
                
             }
+
+            con.Close();
             
         }
 
@@ -405,9 +409,9 @@ namespace appSugerencias
         {
             DateTime fecha = DT_fecha.Value;
             String f = FormatoFecha.getDate(fecha);
-           
+            MySqlConnection con = BDConexicon.conectar();
             double total = 0.0;
-            MySqlCommand cmd = new MySqlCommand("select sum(importe) as total from ventas where usuario ='"+CB_usuario.SelectedItem.ToString()+"' and USUFECHA ='"+f+"'", BDConexicon.conectar());
+            MySqlCommand cmd = new MySqlCommand("select sum(importe) as total from ventas where usuario ='"+CB_usuario.SelectedItem.ToString()+"' and USUFECHA ='"+f+"'", con);
             MySqlDataReader rd = cmd.ExecuteReader();
             while(rd.Read())
             {
@@ -427,6 +431,7 @@ namespace appSugerencias
             }
 
             rd.Close();
+            con.Close();
             return total;
         }
 
@@ -434,12 +439,12 @@ namespace appSugerencias
         {
             DateTime fecha = DT_fecha.Value;
             String f = FormatoFecha.getDate(fecha);
-
+            MySqlConnection con = BDConexicon.conectar();
             double impuesto = 0.0;
 
             try
             {
-                MySqlCommand cmd = new MySqlCommand("select sum(impuesto) as impuesto from ventas where usuario ='" + CB_usuario.SelectedItem.ToString() + "' and f_emision ='" + f + "'", BDConexicon.conectar());
+                MySqlCommand cmd = new MySqlCommand("select sum(impuesto) as impuesto from ventas where usuario ='" + CB_usuario.SelectedItem.ToString() + "' and f_emision ='" + f + "'", con);
                 MySqlDataReader rd = cmd.ExecuteReader();
                 while (rd.Read())
                 {
@@ -453,6 +458,8 @@ namespace appSugerencias
             {
 
             }
+
+            con.Close();
             return impuesto;
         }
 
@@ -461,7 +468,7 @@ namespace appSugerencias
             double cBruta = 0.0;
             double totalV = Convert.ToDouble(TB_ventaT.Text);
 
-            cBruta = totalV * 0.0024;
+            cBruta = totalV * 0.002;
             TB_bruta.Text = Convert.ToString(cBruta);
 
             return cBruta;
