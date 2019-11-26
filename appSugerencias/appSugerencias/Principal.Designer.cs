@@ -50,12 +50,18 @@
             this.comisionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calificacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calculoDeComisionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.gerenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asesorasDeVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.altabajaAsesorasDeVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comisionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblIP = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblBD = new System.Windows.Forms.Label();
+            this.totalComisionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +75,9 @@
             this.pagosToolStripMenuItem,
             this.comprasToolStripMenuItem,
             this.ventasPTiendasToolStripMenuItem,
-            this.cajasToolStripMenuItem});
+            this.cajasToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.gerenteToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(883, 24);
@@ -217,7 +225,7 @@
             this.calificacionesToolStripMenuItem,
             this.calculoDeComisionesToolStripMenuItem});
             this.comisionesToolStripMenuItem.Name = "comisionesToolStripMenuItem";
-            this.comisionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.comisionesToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.comisionesToolStripMenuItem.Text = "Comisiones";
             this.comisionesToolStripMenuItem.Click += new System.EventHandler(this.comisionesToolStripMenuItem_Click);
             // 
@@ -234,6 +242,44 @@
             this.calculoDeComisionesToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.calculoDeComisionesToolStripMenuItem.Text = "Cálculo de comisiones";
             this.calculoDeComisionesToolStripMenuItem.Click += new System.EventHandler(this.calculoDeComisionesToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(12, 20);
+            // 
+            // gerenteToolStripMenuItem
+            // 
+            this.gerenteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.asesorasDeVentaToolStripMenuItem});
+            this.gerenteToolStripMenuItem.Name = "gerenteToolStripMenuItem";
+            this.gerenteToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
+            this.gerenteToolStripMenuItem.Text = "Piso de venta";
+            this.gerenteToolStripMenuItem.Click += new System.EventHandler(this.gerenteToolStripMenuItem_Click);
+            // 
+            // asesorasDeVentaToolStripMenuItem
+            // 
+            this.asesorasDeVentaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.altabajaAsesorasDeVentaToolStripMenuItem,
+            this.comisionesToolStripMenuItem1,
+            this.totalComisionesToolStripMenuItem});
+            this.asesorasDeVentaToolStripMenuItem.Name = "asesorasDeVentaToolStripMenuItem";
+            this.asesorasDeVentaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.asesorasDeVentaToolStripMenuItem.Text = "Gerente";
+            // 
+            // altabajaAsesorasDeVentaToolStripMenuItem
+            // 
+            this.altabajaAsesorasDeVentaToolStripMenuItem.Name = "altabajaAsesorasDeVentaToolStripMenuItem";
+            this.altabajaAsesorasDeVentaToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.altabajaAsesorasDeVentaToolStripMenuItem.Text = "Alta/baja asesoras de venta";
+            this.altabajaAsesorasDeVentaToolStripMenuItem.Click += new System.EventHandler(this.altabajaAsesorasDeVentaToolStripMenuItem_Click);
+            // 
+            // comisionesToolStripMenuItem1
+            // 
+            this.comisionesToolStripMenuItem1.Name = "comisionesToolStripMenuItem1";
+            this.comisionesToolStripMenuItem1.Size = new System.Drawing.Size(224, 22);
+            this.comisionesToolStripMenuItem1.Text = "Comisiones Diarias";
+            this.comisionesToolStripMenuItem1.Click += new System.EventHandler(this.comisionesToolStripMenuItem1_Click);
             // 
             // lblUsuario
             // 
@@ -291,6 +337,12 @@
             this.lblBD.Size = new System.Drawing.Size(34, 13);
             this.lblBD.TabIndex = 6;
             this.lblBD.Text = "Mysql";
+            // 
+            // totalComisionesToolStripMenuItem
+            // 
+            this.totalComisionesToolStripMenuItem.Name = "totalComisionesToolStripMenuItem";
+            this.totalComisionesToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.totalComisionesToolStripMenuItem.Text = "Total Comisiones";
             // 
             // Principal
             // 
@@ -351,5 +403,11 @@
         private System.Windows.Forms.ToolStripMenuItem comisionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem calificacionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem calculoDeComisionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem gerenteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem asesorasDeVentaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem altabajaAsesorasDeVentaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem comisionesToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem totalComisionesToolStripMenuItem;
     }
 }

@@ -789,3 +789,6 @@ C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\D
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\bin\Debug\stdole.dll
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.csproj.CopyComplete
+C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.registroAsesoras.resources
+C:\Users\Admin\source\repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.ComisionesAsesoras.resources
+C:\Users\Admin\source\repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.TotalComisionesAsesoras.resources
