@@ -95,12 +95,13 @@ namespace appSugerencias
             con = BDConexicon.conectar();
             //string puesto = CB_puesto.SelectedItem.ToString();
             //MessageBox.Show(puesto);
-            MySqlCommand cmd = new MySqlCommand("UPDATE rd_asesoras_venta SET usuario =?usuario, nombre=?nombre, apellidos=?apellidos, departamento=?departamento, puesto=?puesto where idasesora='"+TB_id.Text+"'",con);
+            MySqlCommand cmd = new MySqlCommand("UPDATE rd_asesoras_venta SET usuario =?usuario, nombre=?nombre, apellidos=?apellidos, departamento=?departamento,abrDepartamento=?abrDepartamento, puesto=?puesto where idasesora='" + TB_id.Text+"'",con);
           
             cmd.Parameters.AddWithValue("?usuario", TB_usuario.Text);
             cmd.Parameters.AddWithValue("?nombre", TB_nombre.Text);
             cmd.Parameters.AddWithValue("?apellidos", TB_apellidos.Text);
             cmd.Parameters.AddWithValue("?departamento", CB_depto.SelectedItem.ToString());
+            cmd.Parameters.AddWithValue("?abrDepartamento", TB_linea.Text);
             cmd.Parameters.AddWithValue("?puesto", CB_puesto.SelectedItem.ToString());
 
           

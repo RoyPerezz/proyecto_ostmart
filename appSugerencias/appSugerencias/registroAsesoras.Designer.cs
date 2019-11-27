@@ -265,7 +265,6 @@
             this.TB_linea.Name = "TB_linea";
             this.TB_linea.Size = new System.Drawing.Size(63, 31);
             this.TB_linea.TabIndex = 17;
-            this.TB_linea.Visible = false;
             // 
             // registroAsesoras
             // 
