@@ -144,7 +144,16 @@ namespace appSugerencias
                 comisionesToolStripMenuItem.Enabled = false;
             }
 
-            
+            //____________________________________________________________________
+            if (Area == "SISTEMAS" || Area == "SUPER" || Area == "ADMIN GRAL" || Area == "GERENTE")
+            {
+                asesorasDeVentaToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                asesorasDeVentaToolStripMenuItem.Enabled = false;
+            }
+
 
             string IP = optieneIp();
             string BD = optieneBd();

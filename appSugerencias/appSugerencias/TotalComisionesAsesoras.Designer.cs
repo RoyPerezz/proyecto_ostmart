@@ -40,19 +40,21 @@
             this.DEPARTAMENTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PUESTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.COMISION = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PROBLEMAS_ETIQUETAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ETIQUETAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OFERTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SONRISA_CLIENTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ATENCION_CLIENTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SONRISA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ATENCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.REPARACIONES = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EXHIBIDO_ORDEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ORDEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SUGERENCIAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DETECTAR_ROBOS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SUG_RESULTADOS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.INCENTIVO_EXTRA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MERC_CERO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.REP_CAMARA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PAGAR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ROBOS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RESULTADOS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EXTRA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CEROS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.REPORTES = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TB_total = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DG_comisiones)).BeginInit();
             this.SuspendLayout();
             // 
@@ -136,22 +138,22 @@
             this.DEPARTAMENTO,
             this.PUESTO,
             this.COMISION,
-            this.PROBLEMAS_ETIQUETAS,
+            this.ETIQUETAS,
             this.OFERTA,
-            this.SONRISA_CLIENTE,
-            this.ATENCION_CLIENTE,
+            this.SONRISA,
+            this.ATENCION,
             this.REPARACIONES,
-            this.EXHIBIDO_ORDEN,
+            this.ORDEN,
             this.SUGERENCIAS,
-            this.DETECTAR_ROBOS,
-            this.SUG_RESULTADOS,
-            this.INCENTIVO_EXTRA,
-            this.MERC_CERO,
-            this.REP_CAMARA,
-            this.PAGAR});
+            this.ROBOS,
+            this.RESULTADOS,
+            this.EXTRA,
+            this.CEROS,
+            this.REPORTES,
+            this.TOTAL});
             this.DG_comisiones.Location = new System.Drawing.Point(12, 94);
             this.DG_comisiones.Name = "DG_comisiones";
-            this.DG_comisiones.Size = new System.Drawing.Size(1546, 219);
+            this.DG_comisiones.Size = new System.Drawing.Size(1546, 313);
             this.DG_comisiones.TabIndex = 8;
             // 
             // USUARIO
@@ -174,77 +176,99 @@
             this.COMISION.HeaderText = "COMISION";
             this.COMISION.Name = "COMISION";
             // 
-            // PROBLEMAS_ETIQUETAS
+            // ETIQUETAS
             // 
-            this.PROBLEMAS_ETIQUETAS.HeaderText = "PROBLEMAS CON ETIQUETAS";
-            this.PROBLEMAS_ETIQUETAS.Name = "ETIQUETAS";
+            this.ETIQUETAS.HeaderText = "PROBLEMAS CON ETIQUETAS";
+            this.ETIQUETAS.Name = "ETIQUETAS";
             // 
             // OFERTA
             // 
             this.OFERTA.HeaderText = "OFERTA CON PRECIO EXHIBIDO";
             this.OFERTA.Name = "OFERTA";
             // 
-            // SONRISA_CLIENTE
+            // SONRISA
             // 
-            this.SONRISA_CLIENTE.HeaderText = "SONRISA AL CLIENTE";
-            this.SONRISA_CLIENTE.Name = "SONRISA";
+            this.SONRISA.HeaderText = "SONRISA AL CLIENTE";
+            this.SONRISA.Name = "SONRISA";
             // 
-            // ATENCION_CLIENTE
+            // ATENCION
             // 
-            this.ATENCION_CLIENTE.HeaderText = "ATENCION AL CLIENTE";
-            this.ATENCION_CLIENTE.Name = "ATENCION";
+            this.ATENCION.HeaderText = "ATENCION AL CLIENTE";
+            this.ATENCION.Name = "ATENCION";
             // 
             // REPARACIONES
             // 
             this.REPARACIONES.HeaderText = "REPARACION DE MARCANCIA";
             this.REPARACIONES.Name = "REPARACIONES";
             // 
-            // EXHIBIDO_ORDEN
+            // ORDEN
             // 
-            this.EXHIBIDO_ORDEN.HeaderText = "EXHIBIDO Y ORDEN";
-            this.EXHIBIDO_ORDEN.Name = "ORDEN";
+            this.ORDEN.HeaderText = "EXHIBIDO Y ORDEN";
+            this.ORDEN.Name = "ORDEN";
             // 
-            // PROPUESTAS
+            // SUGERENCIAS
             // 
             this.SUGERENCIAS.HeaderText = "SUGERENCIAS";
             this.SUGERENCIAS.Name = "SUGERENCIAS";
             // 
-            // DETECTAR_ROBOS
+            // ROBOS
             // 
-            this.DETECTAR_ROBOS.HeaderText = "DETECTAR ROBOS";
-            this.DETECTAR_ROBOS.Name = "ROBOS";
+            this.ROBOS.HeaderText = "DETECTAR ROBOS";
+            this.ROBOS.Name = "ROBOS";
             // 
-            // SUG_RESULTADOS
+            // RESULTADOS
             // 
-            this.SUG_RESULTADOS.HeaderText = "SUGERENCIAS POR RESULTADOS";
-            this.SUG_RESULTADOS.Name = "RESULTADOS";
+            this.RESULTADOS.HeaderText = "SUGERENCIAS POR RESULTADOS";
+            this.RESULTADOS.Name = "RESULTADOS";
             // 
-            // INCENTIVO_EXTRA
+            // EXTRA
             // 
-            this.INCENTIVO_EXTRA.HeaderText = "EXTRA";
-            this.INCENTIVO_EXTRA.Name = "EXTRA";
+            this.EXTRA.HeaderText = "EXTRA";
+            this.EXTRA.Name = "EXTRA";
             // 
-            // MERC_CERO
+            // CEROS
             // 
-            this.MERC_CERO.HeaderText = "MERCANCIA EN CERO";
-            this.MERC_CERO.Name = "CEROS";
+            this.CEROS.HeaderText = "MERCANCIA EN CERO";
+            this.CEROS.Name = "CEROS";
             // 
-            // REP_CAMARA
+            // REPORTES
             // 
-            this.REP_CAMARA.HeaderText = "REPORTES";
-            this.REP_CAMARA.Name = "REPORTES";
+            this.REPORTES.HeaderText = "REPORTES";
+            this.REPORTES.Name = "REPORTES";
             // 
-            // PAGAR
+            // TOTAL
             // 
-            this.PAGAR.HeaderText = "COMISION TOTAL";
-            this.PAGAR.Name = "TOTAL";
+            this.TOTAL.HeaderText = "COMISION TOTAL";
+            this.TOTAL.Name = "TOTAL";
+            // 
+            // TB_total
+            // 
+            this.TB_total.BackColor = System.Drawing.Color.Black;
+            this.TB_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_total.ForeColor = System.Drawing.Color.SpringGreen;
+            this.TB_total.Location = new System.Drawing.Point(1442, 429);
+            this.TB_total.Name = "TB_total";
+            this.TB_total.Size = new System.Drawing.Size(116, 29);
+            this.TB_total.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(1303, 432);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(133, 24);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Total a Pagar";
             // 
             // TotalComisionesAsesoras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(1570, 338);
+            this.ClientSize = new System.Drawing.Size(1570, 478);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.TB_total);
             this.Controls.Add(this.DG_comisiones);
             this.Controls.Add(this.BT_exportar);
             this.Controls.Add(this.BT_calcular);
@@ -288,5 +312,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MERC_CERO;
         private System.Windows.Forms.DataGridViewTextBoxColumn REP_CAMARA;
         private System.Windows.Forms.DataGridViewTextBoxColumn PAGAR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ETIQUETAS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SONRISA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ATENCION;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ORDEN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ROBOS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RESULTADOS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EXTRA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CEROS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn REPORTES;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL;
+        private System.Windows.Forms.TextBox TB_total;
+        private System.Windows.Forms.Label label3;
     }
 }

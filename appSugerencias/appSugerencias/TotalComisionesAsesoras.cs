@@ -177,9 +177,12 @@ namespace appSugerencias
             }
 
             excel.Cells.Range["A4:J4"].Merge();
-            excel.Cells.Range["A4"].Value = "PAGO COMISIONES DEL    " + inicio.ToUpper() + "   AL    " + fin.ToUpper();
+            excel.Cells.Range["A4"].Value = "COMISIONES DEL    " + inicio.ToUpper() + "   AL    " + fin.ToUpper();
             excel.Cells.Range["A5:Q25"].Font.Size = 9;
             excel.Cells.Range["D6:Q25"].NumberFormat = "$#,##0.00";
+            excel.Cells.Range["A30:B30"].Merge();
+            excel.Cells.Range["A30"].NumberFormat = "$#,##0.00";
+            excel.Cells.Range["A30"].Value = "Total a pagar "+TB_total.Text;
 
 
 
@@ -200,8 +203,14 @@ namespace appSugerencias
             ExportarExcel();
         }
 
-        int etiquetas = 0, ofertas = 0, sonrisa = 0, atencion = 0, reparacion = 0, orden = 0, sugerencias = 0, robos = 0, resultados = 0, extra = 0;
 
+
+
+
+
+
+        int etiquetas = 0, ofertas = 0, sonrisa = 0, atencion = 0, reparacion = 0, orden = 0, sugerencias = 0, robos = 0, resultados = 0, extra = 0;
+        double totalComisiones = 0;
         private void BT_calcular_Click(object sender, EventArgs e)
         {
 
@@ -224,6 +233,12 @@ namespace appSugerencias
 
                 suma = ((importe+etiquetas + ofertas + sonrisa + atencion + reparacion + orden + sugerencias + robos + resultados + extra) - ceros) - reportes;
                 DG_comisiones.Rows[i].Cells[16].Value = Convert.ToString(suma);
+
+                totalComisiones = totalComisiones + suma;
+
+                
+
+                TB_total.Text = Convert.ToString(String.Format("{0:0.##}", totalComisiones.ToString("C")));
             }
         }
            

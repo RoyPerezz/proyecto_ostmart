@@ -414,6 +414,7 @@
             this.TB_iniciales.Size = new System.Drawing.Size(108, 29);
             this.TB_iniciales.TabIndex = 39;
             this.TB_iniciales.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TB_iniciales.Visible = false;
             // 
             // ComisionesAsesoras
             // 
