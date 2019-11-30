@@ -64,6 +64,7 @@
             this.BT_recalcular.TabIndex = 2;
             this.BT_recalcular.Text = "Recalcular Linea";
             this.BT_recalcular.UseVisualStyleBackColor = true;
+            this.BT_recalcular.Click += new System.EventHandler(this.BT_recalcular_Click);
             // 
             // BT_exportar
             // 

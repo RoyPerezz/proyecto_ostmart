@@ -20,9 +20,13 @@ namespace appSugerencias
 
 
         ArrayList usuarios = new ArrayList();
+        ArrayList com = new ArrayList();
         MySqlConnection con;
+     
         private void BT_importar_Click(object sender, EventArgs e)
         {
+         
+            
             DateTime inicio = DT_inicio.Value;
             DateTime fin = DT_fin.Value;
             con = BDConexicon.conectar();
@@ -34,11 +38,11 @@ namespace appSugerencias
             while (dr0.Read())
             {
                 DG_comisiones.Rows.Add(dr0["usuario"].ToString());
-
+              
             }
             dr0.Close();
 
-
+            LLenarCeros();
             //OBTENGO LOS USUARIOS EN EL DATAGRID
             for (int col= 0;  col<=0; col++)
             {
@@ -51,6 +55,7 @@ namespace appSugerencias
             //CALCULA LA SUMA TOTAL DE LA COMISION DE LA SEMANA
             string cn = "";
             int x = 0;
+            
             MySqlDataReader dr1 = null;
             for (int lista = 0; lista < usuarios.Count; lista++)
             {
@@ -59,7 +64,8 @@ namespace appSugerencias
                 while (dr1.Read())
                 {
                     //cn = dr1["total"].ToString();
-                    DG_comisiones.Rows[x].Cells[3].Value= dr1["total"].ToString();
+                    DG_comisiones.Rows[x].Cells[12].Value = dr1["total"].ToString();
+                    com.Add(dr1["total"].ToString());
                     x++;
                 }
                 dr1.Close();
@@ -83,7 +89,7 @@ namespace appSugerencias
             }
             dr2.Close();
             con.Close();
-            LLenarCeros();
+            //LLenarCeros();
         }
 
         private void TotalComisionesAsesoras_Load(object sender, EventArgs e)
@@ -103,10 +109,10 @@ namespace appSugerencias
             DG_comisiones.Columns[13].Width = 80;
             DG_comisiones.Columns[14].Width = 80;
             DG_comisiones.Columns[15].Width = 80;
-            DG_comisiones.Columns[16].Width = 80;
+            //DG_comisiones.Columns[16].Width = 80;
 
 
-            LLenarCeros();
+            
         }
 
 
@@ -114,8 +120,10 @@ namespace appSugerencias
         {
             for (int rFilas = 0; rFilas < DG_comisiones.RowCount; rFilas++)
             {
-                for (int rCol = 4; rCol < DG_comisiones.ColumnCount; rCol++)
+                for (int rCol = 3; rCol < DG_comisiones.ColumnCount; rCol++)
                 {
+
+                    
                     DG_comisiones.Rows[rFilas].Cells[rCol].Value ="0";
                 }
             }
@@ -209,41 +217,75 @@ namespace appSugerencias
 
 
 
-        int etiquetas = 0, ofertas = 0, sonrisa = 0, atencion = 0, reparacion = 0, orden = 0, sugerencias = 0, robos = 0, resultados = 0, extra = 0;
-        double totalComisiones = 0;
+        int etiquetas = 0, ofertas = 0, sonrisa = 0, atencion = 0, reparacion = 0, orden = 0, canastas = 0, robos = 0, resultados = 0, extra = 0;
+        double total = 0;
+        double comision = 0;
+
+       
         private void BT_calcular_Click(object sender, EventArgs e)
         {
 
+            //for (int lista = 0; lista < usuarios.Count; lista++)
+            //{
+            //    MySqlCommand cmd10 = new MySqlCommand("select sum(cn) as total from rd_comisionneta_asesoras where usuario='" + usuarios[lista] + "' and fecha between '" + inicio.ToString("yyyy-MM-dd") + "' and '" + fin.ToString("yyyy-MM-dd") + "' order by usuario", con);
+            //   MySqlDataReader dr10 = cmd10.ExecuteReader();
+            //    while (dr10.Read())
+            //    {
+                
+            //        valores.Add(dr10["total"].ToString());
+                    
+            //    }
+            //    dr10.Close();
+            //}
 
             for (int i = 0; i < DG_comisiones.RowCount; i++)
             {
-                importe = Convert.ToInt32(DG_comisiones.Rows[i].Cells[3].Value);
-                etiquetas = Convert.ToInt32(DG_comisiones.Rows[i].Cells[4].Value);
-                ofertas  = Convert.ToInt32(DG_comisiones.Rows[i].Cells[5].Value);
-                sonrisa = Convert.ToInt32(DG_comisiones.Rows[i].Cells[6].Value);
-                atencion = Convert.ToInt32(DG_comisiones.Rows[i].Cells[7].Value);
-                reparacion = Convert.ToInt32(DG_comisiones.Rows[i].Cells[8].Value);
-                orden = Convert.ToInt32(DG_comisiones.Rows[i].Cells[9].Value);
-                sugerencias = Convert.ToInt32(DG_comisiones.Rows[i].Cells[10].Value);
-                robos = Convert.ToInt32(DG_comisiones.Rows[i].Cells[11].Value);
-                resultados = Convert.ToInt32(DG_comisiones.Rows[i].Cells[12].Value);
-                extra = Convert.ToInt32(DG_comisiones.Rows[i].Cells[13].Value);
-                ceros = Convert.ToInt32(DG_comisiones.Rows[i].Cells[14].Value);
-                reportes = Convert.ToInt32(DG_comisiones.Rows[i].Cells[15].Value);
 
-                suma = ((importe+etiquetas + ofertas + sonrisa + atencion + reparacion + orden + sugerencias + robos + resultados + extra) - ceros) - reportes;
-                DG_comisiones.Rows[i].Cells[16].Value = Convert.ToString(suma);
+                //comision = Convert.ToDouble(DG_comisiones.Rows[i].Cells[12].Value);
+                comision = Convert.ToDouble(com[i]);
+                ofertas = Convert.ToInt32(DG_comisiones.Rows[i].Cells[3].Value);
+                    reparacion = Convert.ToInt32(DG_comisiones.Rows[i].Cells[4].Value);
+                    sonrisa = Convert.ToInt32(DG_comisiones.Rows[i].Cells[5].Value);
+                    atencion = Convert.ToInt32(DG_comisiones.Rows[i].Cells[6].Value);
+                    orden = Convert.ToInt32(DG_comisiones.Rows[i].Cells[7].Value);
+                    canastas = Convert.ToInt32(DG_comisiones.Rows[i].Cells[8].Value);
+                    robos = Convert.ToInt32(DG_comisiones.Rows[i].Cells[9].Value);
+                    resultados = Convert.ToInt32(DG_comisiones.Rows[i].Cells[10].Value);
+                    extra = Convert.ToInt32(DG_comisiones.Rows[i].Cells[11].Value);
 
-                totalComisiones = totalComisiones + suma;
+
+
+                    total = comision + importe + etiquetas + ofertas + sonrisa + atencion + reparacion + orden + canastas + robos + resultados + extra;
+                    DG_comisiones.Rows[i].Cells[12].Value = Convert.ToString(total);
 
                 
 
-                TB_total.Text = Convert.ToString(String.Format("{0:0.##}", totalComisiones.ToString("C")));
+
             }
-        }
-           
           
 
-            
+            //CALCULA EL TOTAL DE LAS COMISIONES A PAGAR
+            double  comisiones = 0;
+            double t_comisiones = 0;
+
+            for (int fila = 0; fila < DG_comisiones.RowCount; fila++)
+            {
+                 comisiones= Convert.ToDouble(DG_comisiones.Rows[fila].Cells[12].Value);
+                ceros = Convert.ToInt32(DG_comisiones.Rows[fila].Cells[13].Value);
+                reportes = Convert.ToInt32(DG_comisiones.Rows[fila].Cells[14].Value);
+                t_comisiones = ((comisiones) - ceros) - reportes;
+                DG_comisiones.Rows[fila].Cells[15].Value = Convert.ToString(t_comisiones);
+
+
+                //TB_total.Text = Convert.ToString(String.Format("{0:0.##}", sumComisiones.ToString("C")));
+
+            }
+            //FIN CALCULA EL TOTAL DE LAS COMISIONES A PAGAR
+
+        }
+
+
+
+
     }
 }

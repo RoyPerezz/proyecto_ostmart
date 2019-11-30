@@ -36,25 +36,24 @@
             this.BT_calcular = new System.Windows.Forms.Button();
             this.BT_exportar = new System.Windows.Forms.Button();
             this.DG_comisiones = new System.Windows.Forms.DataGridView();
+            this.TB_total = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.USUARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DEPARTAMENTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PUESTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COMISION = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ETIQUETAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OFERTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SONRISA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ATENCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.REPARACIONES = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ORDEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SUGERENCIAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ROBOS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RESULTADOS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EXTRA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CEROS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.REPORTES = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SONRISA_CL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ATENCION_CL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ORDEN_CL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CANASTAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ROBO_CL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RESULTADOS_CL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EXTRA_CL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COMISION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MERC_CEROS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.REPORTES_CAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TB_total = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DG_comisiones)).BeginInit();
             this.SuspendLayout();
             // 
@@ -137,109 +136,23 @@
             this.USUARIO,
             this.DEPARTAMENTO,
             this.PUESTO,
-            this.COMISION,
-            this.ETIQUETAS,
             this.OFERTA,
-            this.SONRISA,
-            this.ATENCION,
             this.REPARACIONES,
-            this.ORDEN,
-            this.SUGERENCIAS,
-            this.ROBOS,
-            this.RESULTADOS,
-            this.EXTRA,
-            this.CEROS,
-            this.REPORTES,
+            this.SONRISA_CL,
+            this.ATENCION_CL,
+            this.ORDEN_CL,
+            this.CANASTAS,
+            this.ROBO_CL,
+            this.RESULTADOS_CL,
+            this.EXTRA_CL,
+            this.COMISION,
+            this.MERC_CEROS,
+            this.REPORTES_CAM,
             this.TOTAL});
             this.DG_comisiones.Location = new System.Drawing.Point(12, 94);
             this.DG_comisiones.Name = "DG_comisiones";
             this.DG_comisiones.Size = new System.Drawing.Size(1546, 313);
             this.DG_comisiones.TabIndex = 8;
-            // 
-            // USUARIO
-            // 
-            this.USUARIO.HeaderText = "USUARIO";
-            this.USUARIO.Name = "USUARIO";
-            // 
-            // DEPARTAMENTO
-            // 
-            this.DEPARTAMENTO.HeaderText = "DEPARTAMENTO";
-            this.DEPARTAMENTO.Name = "DEPARTAMENTO";
-            // 
-            // PUESTO
-            // 
-            this.PUESTO.HeaderText = "PUESTO";
-            this.PUESTO.Name = "PUESTO";
-            // 
-            // COMISION
-            // 
-            this.COMISION.HeaderText = "COMISION";
-            this.COMISION.Name = "COMISION";
-            // 
-            // ETIQUETAS
-            // 
-            this.ETIQUETAS.HeaderText = "PROBLEMAS CON ETIQUETAS";
-            this.ETIQUETAS.Name = "ETIQUETAS";
-            // 
-            // OFERTA
-            // 
-            this.OFERTA.HeaderText = "OFERTA CON PRECIO EXHIBIDO";
-            this.OFERTA.Name = "OFERTA";
-            // 
-            // SONRISA
-            // 
-            this.SONRISA.HeaderText = "SONRISA AL CLIENTE";
-            this.SONRISA.Name = "SONRISA";
-            // 
-            // ATENCION
-            // 
-            this.ATENCION.HeaderText = "ATENCION AL CLIENTE";
-            this.ATENCION.Name = "ATENCION";
-            // 
-            // REPARACIONES
-            // 
-            this.REPARACIONES.HeaderText = "REPARACION DE MARCANCIA";
-            this.REPARACIONES.Name = "REPARACIONES";
-            // 
-            // ORDEN
-            // 
-            this.ORDEN.HeaderText = "EXHIBIDO Y ORDEN";
-            this.ORDEN.Name = "ORDEN";
-            // 
-            // SUGERENCIAS
-            // 
-            this.SUGERENCIAS.HeaderText = "SUGERENCIAS";
-            this.SUGERENCIAS.Name = "SUGERENCIAS";
-            // 
-            // ROBOS
-            // 
-            this.ROBOS.HeaderText = "DETECTAR ROBOS";
-            this.ROBOS.Name = "ROBOS";
-            // 
-            // RESULTADOS
-            // 
-            this.RESULTADOS.HeaderText = "SUGERENCIAS POR RESULTADOS";
-            this.RESULTADOS.Name = "RESULTADOS";
-            // 
-            // EXTRA
-            // 
-            this.EXTRA.HeaderText = "EXTRA";
-            this.EXTRA.Name = "EXTRA";
-            // 
-            // CEROS
-            // 
-            this.CEROS.HeaderText = "MERCANCIA EN CERO";
-            this.CEROS.Name = "CEROS";
-            // 
-            // REPORTES
-            // 
-            this.REPORTES.HeaderText = "REPORTES";
-            this.REPORTES.Name = "REPORTES";
-            // 
-            // TOTAL
-            // 
-            this.TOTAL.HeaderText = "COMISION TOTAL";
-            this.TOTAL.Name = "TOTAL";
             // 
             // TB_total
             // 
@@ -260,6 +173,86 @@
             this.label3.Size = new System.Drawing.Size(133, 24);
             this.label3.TabIndex = 10;
             this.label3.Text = "Total a Pagar";
+            // 
+            // USUARIO
+            // 
+            this.USUARIO.HeaderText = "USUARIO";
+            this.USUARIO.Name = "USUARIO";
+            // 
+            // DEPARTAMENTO
+            // 
+            this.DEPARTAMENTO.HeaderText = "DEPARTAMENTO";
+            this.DEPARTAMENTO.Name = "DEPARTAMENTO";
+            // 
+            // PUESTO
+            // 
+            this.PUESTO.HeaderText = "PUESTO";
+            this.PUESTO.Name = "PUESTO";
+            // 
+            // OFERTA
+            // 
+            this.OFERTA.HeaderText = "OFERTA CON PRECIO EXHIBIDO";
+            this.OFERTA.Name = "OFERTA";
+            // 
+            // REPARACIONES
+            // 
+            this.REPARACIONES.HeaderText = "REPARACION DE MARCANCIA";
+            this.REPARACIONES.Name = "REPARACIONES";
+            // 
+            // SONRISA_CL
+            // 
+            this.SONRISA_CL.HeaderText = "SONRISA AL CLIENTE";
+            this.SONRISA_CL.Name = "SONRISA_CL";
+            // 
+            // ATENCION_CL
+            // 
+            this.ATENCION_CL.HeaderText = "ATENCION AL CLIENTE";
+            this.ATENCION_CL.Name = "ATENCION_CL";
+            // 
+            // ORDEN_CL
+            // 
+            this.ORDEN_CL.HeaderText = "EXHIBIDO Y ORDEN";
+            this.ORDEN_CL.Name = "ORDEN_CL";
+            // 
+            // CANASTAS
+            // 
+            this.CANASTAS.HeaderText = "CANASTAS";
+            this.CANASTAS.Name = "CANASTAS";
+            // 
+            // ROBO_CL
+            // 
+            this.ROBO_CL.HeaderText = "DETECTAR DE ROBOS";
+            this.ROBO_CL.Name = "ROBO_CL";
+            // 
+            // RESULTADOS_CL
+            // 
+            this.RESULTADOS_CL.HeaderText = "SUGERENCIAS POR RESULTADOS";
+            this.RESULTADOS_CL.Name = "RESULTADOS_CL";
+            // 
+            // EXTRA_CL
+            // 
+            this.EXTRA_CL.HeaderText = "EXTRA";
+            this.EXTRA_CL.Name = "EXTRA_CL";
+            // 
+            // COMISION
+            // 
+            this.COMISION.HeaderText = "COMISION";
+            this.COMISION.Name = "COMISION";
+            // 
+            // MERC_CEROS
+            // 
+            this.MERC_CEROS.HeaderText = "MERCANCIA EN CEROS";
+            this.MERC_CEROS.Name = "MERC_CEROS";
+            // 
+            // REPORTES_CAM
+            // 
+            this.REPORTES_CAM.HeaderText = "REPORTES";
+            this.REPORTES_CAM.Name = "REPORTES_CAM";
+            // 
+            // TOTAL
+            // 
+            this.TOTAL.HeaderText = "COMISION TOTAL";
+            this.TOTAL.Name = "TOTAL";
             // 
             // TotalComisionesAsesoras
             // 
@@ -295,34 +288,33 @@
         private System.Windows.Forms.Button BT_calcular;
         private System.Windows.Forms.Button BT_exportar;
         private System.Windows.Forms.DataGridView DG_comisiones;
-        private System.Windows.Forms.DataGridViewTextBoxColumn USUARIO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DEPARTAMENTO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PUESTO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn COMISION;
         private System.Windows.Forms.DataGridViewTextBoxColumn PROBLEMAS_ETIQUETAS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OFERTA;
         private System.Windows.Forms.DataGridViewTextBoxColumn SONRISA_CLIENTE;
         private System.Windows.Forms.DataGridViewTextBoxColumn ATENCION_CLIENTE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn REPARACIONES;
         private System.Windows.Forms.DataGridViewTextBoxColumn EXHIBIDO_ORDEN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SUGERENCIAS;
         private System.Windows.Forms.DataGridViewTextBoxColumn DETECTAR_ROBOS;
         private System.Windows.Forms.DataGridViewTextBoxColumn SUG_RESULTADOS;
         private System.Windows.Forms.DataGridViewTextBoxColumn INCENTIVO_EXTRA;
         private System.Windows.Forms.DataGridViewTextBoxColumn MERC_CERO;
         private System.Windows.Forms.DataGridViewTextBoxColumn REP_CAMARA;
         private System.Windows.Forms.DataGridViewTextBoxColumn PAGAR;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ETIQUETAS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SONRISA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ATENCION;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ORDEN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ROBOS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RESULTADOS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EXTRA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CEROS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn REPORTES;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL;
         private System.Windows.Forms.TextBox TB_total;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn USUARIO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DEPARTAMENTO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PUESTO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OFERTA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn REPARACIONES;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SONRISA_CL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ATENCION_CL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ORDEN_CL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CANASTAS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ROBO_CL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RESULTADOS_CL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EXTRA_CL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COMISION;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MERC_CEROS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn REPORTES_CAM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL;
     }
 }
