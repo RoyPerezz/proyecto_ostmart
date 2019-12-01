@@ -36,8 +36,6 @@
             this.BT_calcular = new System.Windows.Forms.Button();
             this.BT_exportar = new System.Windows.Forms.Button();
             this.DG_comisiones = new System.Windows.Forms.DataGridView();
-            this.TB_total = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.USUARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DEPARTAMENTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PUESTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +52,8 @@
             this.MERC_CEROS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.REPORTES_CAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TB_total = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DG_comisiones)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,7 +94,7 @@
             this.BT_importar.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_importar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_importar.ForeColor = System.Drawing.Color.White;
-            this.BT_importar.Location = new System.Drawing.Point(347, 18);
+            this.BT_importar.Location = new System.Drawing.Point(335, 18);
             this.BT_importar.Name = "BT_importar";
             this.BT_importar.Size = new System.Drawing.Size(100, 53);
             this.BT_importar.TabIndex = 5;
@@ -107,7 +107,7 @@
             this.BT_calcular.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_calcular.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_calcular.ForeColor = System.Drawing.Color.White;
-            this.BT_calcular.Location = new System.Drawing.Point(453, 18);
+            this.BT_calcular.Location = new System.Drawing.Point(441, 18);
             this.BT_calcular.Name = "BT_calcular";
             this.BT_calcular.Size = new System.Drawing.Size(100, 53);
             this.BT_calcular.TabIndex = 6;
@@ -120,7 +120,7 @@
             this.BT_exportar.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_exportar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_exportar.ForeColor = System.Drawing.Color.White;
-            this.BT_exportar.Location = new System.Drawing.Point(559, 18);
+            this.BT_exportar.Location = new System.Drawing.Point(547, 18);
             this.BT_exportar.Name = "BT_exportar";
             this.BT_exportar.Size = new System.Drawing.Size(100, 53);
             this.BT_exportar.TabIndex = 7;
@@ -149,30 +149,10 @@
             this.MERC_CEROS,
             this.REPORTES_CAM,
             this.TOTAL});
-            this.DG_comisiones.Location = new System.Drawing.Point(12, 94);
+            this.DG_comisiones.Location = new System.Drawing.Point(10, 96);
             this.DG_comisiones.Name = "DG_comisiones";
-            this.DG_comisiones.Size = new System.Drawing.Size(1546, 313);
+            this.DG_comisiones.Size = new System.Drawing.Size(1479, 313);
             this.DG_comisiones.TabIndex = 8;
-            // 
-            // TB_total
-            // 
-            this.TB_total.BackColor = System.Drawing.Color.Black;
-            this.TB_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_total.ForeColor = System.Drawing.Color.SpringGreen;
-            this.TB_total.Location = new System.Drawing.Point(1442, 429);
-            this.TB_total.Name = "TB_total";
-            this.TB_total.Size = new System.Drawing.Size(116, 29);
-            this.TB_total.TabIndex = 9;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(1303, 432);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(133, 24);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Total a Pagar";
             // 
             // USUARIO
             // 
@@ -254,12 +234,32 @@
             this.TOTAL.HeaderText = "COMISION TOTAL";
             this.TOTAL.Name = "TOTAL";
             // 
+            // TB_total
+            // 
+            this.TB_total.BackColor = System.Drawing.Color.Black;
+            this.TB_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_total.ForeColor = System.Drawing.Color.SpringGreen;
+            this.TB_total.Location = new System.Drawing.Point(1375, 426);
+            this.TB_total.Name = "TB_total";
+            this.TB_total.Size = new System.Drawing.Size(116, 29);
+            this.TB_total.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(1236, 429);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(133, 24);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Total a Pagar";
+            // 
             // TotalComisionesAsesoras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(1570, 478);
+            this.ClientSize = new System.Drawing.Size(1502, 478);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.TB_total);
             this.Controls.Add(this.DG_comisiones);

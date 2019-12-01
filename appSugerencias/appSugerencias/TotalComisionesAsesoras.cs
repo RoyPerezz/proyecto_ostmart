@@ -267,7 +267,7 @@ namespace appSugerencias
             //CALCULA EL TOTAL DE LAS COMISIONES A PAGAR
             double  comisiones = 0;
             double t_comisiones = 0;
-
+            double pagar = 0;
             for (int fila = 0; fila < DG_comisiones.RowCount; fila++)
             {
                  comisiones= Convert.ToDouble(DG_comisiones.Rows[fila].Cells[12].Value);
@@ -276,8 +276,9 @@ namespace appSugerencias
                 t_comisiones = ((comisiones) - ceros) - reportes;
                 DG_comisiones.Rows[fila].Cells[15].Value = Convert.ToString(t_comisiones);
 
+                pagar = pagar + Convert.ToDouble(DG_comisiones.Rows[fila].Cells[15].Value);
 
-                //TB_total.Text = Convert.ToString(String.Format("{0:0.##}", sumComisiones.ToString("C")));
+                TB_total.Text = Convert.ToString(String.Format("{0:0.##}", pagar.ToString("C")));
 
             }
             //FIN CALCULA EL TOTAL DE LAS COMISIONES A PAGAR
