@@ -119,6 +119,12 @@
     <Compile Include="ComisionesAsesoras.Designer.cs">
       <DependentUpon>ComisionesAsesoras.cs</DependentUpon>
     </Compile>
+    <Compile Include="Departamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Departamentos.Designer.cs">
+      <DependentUpon>Departamentos.cs</DependentUpon>
+    </Compile>
     <Compile Include="InvFisicoxLinea.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -369,6 +375,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ComisionesAsesoras.resx">
       <DependentUpon>ComisionesAsesoras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Departamentos.resx">
+      <DependentUpon>Departamentos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InvFisicoxLinea.resx">
       <DependentUpon>InvFisicoxLinea.cs</DependentUpon>

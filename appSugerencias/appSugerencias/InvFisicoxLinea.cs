@@ -21,6 +21,9 @@ namespace appSugerencias
 
         MySqlConnection con; //VARIABLE GLOBAL DE CONEXION A LA BD
         int cuantos = 0;//GUARDA CUANTOS PRODUCTOS HAY EN UNA LINEA
+        string[] articulos;//GUARDA LOS ARTICULOS DE LA LINEA
+        int[] entradas;//GUARDA LAS EXISTENCIAS DE LOS ARTICULOS DE LA LINEA
+        int[] salidas;
 
         //LLENA EL COMBOBOX CON LAS LINEAS DE PRODUCTOS
         public void CargarLineas()
@@ -66,17 +69,50 @@ namespace appSugerencias
             }
         
             dr.Close();
-            con.Close();
+          
             //FIN: OBTENER CANTIDAD DE ARTICULOS EN LA LINEA
 
-            //TRAER EL ARTICULO, DESCRIPCION Y EXISTENCIA DE LA LINEA SELECCIONADA
-            MySqlCommand cmd1 = new MySqlCommand("SELECT ARTICULO, DESCRIP, EXISTENCIA FROM PRODS WHERE LINEA ='"+CB_lineas.SelectedItem.ToString()+"'",con);
-            DataTable productos = new DataTable();
-            MySqlDataAdapter ad = new MySqlDataAdapter(cmd1);
-            ad.Fill(productos);
 
-           
-            //FIN TRAER EL ARTICULO, DESCRIPCION Y EXISTENCIA DE LA LINEA SELECCIONADA
+
+            //TRAER EL ARTICULO DE LA LINEA SELECCIONADA
+            int x = 0;
+            articulos = new string[cuantos];
+            MySqlCommand cmd1 = new MySqlCommand("SELECT ARTICULO FROM PRODS WHERE LINEA ='"+CB_lineas.SelectedItem.ToString()+"'ORDER BY ARTICULO",con);
+            //DataTable productos = new DataTable();
+            //MySqlDataAdapter ad = new MySqlDataAdapter(cmd1);
+            //ad.Fill(productos);
+            MySqlDataReader dr1 = cmd1.ExecuteReader();
+            while (dr1.Read())
+            {
+                articulos[x] = dr1["ARTICULO"].ToString();
+                x++;
+            }
+            dr1.Close();
+            //FIN TRAER EL ARTICULO DE LA LINEA SELECCIONADA
+
+
+            for (int i = 0;  i< articulos.Length; i++)
+            {
+                MySqlCommand cmd2 = new MySqlCommand("SELECT SUM( IF( almacen = 1 AND ent_sal = 'E', cantidad, 0 ) ) As entradas FROM movsinv WHERE articulo ='" + articulos[i] + "'ORDER BY ARTICULO", con);
+                MySqlDataReader dr2 = cmd2.ExecuteReader();
+
+                while (dr2.Read())
+                {
+                    entradas[i] = Convert.ToInt32(dr2["entradas"].ToString());
+                }
+            }
+
+
+            for (int j = 0; j < articulos.Length; j++)
+            {
+                MySqlCommand cmd2 = new MySqlCommand("SELECT SUM( IF( almacen = 1 AND ent_sal = 'S', cantidad, 0 ) ) As salidas FROM movsinv WHERE articulo ='" + articulos[j] + "'ORDER BY ARTICULO", con);
+                MySqlDataReader dr2 = cmd2.ExecuteReader();
+
+                while (dr2.Read())
+                {
+                    salidas[j] = Convert.ToInt32(dr2["salidas"].ToString());
+                }
+            }
         }
     }
 }

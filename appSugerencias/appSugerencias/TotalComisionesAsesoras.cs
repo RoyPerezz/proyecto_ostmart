@@ -32,7 +32,7 @@ namespace appSugerencias
             con = BDConexicon.conectar();
 
             //TRAE LOS NOMBRES DE LOS USUARIOS Y LOS PONE EN EL DATAGRID
-            MySqlCommand cmd0 = new MySqlCommand("SELECT distinct usuario from rd_comisionneta_asesoras order by usuario",con);
+            MySqlCommand cmd0 = new MySqlCommand("SELECT distinct usuario from rd_comisionneta_asesoras where fecha between '"+inicio.ToString("yyyy-MM-dd") + "' and '"+fin.ToString("yyyy-MM-dd") +"' order by usuario",con);
             MySqlDataReader dr0 = cmd0.ExecuteReader();
            
             while (dr0.Read())
@@ -70,24 +70,58 @@ namespace appSugerencias
                 }
                 dr1.Close();
             }
-            
+
+
+            //TRAE EL CARGO/PUESTO DE LA ASESORA
+            for (int j = 0; j <DG_comisiones.Rows.Count; j++)
+            {
+                string asesora = DG_comisiones.Rows[j].Cells[0].Value.ToString();
+
+                MySqlCommand cmd2 = new MySqlCommand("SELECT  puesto  from rd_asesoras_venta where usuario='"+asesora+"'", con);
+                MySqlDataReader dr2 = cmd2.ExecuteReader();
+                int i = 0;
+
+                while (dr2.Read())
+                {
+                    
+                    DG_comisiones.Rows[j].Cells[2].Value = dr2["puesto"].ToString();
+                    i++;
+
+                }
+                dr2.Close();
+            }
+
+           
+            //COLOCA LOS DEPARTAMENTOS QUE CUBRIO O DEL CUAL ES RESPONSABLE LA ASESORA
+            MySqlCommand deptos = new MySqlCommand("SELECT DISTINCT departamento,usuario from rd_asesora_deptos where fecha between '"+inicio.ToString("yyyy-MM-dd")+"' and '"+fin.ToString("yyyy-MM-dd") + "'order by usuario", con);
+            MySqlDataReader dr3=null;
+            string dep = "";
            
 
-            MySqlCommand cmd2 = new MySqlCommand("SELECT  distinct departamento, puesto  from rd_comisionneta_asesoras where fecha between '"+inicio.ToString("yyyy-MM-dd")+"' and '"+fin.ToString("yyyy-MM-dd")+"'",con);
-            MySqlDataReader dr2 = cmd2.ExecuteReader();
-            int i = 0;
-          
-            while (dr2.Read())
+            for (int indice  = 0; indice < usuarios.Count; indice++)
             {
-               // DG_datos.Rows.Add(dr2["departamento"].ToString(),dr2["puesto"].ToString(),cn);
+                dr3 = deptos.ExecuteReader();
+               
+                   
+                    while (dr3.Read())
+                    {
+                       if (dr3["usuario"].ToString() == DG_comisiones.Rows[indice].Cells[0].Value.ToString())
+                        {
+                            dep += dr3["departamento"].ToString();
+                        }
 
-                DG_comisiones.Rows[i].Cells[1].Value = dr2["departamento"].ToString();
-                DG_comisiones.Rows[i].Cells[2].Value = dr2["puesto"].ToString();
-                //DG_datos.Rows[i].Cells[3].Value = cn;
-                i++;
+                       
+                    }
+                   
               
+
+                DG_comisiones.Rows[indice].Cells[1].Value = dep;
+                dep = "";
+                dr3.Close();
             }
-            dr2.Close();
+
+
+            
             con.Close();
             //LLenarCeros();
         }
