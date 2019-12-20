@@ -108,8 +108,7 @@ namespace appSugerencias
                     dep.Parameters.AddWithValue("?departamento"," -MASCOTAS- ");
                     dep.Parameters.AddWithValue("?fecha",fecha.ToString("yyyy-MM-dd"));
                     dep.ExecuteNonQuery();
-                   
-
+                  
                 }
 
                 if (CBX_fiesta.Checked)
@@ -860,8 +859,10 @@ namespace appSugerencias
                 con.Close();
 
                 suma = mascotas + fiesta + bolsa_dama + sanValentin + cosmeticos + cosvip + navideños + barbie + bolsa_regalo + febrero + playa + bisuteria + bolsa_plastico + escolar + halloween + juguetes + montables + mostrador + patrio + peluches + plasticos + resina_relojes + serie + mayo + sombrillas;
+                mascotas = 0; fiesta = 0; bolsa_dama = 0; sanValentin = 0; cosmeticos = 0; cosvip = 0; navideños = 0; barbie = 0; bolsa_regalo = 0; febrero = 0; playa = 0;
+                bisuteria = 0; bolsa_plastico = 0; escolar = 0; halloween = 0; juguetes = 0; montables = 0; mostrador = 0; patrio = 0; peluches = 0; plasticos = 0; resina_relojes = 0;
+                serie = 0; mayo = 0; sombrillas = 0;
 
-               
             }
 
             return suma;
@@ -963,6 +964,8 @@ namespace appSugerencias
             cmd.ExecuteNonQuery();
             Limpiar();
             MessageBox.Show("EL REGISTRO SE HA GUARDADO EXITOSAMENTE");
+            BT_guardar.Enabled = false;
+            BT_calcular.Enabled = false;
         }
 
 

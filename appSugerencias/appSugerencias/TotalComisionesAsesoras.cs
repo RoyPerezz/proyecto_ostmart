@@ -25,8 +25,10 @@ namespace appSugerencias
      
         private void BT_importar_Click(object sender, EventArgs e)
         {
-         
-            
+            DG_comisiones.Rows.Clear();
+            usuarios.Clear();
+            TB_total.Text = "";
+
             DateTime inicio = DT_inicio.Value;
             DateTime fin = DT_fin.Value;
             con = BDConexicon.conectar();
@@ -57,10 +59,20 @@ namespace appSugerencias
             int x = 0;
             
             MySqlDataReader dr1 = null;
+
+            try
+            {
+                
+            }
+            catch (Exception ex)
+            {
+
+               
+            }
             for (int lista = 0; lista < usuarios.Count; lista++)
             {
-                MySqlCommand cmd1 = new MySqlCommand("select sum(cn) as total from rd_comisionneta_asesoras where usuario='"+usuarios[lista]+"' and fecha between '" + inicio.ToString("yyyy-MM-dd") + "' and '" + fin.ToString("yyyy-MM-dd") + "' order by usuario", con);
-                 dr1= cmd1.ExecuteReader();
+                MySqlCommand cmd1 = new MySqlCommand("select sum(cn) as total from rd_comisionneta_asesoras where usuario='" + usuarios[lista] + "' and fecha between '" + inicio.ToString("yyyy-MM-dd") + "' and '" + fin.ToString("yyyy-MM-dd") + "' order by usuario", con);
+                dr1 = cmd1.ExecuteReader();
                 while (dr1.Read())
                 {
                     //cn = dr1["total"].ToString();
@@ -251,6 +263,12 @@ namespace appSugerencias
 
 
 
+       
+
+        private void BT_prueba_Click(object sender, EventArgs e)
+        {
+            DG_comisiones.Rows.Clear();
+        }
         int etiquetas = 0, ofertas = 0, sonrisa = 0, atencion = 0, reparacion = 0, orden = 0, canastas = 0, robos = 0, resultados = 0, extra = 0;
         double total = 0;
         double comision = 0;

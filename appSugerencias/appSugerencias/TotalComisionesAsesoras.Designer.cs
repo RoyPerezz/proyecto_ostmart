@@ -37,6 +37,21 @@
             this.BT_exportar = new System.Windows.Forms.Button();
             this.DG_comisiones = new System.Windows.Forms.DataGridView();
             this.ASESORA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DEPARTAMENTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CARGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OFERTAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.REPARACIONES = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SONRISA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ATENCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EXHIBIDO_ORDEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CANASTAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ROBOS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RESULTADOS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EXTRA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COMISION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MERC_CEROS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.REPORTES = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TB_total = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.USUARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,21 +62,6 @@
             this.SONRISA_CL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ATENCION_CL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ORDEN_CL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DEPART = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CARGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OFERTASS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.REP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SONRISA_CLI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TRATO_CLI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EXHIBIDO_ORDEN2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CANASTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DETEC_ROBOS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SUG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EXT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COMIS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.M_CEROS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.REP_C = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COMT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DG_comisiones)).BeginInit();
             this.SuspendLayout();
             // 
@@ -142,21 +142,21 @@
             this.DG_comisiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DG_comisiones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ASESORA,
-            this.DEPART,
+            this.DEPARTAMENTO,
             this.CARGO,
-            this.OFERTASS,
-            this.REP,
-            this.SONRISA_CLI,
-            this.TRATO_CLI,
-            this.EXHIBIDO_ORDEN2,
-            this.CANASTA,
-            this.DETEC_ROBOS,
-            this.SUG,
-            this.EXT,
-            this.COMIS,
-            this.M_CEROS,
-            this.REP_C,
-            this.COMT});
+            this.OFERTAS,
+            this.REPARACIONES,
+            this.SONRISA,
+            this.ATENCION,
+            this.EXHIBIDO_ORDEN,
+            this.CANASTAS,
+            this.ROBOS,
+            this.RESULTADOS,
+            this.EXTRA,
+            this.COMISION,
+            this.MERC_CEROS,
+            this.REPORTES,
+            this.TOTAL});
             this.DG_comisiones.Location = new System.Drawing.Point(10, 96);
             this.DG_comisiones.Name = "DG_comisiones";
             this.DG_comisiones.Size = new System.Drawing.Size(1479, 313);
@@ -166,6 +166,81 @@
             // 
             this.ASESORA.HeaderText = "ASESORA";
             this.ASESORA.Name = "ASESORA";
+            // 
+            // DEPARTAMENTO
+            // 
+            this.DEPARTAMENTO.HeaderText = "DEPARTAMENTO";
+            this.DEPARTAMENTO.Name = "DEPARTAMENTO";
+            // 
+            // CARGO
+            // 
+            this.CARGO.HeaderText = "CARGO";
+            this.CARGO.Name = "CARGO";
+            // 
+            // OFERTAS
+            // 
+            this.OFERTAS.HeaderText = "OFERTA CON PRECIO EXHIBIDO";
+            this.OFERTAS.Name = "OFERTAS";
+            // 
+            // REPARACIONES
+            // 
+            this.REPARACIONES.HeaderText = "REPARACION DE MERCANCIA";
+            this.REPARACIONES.Name = "REPARACIONES";
+            // 
+            // SONRISA
+            // 
+            this.SONRISA.HeaderText = "SONRISA AL CLIENTE";
+            this.SONRISA.Name = "SONRISA";
+            // 
+            // ATENCION
+            // 
+            this.ATENCION.HeaderText = "ATENCION AL CLIENTE";
+            this.ATENCION.Name = "ATENCION";
+            // 
+            // EXHIBIDO_ORDEN
+            // 
+            this.EXHIBIDO_ORDEN.HeaderText = "EXHIBIDO Y ORDEN";
+            this.EXHIBIDO_ORDEN.Name = "EXHIBIDO_ORDEN";
+            // 
+            // CANASTAS
+            // 
+            this.CANASTAS.HeaderText = "CANASTAS";
+            this.CANASTAS.Name = "CANASTAS";
+            // 
+            // ROBOS
+            // 
+            this.ROBOS.HeaderText = "DETECTAR ROBOS";
+            this.ROBOS.Name = "ROBOS";
+            // 
+            // RESULTADOS
+            // 
+            this.RESULTADOS.HeaderText = "SUGERENCIAS POR RESULTADOS";
+            this.RESULTADOS.Name = "RESULTADOS";
+            // 
+            // EXTRA
+            // 
+            this.EXTRA.HeaderText = "EXTRA";
+            this.EXTRA.Name = "EXTRA";
+            // 
+            // COMISION
+            // 
+            this.COMISION.HeaderText = "COMISION";
+            this.COMISION.Name = "COMISION";
+            // 
+            // MERC_CEROS
+            // 
+            this.MERC_CEROS.HeaderText = "MERCANCIA EN CEROS";
+            this.MERC_CEROS.Name = "MERC_CEROS";
+            // 
+            // REPORTES
+            // 
+            this.REPORTES.HeaderText = "REPORTES";
+            this.REPORTES.Name = "REPORTES";
+            // 
+            // TOTAL
+            // 
+            this.TOTAL.HeaderText = "COMISION TOTAL";
+            this.TOTAL.Name = "TOTAL";
             // 
             // TB_total
             // 
@@ -191,7 +266,7 @@
             // 
             this.USUARIO.Name = "USUARIO";
             // 
-            // DEPARTAMENTO
+            // DEPARTAMENT
             // 
             this.DEPARTAMENT.HeaderText = "DEPARTAMENT";
             this.DEPARTAMENT.Name = "DEPARTAMENT";
@@ -206,7 +281,7 @@
             this.OFERTA.HeaderText = "OFERTA CON PRECIO EXHIBIDO";
             this.OFERTA.Name = "OFERTA";
             // 
-            // REPARACIONES
+            // REPARACION
             // 
             this.REPARACION.HeaderText = "REPARACION DE MERCANCIA";
             this.REPARACION.Name = "REPARACION";
@@ -225,81 +300,6 @@
             // 
             this.ORDEN_CL.HeaderText = "EXHIBIDO Y ORDEN";
             this.ORDEN_CL.Name = "ORDEN_CL";
-            // 
-            // DEPART
-            // 
-            this.DEPART.HeaderText = "DEPARTAMENTO";
-            this.DEPART.Name = "DEPARTAMENTO";
-            // 
-            // CARGO
-            // 
-            this.CARGO.HeaderText = "CARGO";
-            this.CARGO.Name = "CARGO";
-            // 
-            // OFERTASS
-            // 
-            this.OFERTASS.HeaderText = "OFERTA CON PRECIO EXHIBIDO";
-            this.OFERTASS.Name = "OFERTAS";
-            // 
-            // REP
-            // 
-            this.REP.HeaderText = "REPARACION DE MERCANCIA";
-            this.REP.Name = "REPARACIONES";
-            // 
-            // SONRISA_CLI
-            // 
-            this.SONRISA_CLI.HeaderText = "SONRISA AL CLIENTE";
-            this.SONRISA_CLI.Name = "SONRISA";
-            // 
-            // TRATO_CLI
-            // 
-            this.TRATO_CLI.HeaderText = "ATENCION AL CLIENTE";
-            this.TRATO_CLI.Name = "ATENCION";
-            // 
-            // EXHIBIDO_ORDEN2
-            // 
-            this.EXHIBIDO_ORDEN2.HeaderText = "EXHIBIDO Y ORDEN";
-            this.EXHIBIDO_ORDEN2.Name = "EXHIBIDO_ORDEN";
-            // 
-            // CANASTA
-            // 
-            this.CANASTA.HeaderText = "CANASTAS";
-            this.CANASTA.Name = "CANASTAS";
-            // 
-            // DETEC_ROBOS
-            // 
-            this.DETEC_ROBOS.HeaderText = "DETECTAR ROBOS";
-            this.DETEC_ROBOS.Name = "ROBOS";
-            // 
-            // SUG
-            // 
-            this.SUG.HeaderText = "SUGERENCIAS POR RESULTADOS";
-            this.SUG.Name = "RESULTADOS";
-            // 
-            // EXT
-            // 
-            this.EXT.HeaderText = "EXTRA";
-            this.EXT.Name = "EXTRA";
-            // 
-            // COMIS
-            // 
-            this.COMIS.HeaderText = "COMISION";
-            this.COMIS.Name = "COMISION";
-            // 
-            // M_CEROS
-            // 
-            this.M_CEROS.HeaderText = "MERCANCIA EN CEROS";
-            this.M_CEROS.Name = "MERC_CEROS";
-            // 
-            // REP_C
-            // 
-            this.REP_C.HeaderText = "REPORTES";
-            this.REP_C.Name = "REPORTES";
-            // 
-            // COMT
-            // 
-            this.COMT.HeaderText = "COMISION TOTAL";
-            this.COMT.Name = "TOTAL";
             // 
             // TotalComisionesAsesoras
             // 
@@ -372,5 +372,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn M_CEROS;
         private System.Windows.Forms.DataGridViewTextBoxColumn REP_C;
         private System.Windows.Forms.DataGridViewTextBoxColumn COMT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DEPARTAMENTO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OFERTAS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn REPARACIONES;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SONRISA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ATENCION;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CANASTAS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ROBOS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RESULTADOS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EXTRA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COMISION;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MERC_CEROS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn REPORTES;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL;
     }
 }

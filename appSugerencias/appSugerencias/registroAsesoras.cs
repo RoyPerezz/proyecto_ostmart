@@ -65,18 +65,18 @@ namespace appSugerencias
         private void BT_buscar_Click(object sender, EventArgs e)
         {
             con = BDConexicon.conectar();
-            MySqlCommand cmd = new MySqlCommand("SELECT idasesora,usuario,nombre,apellidos,puesto from rd_asesoras_venta where nombre='"+TB_nombre.Text+"'",con);
+            MySqlCommand cmd = new MySqlCommand("SELECT idasesora,usuario,nombre,apellidos,puesto from rd_asesoras_venta where nombre LIKE '%"+TB_nombre.Text+"%'",con);
             MySqlDataReader dr = cmd.ExecuteReader();
 
-            if(dr.Read())
+            while(dr.Read())
             {
                 DG_asesoras.Rows.Add(dr["idasesora"].ToString(),dr["usuario"].ToString(),dr["nombre"].ToString(),dr["apellidos"].ToString(),dr["puesto"].ToString());
 
             }
-            else
-            {
-                MessageBox.Show("LA ASESORA QUE BUSCA NO EXISTE");
-            }
+            //else
+            //{
+            //    MessageBox.Show("LA ASESORA QUE BUSCA NO EXISTE");
+            //}
 
             dr.Close();
             con.Close();
