@@ -966,6 +966,7 @@ namespace appSugerencias
             MessageBox.Show("EL REGISTRO SE HA GUARDADO EXITOSAMENTE");
             BT_guardar.Enabled = false;
             BT_calcular.Enabled = false;
+            con.Close();
         }
 
 
@@ -1013,16 +1014,34 @@ namespace appSugerencias
         }
         private void BT_calcular_Click(object sender, EventArgs e)
         {
-            Calificaciones();
-            double prom = CalcularPromedio();
-            ventasLineas = VentasxLinea();
-            double comBruta = CalcularComisionBruta();
-            double comNeta = CalcularComisionNeta();
-            TB_promedio.Text = Convert.ToString(prom);
-            TB_ventaXLinea.Text = Convert.ToString(String.Format("{0:0.##}", ventasLineas.ToString("C")));
-            TB_ComisionB.Text = Convert.ToString(String.Format("{0:0.##}", comisionBruta.ToString("C")));
-            TB_comisionN.Text=Convert.ToString(String.Format("{0:0.##}", comNeta.ToString("C")));
-            BT_guardar.Enabled = true;
+            string nombre = CB_asesora.SelectedItem.ToString();
+            DateTime fecha = DT_fecha.Value;
+
+            MySqlConnection c = BDConexicon.conectar();
+            MySqlCommand comando = new MySqlCommand("SELECT id_comision from rd_comisionneta_asesoras where usuario='"+nombre+"' AND fecha='"+fecha.ToString("yyyy-MM-dd")+"'",c);
+            MySqlDataReader dr = comando.ExecuteReader();
+
+            if (dr.Read())
+            {
+                MessageBox.Show("YA SE CALCULÓ LA COMISIÓN DE LA ASESORA EN EL DÍA SELECCIONADO");
+            }
+            else
+            {
+                Calificaciones();
+                double prom = CalcularPromedio();
+                ventasLineas = VentasxLinea();
+                double comBruta = CalcularComisionBruta();
+                double comNeta = CalcularComisionNeta();
+                TB_promedio.Text = Convert.ToString(prom);
+                TB_ventaXLinea.Text = Convert.ToString(String.Format("{0:0.##}", ventasLineas.ToString("C")));
+                TB_ComisionB.Text = Convert.ToString(String.Format("{0:0.##}", comisionBruta.ToString("C")));
+                TB_comisionN.Text = Convert.ToString(String.Format("{0:0.##}", comNeta.ToString("C")));
+                BT_guardar.Enabled = true;
+            }
+            c.Close();
+            dr.Close();
+
+           
         }
 
         public void Calificaciones()

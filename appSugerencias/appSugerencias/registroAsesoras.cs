@@ -33,24 +33,32 @@ namespace appSugerencias
 
         public void AgregarUsuario()
         {
-            if (TB_nombre.Text.Equals("")||TB_apellidos.Text.Equals("")||CB_puesto.SelectedItem.Equals(""))
+            try
             {
-                MessageBox.Show("FAVOR DE LLENAR TODOS LOS CAMPOS DE REGISTRO");
-            }
-            else
-            {
-                con = BDConexicon.conectar();
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO rd_asesoras_venta(usuario,nombre,apellidos,puesto)values(?usuario,?nombre,?apellidos,?puesto)", con);
+                if (TB_usuario.Text.Equals("") || TB_nombre.Text.Equals("") || TB_apellidos.Text.Equals("") || CB_puesto.SelectedItem.Equals("") || CB_puesto.SelectedIndex==-1)
+                {
+                    MessageBox.Show("FAVOR DE LLENAR TODOS LOS CAMPOS DE REGISTRO");
+                }
+                else
+                {
+                    con = BDConexicon.conectar();
+                    MySqlCommand cmd = new MySqlCommand("INSERT INTO rd_asesoras_venta(usuario,nombre,apellidos,puesto)values(?usuario,?nombre,?apellidos,?puesto)", con);
 
-                cmd.Parameters.Add("?usuario", MySqlDbType.VarChar).Value = TB_nombre.Text.ToUpper();
-                cmd.Parameters.Add("?nombre", MySqlDbType.VarChar).Value = TB_nombre.Text.ToUpper();
-                cmd.Parameters.Add("?apellidos", MySqlDbType.VarChar).Value = TB_apellidos.Text.ToUpper();
-                
-                cmd.Parameters.Add("?puesto", MySqlDbType.VarChar).Value = CB_puesto.SelectedItem.ToString().ToUpper();
-                cmd.ExecuteNonQuery();
-                con.Close();
-                limpiar();
-                MessageBox.Show("REGISTRO GUARDADO EXITOSAMENTE");
+                    cmd.Parameters.Add("?usuario", MySqlDbType.VarChar).Value = TB_nombre.Text.ToUpper();
+                    cmd.Parameters.Add("?nombre", MySqlDbType.VarChar).Value = TB_nombre.Text.ToUpper();
+                    cmd.Parameters.Add("?apellidos", MySqlDbType.VarChar).Value = TB_apellidos.Text.ToUpper();
+
+                    cmd.Parameters.Add("?puesto", MySqlDbType.VarChar).Value = CB_puesto.SelectedItem.ToString().ToUpper();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    limpiar();
+                    MessageBox.Show("REGISTRO GUARDADO EXITOSAMENTE");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error: "+ex);
             }
         }
 
@@ -96,61 +104,80 @@ namespace appSugerencias
 
         private void BT_modificar_Click(object sender, EventArgs e)
         {
-            con = BDConexicon.conectar();
-            //string puesto = CB_puesto.SelectedItem.ToString();
-            //MessageBox.Show(puesto);
-            MySqlCommand cmd = new MySqlCommand("UPDATE rd_asesoras_venta SET usuario =?usuario, nombre=?nombre, apellidos=?apellidos, puesto=?puesto where idasesora='" + TB_id.Text+"'",con);
 
-            cmd.Parameters.AddWithValue("?usuario", TB_usuario.Text.ToUpper());
-            cmd.Parameters.AddWithValue("?nombre", TB_nombre.Text.ToUpper());
-            cmd.Parameters.AddWithValue("?apellidos", TB_apellidos.Text.ToUpper());
-            
-            cmd.Parameters.AddWithValue("?puesto", CB_puesto.SelectedItem.ToString().ToUpper());
+            if (TB_usuario.Text.Equals("") || TB_nombre.Text.Equals("") || TB_apellidos.Text.Equals("") || CB_puesto.SelectedItem.Equals(""))
+            {
+                MessageBox.Show("FAVOR DE LLENAR TODOS LOS CAMPOS DE REGISTRO");
+            }
+            else
+            {
+                con = BDConexicon.conectar();
+                //string puesto = CB_puesto.SelectedItem.ToString();
+                //MessageBox.Show(puesto);
+                MySqlCommand cmd = new MySqlCommand("UPDATE rd_asesoras_venta SET usuario =?usuario, nombre=?nombre, apellidos=?apellidos, puesto=?puesto where idasesora='" + TB_id.Text + "'", con);
 
-          
-            cmd.ExecuteNonQuery();
+                cmd.Parameters.AddWithValue("?usuario", TB_usuario.Text.ToUpper());
+                cmd.Parameters.AddWithValue("?nombre", TB_nombre.Text.ToUpper());
+                cmd.Parameters.AddWithValue("?apellidos", TB_apellidos.Text.ToUpper());
+
+                cmd.Parameters.AddWithValue("?puesto", CB_puesto.SelectedItem.ToString().ToUpper());
+
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+                limpiar();
+                DG_asesoras.DataSource = null;
+                MessageBox.Show("REGISTRO MODIFICADO EXITOSAMENTE");
+            }
+
+              
            
-            con.Close();
-            limpiar();
-            DG_asesoras.DataSource = null;
-            MessageBox.Show("REGISTRO MODIFICADO EXITOSAMENTE");
+         
         }
 
         private void BT_eliminar_Click(object sender, EventArgs e)
         {
-          
-            try
+
+
+            if (TB_usuario.Text.Equals("") || TB_nombre.Text.Equals("") || TB_apellidos.Text.Equals("") || CB_puesto.SelectedItem.Equals(""))
             {
-                DialogResult opcion;
-                opcion = MessageBox.Show("¿ESTA SEGURO QUE DESEA ELIMINAR EL USUARIO?.", "EliMINAR USUARIO", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-                if (opcion == DialogResult.OK)
+                MessageBox.Show("FAVOR DE LLENAR TODOS LOS CAMPOS DE REGISTRO");
+            }
+            else
+            {
+                try
                 {
-                    if (string.IsNullOrEmpty(TB_id.Text))
+                    DialogResult opcion;
+                    opcion = MessageBox.Show("¿ESTA SEGURO QUE DESEA ELIMINAR EL USUARIO?.", "EliMINAR USUARIO", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                    if (opcion == DialogResult.OK)
                     {
-                        MessageBox.Show("SELECCIONE UN USUARIO");
+                        if (string.IsNullOrEmpty(TB_id.Text))
+                        {
+                            MessageBox.Show("SELECCIONE UN USUARIO");
+
+                        }
+                        else
+                        {
+
+                            con = BDConexicon.conectar();
+                            MySqlCommand cmd = new MySqlCommand("DELETE FROM rd_asesoras_venta WHERE idasesora ='" + TB_id.Text + "'", con);
+                            cmd.ExecuteNonQuery();
+                            limpiar();
+                            MessageBox.Show("EL REGISTRO SE HA ELIMINADO");
+                        }
 
                     }
-                    else
-                    {
-
-                        con = BDConexicon.conectar();
-                        MySqlCommand cmd = new MySqlCommand("DELETE FROM rd_asesoras_venta WHERE idasesora ='" + TB_id.Text + "'", con);
-                        cmd.ExecuteNonQuery();
-                        limpiar();
-                        MessageBox.Show("EL REGISTRO SE HA ELIMINADO");
-                    }
-
+                }catch(Exception ex)
+                {
+                    MessageBox.Show("Error al eliminar usuario:"+ex);
                 }
+
+           
                 
               
             
 
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
             }
 
             

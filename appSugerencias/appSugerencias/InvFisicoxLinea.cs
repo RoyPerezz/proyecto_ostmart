@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,10 +21,8 @@ namespace appSugerencias
 
 
         MySqlConnection con; //VARIABLE GLOBAL DE CONEXION A LA BD
-        int cuantos = 0;//GUARDA CUANTOS PRODUCTOS HAY EN UNA LINEA
-        string[] articulos;//GUARDA LOS ARTICULOS DE LA LINEA
-        int[] entradas;//GUARDA LAS EXISTENCIAS DE LOS ARTICULOS DE LA LINEA
-        int[] salidas;
+        
+        
 
         //LLENA EL COMBOBOX CON LAS LINEAS DE PRODUCTOS
         public void CargarLineas()
@@ -39,7 +38,7 @@ namespace appSugerencias
             }
 
             dr.Close();
-            con.Close();
+           
         }
         //FIN LLENA EL COMBOBOX CON LAS LINEAS DE PRODUCTOS
 
@@ -50,69 +49,192 @@ namespace appSugerencias
         }
         //FIN CARGA LAS LINEA DE PRODUCTOS ENE L COMBOBOX AL INICIAR EL FORM
 
-       
+
+       ArrayList articulos = new ArrayList();
+        ArrayList existencia = new ArrayList();
+        string linea = "";
+
+
+        
+        public void Recalcular()
+        {
+           con = BDConexicon.conectar();
+            
+           
+            //OBTENGO LAS CLAVES DE LOS ARTICULOS DE LA LINEA
+
+            linea = CB_lineas.SelectedItem.ToString();
+            MySqlCommand cmd = new MySqlCommand("SELECT articulo,descrip,existencia,costo_u FROM PRODS WHERE LINEA ='" + linea + "'", con);
+        
+            MySqlDataReader dr = cmd.ExecuteReader();
+            int cant = 0;
+            while (dr.Read())
+            {
+                cant = Convert.ToInt32(dr["existencia"].ToString());
+                if (cant >0)
+                {
+                    articulos.Add(dr["articulo"].ToString());
+                    DG1.Rows.Add(dr["articulo"].ToString(), dr["descrip"].ToString(), dr["costo_u"].ToString(), "0", "0");
+
+                }
+
+            }
+            dr.Close();
+
+
+         
+            int entrada = 0, salida = 0, cantidad = 0;
+         
+
+
+            //SE REALIZA EL RECALCULO SUMANDO LAS ENTRAS Y RESTANDO LAS SALIDAS QUE TENGA EL PRODUCTO
+
+            MySqlDataReader dr1 = null;
+            for (int i = 0; i < articulos.Count; i++)
+            {
+                MySqlCommand cmd1 = new MySqlCommand("SELECT cantidad,ent_sal FROM movsinv WHERE articulo='" + articulos[i] + "'", con);
+                dr1 = cmd1.ExecuteReader();
+
+
+                while (dr1.Read())
+                {
+                    if (dr1["ent_sal"].ToString().Equals("E"))
+                    {
+                        entrada += Convert.ToInt32(dr1["cantidad"].ToString());
+                    }
+                    else
+                    {
+                        salida += Convert.ToInt32(dr1["cantidad"].ToString());
+                    }
+                }
+
+                dr1.Close();
+                cantidad = entrada - salida;
+                existencia.Add(cantidad);
+                entrada = 0; salida = 0; cantidad = 0;
+            }
+
+
+
+            //COLOCO LA EXISTENCIA RECALCULADA DE CADA ARTICULO EN LA COLUMNA Existencia 
+            for (int j = 0; j < articulos.Count; j++)
+            {
+                DG1.Rows[j].Cells[3].Value = existencia[j];
+            }
+
+
+
+            //MULTIPLICAR EL COSTO UNITARIO POR LA EXISTENCIA Y COLOCARLO EN LA COLUMNA TOTAL
+            double costo = 0, total = 0;
+            int ex = 0;
+
+            for (int x = 0; x < articulos.Count; x++)
+            {
+                costo = Convert.ToDouble(DG1.Rows[x].Cells[2].Value);
+                ex = Convert.ToInt32(DG1.Rows[x].Cells[3].Value);
+                total = costo * ex;
+                DG1.Rows[x].Cells[4].Value = total;
+
+            }
+
+
+            articulos.Clear();
+            existencia.Clear();
+            TB_mensaje.Text = "LINEA RECALCULADA";
+            
+        }
+
+        public void Exportar()
+        {
+            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+            excel.Application.Workbooks.Add(true);
+
+
+            excel.Range["A1:A4000"].NumberFormat = "@";
+            excel.Range["A2:E3"].Merge();
+            excel.Range["A2"].Value = "ARTICULOS DE LA LINEA "+linea;
+            excel.Range["A2"].Font.Bold = true;
+            excel.Range["A2"].Font.Size = 20;
+            int indiceColumna = 0;
+
+            foreach (DataGridViewColumn col in DG1.Columns)
+            {
+                indiceColumna++;
+                excel.Cells[5, indiceColumna] = col.Name;
+
+            }
+
+            int indiceFila = 4;
+
+            foreach (DataGridViewRow row in DG1.Rows)
+            {
+                indiceFila++;
+                indiceColumna = 0;
+
+
+
+
+                foreach (DataGridViewColumn col in DG1.Columns)
+                {
+                    indiceColumna++;
+
+                    excel.Cells[indiceFila + 1, indiceColumna] = row.Cells[col.Name].Value;
+
+
+
+
+
+
+                }
+
+
+
+            }
+
+
+
+
+            excel.Visible = true;
+
+            TB_mensaje.Text = "ARTICULOS CON EXISTENCIA EXPORTADOS";
+
+        }
+
+
+        public void ArtenCero()
+        {
+
+
+
+            MySqlCommand update = new MySqlCommand("UPDATE prods SET existencia = 0, bloqueado=1 where linea ='" + linea+"'",con);
+            update.ExecuteNonQuery();
+            TB_mensaje.Text = "LINEA BLOQUEADA";
+
+        }
+
+
         private void BT_recalcular_Click(object sender, EventArgs e)
         {
 
-            MySqlConnection con = BDConexicon.conectar();
+            Recalcular();
 
-            //OBTENER CANTIDAD DE ARTICULOS EN LA LINEA
-            MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) as cuantos FROM PRODS WHERE LINEA ='"+CB_lineas.SelectedItem.ToString()+"'",con);
-            MySqlDataReader dr = cmd.ExecuteReader();
-            if (dr.Read())
-            {
-                cuantos = Convert.ToInt32(dr["cuantos"].ToString());
-            }
-            else
-            {
-                MessageBox.Show("LA LINEA NO TIENE ARTICULOS");
-            }
+        }
+
+        private void BT_exportar_Click(object sender, EventArgs e)
+        {
+            Exportar();
+        }
+
         
-            dr.Close();
-          
-            //FIN: OBTENER CANTIDAD DE ARTICULOS EN LA LINEA
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ArtenCero();
+        }
 
-
-            //TRAER EL ARTICULO DE LA LINEA SELECCIONADA
-            int x = 0;
-            articulos = new string[cuantos];
-            MySqlCommand cmd1 = new MySqlCommand("SELECT ARTICULO FROM PRODS WHERE LINEA ='"+CB_lineas.SelectedItem.ToString()+"'ORDER BY ARTICULO",con);
-            //DataTable productos = new DataTable();
-            //MySqlDataAdapter ad = new MySqlDataAdapter(cmd1);
-            //ad.Fill(productos);
-            MySqlDataReader dr1 = cmd1.ExecuteReader();
-            while (dr1.Read())
-            {
-                articulos[x] = dr1["ARTICULO"].ToString();
-                x++;
-            }
-            dr1.Close();
-            //FIN TRAER EL ARTICULO DE LA LINEA SELECCIONADA
-
-
-            for (int i = 0;  i< articulos.Length; i++)
-            {
-                MySqlCommand cmd2 = new MySqlCommand("SELECT SUM( IF( almacen = 1 AND ent_sal = 'E', cantidad, 0 ) ) As entradas FROM movsinv WHERE articulo ='" + articulos[i] + "'ORDER BY ARTICULO", con);
-                MySqlDataReader dr2 = cmd2.ExecuteReader();
-
-                while (dr2.Read())
-                {
-                    entradas[i] = Convert.ToInt32(dr2["entradas"].ToString());
-                }
-            }
-
-
-            for (int j = 0; j < articulos.Length; j++)
-            {
-                MySqlCommand cmd2 = new MySqlCommand("SELECT SUM( IF( almacen = 1 AND ent_sal = 'S', cantidad, 0 ) ) As salidas FROM movsinv WHERE articulo ='" + articulos[j] + "'ORDER BY ARTICULO", con);
-                MySqlDataReader dr2 = cmd2.ExecuteReader();
-
-                while (dr2.Read())
-                {
-                    salidas[j] = Convert.ToInt32(dr2["salidas"].ToString());
-                }
-            }
+        private void CB_lineas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DG1.Rows.Clear();
         }
     }
 }

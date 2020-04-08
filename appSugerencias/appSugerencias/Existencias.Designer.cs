@@ -32,14 +32,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.TB_articulo = new System.Windows.Forms.TextBox();
             this.BTN_aceptar = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.TB_vallarta = new System.Windows.Forms.TextBox();
             this.TB_coloso = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.TB_rena = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.TB_velazquez = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.LB_coloso = new System.Windows.Forms.Label();
             this.LB_rena = new System.Windows.Forms.Label();
             this.LB_vallarta = new System.Windows.Forms.Label();
@@ -66,9 +62,13 @@
             this.cBoxTodas = new System.Windows.Forms.CheckBox();
             this.Lb_bodega = new System.Windows.Forms.Label();
             this.TB_bodega = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label18 = new System.Windows.Forms.Label();
+            this.LB_prov_pregot = new System.Windows.Forms.Label();
+            this.LB_prov_coloso = new System.Windows.Forms.Label();
+            this.LB_prov_velazquez = new System.Windows.Forms.Label();
+            this.LB_prov_rena = new System.Windows.Forms.Label();
+            this.LB_prov_vallarta = new System.Windows.Forms.Label();
+            this.LB_prov_bodega = new System.Windows.Forms.Label();
             this.TB_pregot = new System.Windows.Forms.TextBox();
             this.LB_pregot = new System.Windows.Forms.Label();
             this.BT_limpiar = new System.Windows.Forms.Button();
@@ -99,12 +99,12 @@
             this.label17 = new System.Windows.Forms.Label();
             this.tbPrecio1 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.LB_prov_bodega = new System.Windows.Forms.Label();
-            this.LB_prov_vallarta = new System.Windows.Forms.Label();
-            this.LB_prov_rena = new System.Windows.Forms.Label();
-            this.LB_prov_velazquez = new System.Windows.Forms.Label();
-            this.LB_prov_coloso = new System.Windows.Forms.Label();
-            this.LB_prov_pregot = new System.Windows.Forms.Label();
+            this.CKB_Bodega = new System.Windows.Forms.CheckBox();
+            this.CKB_Vallarta = new System.Windows.Forms.CheckBox();
+            this.CKB_Rena = new System.Windows.Forms.CheckBox();
+            this.CKB_Velazquez = new System.Windows.Forms.CheckBox();
+            this.CKB_Coloso = new System.Windows.Forms.CheckBox();
+            this.CKB_Pregot = new System.Windows.Forms.CheckBox();
             this.panelOfertas.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panelPrecio.SuspendLayout();
@@ -146,20 +146,11 @@
             this.BTN_aceptar.UseVisualStyleBackColor = false;
             this.BTN_aceptar.Click += new System.EventHandler(this.BTN_aceptar_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 336);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Vallarta";
-            // 
             // TB_vallarta
             // 
             this.TB_vallarta.Enabled = false;
             this.TB_vallarta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_vallarta.Location = new System.Drawing.Point(74, 333);
+            this.TB_vallarta.Location = new System.Drawing.Point(89, 333);
             this.TB_vallarta.Name = "TB_vallarta";
             this.TB_vallarta.Size = new System.Drawing.Size(49, 22);
             this.TB_vallarta.TabIndex = 4;
@@ -168,62 +159,35 @@
             // 
             this.TB_coloso.Enabled = false;
             this.TB_coloso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_coloso.Location = new System.Drawing.Point(74, 413);
+            this.TB_coloso.Location = new System.Drawing.Point(89, 413);
             this.TB_coloso.Name = "TB_coloso";
             this.TB_coloso.Size = new System.Drawing.Size(49, 22);
             this.TB_coloso.TabIndex = 6;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 416);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Coloso";
             // 
             // TB_rena
             // 
             this.TB_rena.Enabled = false;
             this.TB_rena.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_rena.Location = new System.Drawing.Point(74, 359);
+            this.TB_rena.Location = new System.Drawing.Point(89, 359);
             this.TB_rena.Name = "TB_rena";
             this.TB_rena.Size = new System.Drawing.Size(49, 22);
             this.TB_rena.TabIndex = 8;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 362);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(33, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Rena";
             // 
             // TB_velazquez
             // 
             this.TB_velazquez.Enabled = false;
             this.TB_velazquez.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_velazquez.Location = new System.Drawing.Point(74, 385);
+            this.TB_velazquez.Location = new System.Drawing.Point(89, 385);
             this.TB_velazquez.Name = "TB_velazquez";
             this.TB_velazquez.Size = new System.Drawing.Size(49, 22);
             this.TB_velazquez.TabIndex = 10;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 388);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Velazquez";
             // 
             // LB_coloso
             // 
             this.LB_coloso.AutoSize = true;
             this.LB_coloso.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LB_coloso.ForeColor = System.Drawing.Color.DarkGreen;
-            this.LB_coloso.Location = new System.Drawing.Point(129, 417);
+            this.LB_coloso.Location = new System.Drawing.Point(147, 417);
             this.LB_coloso.Name = "LB_coloso";
             this.LB_coloso.Size = new System.Drawing.Size(0, 13);
             this.LB_coloso.TabIndex = 13;
@@ -233,7 +197,7 @@
             this.LB_rena.AutoSize = true;
             this.LB_rena.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LB_rena.ForeColor = System.Drawing.Color.DarkGreen;
-            this.LB_rena.Location = new System.Drawing.Point(129, 363);
+            this.LB_rena.Location = new System.Drawing.Point(147, 363);
             this.LB_rena.Name = "LB_rena";
             this.LB_rena.Size = new System.Drawing.Size(0, 13);
             this.LB_rena.TabIndex = 14;
@@ -243,7 +207,7 @@
             this.LB_vallarta.AutoSize = true;
             this.LB_vallarta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LB_vallarta.ForeColor = System.Drawing.Color.DarkGreen;
-            this.LB_vallarta.Location = new System.Drawing.Point(129, 336);
+            this.LB_vallarta.Location = new System.Drawing.Point(147, 336);
             this.LB_vallarta.Name = "LB_vallarta";
             this.LB_vallarta.Size = new System.Drawing.Size(0, 13);
             this.LB_vallarta.TabIndex = 15;
@@ -253,7 +217,7 @@
             this.LB_velazquez.AutoSize = true;
             this.LB_velazquez.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LB_velazquez.ForeColor = System.Drawing.Color.DarkGreen;
-            this.LB_velazquez.Location = new System.Drawing.Point(129, 388);
+            this.LB_velazquez.Location = new System.Drawing.Point(147, 388);
             this.LB_velazquez.Name = "LB_velazquez";
             this.LB_velazquez.Size = new System.Drawing.Size(0, 13);
             this.LB_velazquez.TabIndex = 16;
@@ -478,7 +442,7 @@
             this.Lb_bodega.AutoSize = true;
             this.Lb_bodega.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lb_bodega.ForeColor = System.Drawing.Color.DarkGreen;
-            this.Lb_bodega.Location = new System.Drawing.Point(129, 311);
+            this.Lb_bodega.Location = new System.Drawing.Point(147, 311);
             this.Lb_bodega.Name = "Lb_bodega";
             this.Lb_bodega.Size = new System.Drawing.Size(0, 13);
             this.Lb_bodega.TabIndex = 20;
@@ -487,29 +451,25 @@
             // 
             this.TB_bodega.Enabled = false;
             this.TB_bodega.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_bodega.Location = new System.Drawing.Point(74, 307);
+            this.TB_bodega.Location = new System.Drawing.Point(89, 307);
             this.TB_bodega.Name = "TB_bodega";
             this.TB_bodega.Size = new System.Drawing.Size(49, 22);
             this.TB_bodega.TabIndex = 19;
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(26, 310);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(44, 13);
-            this.label12.TabIndex = 18;
-            this.label12.Text = "Bodega";
-            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.CKB_Pregot);
+            this.groupBox2.Controls.Add(this.CKB_Coloso);
+            this.groupBox2.Controls.Add(this.CKB_Velazquez);
+            this.groupBox2.Controls.Add(this.CKB_Rena);
+            this.groupBox2.Controls.Add(this.CKB_Vallarta);
+            this.groupBox2.Controls.Add(this.CKB_Bodega);
             this.groupBox2.Controls.Add(this.LB_prov_pregot);
             this.groupBox2.Controls.Add(this.LB_prov_coloso);
             this.groupBox2.Controls.Add(this.LB_prov_velazquez);
             this.groupBox2.Controls.Add(this.LB_prov_rena);
             this.groupBox2.Controls.Add(this.LB_prov_vallarta);
             this.groupBox2.Controls.Add(this.LB_prov_bodega);
-            this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Controls.Add(this.TB_pregot);
             this.groupBox2.Controls.Add(this.LB_pregot);
             this.groupBox2.Controls.Add(this.BT_limpiar);
@@ -528,18 +488,13 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.TB_bodega);
             this.groupBox2.Controls.Add(this.TB_articulo);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.LB_velazquez);
             this.groupBox2.Controls.Add(this.TB_vallarta);
             this.groupBox2.Controls.Add(this.LB_vallarta);
-            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.LB_rena);
             this.groupBox2.Controls.Add(this.TB_coloso);
             this.groupBox2.Controls.Add(this.LB_coloso);
-            this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.TB_rena);
-            this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.TB_velazquez);
             this.groupBox2.Location = new System.Drawing.Point(45, 24);
             this.groupBox2.Name = "groupBox2";
@@ -549,20 +504,59 @@
             this.groupBox2.Text = "Existencias";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter_2);
             // 
-            // label18
+            // LB_prov_pregot
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(26, 444);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(38, 13);
-            this.label18.TabIndex = 30;
-            this.label18.Text = "Pregot";
+            this.LB_prov_pregot.AutoSize = true;
+            this.LB_prov_pregot.Location = new System.Drawing.Point(233, 445);
+            this.LB_prov_pregot.Name = "LB_prov_pregot";
+            this.LB_prov_pregot.Size = new System.Drawing.Size(0, 13);
+            this.LB_prov_pregot.TabIndex = 34;
+            // 
+            // LB_prov_coloso
+            // 
+            this.LB_prov_coloso.AutoSize = true;
+            this.LB_prov_coloso.Location = new System.Drawing.Point(233, 416);
+            this.LB_prov_coloso.Name = "LB_prov_coloso";
+            this.LB_prov_coloso.Size = new System.Drawing.Size(0, 13);
+            this.LB_prov_coloso.TabIndex = 36;
+            // 
+            // LB_prov_velazquez
+            // 
+            this.LB_prov_velazquez.AutoSize = true;
+            this.LB_prov_velazquez.Location = new System.Drawing.Point(233, 388);
+            this.LB_prov_velazquez.Name = "LB_prov_velazquez";
+            this.LB_prov_velazquez.Size = new System.Drawing.Size(0, 13);
+            this.LB_prov_velazquez.TabIndex = 35;
+            // 
+            // LB_prov_rena
+            // 
+            this.LB_prov_rena.AutoSize = true;
+            this.LB_prov_rena.Location = new System.Drawing.Point(233, 362);
+            this.LB_prov_rena.Name = "LB_prov_rena";
+            this.LB_prov_rena.Size = new System.Drawing.Size(0, 13);
+            this.LB_prov_rena.TabIndex = 34;
+            // 
+            // LB_prov_vallarta
+            // 
+            this.LB_prov_vallarta.AutoSize = true;
+            this.LB_prov_vallarta.Location = new System.Drawing.Point(233, 337);
+            this.LB_prov_vallarta.Name = "LB_prov_vallarta";
+            this.LB_prov_vallarta.Size = new System.Drawing.Size(0, 13);
+            this.LB_prov_vallarta.TabIndex = 34;
+            // 
+            // LB_prov_bodega
+            // 
+            this.LB_prov_bodega.AutoSize = true;
+            this.LB_prov_bodega.Location = new System.Drawing.Point(233, 312);
+            this.LB_prov_bodega.Name = "LB_prov_bodega";
+            this.LB_prov_bodega.Size = new System.Drawing.Size(0, 13);
+            this.LB_prov_bodega.TabIndex = 33;
             // 
             // TB_pregot
             // 
             this.TB_pregot.Enabled = false;
             this.TB_pregot.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_pregot.Location = new System.Drawing.Point(74, 441);
+            this.TB_pregot.Location = new System.Drawing.Point(89, 441);
             this.TB_pregot.Name = "TB_pregot";
             this.TB_pregot.Size = new System.Drawing.Size(49, 22);
             this.TB_pregot.TabIndex = 31;
@@ -572,7 +566,7 @@
             this.LB_pregot.AutoSize = true;
             this.LB_pregot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LB_pregot.ForeColor = System.Drawing.Color.DarkGreen;
-            this.LB_pregot.Location = new System.Drawing.Point(129, 445);
+            this.LB_pregot.Location = new System.Drawing.Point(147, 445);
             this.LB_pregot.Name = "LB_pregot";
             this.LB_pregot.Size = new System.Drawing.Size(0, 13);
             this.LB_pregot.TabIndex = 32;
@@ -884,53 +878,65 @@
             this.label16.Text = "Mayoreo";
             this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
-            // LB_prov_bodega
+            // CKB_Bodega
             // 
-            this.LB_prov_bodega.AutoSize = true;
-            this.LB_prov_bodega.Location = new System.Drawing.Point(233, 312);
-            this.LB_prov_bodega.Name = "LB_prov_bodega";
-            this.LB_prov_bodega.Size = new System.Drawing.Size(0, 13);
-            this.LB_prov_bodega.TabIndex = 33;
+            this.CKB_Bodega.AutoSize = true;
+            this.CKB_Bodega.Location = new System.Drawing.Point(11, 310);
+            this.CKB_Bodega.Name = "CKB_Bodega";
+            this.CKB_Bodega.Size = new System.Drawing.Size(63, 17);
+            this.CKB_Bodega.TabIndex = 37;
+            this.CKB_Bodega.Text = "Bodega";
+            this.CKB_Bodega.UseVisualStyleBackColor = true;
             // 
-            // LB_prov_vallarta
+            // CKB_Vallarta
             // 
-            this.LB_prov_vallarta.AutoSize = true;
-            this.LB_prov_vallarta.Location = new System.Drawing.Point(233, 337);
-            this.LB_prov_vallarta.Name = "LB_prov_vallarta";
-            this.LB_prov_vallarta.Size = new System.Drawing.Size(0, 13);
-            this.LB_prov_vallarta.TabIndex = 34;
+            this.CKB_Vallarta.AutoSize = true;
+            this.CKB_Vallarta.Location = new System.Drawing.Point(11, 335);
+            this.CKB_Vallarta.Name = "CKB_Vallarta";
+            this.CKB_Vallarta.Size = new System.Drawing.Size(61, 17);
+            this.CKB_Vallarta.TabIndex = 38;
+            this.CKB_Vallarta.Text = "Vallarta";
+            this.CKB_Vallarta.UseVisualStyleBackColor = true;
             // 
-            // LB_prov_rena
+            // CKB_Rena
             // 
-            this.LB_prov_rena.AutoSize = true;
-            this.LB_prov_rena.Location = new System.Drawing.Point(233, 362);
-            this.LB_prov_rena.Name = "LB_prov_rena";
-            this.LB_prov_rena.Size = new System.Drawing.Size(0, 13);
-            this.LB_prov_rena.TabIndex = 34;
+            this.CKB_Rena.AutoSize = true;
+            this.CKB_Rena.Location = new System.Drawing.Point(11, 360);
+            this.CKB_Rena.Name = "CKB_Rena";
+            this.CKB_Rena.Size = new System.Drawing.Size(52, 17);
+            this.CKB_Rena.TabIndex = 38;
+            this.CKB_Rena.Text = "Rena";
+            this.CKB_Rena.UseVisualStyleBackColor = true;
             // 
-            // LB_prov_velazquez
+            // CKB_Velazquez
             // 
-            this.LB_prov_velazquez.AutoSize = true;
-            this.LB_prov_velazquez.Location = new System.Drawing.Point(233, 388);
-            this.LB_prov_velazquez.Name = "LB_prov_velazquez";
-            this.LB_prov_velazquez.Size = new System.Drawing.Size(0, 13);
-            this.LB_prov_velazquez.TabIndex = 35;
+            this.CKB_Velazquez.AutoSize = true;
+            this.CKB_Velazquez.Location = new System.Drawing.Point(11, 386);
+            this.CKB_Velazquez.Name = "CKB_Velazquez";
+            this.CKB_Velazquez.Size = new System.Drawing.Size(75, 17);
+            this.CKB_Velazquez.TabIndex = 39;
+            this.CKB_Velazquez.Text = "Velazquez";
+            this.CKB_Velazquez.UseVisualStyleBackColor = true;
             // 
-            // LB_prov_coloso
+            // CKB_Coloso
             // 
-            this.LB_prov_coloso.AutoSize = true;
-            this.LB_prov_coloso.Location = new System.Drawing.Point(233, 416);
-            this.LB_prov_coloso.Name = "LB_prov_coloso";
-            this.LB_prov_coloso.Size = new System.Drawing.Size(0, 13);
-            this.LB_prov_coloso.TabIndex = 36;
+            this.CKB_Coloso.AutoSize = true;
+            this.CKB_Coloso.Location = new System.Drawing.Point(11, 416);
+            this.CKB_Coloso.Name = "CKB_Coloso";
+            this.CKB_Coloso.Size = new System.Drawing.Size(58, 17);
+            this.CKB_Coloso.TabIndex = 38;
+            this.CKB_Coloso.Text = "Coloso";
+            this.CKB_Coloso.UseVisualStyleBackColor = true;
             // 
-            // LB_prov_pregot
+            // CKB_Pregot
             // 
-            this.LB_prov_pregot.AutoSize = true;
-            this.LB_prov_pregot.Location = new System.Drawing.Point(233, 445);
-            this.LB_prov_pregot.Name = "LB_prov_pregot";
-            this.LB_prov_pregot.Size = new System.Drawing.Size(0, 13);
-            this.LB_prov_pregot.TabIndex = 34;
+            this.CKB_Pregot.AutoSize = true;
+            this.CKB_Pregot.Location = new System.Drawing.Point(11, 444);
+            this.CKB_Pregot.Name = "CKB_Pregot";
+            this.CKB_Pregot.Size = new System.Drawing.Size(57, 17);
+            this.CKB_Pregot.TabIndex = 38;
+            this.CKB_Pregot.Text = "Pregot";
+            this.CKB_Pregot.UseVisualStyleBackColor = true;
             // 
             // Existencias
             // 
@@ -959,14 +965,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TB_articulo;
         private System.Windows.Forms.Button BTN_aceptar;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TB_vallarta;
         private System.Windows.Forms.TextBox TB_coloso;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TB_rena;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TB_velazquez;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label LB_coloso;
         private System.Windows.Forms.Label LB_rena;
         private System.Windows.Forms.Label LB_vallarta;
@@ -987,7 +989,6 @@
         private System.Windows.Forms.DateTimePicker dt_Inicio;
         private System.Windows.Forms.Label Lb_bodega;
         private System.Windows.Forms.TextBox TB_bodega;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lblCo;
         private System.Windows.Forms.Label lblVe;
@@ -1019,7 +1020,6 @@
         private System.Windows.Forms.Label lblCoPre;
         private System.Windows.Forms.Label lblVePre;
         private System.Windows.Forms.Label lblRePre;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox TB_pregot;
         private System.Windows.Forms.Label LB_pregot;
         private System.Windows.Forms.Label lblPre;
@@ -1032,5 +1032,11 @@
         private System.Windows.Forms.Label LB_prov_rena;
         private System.Windows.Forms.Label LB_prov_vallarta;
         private System.Windows.Forms.Label LB_prov_bodega;
+        private System.Windows.Forms.CheckBox CKB_Pregot;
+        private System.Windows.Forms.CheckBox CKB_Coloso;
+        private System.Windows.Forms.CheckBox CKB_Velazquez;
+        private System.Windows.Forms.CheckBox CKB_Rena;
+        private System.Windows.Forms.CheckBox CKB_Vallarta;
+        private System.Windows.Forms.CheckBox CKB_Bodega;
     }
 }

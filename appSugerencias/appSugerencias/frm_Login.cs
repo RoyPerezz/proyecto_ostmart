@@ -22,6 +22,14 @@ namespace appSugerencias
         }
 
         string usuario, password;
+
+
+        public string getUsuario()
+        {
+            string user = usuario;
+            return user;
+        }
+
         private int Asc(string s)
         {
             return Encoding.ASCII.GetBytes(s)[0]+12;
@@ -65,6 +73,8 @@ namespace appSugerencias
                 
                 Principal ini = new Principal(usu,area);
                 //Principal ini = new Principal();
+              
+               
 
                 ini.Show();
                 

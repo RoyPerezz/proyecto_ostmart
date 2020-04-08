@@ -34,23 +34,31 @@
             this.BT_exportar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.BT_cargarArchivo = new System.Windows.Forms.Button();
-            this.TB_archivo = new System.Windows.Forms.TextBox();
+            this.TB_mensaje = new System.Windows.Forms.TextBox();
+            this.DG1 = new System.Windows.Forms.DataGridView();
+            this.CLAVE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DESCRIP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COSTOU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CANT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TOTAL_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.DG1)).BeginInit();
             this.SuspendLayout();
             // 
             // CB_lineas
             // 
             this.CB_lineas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CB_lineas.FormattingEnabled = true;
-            this.CB_lineas.Location = new System.Drawing.Point(99, 39);
+            this.CB_lineas.Location = new System.Drawing.Point(19, 56);
             this.CB_lineas.Name = "CB_lineas";
             this.CB_lineas.Size = new System.Drawing.Size(185, 28);
             this.CB_lineas.TabIndex = 0;
+            this.CB_lineas.SelectedIndexChanged += new System.EventHandler(this.CB_lineas_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(163, 16);
+            this.label1.Location = new System.Drawing.Point(85, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 20);
             this.label1.TabIndex = 1;
@@ -58,54 +66,113 @@
             // 
             // BT_recalcular
             // 
-            this.BT_recalcular.Location = new System.Drawing.Point(99, 73);
+            this.BT_recalcular.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BT_recalcular.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_recalcular.ForeColor = System.Drawing.Color.White;
+            this.BT_recalcular.Location = new System.Drawing.Point(19, 90);
             this.BT_recalcular.Name = "BT_recalcular";
             this.BT_recalcular.Size = new System.Drawing.Size(185, 49);
             this.BT_recalcular.TabIndex = 2;
-            this.BT_recalcular.Text = "Recalcular Linea";
-            this.BT_recalcular.UseVisualStyleBackColor = true;
+            this.BT_recalcular.Text = "1.- Recalcular Linea";
+            this.BT_recalcular.UseVisualStyleBackColor = false;
             this.BT_recalcular.Click += new System.EventHandler(this.BT_recalcular_Click);
             // 
             // BT_exportar
             // 
-            this.BT_exportar.Location = new System.Drawing.Point(99, 128);
+            this.BT_exportar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BT_exportar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_exportar.ForeColor = System.Drawing.Color.White;
+            this.BT_exportar.Location = new System.Drawing.Point(19, 145);
             this.BT_exportar.Name = "BT_exportar";
             this.BT_exportar.Size = new System.Drawing.Size(185, 49);
             this.BT_exportar.TabIndex = 3;
-            this.BT_exportar.Text = "Exportar artículos con existencia";
-            this.BT_exportar.UseVisualStyleBackColor = true;
+            this.BT_exportar.Text = "2.- Exportar artículos con existencia";
+            this.BT_exportar.UseVisualStyleBackColor = false;
+            this.BT_exportar.Click += new System.EventHandler(this.BT_exportar_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(99, 183);
+            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(19, 200);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(185, 49);
             this.button1.TabIndex = 4;
-            this.button1.Text = "Exportar artículos con existencia";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Text = "3.- Articulos en ceros";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // BT_cargarArchivo
             // 
-            this.BT_cargarArchivo.Location = new System.Drawing.Point(99, 265);
+            this.BT_cargarArchivo.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BT_cargarArchivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_cargarArchivo.ForeColor = System.Drawing.Color.White;
+            this.BT_cargarArchivo.Location = new System.Drawing.Point(19, 264);
             this.BT_cargarArchivo.Name = "BT_cargarArchivo";
             this.BT_cargarArchivo.Size = new System.Drawing.Size(185, 45);
             this.BT_cargarArchivo.TabIndex = 5;
-            this.BT_cargarArchivo.Text = "Cargar Archivo";
-            this.BT_cargarArchivo.UseVisualStyleBackColor = true;
+            this.BT_cargarArchivo.Text = "4.- Cargar Archivo";
+            this.BT_cargarArchivo.UseVisualStyleBackColor = false;
             // 
-            // TB_archivo
+            // TB_mensaje
             // 
-            this.TB_archivo.Location = new System.Drawing.Point(99, 316);
-            this.TB_archivo.Name = "TB_archivo";
-            this.TB_archivo.Size = new System.Drawing.Size(185, 20);
-            this.TB_archivo.TabIndex = 6;
+            this.TB_mensaje.BackColor = System.Drawing.Color.Black;
+            this.TB_mensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_mensaje.ForeColor = System.Drawing.Color.Lime;
+            this.TB_mensaje.Location = new System.Drawing.Point(225, 284);
+            this.TB_mensaje.Name = "TB_mensaje";
+            this.TB_mensaje.Size = new System.Drawing.Size(754, 26);
+            this.TB_mensaje.TabIndex = 6;
+            // 
+            // DG1
+            // 
+            this.DG1.AllowUserToAddRows = false;
+            this.DG1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DG1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CLAVE,
+            this.DESCRIP,
+            this.COSTOU,
+            this.CANT,
+            this.TOTAL_});
+            this.DG1.Location = new System.Drawing.Point(225, 56);
+            this.DG1.Name = "DG1";
+            this.DG1.Size = new System.Drawing.Size(754, 222);
+            this.DG1.TabIndex = 7;
+            // 
+            // CLAVE
+            // 
+            this.CLAVE.HeaderText = "ARTICULO";
+            this.CLAVE.Name = "CLAVE";
+            // 
+            // DESCRIP
+            // 
+            this.DESCRIP.HeaderText = "DESCRIPCION";
+            this.DESCRIP.Name = "DESCRIP";
+            // 
+            // COSTOU
+            // 
+            this.COSTOU.HeaderText = "COSTO UNITARIO";
+            this.COSTOU.Name = "COSTOU";
+            // 
+            // CANT
+            // 
+            this.CANT.HeaderText = "EXISTENCIA";
+            this.CANT.Name = "CANT";
+            // 
+            // TOTAL_
+            // 
+            this.TOTAL_.HeaderText = "TOTAL";
+            this.TOTAL_.Name = "TOTAL_";
             // 
             // InvFisicoxLinea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(377, 367);
-            this.Controls.Add(this.TB_archivo);
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.ClientSize = new System.Drawing.Size(998, 329);
+            this.Controls.Add(this.DG1);
+            this.Controls.Add(this.TB_mensaje);
             this.Controls.Add(this.BT_cargarArchivo);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.BT_exportar);
@@ -115,6 +182,7 @@
             this.Name = "InvFisicoxLinea";
             this.Text = "InvFisicoxLinea";
             this.Load += new System.EventHandler(this.InvFisicoxLinea_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DG1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,6 +196,12 @@
         private System.Windows.Forms.Button BT_exportar;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button BT_cargarArchivo;
-        private System.Windows.Forms.TextBox TB_archivo;
+        private System.Windows.Forms.TextBox TB_mensaje;
+        private System.Windows.Forms.DataGridView DG1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CLAVE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COSTOU;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CANT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL_;
     }
 }

@@ -408,10 +408,10 @@
             // CBX_fiesta
             // 
             this.CBX_fiesta.AutoSize = true;
-            this.CBX_fiesta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBX_fiesta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBX_fiesta.Location = new System.Drawing.Point(589, 58);
             this.CBX_fiesta.Name = "CBX_fiesta";
-            this.CBX_fiesta.Size = new System.Drawing.Size(149, 20);
+            this.CBX_fiesta.Size = new System.Drawing.Size(161, 22);
             this.CBX_fiesta.TabIndex = 41;
             this.CBX_fiesta.Text = "Artículos para Fiesta";
             this.CBX_fiesta.UseVisualStyleBackColor = true;
@@ -419,10 +419,10 @@
             // CBX_bolsa_dama
             // 
             this.CBX_bolsa_dama.AutoSize = true;
-            this.CBX_bolsa_dama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBX_bolsa_dama.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBX_bolsa_dama.Location = new System.Drawing.Point(589, 81);
             this.CBX_bolsa_dama.Name = "CBX_bolsa_dama";
-            this.CBX_bolsa_dama.Size = new System.Drawing.Size(133, 20);
+            this.CBX_bolsa_dama.Size = new System.Drawing.Size(142, 22);
             this.CBX_bolsa_dama.TabIndex = 42;
             this.CBX_bolsa_dama.Text = "Bolsa para Dama";
             this.CBX_bolsa_dama.UseVisualStyleBackColor = true;
@@ -430,10 +430,10 @@
             // CBX_sanvalentin
             // 
             this.CBX_sanvalentin.AutoSize = true;
-            this.CBX_sanvalentin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBX_sanvalentin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBX_sanvalentin.Location = new System.Drawing.Point(589, 105);
             this.CBX_sanvalentin.Name = "CBX_sanvalentin";
-            this.CBX_sanvalentin.Size = new System.Drawing.Size(140, 20);
+            this.CBX_sanvalentin.Size = new System.Drawing.Size(150, 22);
             this.CBX_sanvalentin.TabIndex = 43;
             this.CBX_sanvalentin.Text = "Bolsa San Valentín";
             this.CBX_sanvalentin.UseVisualStyleBackColor = true;
@@ -441,10 +441,10 @@
             // CBX_cosmeticos
             // 
             this.CBX_cosmeticos.AutoSize = true;
-            this.CBX_cosmeticos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBX_cosmeticos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBX_cosmeticos.Location = new System.Drawing.Point(589, 128);
             this.CBX_cosmeticos.Name = "CBX_cosmeticos";
-            this.CBX_cosmeticos.Size = new System.Drawing.Size(98, 20);
+            this.CBX_cosmeticos.Size = new System.Drawing.Size(108, 22);
             this.CBX_cosmeticos.TabIndex = 44;
             this.CBX_cosmeticos.Text = "Cosméticos";
             this.CBX_cosmeticos.UseVisualStyleBackColor = true;
@@ -452,10 +452,10 @@
             // CBX_cosvip
             // 
             this.CBX_cosvip.AutoSize = true;
-            this.CBX_cosvip.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBX_cosvip.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBX_cosvip.Location = new System.Drawing.Point(589, 151);
             this.CBX_cosvip.Name = "CBX_cosvip";
-            this.CBX_cosvip.Size = new System.Drawing.Size(72, 20);
+            this.CBX_cosvip.Size = new System.Drawing.Size(77, 22);
             this.CBX_cosvip.TabIndex = 45;
             this.CBX_cosvip.Text = "CosVIP";
             this.CBX_cosvip.UseVisualStyleBackColor = true;
@@ -463,10 +463,10 @@
             // CBX_navideño
             // 
             this.CBX_navideño.AutoSize = true;
-            this.CBX_navideño.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBX_navideño.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBX_navideño.Location = new System.Drawing.Point(589, 174);
             this.CBX_navideño.Name = "CBX_navideño";
-            this.CBX_navideño.Size = new System.Drawing.Size(147, 20);
+            this.CBX_navideño.Size = new System.Drawing.Size(158, 22);
             this.CBX_navideño.TabIndex = 46;
             this.CBX_navideño.Text = "Artículos Navideños";
             this.CBX_navideño.UseVisualStyleBackColor = true;
@@ -474,10 +474,10 @@
             // CBX_barbie
             // 
             this.CBX_barbie.AutoSize = true;
-            this.CBX_barbie.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBX_barbie.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBX_barbie.Location = new System.Drawing.Point(589, 195);
             this.CBX_barbie.Name = "CBX_barbie";
-            this.CBX_barbie.Size = new System.Drawing.Size(67, 20);
+            this.CBX_barbie.Size = new System.Drawing.Size(69, 22);
             this.CBX_barbie.TabIndex = 47;
             this.CBX_barbie.Text = "Barbie";
             this.CBX_barbie.UseVisualStyleBackColor = true;
@@ -485,10 +485,10 @@
             // CBX_bolsa_regalo
             // 
             this.CBX_bolsa_regalo.AutoSize = true;
-            this.CBX_bolsa_regalo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBX_bolsa_regalo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBX_bolsa_regalo.Location = new System.Drawing.Point(589, 218);
             this.CBX_bolsa_regalo.Name = "CBX_bolsa_regalo";
-            this.CBX_bolsa_regalo.Size = new System.Drawing.Size(129, 20);
+            this.CBX_bolsa_regalo.Size = new System.Drawing.Size(136, 22);
             this.CBX_bolsa_regalo.TabIndex = 48;
             this.CBX_bolsa_regalo.Text = "Bolsa de Regalo";
             this.CBX_bolsa_regalo.UseVisualStyleBackColor = true;
@@ -496,10 +496,10 @@
             // CBX_14febrero
             // 
             this.CBX_14febrero.AutoSize = true;
-            this.CBX_14febrero.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBX_14febrero.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBX_14febrero.Location = new System.Drawing.Point(589, 241);
             this.CBX_14febrero.Name = "CBX_14febrero";
-            this.CBX_14febrero.Size = new System.Drawing.Size(111, 20);
+            this.CBX_14febrero.Size = new System.Drawing.Size(119, 22);
             this.CBX_14febrero.TabIndex = 49;
             this.CBX_14febrero.Text = "14 de Febrero";
             this.CBX_14febrero.UseVisualStyleBackColor = true;
@@ -507,10 +507,10 @@
             // CBX_playa
             // 
             this.CBX_playa.AutoSize = true;
-            this.CBX_playa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBX_playa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBX_playa.Location = new System.Drawing.Point(589, 266);
             this.CBX_playa.Name = "CBX_playa";
-            this.CBX_playa.Size = new System.Drawing.Size(134, 20);
+            this.CBX_playa.Size = new System.Drawing.Size(142, 22);
             this.CBX_playa.TabIndex = 50;
             this.CBX_playa.Text = "Artículos de playa";
             this.CBX_playa.UseVisualStyleBackColor = true;
@@ -518,10 +518,10 @@
             // CBX_bisuteria
             // 
             this.CBX_bisuteria.AutoSize = true;
-            this.CBX_bisuteria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBX_bisuteria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBX_bisuteria.Location = new System.Drawing.Point(589, 289);
             this.CBX_bisuteria.Name = "CBX_bisuteria";
-            this.CBX_bisuteria.Size = new System.Drawing.Size(79, 20);
+            this.CBX_bisuteria.Size = new System.Drawing.Size(84, 22);
             this.CBX_bisuteria.TabIndex = 51;
             this.CBX_bisuteria.Text = "Bisutería";
             this.CBX_bisuteria.UseVisualStyleBackColor = true;
@@ -529,10 +529,10 @@
             // CBX_bolsa_plastico
             // 
             this.CBX_bolsa_plastico.AutoSize = true;
-            this.CBX_bolsa_plastico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBX_bolsa_plastico.Location = new System.Drawing.Point(589, 312);
+            this.CBX_bolsa_plastico.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBX_bolsa_plastico.Location = new System.Drawing.Point(589, 313);
             this.CBX_bolsa_plastico.Name = "CBX_bolsa_plastico";
-            this.CBX_bolsa_plastico.Size = new System.Drawing.Size(132, 20);
+            this.CBX_bolsa_plastico.Size = new System.Drawing.Size(142, 22);
             this.CBX_bolsa_plastico.TabIndex = 52;
             this.CBX_bolsa_plastico.Text = "Bolsa de Plástico";
             this.CBX_bolsa_plastico.UseVisualStyleBackColor = true;
@@ -540,10 +540,10 @@
             // CBX_escolar
             // 
             this.CBX_escolar.AutoSize = true;
-            this.CBX_escolar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBX_escolar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBX_escolar.Location = new System.Drawing.Point(781, 288);
             this.CBX_escolar.Name = "CBX_escolar";
-            this.CBX_escolar.Size = new System.Drawing.Size(73, 20);
+            this.CBX_escolar.Size = new System.Drawing.Size(78, 22);
             this.CBX_escolar.TabIndex = 53;
             this.CBX_escolar.Text = "Escolar";
             this.CBX_escolar.UseVisualStyleBackColor = true;
@@ -551,10 +551,10 @@
             // CBX_halloween
             // 
             this.CBX_halloween.AutoSize = true;
-            this.CBX_halloween.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBX_halloween.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBX_halloween.Location = new System.Drawing.Point(781, 311);
             this.CBX_halloween.Name = "CBX_halloween";
-            this.CBX_halloween.Size = new System.Drawing.Size(91, 20);
+            this.CBX_halloween.Size = new System.Drawing.Size(96, 22);
             this.CBX_halloween.TabIndex = 54;
             this.CBX_halloween.Text = "Halloween";
             this.CBX_halloween.UseVisualStyleBackColor = true;
@@ -562,10 +562,10 @@
             // CBX_jugueteria
             // 
             this.CBX_jugueteria.AutoSize = true;
-            this.CBX_jugueteria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBX_jugueteria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBX_jugueteria.Location = new System.Drawing.Point(781, 59);
             this.CBX_jugueteria.Name = "CBX_jugueteria";
-            this.CBX_jugueteria.Size = new System.Drawing.Size(90, 20);
+            this.CBX_jugueteria.Size = new System.Drawing.Size(95, 22);
             this.CBX_jugueteria.TabIndex = 55;
             this.CBX_jugueteria.Text = "Juguetería";
             this.CBX_jugueteria.UseVisualStyleBackColor = true;
@@ -573,10 +573,10 @@
             // CBX_montables
             // 
             this.CBX_montables.AutoSize = true;
-            this.CBX_montables.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBX_montables.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBX_montables.Location = new System.Drawing.Point(781, 82);
             this.CBX_montables.Name = "CBX_montables";
-            this.CBX_montables.Size = new System.Drawing.Size(90, 20);
+            this.CBX_montables.Size = new System.Drawing.Size(96, 22);
             this.CBX_montables.TabIndex = 56;
             this.CBX_montables.Text = "Montables";
             this.CBX_montables.UseVisualStyleBackColor = true;
@@ -584,11 +584,11 @@
             // CBX_mostrador
             // 
             this.CBX_mostrador.AutoSize = true;
-            this.CBX_mostrador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBX_mostrador.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBX_mostrador.ForeColor = System.Drawing.Color.Black;
             this.CBX_mostrador.Location = new System.Drawing.Point(781, 105);
             this.CBX_mostrador.Name = "CBX_mostrador";
-            this.CBX_mostrador.Size = new System.Drawing.Size(88, 20);
+            this.CBX_mostrador.Size = new System.Drawing.Size(96, 22);
             this.CBX_mostrador.TabIndex = 57;
             this.CBX_mostrador.Text = "Mostrador";
             this.CBX_mostrador.UseVisualStyleBackColor = true;
@@ -596,10 +596,10 @@
             // CBX_patrio
             // 
             this.CBX_patrio.AutoSize = true;
-            this.CBX_patrio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBX_patrio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBX_patrio.Location = new System.Drawing.Point(781, 129);
             this.CBX_patrio.Name = "CBX_patrio";
-            this.CBX_patrio.Size = new System.Drawing.Size(91, 20);
+            this.CBX_patrio.Size = new System.Drawing.Size(99, 22);
             this.CBX_patrio.TabIndex = 58;
             this.CBX_patrio.Text = "Mes Patrio";
             this.CBX_patrio.UseVisualStyleBackColor = true;
@@ -607,10 +607,10 @@
             // CBX_peluches
             // 
             this.CBX_peluches.AutoSize = true;
-            this.CBX_peluches.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBX_peluches.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBX_peluches.Location = new System.Drawing.Point(781, 152);
             this.CBX_peluches.Name = "CBX_peluches";
-            this.CBX_peluches.Size = new System.Drawing.Size(83, 20);
+            this.CBX_peluches.Size = new System.Drawing.Size(88, 22);
             this.CBX_peluches.TabIndex = 59;
             this.CBX_peluches.Text = "Peluches";
             this.CBX_peluches.UseVisualStyleBackColor = true;
@@ -618,10 +618,10 @@
             // CBX_plasticos
             // 
             this.CBX_plasticos.AutoSize = true;
-            this.CBX_plasticos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBX_plasticos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBX_plasticos.Location = new System.Drawing.Point(781, 175);
             this.CBX_plasticos.Name = "CBX_plasticos";
-            this.CBX_plasticos.Size = new System.Drawing.Size(154, 20);
+            this.CBX_plasticos.Size = new System.Drawing.Size(167, 22);
             this.CBX_plasticos.TabIndex = 60;
             this.CBX_plasticos.Text = "Plasticos y Melamina";
             this.CBX_plasticos.UseVisualStyleBackColor = true;
@@ -629,10 +629,10 @@
             // CBX_relojes
             // 
             this.CBX_relojes.AutoSize = true;
-            this.CBX_relojes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBX_relojes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBX_relojes.Location = new System.Drawing.Point(781, 198);
             this.CBX_relojes.Name = "CBX_relojes";
-            this.CBX_relojes.Size = new System.Drawing.Size(130, 20);
+            this.CBX_relojes.Size = new System.Drawing.Size(138, 22);
             this.CBX_relojes.TabIndex = 61;
             this.CBX_relojes.Text = "Resina y Relojes";
             this.CBX_relojes.UseVisualStyleBackColor = true;
@@ -640,10 +640,10 @@
             // CBX_serie
             // 
             this.CBX_serie.AutoSize = true;
-            this.CBX_serie.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBX_serie.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBX_serie.Location = new System.Drawing.Point(781, 219);
             this.CBX_serie.Name = "CBX_serie";
-            this.CBX_serie.Size = new System.Drawing.Size(59, 20);
+            this.CBX_serie.Size = new System.Drawing.Size(61, 22);
             this.CBX_serie.TabIndex = 62;
             this.CBX_serie.Text = "Serie";
             this.CBX_serie.UseVisualStyleBackColor = true;
@@ -660,10 +660,10 @@
             // CBX_10mayo
             // 
             this.CBX_10mayo.AutoSize = true;
-            this.CBX_10mayo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBX_10mayo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBX_10mayo.Location = new System.Drawing.Point(781, 242);
             this.CBX_10mayo.Name = "CBX_10mayo";
-            this.CBX_10mayo.Size = new System.Drawing.Size(97, 20);
+            this.CBX_10mayo.Size = new System.Drawing.Size(104, 22);
             this.CBX_10mayo.TabIndex = 63;
             this.CBX_10mayo.Text = "10 de Mayo";
             this.CBX_10mayo.UseVisualStyleBackColor = true;
@@ -671,10 +671,10 @@
             // CBX_sombrillas
             // 
             this.CBX_sombrillas.AutoSize = true;
-            this.CBX_sombrillas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBX_sombrillas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBX_sombrillas.Location = new System.Drawing.Point(781, 265);
             this.CBX_sombrillas.Name = "CBX_sombrillas";
-            this.CBX_sombrillas.Size = new System.Drawing.Size(91, 20);
+            this.CBX_sombrillas.Size = new System.Drawing.Size(97, 22);
             this.CBX_sombrillas.TabIndex = 64;
             this.CBX_sombrillas.Text = "Sombrillas";
             this.CBX_sombrillas.UseVisualStyleBackColor = true;
@@ -692,10 +692,10 @@
             // CBX_mascotas
             // 
             this.CBX_mascotas.AutoSize = true;
-            this.CBX_mascotas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBX_mascotas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBX_mascotas.Location = new System.Drawing.Point(589, 338);
             this.CBX_mascotas.Name = "CBX_mascotas";
-            this.CBX_mascotas.Size = new System.Drawing.Size(146, 20);
+            this.CBX_mascotas.Size = new System.Drawing.Size(159, 22);
             this.CBX_mascotas.TabIndex = 67;
             this.CBX_mascotas.Text = "Acc. para mascótas";
             this.CBX_mascotas.UseVisualStyleBackColor = true;
@@ -705,7 +705,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(953, 500);
+            this.ClientSize = new System.Drawing.Size(953, 366);
             this.Controls.Add(this.CBX_mascotas);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.CBX_sombrillas);
