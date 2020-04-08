@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
-using Microsoft.Office.Core;
+
 using System.Runtime.InteropServices;
 
 namespace appSugerencias

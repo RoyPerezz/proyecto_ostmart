@@ -114,18 +114,6 @@ namespace appSugerencias
                 if (!exist)
                 {
 
-                    //MySqlCommand id = new MySqlCommand("select max(idtraspaso) as id from rd_traspaso ", con);
-                    //MySqlDataReader r = id.ExecuteReader();
-                    ////int idtraspaso = 0;
-                    //while (r.Read())
-                    //{
-                    //    idtraspaso  = Convert.ToInt32(r[0].ToString()) + 1;
-                    //    // MessageBox.Show("id:" + idtraspaso);
-                    //}
-
-                    //r.Close();
-                   
-                    // se validad el articulo para ver si existe en la base de datos
                    
                     MySqlCommand c = new MySqlCommand("select articulo from prods where articulo='" + TB_articulo.Text + "'", con);
                     MySqlDataReader art = c.ExecuteReader();
