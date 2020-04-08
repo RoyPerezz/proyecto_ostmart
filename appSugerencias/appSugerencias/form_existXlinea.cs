@@ -46,15 +46,86 @@ namespace appSugerencias
             //existenciaLinea();
         }
 
+        public void Exportar()
+        {
+            //dgvLinea.Columns.Add("OFERTA", "OFERTA");
+
+            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+            excel.Application.Workbooks.Add(true);
+
+
+            excel.Range["A1:A1000"].NumberFormat = "@";
+            int indiceColumna = 0;
+
+            foreach (DataGridViewColumn col in dgvLinea.Columns)
+            {
+                indiceColumna++;
+                if(indiceColumna==12)
+                {
+                    excel.Cells[5, indiceColumna]="OFERTA";
+                }
+                else
+                {
+                    excel.Cells[5, indiceColumna] = col.Name;
+                }
+                
+
+            }
+          
+            int indiceFila = 4;
+
+            foreach (DataGridViewRow row in dgvLinea.Rows)
+            {
+                indiceFila++;
+                indiceColumna = 0;
+
+
+
+
+                foreach (DataGridViewColumn col in dgvLinea.Columns)
+                {
+                    indiceColumna++;
+                    if (indiceColumna == 12)
+                    {
+            
+                    }
+                    else
+                    {
+                        excel.Cells[indiceFila + 1, indiceColumna] = row.Cells[col.Name].Value;
+                    }
+                    
+
+
+
+
+
+
+                }
+
+
+
+            }
+
+
+
+
+            excel.Visible = true;
+            
+           // dgvLinea.Columns.Remove("OFERTA");
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            //string linea = cbLinea.SelectedValue.ToString(); 
-            MessageBox.Show(cbLinea.SelectedValue.ToString());
+            button1.Enabled = false;
+            Exportar();
+            button1.Enabled = true;
+           
         }
 
         public void existenciaLinea()
         {
-            string comando = "SELECT articulo,descrip,existencia FROM prods WHERE linea='"+ cbLinea.SelectedValue.ToString()  + "' and EXISTENCIA > 1";
+            
+            string comando = "SELECT ARTICULO ,DESCRIP,COSTO_U AS COSTO,precio2 AS MAY,precio1 AS MEN,IMPUESTO,existencia FROM prods WHERE linea='" + cbLinea.SelectedValue.ToString()  + "' and EXISTENCIA >= 1";
             try
             {
                 DataTable dtBodega = new DataTable();
@@ -175,12 +246,12 @@ namespace appSugerencias
                 // master.DefaultView.ToTable(true, "articulo");
 
 
-                master.Columns.Add("BODEGA", typeof(String));
-                master.Columns.Add("VALLARTA", typeof(String));
-                master.Columns.Add("RENA", typeof(String));
-                master.Columns.Add("VELAZQUEZ", typeof(String));
-                master.Columns.Add("COLOSO", typeof(String));
-                master.Columns.Add("PREGOT", typeof(String));
+                master.Columns.Add("BO", typeof(String));
+                master.Columns.Add("VA", typeof(String));
+                master.Columns.Add("RE", typeof(String));
+                master.Columns.Add("VL", typeof(String));
+                master.Columns.Add("CO", typeof(String));
+                master.Columns.Add("PM", typeof(String));
 
                 master.Columns.Remove("existencia");
 
@@ -198,29 +269,87 @@ namespace appSugerencias
 
 
 
+              
+
+                //dataTable.Columns["Qty"].SetOrdinal(0);
+                //dataTable.Columns["Unit"].SetOrdinal(1);
+
+                master.Columns["COSTO"].SetOrdinal(8);
+                master.Columns["MAY"].SetOrdinal(9);
+                master.Columns["MEN"].SetOrdinal(10);
+                master.Columns["IMPUESTO"].SetOrdinal(11);
+
+                master.Columns["BO"].SetOrdinal(2);
+                master.Columns["VA"].SetOrdinal(3);
+                master.Columns["RE"].SetOrdinal(4);
+                master.Columns["VL"].SetOrdinal(5);
+                master.Columns["CO"].SetOrdinal(6);
+                master.Columns["PM"].SetOrdinal(7);
 
 
+                
                 dgvLinea.DataSource = master;
+
+                dgvLinea.Columns[1].Width = 200;
+
+                dgvLinea.Columns[2].Width = 40;
+                dgvLinea.Columns[2].HeaderText = "BO";
+
+                dgvLinea.Columns[3].Width = 40;
+                dgvLinea.Columns[3].HeaderText = "VA";
+
+                dgvLinea.Columns[4].Width = 40;
+                dgvLinea.Columns[4].HeaderText = "RE";
+
+                dgvLinea.Columns[5].Width = 40;
+                dgvLinea.Columns[5].HeaderText = "VL";
+
+                dgvLinea.Columns[6].Width = 40;
+                dgvLinea.Columns[6].HeaderText = "CO";
+
+                dgvLinea.Columns[7].Width = 40;
+                dgvLinea.Columns[7].HeaderText = "PM";
+
+                dgvLinea.Columns[11].Visible = false;
+
+
+                ajustaIVA();
+                //if (dgvLinea.Columns[11].Name.ToString() == "OFERTA")
+                //{
+                   
+                //    dgvLinea.Columns.Add("OFERTA", "OFERTA");
+
+                //}
+                
+
+                for(int i=0; i < 3;i++)
+                {
+                    //if (dgvLinea.Rows[i].Cells[11].Value == "IVA")
+                    //{
+                    //    MessageBox.Show("Hola");
+                    //}
+
+                }
 
                 //DG_existencias.Columns["ARTICULO"].SortMode = DataGridViewColumnSortMode.NotSortable;
                 //DG_existencias.Columns["DESCRIPCION"].SortMode = DataGridViewColumnSortMode.NotSortable;
-                dgvLinea.Columns["BODEGA"].SortMode = DataGridViewColumnSortMode.NotSortable;
-                dgvLinea.Columns["VALLARTA"].SortMode = DataGridViewColumnSortMode.NotSortable;
-                dgvLinea.Columns["RENA"].SortMode = DataGridViewColumnSortMode.NotSortable;
-                dgvLinea.Columns["COLOSO"].SortMode = DataGridViewColumnSortMode.NotSortable;
-                dgvLinea.Columns["VELAZQUEZ"].SortMode = DataGridViewColumnSortMode.NotSortable;
-                dgvLinea.Columns["PREGOT"].SortMode = DataGridViewColumnSortMode.NotSortable;
+                //dgvLinea.Columns["BODEGA"].SortMode = DataGridViewColumnSortMode.NotSortable;
+                //dgvLinea.Columns["VALLARTA"].SortMode = DataGridViewColumnSortMode.NotSortable;
+                //dgvLinea.Columns["RENA"].SortMode = DataGridViewColumnSortMode.NotSortable;
+                //dgvLinea.Columns["COLOSO"].SortMode = DataGridViewColumnSortMode.NotSortable;
+                //dgvLinea.Columns["VELAZQUEZ"].SortMode = DataGridViewColumnSortMode.NotSortable;
+                //dgvLinea.Columns["PREGOT"].SortMode = DataGridViewColumnSortMode.NotSortable;
 
-                dgvLinea.Columns["DESCRIPCION"].Width = 375;
+                //dgvLinea.Columns["DESCRIPCION"].Width = 375;
 
-                dgvLinea.Columns[2].HeaderCell.Style.BackColor = Color.Aqua;
-                dgvLinea.Columns[3].HeaderCell.Style.BackColor = Color.DarkSeaGreen;
-                dgvLinea.Columns[4].HeaderCell.Style.BackColor = Color.DeepSkyBlue;
-                dgvLinea.Columns[5].HeaderCell.Style.BackColor = Color.DodgerBlue;
+                //dgvLinea.Columns[2].HeaderCell.Style.BackColor = Color.Aqua;
+                //dgvLinea.Columns[3].HeaderCell.Style.BackColor = Color.DarkSeaGreen;
+                //dgvLinea.Columns[4].HeaderCell.Style.BackColor = Color.DeepSkyBlue;
+                //dgvLinea.Columns[5].HeaderCell.Style.BackColor = Color.DodgerBlue;
 
-                dgvLinea.Columns[6].HeaderCell.Style.BackColor = Color.LightBlue;
+                //dgvLinea.Columns[6].HeaderCell.Style.BackColor = Color.LightBlue;
 
-
+                //dgvLinea.Columns["BODEGA"].DisplayIndex = 0;
 
 
 
@@ -262,7 +391,7 @@ namespace appSugerencias
 
                         {
 
-                            row["BODEGA"] = row1["existencia"].ToString();
+                            row["BO"] = row1["existencia"].ToString();
                         }
 
                     }
@@ -293,7 +422,7 @@ namespace appSugerencias
 
                         {
 
-                            row["VALLARTA"] = row1["existencia"].ToString();
+                            row["VA"] = row1["existencia"].ToString();
                         }
 
                     }
@@ -324,7 +453,7 @@ namespace appSugerencias
 
                         {
 
-                            row["RENA"] = row1["existencia"].ToString();
+                            row["RE"] = row1["existencia"].ToString();
                         }
 
                     }
@@ -355,7 +484,7 @@ namespace appSugerencias
 
                         {
 
-                            row["COLOSO"] = row1["existencia"].ToString();
+                            row["CO"] = row1["existencia"].ToString();
                         }
 
                     }
@@ -386,7 +515,7 @@ namespace appSugerencias
 
                         {
 
-                            row["VELAZQUEZ"] = row1["existencia"].ToString();
+                            row["VL"] = row1["existencia"].ToString();
                         }
 
                     }
@@ -419,7 +548,7 @@ namespace appSugerencias
 
                         {
 
-                            row["PREGOT"] = row1["existencia"].ToString();
+                            row["PM"] = row1["existencia"].ToString();
                         }
 
                     }
@@ -467,6 +596,46 @@ namespace appSugerencias
         private void cbLinea_SelectedIndexChanged(object sender, EventArgs e)
         {
             existenciaLinea();
+        }
+
+        public void ajustaIVA()
+        {
+            int valor = dgvLinea.Rows.Count - 1;
+            // MessageBox.Show(valor.ToString());
+            int i = 0;
+            double costo, mayoreo, menudeo;
+            string texto, aux;
+
+            // MessageBox.Show(texto);
+            for (i = 0; i < valor; i++)
+            {
+                texto = dgvLinea.Rows[i].Cells[11].Value.ToString();
+
+                if (texto == "IVA")
+                {
+                    costo = Convert.ToDouble(dgvLinea.Rows[i].Cells[8].Value.ToString());
+                    costo = costo + (costo * 0.16);
+                    aux = Convert.ToString(costo);
+                    dgvLinea.Rows[i].Cells[8].Value = costo;
+
+
+
+                    mayoreo = Convert.ToDouble(dgvLinea.Rows[i].Cells[9].Value.ToString());
+                    mayoreo = mayoreo + (mayoreo * 0.16);
+                    dgvLinea.Rows[i].Cells[9].Value = mayoreo;
+
+                    menudeo = Convert.ToDouble(dgvLinea.Rows[i].Cells[10].Value.ToString());
+                    menudeo = menudeo + (menudeo * 0.16);
+                    dgvLinea.Rows[i].Cells[10].Value = menudeo;
+
+                }
+
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

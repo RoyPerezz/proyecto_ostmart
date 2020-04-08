@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label17 = new System.Windows.Forms.Label();
             this.lblPre = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.lblBo = new System.Windows.Forms.Label();
@@ -99,6 +100,7 @@
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.tbArchivo = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).BeginInit();
@@ -118,6 +120,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label17);
             this.tabPage1.Controls.Add(this.lblPre);
             this.tabPage1.Controls.Add(this.label24);
             this.tabPage1.Controls.Add(this.lblBo);
@@ -166,6 +169,15 @@
             this.tabPage1.Text = "1 Producto";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(0, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(41, 13);
+            this.label17.TabIndex = 47;
+            this.label17.Text = "label17";
             // 
             // lblPre
             // 
@@ -793,12 +805,23 @@
             this.tbArchivo.Size = new System.Drawing.Size(245, 20);
             this.tbArchivo.TabIndex = 0;
             // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(11, 682);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(332, 29);
+            this.label25.TabIndex = 14;
+            this.label25.Text = "CONCENTRADOR TIENDA";
+            // 
             // Concentrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(1141, 696);
+            this.ClientSize = new System.Drawing.Size(1141, 716);
+            this.Controls.Add(this.label25);
             this.Controls.Add(this.tabControl1);
             this.Name = "Concentrador";
             this.Text = "Concentrador";
@@ -810,6 +833,7 @@
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -885,5 +909,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label lblPre2;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label25;
     }
 }

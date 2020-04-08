@@ -788,3 +788,12 @@ C:\Users\danxd\source\repos\proyecto-osmart\appSugerencias\appSugerencias\obj\De
 C:\Users\danxd\source\repos\proyecto-osmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.pdb
 C:\Users\Admin\Source\Repos\proyecto_ostmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.csprojAssemblyReference.cache
 C:\Users\danxd\source\repos\proyecto-osmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.form_existXlinea.resources
+C:\Users\danxd\source\repos\proyecto-osmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_costos.resources
+C:\Users\danxd\source\repos\proyecto-osmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_CreaGastosExterno.resources
+C:\Users\danxd\source\repos\proyecto-osmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_GastosExternos.resources
+C:\Users\danxd\source\repos\proyecto-osmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_ventasxhora.resources
+C:\Users\danxd\source\repos\proyecto-osmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.form_ExistVitrina.resources
+C:\Users\danxd\source\repos\proyecto-osmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_ConcentradorVitrina.resources
+C:\Users\danxd\source\repos\proyecto-osmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.costoTraspasos.resources
+C:\Users\danxd\source\repos\proyecto-osmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_nuevo_pedido.resources
+C:\Users\danxd\source\repos\proyecto-osmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.frm_pedido.resources

@@ -50,7 +50,8 @@ namespace appSugerencias
             string mes = DateTime.Now.ToString("MM");
             string ano = DateTime.Now.ToString("yyyy");
 
-            for( int i = Convert.ToInt32(dia); i <= 1; i--)
+           // MessageBox.Show(dia);
+            for( int i = Convert.ToInt32(dia); i < 0; i--)
             {
                 dgvVentas.Rows[i].Cells[0].Value = i.ToString() + "/" + mes + "/" + ano;
             }
@@ -100,6 +101,14 @@ namespace appSugerencias
             }
             catch (Exception)
             {
+                for (int i = 0; i < dgvVentas.Rows.Count; i++)
+                {
+
+                    dgvVentas.Rows[i].Cells[1].Value = 0;
+                    LisVallarta.Add(0);
+                }
+                LisVallarta.Add(0);
+            
                 MessageBox.Show("Vallarta sin conexion");
             }
 
@@ -187,6 +196,14 @@ namespace appSugerencias
             }
             catch (Exception)
             {
+                for (int i = 0; i < dgvVentas.Rows.Count; i++)
+                {
+
+                    dgvVentas.Rows[i].Cells[3].Value = 0;
+                    LisVelazquez.Add(0);
+                }
+                LisVelazquez.Add(0);
+              
                 MessageBox.Show("Velazquez sin conexion");
             }
 
@@ -225,7 +242,15 @@ namespace appSugerencias
             }
             catch (Exception)
             {
-                MessageBox.Show("Velazquez sin conexion");
+                for (int i = 0; i < dgvVentas.Rows.Count; i++)
+                {
+
+                    dgvVentas.Rows[i].Cells[4].Value = 0;
+                    LisColoso.Add(0);
+                }
+                LisColoso.Add(0);
+                
+                MessageBox.Show("Coloso sin conexion");
             }
 
             try
@@ -246,7 +271,7 @@ namespace appSugerencias
                 while (dr.Read())
                 {
                     importeDiaPre = Convert.ToDouble(dr["total"].ToString());
-                    LisColoso.Add(importeDiaPre);
+                    LisPregot.Add(importeDiaPre);
                     totalPre = totalPre + importeDiaPre;
 
                     dgvVentas.Rows[y].Cells[5].Value = importeDiaPre.ToString("C");
@@ -262,18 +287,29 @@ namespace appSugerencias
             }
             catch (Exception)
             {
-                MessageBox.Show("Velazquez sin conexion");
+                for (int i = 0; i < dgvVentas.Rows.Count; i++)
+                {
+
+                    dgvVentas.Rows[i].Cells[5].Value = 0;
+                    LisPregot.Add(0);
+                }
+                LisPregot.Add(0);
+                MessageBox.Show("Pregot sin conexion");
             }
 
+           
 
-            for (int i = 0; i <dgvVentas.Rows.Count ; i++)
+
+            // SUMATORIA TOTAL DEL DIA DE TODAS LAS TIENDAS
+            
+            for (int i = 0; i <=dgvVentas.Rows.Count-1 ; i++)
             {
-             
-                importeDiaTo = LisVallarta[i] + LisRena[i] +LisColoso[i] +LisVelazquez[i];
+                int ii = 0;
+                importeDiaTo = LisVallarta[i] + LisRena[i] +LisColoso[i] +LisVelazquez[i] + LisPregot[i];
 
                 dgvVentas.Rows[i].Cells[6].Value = importeDiaTo.ToString("C");
                 importeDiaTo = 0;
-
+                ii++;
             }
 
 

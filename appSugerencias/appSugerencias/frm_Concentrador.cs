@@ -685,7 +685,7 @@ namespace appSugerencias
 
                 }
 
-                //VELAZQUEZ
+                //PREGOT
                 try
                 {
                     conex_excel = BDConexicon.Papeleria1Open();
