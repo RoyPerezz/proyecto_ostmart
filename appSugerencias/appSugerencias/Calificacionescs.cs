@@ -204,36 +204,43 @@ namespace appSugerencias
         public int calcularPromedio()//realiza la sumatoria de los porcentajes 
         {
              suma = 0;
-       
-            saludo = Convert.ToInt32(TB_saludo.Text);
-            sonrisa = Convert.ToInt32(TB_sonrisa.Text);
-            pedido = Convert.ToInt32(TB_pedido.Text);
+            try
+            {
+                saludo = Convert.ToInt32(TB_saludo.Text);
+                sonrisa = Convert.ToInt32(TB_sonrisa.Text);
+                pedido = Convert.ToInt32(TB_pedido.Text);
 
-            maquillaje = Convert.ToInt32(TB_maquillaje.Text);
-            uniforme = Convert.ToInt32(TB_uniforme.Text);
-            gafete = Convert.ToInt32(TB_gafete.Text);
-            peinado = Convert.ToInt32(TB_peinado.Text);
+                maquillaje = Convert.ToInt32(TB_maquillaje.Text);
+                uniforme = Convert.ToInt32(TB_uniforme.Text);
+                gafete = Convert.ToInt32(TB_gafete.Text);
+                peinado = Convert.ToInt32(TB_peinado.Text);
 
-            area = Convert.ToInt32(TB_area.Text);
-            caja = Convert.ToInt32(TB_caja.Text);
-            equipo = Convert.ToInt32(TB_equipo.Text);
+                area = Convert.ToInt32(TB_area.Text);
+                caja = Convert.ToInt32(TB_caja.Text);
+                equipo = Convert.ToInt32(TB_equipo.Text);
 
-            foco = Convert.ToInt32(TB_foco.Text);
-            cancelacion = Convert.ToInt32(TB_cancelacion.Text);
-            merca = Convert.ToInt32(TB_merca.Text);
+                foco = Convert.ToInt32(TB_foco.Text);
+                cancelacion = Convert.ToInt32(TB_cancelacion.Text);
+                merca = Convert.ToInt32(TB_merca.Text);
 
-            informacion = Convert.ToInt32(TB_informacion.Text);
-            cobro = Convert.ToInt32(TB_cobro.Text);
+                informacion = Convert.ToInt32(TB_informacion.Text);
+                cobro = Convert.ToInt32(TB_cobro.Text);
 
-            suma = saludo + sonrisa + pedido + maquillaje + uniforme + gafete + peinado + area + caja + equipo + foco + cancelacion + merca + informacion + cobro;
+                suma = saludo + sonrisa + pedido + maquillaje + uniforme + gafete + peinado + area + caja + equipo + foco + cancelacion + merca + informacion + cobro;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            
 
             return suma;
         }
 
         public void cajeras()
         {
-            
-            MySqlCommand cmd = new MySqlCommand("select usuario from usuarios where area = '"+"cajas"+"' order by usuario",BDConexicon.conectar());
+            MySqlConnection con = BDConexicon.conectar();
+            MySqlCommand cmd = new MySqlCommand("select usuario from usuarios where area = '"+"cajas"+"' order by usuario",con);
             MySqlDataReader rd = cmd.ExecuteReader();
             Console.WriteLine(rd);
             while(rd.Read())
@@ -241,7 +248,8 @@ namespace appSugerencias
 
                 CB_usuario.Items.Add(rd[0].ToString());
             }
-            
+            rd.Close();
+            con.Close();
 
         }
 
@@ -249,26 +257,50 @@ namespace appSugerencias
         {
             DateTime fecha = DT_fecha.Value;
             String f = FormatoFecha.getDate(fecha);
-            MySqlCommand cmd = new MySqlCommand("select count(venta) as Tventas from ventas where usuario ='"+CB_usuario.SelectedItem.ToString()+"' and f_emision ='"+f+"'",BDConexicon.conectar());
-            MySqlDataReader rd = cmd.ExecuteReader();
+            MySqlConnection con = BDConexicon.conectar();
 
-            int clientes = 0;
-            while(rd.Read())
+            try
             {
-                clientes = Convert.ToInt32(rd["Tventas"]);
+                MySqlCommand cmd = new MySqlCommand("select count(venta) as Tventas from ventas where usuario ='" + CB_usuario.SelectedItem.ToString() + "' and f_emision ='" + f + "'", con);
+                MySqlDataReader rd = cmd.ExecuteReader();
+
+                int clientes = 0;
+                if (rd.Read())
+                {
+                    clientes = Convert.ToInt32(rd["Tventas"]);
+                }
+
+                TB_clientes.Text = Convert.ToString(clientes);
+                rd.Close();
+            }
+            catch (Exception ex)
+            {
+
+               
             }
 
-            TB_clientes.Text = Convert.ToString(clientes);
+            con.Close();
+            
         }
 
         public double comisionCliente()
         {
-            int clientes = Convert.ToInt32(TB_clientes.Text);
+            int clientes = 0;
             double comisionClientes = 0.0;
+            try
+            {
+                clientes = Convert.ToInt32(TB_clientes.Text);
+               
 
-            comisionClientes = clientes * 0.1;
+                comisionClientes = clientes * 0.1;
 
-            TB_Ccliente.Text = Convert.ToString(comisionClientes);
+                TB_Ccliente.Text = Convert.ToString(comisionClientes);
+            }
+            catch (Exception ex)
+            {
+
+            
+            }
 
             return comisionClientes;
         }
@@ -276,10 +308,20 @@ namespace appSugerencias
         public double comisionTotal()
         {
             double comisionT = 0.0;
-            double comisionN = Convert.ToDouble(TB_neta.Text);
-            double cCliente = Convert.ToDouble(TB_Ccliente.Text);
-            comisionT = comisionN + cCliente;
-            TB_Ctotal.Text = Convert.ToString(comisionT);
+
+            try
+            {
+                double comisionN = Convert.ToDouble(TB_neta.Text);
+                double cCliente = Convert.ToDouble(TB_Ccliente.Text);
+                comisionT = comisionN + cCliente;
+                TB_Ctotal.Text = Convert.ToString(comisionT);
+            }
+            catch (Exception ex)
+            {
+
+                
+            }
+           
 
             return comisionT;
         }
@@ -356,6 +398,9 @@ namespace appSugerencias
 
             cmd.ExecuteNonQuery();
             limpiar();
+            BT_validar.Enabled = false;
+            BT_calcular.Enabled = false;
+            BT_guardar.Enabled = false;
             MessageBox.Show("Registros guardados exitosamente");
 
         }
@@ -364,9 +409,9 @@ namespace appSugerencias
         {
             DateTime fecha = DT_fecha.Value;
             String f = FormatoFecha.getDate(fecha);
-           
+            MySqlConnection con = BDConexicon.conectar();
             double total = 0.0;
-            MySqlCommand cmd = new MySqlCommand("select sum(importe) as total from ventas where usuario ='"+CB_usuario.SelectedItem.ToString()+"' and USUFECHA ='"+f+"'", BDConexicon.conectar());
+            MySqlCommand cmd = new MySqlCommand("select sum(importe) as total from ventas where usuario ='"+CB_usuario.SelectedItem.ToString()+"' and USUFECHA ='"+f+"'", con);
             MySqlDataReader rd = cmd.ExecuteReader();
             while(rd.Read())
             {
@@ -378,9 +423,15 @@ namespace appSugerencias
                 catch(Exception e)
                 {
                     MessageBox.Show("No hay registros para su solicitud, verifique el nombre de la cajera y la fecha");
+                    BT_validar.Enabled = false;
+                    BT_calcular.Enabled = false;
+                    limpiar();
                 }
                 
             }
+
+            rd.Close();
+            con.Close();
             return total;
         }
 
@@ -388,20 +439,27 @@ namespace appSugerencias
         {
             DateTime fecha = DT_fecha.Value;
             String f = FormatoFecha.getDate(fecha);
-
+            MySqlConnection con = BDConexicon.conectar();
             double impuesto = 0.0;
-            MySqlCommand cmd = new MySqlCommand("select sum(impuesto) as impuesto from ventas where usuario ='" + CB_usuario.SelectedItem.ToString() + "' and f_emision ='" + f + "'", BDConexicon.conectar());
-            MySqlDataReader rd = cmd.ExecuteReader();
-            while (rd.Read())
-            {
-                try
-                {
-                    impuesto = Convert.ToDouble(rd["impuesto"]);
-                }catch(Exception e)
-                {
 
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand("select sum(impuesto) as impuesto from ventas where usuario ='" + CB_usuario.SelectedItem.ToString() + "' and f_emision ='" + f + "'", con);
+                MySqlDataReader rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                
+                        impuesto = Convert.ToDouble(rd["impuesto"]);
+               
                 }
+                rd.Close();
             }
+            catch (Exception e)
+            {
+
+            }
+
+            con.Close();
             return impuesto;
         }
 
@@ -410,7 +468,7 @@ namespace appSugerencias
             double cBruta = 0.0;
             double totalV = Convert.ToDouble(TB_ventaT.Text);
 
-            cBruta = totalV * 0.0024;
+            cBruta = totalV * 0.002;
             TB_bruta.Text = Convert.ToString(cBruta);
 
             return cBruta;

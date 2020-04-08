@@ -70,6 +70,7 @@ namespace appSugerencias
                         TB_costo.Text = dr["costo_u"].ToString();
                         TB_fabricante.Text = dr["fabricante"].ToString();
                         TB_vallarta.Text = dr["existencia"].ToString();
+                        LB_prov_vallarta.Text = dr["fabricante"].ToString();
                     }
                     else
                     {
@@ -90,6 +91,7 @@ namespace appSugerencias
                         TB_costo.Text = ivaCosto.ToString();
                         TB_fabricante.Text = dr["fabricante"].ToString();
                         TB_vallarta.Text = dr["existencia"].ToString();
+                        LB_prov_vallarta.Text = dr["fabricante"].ToString();
                     }
 
 
@@ -134,13 +136,14 @@ namespace appSugerencias
             try
             {
                 vRena = BDConexicon.V_rena();
-                string consulta = "SELECT existencia from prods where articulo='" + TB_clave.Text + "'";
+                string consulta = "SELECT existencia,fabricante from prods where articulo='" + TB_clave.Text + "'";
                 MySqlCommand cmd = new MySqlCommand(consulta, vRena);
                 MySqlDataReader dr = cmd.ExecuteReader();
 
                 if (dr.Read())
                 {
                     TB_rena.Text = dr["existencia"].ToString();
+                    LB_prov_rena.Text = dr["fabricante"].ToString();
                 }
                 else
                 {
@@ -165,13 +168,14 @@ namespace appSugerencias
             try
             {
                 vColoso = BDConexicon.V_coloso();
-                string consulta = "SELECT existencia from prods where articulo='" + TB_clave.Text + "'";
+                string consulta = "SELECT existencia,fabricante from prods where articulo='" + TB_clave.Text + "'";
                 MySqlCommand cmd = new MySqlCommand(consulta, vColoso);
                 MySqlDataReader dr = cmd.ExecuteReader();
 
                 if (dr.Read())
                 {
                     TB_coloso.Text = dr["existencia"].ToString();
+                    LB_prov_coloso.Text = dr["fabricante"].ToString();
                 }
                 else
                 {
@@ -197,13 +201,14 @@ namespace appSugerencias
             {
 
                 vVelazquez = BDConexicon.V_velazquez();
-                string consulta = "SELECT existencia from prods where articulo='" + TB_clave.Text + "'";
+                string consulta = "SELECT existencia,fabricante from prods where articulo='" + TB_clave.Text + "'";
                 MySqlCommand cmd = new MySqlCommand(consulta, vVelazquez);
                 MySqlDataReader dr = cmd.ExecuteReader();
 
                 if (dr.Read())
                 {
                     TB_velazquez.Text = dr["existencia"].ToString();
+                    LB_prov_velazquez.Text = dr["fabricante"].ToString();
                 }
                 else
                 {
@@ -267,6 +272,11 @@ namespace appSugerencias
             lblVePre.Text = "";
             lblCoPre.Text = "";
 
+            LB_prov_vallarta.Text = "";
+            LB_prov_rena.Text = "";
+            LB_prov_coloso.Text = "";
+            LB_prov_velazquez.Text = "";
+
             TB_clave.Focus();
         }
 
@@ -283,7 +293,12 @@ namespace appSugerencias
             TB_rena.Text = "";
             TB_coloso.Text = "";
             TB_velazquez.Text = "";
-         
+
+            LB_prov_vallarta.Text = "";
+            LB_prov_rena.Text = "";
+            LB_prov_coloso.Text = "";
+            LB_prov_velazquez.Text = "";
+
             TB_clave.Focus();
         }
 
@@ -312,7 +327,12 @@ namespace appSugerencias
                 TB_rena.Text = "";
                 TB_coloso.Text = "";
                 TB_velazquez.Text = "";
-               
+
+                LB_prov_vallarta.Text = "";
+                LB_prov_rena.Text = "";
+                LB_prov_coloso.Text = "";
+                LB_prov_velazquez.Text = "";
+
                 TB_clave.Focus();
             }
         }
