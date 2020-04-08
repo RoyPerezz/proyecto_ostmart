@@ -20,8 +20,12 @@ namespace appSugerencias
         {
             InitializeComponent();
             lblUsuario.Text = Usuario;
-           
+            
+
+
         }
+
+       
 
         public Principal(string usuario,string area)
         {
@@ -29,7 +33,8 @@ namespace appSugerencias
             Usuario = usuario;
             Area = area;
             lblUsuario.Text = Usuario;
-            
+            //repEtiquetasToolStripMenuItem.Enabled = false;
+
         }
 
         public static string optieneIp()
@@ -86,6 +91,10 @@ namespace appSugerencias
 
         private void Principal_Load(object sender, EventArgs e)
         {
+
+           
+
+
             if (Area == "TRASPASOS" || Area == "SISTEMAS" || Area == "ADMON GRAL")
             {
                 toolsmAplicaTraspaso.Enabled = true;
@@ -135,7 +144,64 @@ namespace appSugerencias
             }
 
 
-            
+            if (Area=="SISTEMAS" || Area =="SUPER" || Area =="ADMIN GRAL" || Area =="ENC CAJAS" || Area =="ENC. CAJAS" )
+            {
+                comisionesToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                comisionesToolStripMenuItem.Enabled = false;
+            }
+
+            //_________________________________________________________________
+            if (Area == "SISTEMAS" || Area == "SUPER" || Area == "ADMIN GRAL" || Area == "GERENTE")
+            {
+                asesorasDeVentaToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                asesorasDeVentaToolStripMenuItem.Enabled = false;
+            }
+
+            if (Area == "SISTEMAS" || Area == "SUPER" || Area == "ADMIN GRAL" || Area == "CAJAS" || Area == "ENC. CAJAS" || Area == "ENC CAJAS")
+            {
+                sugerenciasToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                sugerenciasToolStripMenuItem.Enabled = false;
+            }
+
+            if (Area == "SISTEMAS" || Area == "SUPER" || Area == "ADMIN GRAL" || Area == "CAJAS"||Area=="ENC. CAJAS"|| Area == "ENC CAJAS")
+            {
+                etiquetasToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                etiquetasToolStripMenuItem.Enabled = false;
+            }
+
+            //######################### REPORTES DE CAJERAS (SUGERENCIAS Y ETIQUETAS) #########################################
+            if (Area == "SISTEMAS" || Area == "SUPER" || Area == "ADMIN GRAL" || Area == "GERENTE" || Area == "ENC. CAJAS")
+            {
+                reportesToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                reportesToolStripMenuItem.Enabled = false;
+            }
+
+
+            if (Area == "SISTEMAS" || Area == "SUPER" || Area == "ADMIN GRAL" || Area == "GERENTE" || Area == "ENC. CAJAS")
+            {
+                repEtiquetasToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                repEtiquetasToolStripMenuItem.Enabled = false;
+            }
+
+
 
             string IP = optieneIp();
             string BD = optieneBd();
@@ -626,6 +692,207 @@ namespace appSugerencias
 
         }
 
+        private void comisionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void calculoDeComisionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //se localiza el formulario buscandolo entre los forms abiertos 
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is PagoComisiones);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm = new PagoComisiones();
+            frm.Show();
+        }
+
+        private void calificacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //se localiza el formulario buscandolo entre los forms abiertos 
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Calificacionescs);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm = new Calificacionescs();
+            frm.Show();
+        }
+
+        private void cajasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gerenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void altabajaAsesorasDeVentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //se localiza el formulario buscandolo entre los forms abiertos 
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is registroAsesoras);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm = new registroAsesoras();
+            frm.Show();
+        }
+
+        private void comisionesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            //se localiza el formulario buscandolo entre los forms abiertos 
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is ComisionesAsesoras);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm = new ComisionesAsesoras();
+            frm.Show();
+        }
+
+        private void totalComisionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //se localiza el formulario buscandolo entre los forms abiertos 
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is TotalComisionesAsesoras);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm = new TotalComisionesAsesoras();
+            frm.Show();
+        }
+
+        private void sugerenciasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+          
+          
+            //se localiza el formulario buscandolo entre los forms abiertos 
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Sugerencias);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+
+            //frm = new Sugerencias();
+            //frm.Show();
+            Sugerencias sug = new Sugerencias();
+            sug.LB_cajera.Text = lblUsuario.Text;
+            sug.Show();
+        }
+
+        private void etiquetasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //se localiza el formulario buscandolo entre los forms abiertos 
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Etiquetas);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            Etiquetas et = new Etiquetas();
+            et.LB_cajera.Text = lblUsuario.Text;
+            et.Show();
+            //sino existe la instancia se crea una nueva
+            //frm = new Etiquetas();
+            //frm.Show();
+        }
+
+        private void sugerenciasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            //se localiza el formulario buscandolo entre los forms abiertos 
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is ReporteSug);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm = new ReporteSug();
+            frm.Show();
+        }
+
+        private void repEtiquetasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //se localiza el formulario buscandolo entre los forms abiertos 
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is RepEtiquetas);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm = new RepEtiquetas();
+            frm.Show();
+        }
+
+        private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void inventarioFisicoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            //se localiza el formulario buscandolo entre los forms abiertos 
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is InvFisicoxLinea);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm = new InvFisicoxLinea();
+            frm.Show();
+        }
+
 
 
         //private void ventasPTiendasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -644,6 +911,8 @@ namespace appSugerencias
         //    frm = new VentasxTienda();
         //    frm.Show();
         //}
+
+        //#################### PASA EL USUARIO A AL FORM ETIQUETAS ############################################################
 
 
     }

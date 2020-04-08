@@ -113,11 +113,47 @@
     <Compile Include="Calificacionescs.Designer.cs">
       <DependentUpon>Calificacionescs.cs</DependentUpon>
     </Compile>
-    <Compile Include="costoTraspasos.cs">
+    <Compile Include="ComisionesAsesoras.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="costoTraspasos.Designer.cs">
-      <DependentUpon>costoTraspasos.cs</DependentUpon>
+    <Compile Include="ComisionesAsesoras.Designer.cs">
+      <DependentUpon>ComisionesAsesoras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conceptos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Conceptos.Designer.cs">
+      <DependentUpon>Conceptos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Departamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Departamentos.Designer.cs">
+      <DependentUpon>Departamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etiquetas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Etiquetas.Designer.cs">
+      <DependentUpon>Etiquetas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InvFisicoxLinea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InvFisicoxLinea.Designer.cs">
+      <DependentUpon>InvFisicoxLinea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nota.Designer.cs">
+      <DependentUpon>Nota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="registroAsesoras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="registroAsesoras.Designer.cs">
+      <DependentUpon>registroAsesoras.cs</DependentUpon>
     </Compile>
     <Compile Include="CotizacionTraspaso.cs">
       <SubType>Form</SubType>
@@ -173,12 +209,6 @@
       <DependentUpon>EXP_vitrina.cs</DependentUpon>
     </Compile>
     <Compile Include="FormatoFecha.cs" />
-    <Compile Include="form_ExistVitrina.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="form_ExistVitrina.Designer.cs">
-      <DependentUpon>form_ExistVitrina.cs</DependentUpon>
-    </Compile>
     <Compile Include="form_existXlinea.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,29 +233,11 @@
     <Compile Include="frm_Concentrador.Designer.cs">
       <DependentUpon>frm_Concentrador.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_ConcentradorVitrina.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_ConcentradorVitrina.Designer.cs">
-      <DependentUpon>frm_ConcentradorVitrina.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_costos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_costos.Designer.cs">
-      <DependentUpon>frm_costos.cs</DependentUpon>
-    </Compile>
     <Compile Include="frm_FormatoCajera.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_FormatoCajera.Designer.cs">
       <DependentUpon>frm_FormatoCajera.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_GastosExternos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_GastosExternos.Designer.cs">
-      <DependentUpon>frm_GastosExternos.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_kardex.cs">
       <SubType>Form</SubType>
@@ -244,24 +256,6 @@
     </Compile>
     <Compile Include="frm_Login.Designer.cs">
       <DependentUpon>frm_Login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_CreaGastosExternos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_CreaGastosExternos.Designer.cs">
-      <DependentUpon>frm_CreaGastosExternos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_nuevo_pedido.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_nuevo_pedido.Designer.cs">
-      <DependentUpon>frm_nuevo_pedido.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_pedido.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_pedido.Designer.cs">
-      <DependentUpon>frm_pedido.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_recalcular.cs">
       <SubType>Form</SubType>
@@ -286,12 +280,6 @@
     </Compile>
     <Compile Include="frm_validarcajas.Designer.cs">
       <DependentUpon>frm_validarcajas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_ventasxhora.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_ventasxhora.Designer.cs">
-      <DependentUpon>frm_ventasxhora.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_Verificador.cs">
       <SubType>Form</SubType>
@@ -353,6 +341,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepEtiquetas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RepEtiquetas.Designer.cs">
+      <DependentUpon>RepEtiquetas.cs</DependentUpon>
+    </Compile>
     <Compile Include="reporte.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -361,6 +355,12 @@
     </Compile>
     <Compile Include="ReporteComisiones.Designer.cs">
       <DependentUpon>ReporteComisiones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReporteSug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteSug.Designer.cs">
+      <DependentUpon>ReporteSug.cs</DependentUpon>
     </Compile>
     <Compile Include="ReporteTraspasoR.cs">
       <SubType>Component</SubType>
@@ -379,13 +379,24 @@
     </Compile>
     <Compile Include="Singleton.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Sugerencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sugerencias.Designer.cs">
+      <DependentUpon>Sugerencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TotalComisionesAsesoras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TotalComisionesAsesoras.Designer.cs">
+      <DependentUpon>TotalComisionesAsesoras.cs</DependentUpon>
+    </Compile>
     <Compile Include="TraspasoTiendas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TraspasoTiendas.Designer.cs">
       <DependentUpon>TraspasoTiendas.cs</DependentUpon>
     </Compile>
-    <Compile Include="VARIABLES.cs" />
     <Compile Include="VentasxTienda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -398,8 +409,26 @@
     <EmbeddedResource Include="Calificacionescs.resx">
       <DependentUpon>Calificacionescs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="costoTraspasos.resx">
-      <DependentUpon>costoTraspasos.cs</DependentUpon>
+    <EmbeddedResource Include="ComisionesAsesoras.resx">
+      <DependentUpon>ComisionesAsesoras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conceptos.resx">
+      <DependentUpon>Conceptos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Departamentos.resx">
+      <DependentUpon>Departamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas.resx">
+      <DependentUpon>Etiquetas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InvFisicoxLinea.resx">
+      <DependentUpon>InvFisicoxLinea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nota.resx">
+      <DependentUpon>Nota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="registroAsesoras.resx">
+      <DependentUpon>registroAsesoras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CotizacionTraspaso.resx">
       <DependentUpon>CotizacionTraspaso.cs</DependentUpon>
@@ -425,9 +454,6 @@
     <EmbeddedResource Include="EXP_vitrina.resx">
       <DependentUpon>EXP_vitrina.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="form_ExistVitrina.resx">
-      <DependentUpon>form_ExistVitrina.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="form_existXlinea.resx">
       <DependentUpon>form_existXlinea.cs</DependentUpon>
     </EmbeddedResource>
@@ -440,17 +466,8 @@
     <EmbeddedResource Include="frm_Concentrador.resx">
       <DependentUpon>frm_Concentrador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_ConcentradorVitrina.resx">
-      <DependentUpon>frm_ConcentradorVitrina.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_costos.resx">
-      <DependentUpon>frm_costos.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frm_FormatoCajera.resx">
       <DependentUpon>frm_FormatoCajera.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_GastosExternos.resx">
-      <DependentUpon>frm_GastosExternos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_kardex.resx">
       <DependentUpon>frm_kardex.cs</DependentUpon>
@@ -460,15 +477,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Login.resx">
       <DependentUpon>frm_Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_CreaGastosExternos.resx">
-      <DependentUpon>frm_CreaGastosExternos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_nuevo_pedido.resx">
-      <DependentUpon>frm_nuevo_pedido.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_pedido.resx">
-      <DependentUpon>frm_pedido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_recalcular.resx">
       <DependentUpon>frm_recalcular.cs</DependentUpon>
@@ -481,9 +489,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_validarcajas.resx">
       <DependentUpon>frm_validarcajas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_ventasxhora.resx">
-      <DependentUpon>frm_ventasxhora.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Verificador.resx">
       <DependentUpon>frm_Verificador.cs</DependentUpon>
@@ -558,11 +563,23 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RepEtiquetas.resx">
+      <DependentUpon>RepEtiquetas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteSug.resx">
+      <DependentUpon>ReporteSug.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RPT_SaldoProveedores.resx">
       <DependentUpon>RPT_SaldoProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rp_pagocomisiones.resx">
       <DependentUpon>Rp_pagocomisiones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sugerencias.resx">
+      <DependentUpon>Sugerencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TotalComisionesAsesoras.resx">
+      <DependentUpon>TotalComisionesAsesoras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TraspasoTiendas.resx">
       <DependentUpon>TraspasoTiendas.cs</DependentUpon>
@@ -622,6 +639,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Rep. Sugerencias">
+      <SubType>Form</SubType>
+    </None>
+    <None Include="Rep.Designer. Sugerencias" />
     <None Include="Resources\PREGOT_RGB-negro.png" />
     <None Include="Resources\PREGOT_RGB-negro1.png" />
     <Content Include="bin\Debug\appSugerencias.exe" />
@@ -743,15 +764,6 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="Microsoft.Office.Core">
-      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>7</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
     <COMReference Include="Microsoft.Office.Interop.Excel">
       <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>1</VersionMajor>
@@ -760,6 +772,7 @@
       <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
+      <Private>False</Private>
     </COMReference>
     <COMReference Include="VBIDE">
       <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>

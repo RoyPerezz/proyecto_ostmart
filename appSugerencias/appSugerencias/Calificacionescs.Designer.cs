@@ -838,7 +838,7 @@ namespace appSugerencias
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(391, 20);
+            this.label34.Location = new System.Drawing.Point(380, 25);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(96, 16);
             this.label34.TabIndex = 13;
@@ -851,7 +851,7 @@ namespace appSugerencias
             this.TB_ventaT.BackColor = System.Drawing.SystemColors.InfoText;
             this.TB_ventaT.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TB_ventaT.ForeColor = System.Drawing.Color.Green;
-            this.TB_ventaT.Location = new System.Drawing.Point(498, 14);
+            this.TB_ventaT.Location = new System.Drawing.Point(487, 19);
             this.TB_ventaT.Multiline = true;
             this.TB_ventaT.Name = "TB_ventaT";
             this.TB_ventaT.Size = new System.Drawing.Size(123, 32);
@@ -861,7 +861,7 @@ namespace appSugerencias
             // 
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(484, 20);
+            this.label35.Location = new System.Drawing.Point(473, 25);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(16, 16);
             this.label35.TabIndex = 15;
@@ -870,7 +870,7 @@ namespace appSugerencias
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(498, 55);
+            this.label36.Location = new System.Drawing.Point(487, 60);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(13, 13);
             this.label36.TabIndex = 18;
@@ -879,7 +879,7 @@ namespace appSugerencias
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(422, 55);
+            this.label37.Location = new System.Drawing.Point(411, 60);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(77, 13);
             this.label37.TabIndex = 16;
@@ -888,7 +888,7 @@ namespace appSugerencias
             // TB_bruta
             // 
             this.TB_bruta.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.TB_bruta.Location = new System.Drawing.Point(512, 52);
+            this.TB_bruta.Location = new System.Drawing.Point(501, 57);
             this.TB_bruta.Name = "TB_bruta";
             this.TB_bruta.Size = new System.Drawing.Size(104, 20);
             this.TB_bruta.TabIndex = 17;
@@ -896,7 +896,7 @@ namespace appSugerencias
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(498, 81);
+            this.label38.Location = new System.Drawing.Point(487, 86);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(13, 13);
             this.label38.TabIndex = 21;
@@ -905,7 +905,7 @@ namespace appSugerencias
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(422, 81);
+            this.label39.Location = new System.Drawing.Point(411, 86);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(75, 13);
             this.label39.TabIndex = 19;
@@ -914,7 +914,7 @@ namespace appSugerencias
             // TB_neta
             // 
             this.TB_neta.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.TB_neta.Location = new System.Drawing.Point(512, 78);
+            this.TB_neta.Location = new System.Drawing.Point(501, 83);
             this.TB_neta.Name = "TB_neta";
             this.TB_neta.Size = new System.Drawing.Size(104, 20);
             this.TB_neta.TabIndex = 20;
@@ -922,7 +922,7 @@ namespace appSugerencias
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(404, 108);
+            this.label40.Location = new System.Drawing.Point(393, 113);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(93, 13);
             this.label40.TabIndex = 22;
@@ -931,7 +931,7 @@ namespace appSugerencias
             // TB_clientes
             // 
             this.TB_clientes.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.TB_clientes.Location = new System.Drawing.Point(561, 104);
+            this.TB_clientes.Location = new System.Drawing.Point(550, 109);
             this.TB_clientes.Name = "TB_clientes";
             this.TB_clientes.Size = new System.Drawing.Size(55, 20);
             this.TB_clientes.TabIndex = 23;
@@ -939,7 +939,7 @@ namespace appSugerencias
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(498, 133);
+            this.label41.Location = new System.Drawing.Point(487, 138);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(13, 13);
             this.label41.TabIndex = 26;
@@ -948,7 +948,7 @@ namespace appSugerencias
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(393, 133);
+            this.label42.Location = new System.Drawing.Point(382, 138);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(101, 13);
             this.label42.TabIndex = 24;
@@ -957,7 +957,7 @@ namespace appSugerencias
             // TB_Ccliente
             // 
             this.TB_Ccliente.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.TB_Ccliente.Location = new System.Drawing.Point(512, 130);
+            this.TB_Ccliente.Location = new System.Drawing.Point(501, 135);
             this.TB_Ccliente.Name = "TB_Ccliente";
             this.TB_Ccliente.Size = new System.Drawing.Size(104, 20);
             this.TB_Ccliente.TabIndex = 25;
@@ -966,7 +966,7 @@ namespace appSugerencias
             // 
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(483, 170);
+            this.label43.Location = new System.Drawing.Point(472, 175);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(16, 16);
             this.label43.TabIndex = 29;
@@ -976,7 +976,7 @@ namespace appSugerencias
             // 
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.Location = new System.Drawing.Point(358, 170);
+            this.label44.Location = new System.Drawing.Point(347, 175);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(129, 16);
             this.label44.TabIndex = 27;
@@ -987,7 +987,7 @@ namespace appSugerencias
             this.TB_Ctotal.BackColor = System.Drawing.SystemColors.InfoText;
             this.TB_Ctotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TB_Ctotal.ForeColor = System.Drawing.Color.Green;
-            this.TB_Ctotal.Location = new System.Drawing.Point(499, 161);
+            this.TB_Ctotal.Location = new System.Drawing.Point(488, 166);
             this.TB_Ctotal.Multiline = true;
             this.TB_Ctotal.Name = "TB_Ctotal";
             this.TB_Ctotal.Size = new System.Drawing.Size(118, 32);

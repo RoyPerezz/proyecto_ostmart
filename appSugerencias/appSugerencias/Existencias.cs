@@ -347,13 +347,37 @@ namespace appSugerencias
                 lblCoPre.Text = "";
 
                 DatosProducto();
-                Bodega();
-                Vallarta();
-                Rena();
-                Velazquez();
+
+                if (CKB_Bodega.Checked == true)
+                {
+                    Bodega();
+                }
+
+                if (CKB_Vallarta.Checked == true)
+                {
+                    Vallarta();
+                }
+
+                if (CKB_Rena.Checked == true)
+                {
+                    Rena();
+                }
+
+                if (CKB_Velazquez.Checked == true)
+                {
+                    Velazquez();
+                }
+
+                if (CKB_Coloso.Checked == true)
+                {
+                    Coloso();
+                }
+
+                if (CKB_Pregot.Checked == true)
+                {
+                    Pregot();
+                }
                 
-                Coloso();
-                Pregot();
 
 
 
@@ -376,7 +400,7 @@ namespace appSugerencias
 
         private void Existencias_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
@@ -708,6 +732,14 @@ namespace appSugerencias
             {
                 panelPrecio.Enabled = false;
             }
+
+            //CHECKSBOX DE CONEXIONES A LAS BASES DE DATOS
+            CKB_Bodega.Checked = true;
+            CKB_Vallarta.Checked = true;
+            CKB_Rena.Checked = true;
+            CKB_Coloso.Checked = true;
+            CKB_Velazquez.Checked = true;
+            CKB_Pregot.Checked = true;
         }
 
         private void groupBox2_Enter_2(object sender, EventArgs e)
@@ -1480,13 +1512,36 @@ namespace appSugerencias
                     lblPre2.Text = "";
 
                     DatosProducto();
-                    Bodega();
-                    Vallarta();
-                    Rena();
-                    Velazquez();
+                    if (CKB_Bodega.Checked == true)
+                    {
+                        Bodega();
+                    }
 
-                    Coloso();
-                    Pregot();
+                    if (CKB_Vallarta.Checked == true)
+                    {
+                        Vallarta();
+                    }
+
+                    if (CKB_Rena.Checked == true)
+                    {
+                        Rena();
+                    }
+
+                    if (CKB_Velazquez.Checked == true)
+                    {
+                        Velazquez();
+                    }
+
+                    if (CKB_Coloso.Checked == true)
+                    {
+                        Coloso();
+                    }
+
+                    if (CKB_Pregot.Checked == true)
+                    {
+                        Pregot();
+                    }
+                  
 
 
                 }
