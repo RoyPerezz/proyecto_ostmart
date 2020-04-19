@@ -153,14 +153,8 @@ namespace appSugerencias
                 {
 
                     TB_proveedor.Text = d["proveedor"].ToString();
-                   
+
                 }
-
-
-
-
-               
-
                 d.Close();
                 EstadoCuenta();
              
