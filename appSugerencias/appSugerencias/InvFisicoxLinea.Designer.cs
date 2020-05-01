@@ -197,7 +197,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(185, 43);
             this.button2.TabIndex = 10;
-            this.button2.Text = "3.- Archivo de Inventario";
+            this.button2.Text = "3.- Archivo TxT";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -206,7 +206,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(790, 390);
+            this.ClientSize = new System.Drawing.Size(790, 365);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.TB_CantItems);
             this.Controls.Add(this.label2);
@@ -218,8 +218,10 @@
             this.Controls.Add(this.BT_recalcular);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CB_lineas);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "InvFisicoxLinea";
-            this.Text = "InvFisicoxLinea";
+            this.Text = "Inventario Físico";
             this.Load += new System.EventHandler(this.InvFisicoxLinea_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DG1)).EndInit();
             this.ResumeLayout(false);

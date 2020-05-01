@@ -9,6 +9,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace appSugerencias
@@ -60,16 +61,16 @@ namespace appSugerencias
 
 
         //############################ RECALCULA LA EXISTENCIA DE TODOS LOS PRODUCTOS DE LA LINEA SELECCIONADA ############################ 
-        public void Recalcular()
+        public void Recalcular(string linea)
         {
-            
+            MySqlConnection conec = BDConexicon.conectar();
          
             articulos.Clear();
             DG1.Rows.Clear();
             //OBTENGO LOS ARTICULOS DE LA LINEA SELECCIONADA Y LOS GUARDO EN UNA LISTA
         
                 con = BDConexicon.conectar();
-            MySqlCommand claves = new MySqlCommand("SELECT ARTICULO FROM PRODS WHERE LINEA ='"+CB_lineas.SelectedItem.ToString()+"'",con);
+            MySqlCommand claves = new MySqlCommand("SELECT ARTICULO FROM PRODS WHERE LINEA ='"+linea+"'",conec);
             MySqlDataReader dr = claves.ExecuteReader();
             while (dr.Read())
             {
@@ -138,7 +139,7 @@ namespace appSugerencias
             TB_CantItems.Text = Convert.ToString(DG1.RowCount);//OBTENGO EL NUMERO DE ITEMS CONTANDO LA CANTIDAD DE ROWS DEL DATAGRID
 
             myReader.Close();
-            //con.Close();
+            conec.Close();
 
         }
 
@@ -153,7 +154,7 @@ namespace appSugerencias
 
             excel.Range["A1:A4000"].NumberFormat = "@";
             excel.Range["A2:E3"].Merge();
-            excel.Range["A2"].Value = "ARTICULOS DE LA LINEA "+linea;
+            excel.Range["A2"].Value = "ARTICULOS DE LA LINEA "+CB_lineas.SelectedItem.ToString();
             excel.Range["A2"].Font.Bold = true;
             excel.Range["A2"].Font.Size = 20;
             int indiceColumna = 0;
@@ -283,22 +284,27 @@ namespace appSugerencias
                 cmd.Parameters.AddWithValue("?poliza",null);
 
                 cmd.ExecuteNonQuery();
-               
+
+              
+
             }
-            
-            //SE BLOQUEA LA LINEA EN LA QUE SE ESTA TRABAJANDO
-            MySqlCommand update = new MySqlCommand("UPDATE prods SET bloqueado=1 where linea ='" +CB_lineas.SelectedItem.ToString() + "'", con);
+
+            //SE BLOQUEA LA LINEA EN LA QUE SE ESTA TRABAJANDO Y LAS EXISTENCIAS SE PONEN EN CEROS
+            MySqlCommand update = new MySqlCommand("UPDATE prods SET bloqueado=1,existencia = 0 where  linea ='" + CB_lineas.SelectedItem.ToString() + "'", con);
             update.ExecuteNonQuery();
 
 
+
+
+
             //ACTUALIZAR CONSECUTIVO
-          
+
             int registros = Convert.ToInt32(TB_CantItems.Text);
             int actualizarConsec = (registros-1) + consecutivo;
             MySqlCommand numConsec = new MySqlCommand("UPDATE CONSEC SET Consec ='"+actualizarConsec+ "'"+" WHERE Dato = 'movsinv'", con);
             numConsec.ExecuteNonQuery();
            
-            Recalcular();
+            //Recalcular();
             //con.Close();
             
         }
@@ -306,11 +312,36 @@ namespace appSugerencias
 
         private void BT_recalcular_Click(object sender, EventArgs e)
         {
+            string linea = CB_lineas.SelectedItem.ToString();
+
+            TB_mensaje.Text = "";
             TB_mensaje.Text = "RECALCULANDO,ESPERE...";
             BT_recalcular.Enabled = false;
-            Recalcular();
+            Recalcular(linea);
             BT_recalcular.Enabled = true;
             TB_mensaje.Text = "LINEA RECALCULADA";
+
+            //Thread TypingThread = new Thread(delegate () {
+
+            //    Recalcular(linea);
+
+            //    // Cambiar el estado de los botones dentro del hilo TypingThread
+            //    // Esto no generará excepciones de nuevo !
+            //    if (BT_recalcular.InvokeRequired)
+            //    {
+            //        BT_recalcular.Invoke(new MethodInvoker(delegate
+            //        {
+            //            BT_recalcular.Enabled = true;
+                       
+            //        }));
+            //    }
+            //});
+
+            //// Cambiar el estado de los botones en el hilo principal
+            //BT_recalcular.Enabled = false;
+          
+
+            //TypingThread.Start();
 
         }
 
@@ -368,12 +399,12 @@ namespace appSugerencias
                             //si es la última columna no poner el ;
                             if (n == DG1.Columns.Count - 1)
                             {
-                                csvMemoria.Append(String.Format("{0},",
+                                csvMemoria.Append(String.Format("{0}@",
                                      DG1.Rows[m].Cells[n].Value));
                             }
                             else
                             {
-                                csvMemoria.Append(String.Format("{0},",
+                                csvMemoria.Append(String.Format("{0}@",
                                    DG1.Rows[m].Cells[n].Value));
                             }
                         }
@@ -421,6 +452,7 @@ namespace appSugerencias
             string fichero = ruta;
             int consecutivo = GetConsecutivo();
             int i = 0;
+            int cont = 0;
             try
             {
                 using (StreamReader lector = new StreamReader(fichero))
@@ -432,15 +464,14 @@ namespace appSugerencias
                         {
                             //Console.WriteLine(linea);
 
-                            datos = linea.Split(',');
+                            datos = linea.Split('@');
                             p.Clear();
 
                           
                             DateTime fecha = DateTime.Now;
                             DateTime hora = Convert.ToDateTime(DateTime.Now.ToString("h:mm:ss"));
                             string costo;
-                            //for (int i = 0; i < datos.Length; i++)
-                            //{
+                          
                                 MySqlCommand cmd = new MySqlCommand("INSERT INTO movsinv (CONSEC,OPERACION,MOVIMIENTO,ENT_SAL,TIPO_MOVIM,NO_REFEREN,ARTICULO,F_MOVIM,CANTIDAD,COSTO,EXISTENCIA,VALOR," +
                               "ALMACEN,EXIST_ALM,PRECIO_VTA,POR_COSTEA,PARTIDA,Cerrado,Usuario,UsuFecha,UsuHora,CLAVEADD,PRCANTIDAD,ID_SALIDA,ID_ENTRADA," +
                               "REORDENA,inicial,exportado,verificado,inventariofisico,donativo,precio_vta_original,costopromedio,poliza) " +
@@ -487,7 +518,11 @@ namespace appSugerencias
                                 cmd.Parameters.AddWithValue("?poliza", null);
 
                                 cmd.ExecuteNonQuery();
+
+                            MySqlCommand comando = new MySqlCommand("UPDATE prods SET existencia ='"+datos[2]+"' WHERE articulo ='"+datos[0]+"'",con);
+                            comando.ExecuteNonQuery();
                             i++;
+                          
                             //}
                         }
                     }
@@ -501,15 +536,18 @@ namespace appSugerencias
             update.ExecuteNonQuery();
            
             DG1.Rows.Clear();
-            Recalcular();
+    
+            //Recalcular();
           
             int registros = Convert.ToInt32(TB_CantItems.Text);
             int actualizarConsec = (registros - 1) + consecutivo;
             MySqlCommand numConsec = new MySqlCommand("UPDATE CONSEC SET Consec ='" + actualizarConsec + "'" + " WHERE Dato = 'movsinv'", con);
             numConsec.ExecuteNonQuery();
-            con.Close();
+           
             BT_cargarArchivo.Enabled = true;
-            TB_mensaje.Text = "SE HA CARGADO LA NUEVA EXISTENCIA";
+            TB_CantItems.Text = "";
+            TB_mensaje.Text = "SE HA CARGADO LA NUEVA EXISTENCIA ";
+            con.Close();
         }
 
 
