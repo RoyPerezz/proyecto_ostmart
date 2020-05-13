@@ -125,7 +125,7 @@
             this.DG_datos.Size = new System.Drawing.Size(1565, 411);
             this.DG_datos.TabIndex = 2;
             this.DG_datos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_datos_CellContentClick);
-            this.DG_datos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_datos_CellDoubleClick);
+            //this.DG_datos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_datos_CellDoubleClick);
             // 
             // TB_proveedor
             // 

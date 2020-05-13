@@ -43,7 +43,7 @@ namespace appSugerencias
                 adVA.Fill(DTVallarta);
                 DataColumn col = new DataColumn();
                 col.ColumnName = "TIENDA";
-                col.DefaultValue = "VALARTA";
+                col.DefaultValue = "VALLARTA";
                 DTVallarta.Columns.Add(col);
                 //LB_vallarta.Text = "CONECTADO";
             }
@@ -427,24 +427,7 @@ namespace appSugerencias
 
 
 
-        //private void TB_filtro_TextChanged(object sender, EventArgs e)
-        //{
-        //    if (TB_filtro.Text == "")
-        //    {
-        //        CB_proveedor.SelectedIndex = -1;
-        //        DG_datos.DataSource = null;
-        //    }
-        //    else
-        //    {
-        //        int index = CB_proveedor.FindString(TB_filtro.Text.ToUpper());
-        //        CB_proveedor.SelectedIndex = index;
-
-        //    }
-
-
-
-
-        //}
+     
 
 
             private void label2_Click(object sender, EventArgs e)
@@ -453,97 +436,9 @@ namespace appSugerencias
         }
 
 
-        //################ AL ELEGIR UNA SUC. SE CONECTA A LA BD CORRESPONDIENTE #######################################
-        //public void ElegirSucursar()
-        //{
-
-        //    try
-        //    {
-        //        conectar.Close();
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-             
-        //    }
-
-        //    TB_filtro.Text = "";
-        //    CB_proveedor.SelectedIndex=-1;
-        //    DG_datos.DataSource = null;
-        //    TB_proveedor.Text = "";
-        //    LB_status.Text = "";
-
-        //    if (CB_sucursal.SelectedItem.Equals("BODEGA"))
-        //    {
-        //        conectar = BDConexicon.BodegaOpen();
-        //        proveedores();
-        //    }
-
-        //    if (CB_sucursal.SelectedItem.Equals("RENA"))
-        //    {
-        //        conectar = BDConexicon.RenaOpen();
-
-              
-        //        proveedores();
-        //    }
-
-        //    if (CB_sucursal.SelectedItem.Equals("COLOSO"))
-        //    {
-                
-        //            conectar = BDConexicon.ColosoOpen();
-               
-                
-        //        proveedores();
-        //    }
-
-        //    if (CB_sucursal.SelectedItem.Equals("VELAZQUEZ"))
-        //    {
-        //        conectar = BDConexicon.VelazquezOpen();
-        //        proveedores();
-        //    }
-
-        //    if (CB_sucursal.SelectedItem.Equals("VALLARTA"))
-        //    {
-
-        //        conectar = BDConexicon.VallartaOpen();
-        //        proveedores();
-        //    }
-        //}
+     
 
 
-           //############## EL METODO ELEGIRSUCURSAL() ES LLAMADO AL SELECCIONAR UN ITEM EN EL COMBOBOX ###############################
-        //private void CB_sucursal_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-          
-        //        ElegirSucursar();
-               
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        LB_status.ForeColor = Color.Red;
-        //        LB_status.Text = "Sin Conexión";
-        //    }
-           
-           
-        //}
-
-        private void DG_datos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            string id = this.DG_datos.CurrentRow.Cells[0].Value.ToString();
-            string des = this.DG_datos.CurrentRow.Cells[2].Value.ToString();
-            //string imp = string.Format("{0:####.##}", this.DG_datos.CurrentRow.Cells[6].Value);
-            string importe= Convert.ToString(this.DG_datos.CurrentRow.Cells[6].Value);
-            //string sal = string.Format("{0:####.##}", this.DG_datos.CurrentRow.Cells[7].Value);
-            string saldo = Convert.ToString(this.DG_datos.CurrentRow.Cells[7].Value);
-
-            Desglose d = new Desglose();
-            d.CuentXPagar(id);
-            //d.datoCuenta(id, importe, saldo);
-            d.Show();
-        }
 
         private void BT_guardar_Click(object sender, EventArgs e)
         {
