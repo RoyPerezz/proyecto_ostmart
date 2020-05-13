@@ -209,6 +209,8 @@
     <Compile Include="Nota.Designer.cs">
       <DependentUpon>Nota.cs</DependentUpon>
     </Compile>
+    <Compile Include="Productos.cs" />
+    <Compile Include="Proveedor.cs" />
     <Compile Include="registroAsesoras.cs">
       <SubType>Form</SubType>
     </Compile>

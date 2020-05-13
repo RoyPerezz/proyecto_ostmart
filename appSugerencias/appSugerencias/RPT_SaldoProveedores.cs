@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,11 +16,23 @@ using MySql.Data.MySqlClient;
 namespace appSugerencias
 {
 
-   
+
     public partial class RPT_SaldoProveedores : Form
     {
 
-        
+    
+
+        List<Proveedor> prov = new List<Proveedor>();
+        DataTable dtbo = new DataTable();
+        DataTable dtva = new DataTable();
+        DataTable dtre = new DataTable();
+        DataTable dtco = new DataTable();
+        DataTable dtve = new DataTable();
+        DataTable dtpre = new DataTable();
+        DataTable maestro = new DataTable();
+
+
+
 
         public RPT_SaldoProveedores()
         {
@@ -32,138 +45,45 @@ namespace appSugerencias
         {
             return suc;
         }
-       
-        public void sucursal(MySqlConnection con)
+
+      
+        double total = 0;
+        public void Proveedores()
         {
             try
             {
-                
-               MySqlCommand cmd = new MySqlCommand("select empresa from econfig", con);
+                MySqlConnection con = BDConexicon.BodegaOpen();
+                string consulta = "SELECT PROVEEDOR,NOMBRE FROM PROVEED ORDER BY PROVEEDOR";
+                MySqlCommand cmd = new MySqlCommand(consulta, con);
                 MySqlDataReader dr = cmd.ExecuteReader();
+
                 while (dr.Read())
                 {
-                    suc = dr["empresa"].ToString();
-                    TB_suc.Text = dr["empresa"].ToString();
+                    prov.Add(new Proveedor { proveedor = dr["PROVEEDOR"].ToString(), nombre = dr["NOMBRE"].ToString() });
                 }
-                Singleton s = Singleton.obtenerInstancia();
-                s.nombreTienda(suc);
-                dr.Close();
-
-                
-
             }
             catch (Exception ex)
             {
 
-                MessageBox.Show("falló traer el nombre de la empresa");
+                MessageBox.Show("SIN CONEXIÓN CON EL SERVIDOR DE BODEGA "+ex);
             }
-
-          
-        }
-
-
-
-        public void llenarGrid(MySqlConnection con)
-        {
-
-            MySqlCommand cmd = null; //saldos
-            MySqlCommand cmd2 = null;//fechas
-            if (CHB_saldo.Checked == true)
-            {
-                //Si el checkbox CHB_saldo ha sido marcado, ejecutara esta consulta, obteniendo solo los provedores con saldo positivo
-                cmd = new MySqlCommand("SELECT  p.proveedor AS PROVEEDOR,p.nombre AS NOMBRE,sum(cp.saldo) as SALDO from proveed p inner join cuenxpag cp on p.proveedor = cp.proveedor GROUP BY p.PROVEEDOR having SALDO > 0 order by PROVEEDOR", con);
-            }
-            else
-            {
-                //Si no, ejecutará esta otram trayendo todos los proveedores
-                cmd = new MySqlCommand("SELECT  p.proveedor AS PROVEEDOR,p.nombre AS NOMBRE,sum(cp.saldo) as SALDO from proveed p inner join cuenxpag cp on p.proveedor = cp.proveedor GROUP BY p.PROVEEDOR order by PROVEEDOR", con);
-            }
-
-            DataTable dt = new DataTable();
-            //dt.Columns[2].DataType = Double;
-            DataRow fila = dt.NewRow();
-
-
-
-
-
-            MySqlDataAdapter ad = new MySqlDataAdapter(cmd);
-            ad.Fill(dt);
-
-
-
-
-            if (CHB_saldo.Checked == true)
-            {
-                //Se obtiene la fecha del ultimo moviento en las cuentas pendientes sin saldo negativo
-                cmd2 = new MySqlCommand("select max(pd.fecha) as FECHA,p.proveedor from cuenxpdet pd inner join CUENXPAG p on pd.proveedor = p.PROVEEDOR GROUP BY p.PROVEEDOR  having sum(p.saldo)>0 order by p.PROVEEDOR ", con);
-            }
-            else
-            {
-                //se obtiene todas las fechas de los ultimos mov de cada proveedor
-                cmd2 = new MySqlCommand("select max(pd.fecha) as FECHA from cuenxpdet pd inner join proveed p on pd.proveedor = p.PROVEEDOR GROUP BY p.PROVEEDOR order by p.PROVEEDOR ", con);
-            }
-
-
-            
-            MySqlDataReader d = cmd.ExecuteReader();//datareader para obtener los proveedores con su saldo
-
-
-
-
-            DateTime fecha;
-
-
-            DG_reporte.DataSource = dt;
-            dt.Columns.Remove("SALDO");
-            dt.Columns.Add("FECHA", typeof(string));
-            dt.Columns.Add("SALDO PROVEEDOR", typeof(string));
-            string saldo = "";
-            foreach (DataRow row in dt.Rows)
-            {
-                if (d.Read())
-                {
-
-                    double s = Convert.ToDouble(d["SALDO"].ToString());
-
-                    row[3] = saldo = String.Format("{0:C}", s);
-
-
-                }
-             
-            }
-            d.Close();
-
-            MySqlDataReader dr = cmd2.ExecuteReader();
-            foreach (DataRow row in dt.Rows)
-            {
-                if (dr.Read())
-                {
-                    fecha = Convert.ToDateTime(dr["FECHA"].ToString());
-                    row[2] = fecha.ToString("dd/MM/yyyy");
-                    
-
-
-                }
-
-            }
-            dr.Close();
-
-            DG_reporte.Columns[0].Width = 80;
-            DG_reporte.Columns[1].Width = 300;
-            DG_reporte.Columns[2].Width = 100;
-          //  DG_reporte.Columns[2].DefaultCellStyle.Format = "$##,##0.00";
-
-            //DG_reporte.Columns[0].HeaderCell.Style.BackColor = Color.LightGray;
-            //DG_reporte.Columns[1].HeaderCell.Style.BackColor = Color.LightGray;
-            //DG_reporte.Columns[2].HeaderCell.Style.BackColor = Color.LightGray;
-            //DG_reporte.Columns[3].HeaderCell.Style.BackColor = Color.LightGray;
-
 
            
 
-            con.Close();
+            for (int i = 0; i < prov.Count; i++)
+            {
+                maestro.Rows.Add(prov[i].proveedor, prov[i].nombre, 0, 0, 0, 0, 0, 0);
+            }
+
+            //DG_reporte.DataSource = maestro;
+
+            
         }
+
+        
+        
+
+        
 
 
         public void ReporteExcel()
@@ -173,7 +93,13 @@ namespace appSugerencias
             Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
             excel.Application.Workbooks.Add(true);
 
-
+            excel.Cells.Range["C6:C1000"].NumberFormat = "$#,##0.00";
+            excel.Cells.Range["D6:D1000"].NumberFormat = "$#,##0.00";
+            excel.Cells.Range["E6:E1000"].NumberFormat = "$#,##0.00";
+            excel.Cells.Range["F6:F1000"].NumberFormat = "$#,##0.00";
+            excel.Cells.Range["G6:G1000"].NumberFormat = "$#,##0.00";
+            excel.Cells.Range["H6:H1000"].NumberFormat = "$#,##0.00";
+            excel.Cells.Range["I6:I1000"].NumberFormat = "$#,##0.00";
 
             int indiceColumna = 0;
 
@@ -321,75 +247,625 @@ namespace appSugerencias
             }
 
         }
+
+
+        public void OrdenarDT()
+        {
+            try
+            {
+                DataView vista = maestro.DefaultView;
+                vista.Sort = "PROVEEDOR";
+                maestro = vista.ToTable();
+
+                DataView vista2 = dtbo.DefaultView;
+                vista2.Sort = "PROVEEDOR";
+                dtbo = vista2.ToTable();
+
+                DataView vista3 = dtva.DefaultView;
+                vista3.Sort = "PROVEEDOR";
+                dtva = vista3.ToTable();
+
+                DataView vista4 = dtre.DefaultView;
+                vista4.Sort = "PROVEEDOR";
+                dtre = vista4.ToTable();
+
+                DataView vista5 = dtco.DefaultView;
+                vista5.Sort = "PROVEEDOR";
+                dtco = vista5.ToTable();
+
+                DataView vista6 = dtve.DefaultView;
+                vista6.Sort = "PROVEEDOR";
+                dtve = vista6.ToTable();
+
+                DataView vista7 = dtpre.DefaultView;
+                vista7.Sort = "PROVEEDOR";
+                dtpre = vista7.ToTable();
+            }
+            catch (Exception ex)
+            {
+
+               
+            }
+        }
+
+
+        public void Saldos()
+        {
+
+            //SE AGREGAN LAS SIGUIENTES COLUMNAS AL DATATABLE maestro
+            maestro.Columns.Add("PROVEEDOR", typeof(string));
+            maestro.Columns.Add("NOMBRE", typeof(string));
+            maestro.Columns.Add("BODEGA", typeof(double));
+            maestro.Columns.Add("VALLARTA", typeof(double));
+            maestro.Columns.Add("RENA", typeof(double));
+            maestro.Columns.Add("COLOSO", typeof(double));
+            maestro.Columns.Add("VELAZQUEZ", typeof(double));
+            maestro.Columns.Add("PREGOT", typeof(double));
+            maestro.Columns.Add("SALDO", typeof(double));
+
+            MySqlConnection con = BDConexicon.BodegaOpen();
+            try
+            {
+               
+                //OBTENGO LOS PROVEEDORES QUE EXISTEN EN LA BASE DE DATOS DE BODEGA
+                MySqlCommand cmd = new MySqlCommand("SELECT PROVEEDOR,NOMBRE from proveed", con);
+                MySqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    prov.Add(new Proveedor { proveedor = dr["PROVEEDOR"].ToString(), nombre = dr["NOMBRE"].ToString() });
+                }
+                dr.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("NO HAY CONEXION CON EL SERVIDOR DE BODEGA GENERAL");
+                
+            }
+
+            //LLENO MI DATATABLE maestro
+            for (int i = 0; i < prov.Count; i++)
+            {
+                maestro.Rows.Add(prov[i].proveedor, prov[i].nombre, 0,0,0,0,0,0);
+            }
+
+            try
+            {
+                //LLENO MI DATATABLE dtbo
+                MySqlCommand bo = new MySqlCommand("SELECT cp.PROVEEDOR AS PROVEEDOR,p.NOMBRE AS NOMBRE,SUM(cp.SALDO) AS SALDO FROM cuenxpag cp INNER JOIN proveed p ON cp.PROVEEDOR = p.PROVEEDOR GROUP BY PROVEEDOR ORDER BY PROVEEDOR", con);
+                MySqlDataAdapter ad = new MySqlDataAdapter(bo);
+                ad.Fill(dtbo);
+            }
+            catch (Exception ex)
+            {
+
+
+            }
+
+            try
+            {
+                //LLENO MI DATATABLE dtva
+                MySqlConnection conva = BDConexicon.VallartaOpen();
+                MySqlCommand va = new MySqlCommand("SELECT cp.PROVEEDOR AS PROVEEDOR,p.NOMBRE AS NOMBRE,SUM(cp.SALDO) AS SALDO FROM cuenxpag cp INNER JOIN proveed p ON cp.PROVEEDOR = p.PROVEEDOR GROUP BY PROVEEDOR ORDER BY PROVEEDOR", conva);
+                MySqlDataAdapter adva = new MySqlDataAdapter(va);
+                adva.Fill(dtva);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            try
+            {
+                MySqlConnection conre = BDConexicon.RenaOpen();
+                MySqlCommand re = new MySqlCommand("SELECT cp.PROVEEDOR AS PROVEEDOR,p.NOMBRE AS NOMBRE,SUM(cp.SALDO) AS SALDO FROM cuenxpag cp INNER JOIN proveed p ON cp.PROVEEDOR = p.PROVEEDOR GROUP BY PROVEEDOR ORDER BY PROVEEDOR", conre);
+                MySqlDataAdapter adre = new MySqlDataAdapter(re);
+                adre.Fill(dtre);
+            }
+            catch (Exception ex)
+            {
+
+
+            }
+
+
+            try
+            {
+                MySqlConnection conco = BDConexicon.ColosoOpen();
+                MySqlCommand co = new MySqlCommand("SELECT cp.PROVEEDOR AS PROVEEDOR,p.NOMBRE AS NOMBRE,SUM(cp.SALDO) AS SALDO FROM cuenxpag cp INNER JOIN proveed p ON cp.PROVEEDOR = p.PROVEEDOR GROUP BY PROVEEDOR ORDER BY PROVEEDOR", conco);
+                MySqlDataAdapter adco = new MySqlDataAdapter(co);
+                adco.Fill(dtco);
+            }
+            catch (Exception ex)
+            {
+
+
+            }
+
+            try
+            {
+                MySqlConnection conve = BDConexicon.VelazquezOpen();
+                MySqlCommand ve = new MySqlCommand("SELECT cp.PROVEEDOR AS PROVEEDOR,p.NOMBRE AS NOMBRE,SUM(cp.SALDO) AS SALDO FROM cuenxpag cp INNER JOIN proveed p ON cp.PROVEEDOR = p.PROVEEDOR GROUP BY PROVEEDOR ORDER BY PROVEEDOR", conve);
+                MySqlDataAdapter adve = new MySqlDataAdapter(ve);
+                adve.Fill(dtve);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+            try
+            {
+                MySqlConnection conpre = BDConexicon.Papeleria1Open();
+                MySqlCommand pre = new MySqlCommand("SELECT cp.PROVEEDOR AS PROVEEDOR,p.NOMBRE AS NOMBRE,SUM(cp.SALDO) AS SALDO FROM cuenxpag cp INNER JOIN proveed p ON cp.PROVEEDOR = p.PROVEEDOR GROUP BY PROVEEDOR ORDER BY PROVEEDOR", conpre);
+                MySqlDataAdapter adpre = new MySqlDataAdapter(pre);
+                adpre.Fill(dtpre);
+            }
+            catch (Exception ex)
+            {
+            }
+
+            double saldoBO = 0, saldoVA = 0, saldoRE = 0, saldoCO = 0, saldoVE = 0, saldoPRE = 0, suma = 0;
+            double sbo = 0, sva = 0, sre = 0, sco = 0, sve = 0, spre = 0, sum = 0;
+            OrdenarDT();
+
+            foreach (DataRow maestroRow in maestro.Rows)
+            {
+                foreach (DataRow boRow in dtbo.Rows)
+                {
+                    if (maestroRow["PROVEEDOR"].ToString().Equals(boRow["PROVEEDOR"].ToString()))
+                    {
+                        sbo = Convert.ToDouble(boRow["SALDO"].ToString());
+                        saldoBO = Math.Round(sbo, 2);
+                        maestroRow["BODEGA"] = Convert.ToDouble(boRow["SALDO"].ToString());
+                    }
+                }
+
+                foreach (DataRow vaRow in dtva.Rows)
+                {
+                    if (maestroRow["PROVEEDOR"].ToString().Equals(vaRow["PROVEEDOR"].ToString()))
+                    {
+                        sva = Convert.ToDouble(vaRow["SALDO"].ToString());
+                        saldoVA = Math.Round(sva, 2);
+                        maestroRow["VALLARTA"] = Convert.ToDouble(vaRow["SALDO"].ToString());
+                    }
+                }
+
+                foreach (DataRow reRow in dtre.Rows)
+                {
+                    if (maestroRow["PROVEEDOR"].ToString().Equals(reRow["PROVEEDOR"].ToString()))
+                    {
+                        sre = Convert.ToDouble(reRow["SALDO"].ToString());
+                        saldoRE = Math.Round(sre, 2);
+                        maestroRow["RENA"] = Convert.ToDouble(reRow["SALDO"].ToString());
+                    }
+                }
+
+
+
+                foreach (DataRow coRow in dtco.Rows)
+                {
+                    if (maestroRow["PROVEEDOR"].ToString().Equals(coRow["PROVEEDOR"].ToString()))
+                    {
+                        sco = Convert.ToDouble(coRow["SALDO"].ToString());
+                        saldoCO = Math.Round(sco, 2);
+                        maestroRow["COLOSO"] = Convert.ToDouble(coRow["SALDO"].ToString());
+                    }
+                }
+
+                foreach (DataRow veRow in dtve.Rows)
+                {
+                    if (maestroRow["PROVEEDOR"].ToString().Equals(veRow["PROVEEDOR"].ToString()))
+                    {
+                        sve = Convert.ToDouble(veRow["SALDO"].ToString());
+                        saldoVE = Math.Round(sve, 2);
+                        maestroRow["VELAZQUEZ"] = Convert.ToDouble(veRow["SALDO"].ToString());
+                    }
+                }
+
+                foreach (DataRow preRow in dtpre.Rows)
+                {
+                    if (maestroRow["PROVEEDOR"].ToString().Equals(preRow["PROVEEDOR"].ToString()))
+                    {
+                        spre = Convert.ToDouble(preRow["SALDO"].ToString());
+                        saldoPRE = Math.Round(spre, 2);
+                        maestroRow["PREGOT"] = Convert.ToDouble(preRow["SALDO"].ToString());
+                    }
+
+
+                }
+
+
+                suma = saldoBO + saldoVA + saldoVE + saldoCO + saldoRE + saldoPRE;
+               
+                maestroRow["SALDO"] = Math.Round(suma, 2);
+
+                suma = 0; saldoBO = 0; saldoRE = 0; saldoVA = 0; saldoCO = 0; saldoVE = 0; saldoPRE = 0;
+            }
+
+
+
+            //############################ SALDOS TOTALES POR TIENDA #######################################################################
+            double Tbodega = 0, Tvallarta = 0, Trena = 0, Tcoloso = 0, Tvelazquez = 0, Tpregot = 0, total = 0;
+
+            for (int i = 0; i < maestro.Rows.Count; i++)
+            {
+                Tbodega += Math.Round(Convert.ToDouble(maestro.Rows[i]["BODEGA"]), 2);
+                Tvallarta += Math.Round(Convert.ToDouble(maestro.Rows[i]["VALLARTA"]), 2);
+                Trena += Math.Round(Convert.ToDouble(maestro.Rows[i]["RENA"]), 2);
+                Tcoloso += Math.Round(Convert.ToDouble(maestro.Rows[i]["COLOSO"]), 2);
+                Tvelazquez += Math.Round(Convert.ToDouble(maestro.Rows[i]["VELAZQUEZ"]), 2);
+                Tpregot += Math.Round(Convert.ToDouble(maestro.Rows[i]["PREGOT"]), 2);
+                total += Math.Round(Convert.ToDouble(maestro.Rows[i]["SALDO"]), 2);
+            }
+
+
+
+
+            DataRow filaTotales = maestro.NewRow();
+            filaTotales["PROVEEDOR"] = "";
+            filaTotales["NOMBRE"] = "TOTALES";
+            filaTotales["BODEGA"] = Math.Round(Tbodega, 2);
+            filaTotales["VALLARTA"] = Math.Round(Tvallarta, 2);
+            filaTotales["RENA"] = Math.Round(Trena, 2);
+            filaTotales["COLOSO"] = Math.Round(Tcoloso, 2);
+            filaTotales["VELAZQUEZ"] = Math.Round(Tvelazquez, 2);
+            filaTotales["PREGOT"] = Math.Round(Tpregot, 2);
+            filaTotales["SALDO"] = Math.Round(total, 2);
+
+            maestro.Rows.Add(filaTotales);
+
+
+
+
+            DG_reporte.DataSource = maestro;
+            DG_reporte.Columns[1].Width = 350;
+            DG_reporte.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
+            DG_reporte.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
+            DG_reporte.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
+            DG_reporte.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
+            DG_reporte.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
+            DG_reporte.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
+            DG_reporte.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
+            DG_reporte.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
+            DG_reporte.Columns[2].DefaultCellStyle.Format = "C2";
+            DG_reporte.Columns[3].DefaultCellStyle.Format = "C2";
+            DG_reporte.Columns[4].DefaultCellStyle.Format = "C2";
+            DG_reporte.Columns[5].DefaultCellStyle.Format = "C2";
+            DG_reporte.Columns[6].DefaultCellStyle.Format = "C2";
+            DG_reporte.Columns[7].DefaultCellStyle.Format = "C2";
+            DG_reporte.Columns[8].DefaultCellStyle.Format = "C2";
+        }
+
+        public void SaldosMayoresACero()
+        {
+            maestro.Columns.Add("PROVEEDOR", typeof(string));
+            maestro.Columns.Add("NOMBRE", typeof(string));
+            maestro.Columns.Add("BODEGA", typeof(double));
+            maestro.Columns.Add("VALLARTA", typeof(double));
+            maestro.Columns.Add("RENA", typeof(double));
+            maestro.Columns.Add("COLOSO", typeof(double));
+            maestro.Columns.Add("VELAZQUEZ", typeof(double));
+            maestro.Columns.Add("PREGOT", typeof(double));
+            maestro.Columns.Add("SALDO", typeof(double));
+
+
+            string consulta = "SELECT cuenxpag.proveedor,proveed.nombre,SUM( cuenxpag.saldo * cuenxpag.tip_cam ) AS SALDO FROM cuenxpag INNER JOIN proveed USING(proveedor)" +
+                " WHERE cuenxpag.saldo > 0 GROUP BY cuenxpag.proveedor ORDER BY cuenxpag.proveedor, cuenxpag.moneda,cuenxpag.tipo_doc,cuenxpag.no_referen ";
+            MySqlConnection con = BDConexicon.BodegaOpen();
+            try
+            {
+               
+                //OBTENGO LOS PROVEEDORES QUE EXISTEN EN LA BASE DE DATOS DE BODEGA
+                MySqlCommand cmd = new MySqlCommand("SELECT PROVEEDOR,NOMBRE from proveed", con);
+                MySqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    prov.Add(new Proveedor { proveedor = dr["PROVEEDOR"].ToString(), nombre = dr["NOMBRE"].ToString() });
+
+                }
+                dr.Close();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("NO HAY CONEXION CON EL SERVIDOR DE BODEGA");
+            }
+
+            //LLENO MI DATATABLE maestro
+            for (int i = 0; i < prov.Count; i++)
+            {
+                maestro.Rows.Add(prov[i].proveedor, prov[i].nombre,0,0,0,0,0,0 );
+            }
+
+            try
+            {
+                //LLENO MI DATATABLE dtbo
+                MySqlCommand bo = new MySqlCommand(consulta, con);
+                MySqlDataAdapter ad = new MySqlDataAdapter(bo);
+                ad.Fill(dtbo);
+                LB_bo.ForeColor = Color.DarkGreen;
+            }
+            catch (Exception ex)
+            {
+                LB_bo.ForeColor = Color.Red;
+
+            }
+
+            try
+            {
+                //LLENO MI DATATABLE dtva
+                MySqlConnection conva = BDConexicon.VallartaOpen();
+                MySqlCommand va = new MySqlCommand(consulta, conva);
+                MySqlDataAdapter adva = new MySqlDataAdapter(va);
+                adva.Fill(dtva);
+                LB_va.ForeColor = Color.DarkGreen;
+
+            }
+            catch (Exception ex)
+            {
+                LB_va.ForeColor = Color.Red;
+            }
+
+            try
+            {
+                MySqlConnection conre = BDConexicon.RenaOpen();
+                MySqlCommand re = new MySqlCommand(consulta, conre);
+                MySqlDataAdapter adre = new MySqlDataAdapter(re);
+                adre.Fill(dtre);
+                LB_rena.ForeColor = Color.DarkGreen;
+            }
+            catch (Exception ex)
+            {
+                LB_rena.ForeColor = Color.Red;
+
+            }
+
+
+            try
+            {
+                MySqlConnection conco = BDConexicon.ColosoOpen();
+                MySqlCommand co = new MySqlCommand(consulta, conco);
+                MySqlDataAdapter adco = new MySqlDataAdapter(co);
+                adco.Fill(dtco);
+                LB_coloso.ForeColor = Color.DarkGreen;
+            }
+            catch (Exception ex)
+            {
+
+                LB_coloso.ForeColor = Color.Red;
+            }
+
+            try
+            {
+                MySqlConnection conve = BDConexicon.VelazquezOpen();
+                MySqlCommand ve = new MySqlCommand(consulta, conve);
+                MySqlDataAdapter adve = new MySqlDataAdapter(ve);
+                adve.Fill(dtve);
+                LB_velazquez.ForeColor = Color.DarkGreen;
+            }
+            catch (Exception ex)
+            {
+
+                LB_velazquez.ForeColor = Color.Red;
+            }
+
+            try
+            {
+                MySqlConnection conpre = BDConexicon.Papeleria1Open();
+                MySqlCommand pre = new MySqlCommand(consulta, conpre);
+                MySqlDataAdapter adpre = new MySqlDataAdapter(pre);
+                adpre.Fill(dtpre);
+                LB_pregot.ForeColor = Color.DarkGreen;
+            }
+            catch (Exception ex)
+            {
+                LB_pregot.ForeColor = Color.Red;
+            }
+
+            double saldoBO = 0, saldoVA = 0, saldoRE = 0, saldoCO = 0, saldoVE = 0, saldoPRE = 0, suma = 0;
+            double sbo = 0, sva = 0, sre = 0, sco = 0, sve = 0, spre = 0, sum = 0;
+            OrdenarDT();
+
+            foreach (DataRow maestroRow in maestro.Rows)
+            {
+                foreach (DataRow boRow in dtbo.Rows)
+                {
+                    if (maestroRow["PROVEEDOR"].ToString().Equals(boRow["PROVEEDOR"].ToString()))
+                    {
+                        sbo = Convert.ToDouble(boRow["SALDO"].ToString());
+                        if (sbo>0)
+                        {
+                            saldoBO = Math.Round(sbo, 2);
+                            maestroRow["BODEGA"] = Convert.ToDouble(boRow["SALDO"].ToString());
+                        }
+                    }
+                    
+                }
+
+                foreach (DataRow vaRow in dtva.Rows)
+                {
+                    if (maestroRow["PROVEEDOR"].ToString().Equals(vaRow["PROVEEDOR"].ToString()))
+                    {
+                        sva = Convert.ToDouble(vaRow["SALDO"].ToString());
+                        if (sva>0)
+                        {
+                            saldoVA = Math.Round(sva, 2);
+                            maestroRow["VALLARTA"] = Convert.ToDouble(vaRow["SALDO"].ToString());
+                        }
+                    }
+                    
+                }
+
+                foreach (DataRow reRow in dtre.Rows)
+                {
+                    if (maestroRow["PROVEEDOR"].ToString().Equals(reRow["PROVEEDOR"].ToString()))
+                    {
+                        sre = Convert.ToDouble(reRow["SALDO"].ToString());
+                        if (sre>0)
+                        {
+                            saldoRE = Math.Round(sre, 2);
+                            maestroRow["RENA"] = Convert.ToDouble(reRow["SALDO"].ToString());
+                        }
+                    }
+                    
+                }
+
+
+
+                foreach (DataRow coRow in dtco.Rows)
+                {
+                    if (maestroRow["PROVEEDOR"].ToString().Equals(coRow["PROVEEDOR"].ToString()))
+                    {
+                        sco = Convert.ToDouble(coRow["SALDO"].ToString());
+                        if (sco>0)
+                        {
+                            saldoCO = Math.Round(sco, 2);
+                            maestroRow["COLOSO"] = Convert.ToDouble(coRow["SALDO"].ToString());
+                        }
+                    }
+                   
+                }
+
+                foreach (DataRow veRow in dtve.Rows)
+                {
+                    if (maestroRow["PROVEEDOR"].ToString().Equals(veRow["PROVEEDOR"].ToString()))
+                    {
+                        sve = Convert.ToDouble(veRow["SALDO"].ToString());
+                        if (sve >0)
+                        {
+                            saldoVE = Math.Round(sve, 2);
+                            maestroRow["VELAZQUEZ"] = Convert.ToDouble(veRow["SALDO"].ToString());
+                        }
+                    }
+                   
+                }
+
+                foreach (DataRow preRow in dtpre.Rows)
+                {
+                    if (maestroRow["PROVEEDOR"].ToString().Equals(preRow["PROVEEDOR"].ToString()))
+                    {
+                        spre = Convert.ToDouble(preRow["SALDO"].ToString());
+                       
+
+                        if (spre>0)
+                        {
+                            saldoPRE = Math.Round(spre, 2);
+                            maestroRow["PREGOT"] = Convert.ToDouble(preRow["SALDO"].ToString());
+                        }
+                    }
+                   
+
+
+                }
+
+
+                suma = saldoBO + saldoVA + saldoVE + saldoCO + saldoRE + saldoPRE;
+                
+                maestroRow["SALDO"] = Math.Round(suma, 2);
+
+                suma = 0; saldoBO = 0; saldoRE = 0; saldoVA = 0; saldoCO = 0; saldoVE = 0; saldoPRE = 0;
+
+            }
+
+
+
+            //############################ SALDOS TOTALES POR TIENDA #######################################################################
+            double Tbodega = 0, Tvallarta = 0, Trena = 0, Tcoloso = 0, Tvelazquez = 0, Tpregot = 0, total = 0;
+
+            for (int i = 0; i < maestro.Rows.Count; i++)
+            {
+                Tbodega += Math.Round(Convert.ToDouble(maestro.Rows[i]["BODEGA"]),2);
+                Tvallarta += Math.Round(Convert.ToDouble(maestro.Rows[i]["VALLARTA"]), 2);
+                Trena += Math.Round(Convert.ToDouble(maestro.Rows[i]["RENA"]), 2);
+                Tcoloso += Math.Round(Convert.ToDouble(maestro.Rows[i]["COLOSO"]), 2);
+                Tvelazquez += Math.Round(Convert.ToDouble(maestro.Rows[i]["VELAZQUEZ"]), 2);
+                Tpregot += Math.Round(Convert.ToDouble(maestro.Rows[i]["PREGOT"]), 2);
+                total += Math.Round(Convert.ToDouble(maestro.Rows[i]["SALDO"]), 2);
+            }
+
+
+
+
+            DataRow filaTotales = maestro.NewRow();
+            filaTotales["PROVEEDOR"] = "";
+            filaTotales["NOMBRE"] = "TOTALES";
+            filaTotales["BODEGA"] = Math.Round(Tbodega, 2);
+            filaTotales["VALLARTA"] = Math.Round(Tvallarta, 2);
+            filaTotales["RENA"] = Math.Round(Trena, 2);
+            filaTotales["COLOSO"] = Math.Round(Tcoloso, 2);
+            filaTotales["VELAZQUEZ"] = Math.Round(Tvelazquez, 2);
+            filaTotales["PREGOT"] = Math.Round(Tpregot, 2);
+            filaTotales["SALDO"] = Math.Round(total, 2);
+
+            maestro.Rows.Add(filaTotales);
+            maestro.DefaultView.RowFilter = "SALDO > 0";
+
+
+
+            //foreach (DataRow row in maestro.Rows)
+            //{
+            //    DG_reporte.Rows.Add(row["PROVEEDOR"].ToString(),row["NOMBRE"].ToString(),row["BODEGA"].ToString(),row["VALLARTA"].ToString(),row["RENA"].ToString(),row["COLOSO"].ToString(),row["VELAZQUEZ"].ToString(),row["PREGOT"].ToString(),row["SALDO"].ToString());
+            //}
+            DG_reporte.DataSource = maestro;
+
+            DG_reporte.Columns[1].Width = 350;
+            DG_reporte.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
+            DG_reporte.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
+            DG_reporte.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
+            DG_reporte.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
+            DG_reporte.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
+            DG_reporte.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
+            DG_reporte.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
+            DG_reporte.Columns[2].DefaultCellStyle.Format = "C2";
+            DG_reporte.Columns[3].DefaultCellStyle.Format = "C2";
+            DG_reporte.Columns[4].DefaultCellStyle.Format = "C2";
+            DG_reporte.Columns[5].DefaultCellStyle.Format = "C2";
+            DG_reporte.Columns[6].DefaultCellStyle.Format = "C2";
+            DG_reporte.Columns[7].DefaultCellStyle.Format = "C2";
+            DG_reporte.Columns[8].DefaultCellStyle.Format = "C2";
+        }
+
+
+    
+
+        private void BT_saldos_Click(object sender, EventArgs e)
+        {
+           
+
+            if (CHK_saldo.Checked == true)
+            {
+                SaldosMayoresACero();
+               
+            }
+            else
+            {
+                Saldos();
+               
+            }
            
 
 
 
 
-
-
-
-
-
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
-            ReportePDF();
+          
 
 
 
         }
 
-        private void CB_sucursal_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            LB_estado.Text = "";
-            DG_reporte.DataSource = null;
-            try
-            {
-                MySqlConnection con = null;
-                if (CB_sucursal.SelectedItem.Equals("BODEGA"))
-                {
-                    con = BDConexicon.BodegaOpen();
-                }
-                else if (CB_sucursal.SelectedItem.Equals("COLOSO"))
-                {
-                    con = BDConexicon.ColosoOpen();
-                }
-                else if (CB_sucursal.SelectedItem.Equals("RENA"))
-                {
-                    con = BDConexicon.RenaOpen();
-
-                }
-                else if (CB_sucursal.SelectedItem.Equals("VALLARTA"))
-                {
-                    con = BDConexicon.VallartaOpen();
-
-                }
-                else if (CB_sucursal.SelectedItem.Equals("VELAZQUEZ"))
-                {
-                    con = BDConexicon.VelazquezOpen();
-                }
-               sucursal(con);//mmm a ver, pon un breack point en esta linea, y al crear el objeto checa si esta linea se ejecuta
-           
-              
-                llenarGrid(con);
-                
-                LB_estado.Text = "Conectado";
-                LB_estado.ForeColor = Color.DarkGreen;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("  "+ex);
-                LB_estado.Text = "Sin conexión";
-                LB_estado.ForeColor = Color.Red;
-            }
-           
-        }
+        
 
         private void RPT_SaldoProveedores_Load(object sender, EventArgs e)
         {
-          
+            //Proveedores();
+            CHK_saldo.Checked = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -398,12 +874,13 @@ namespace appSugerencias
             ReporteExcel();
         }
 
+        private void BT_reporte_Click(object sender, EventArgs e)
+        {
+          
 
 
-
+        }
         
-
-
     }//FIN CLASE
 
 

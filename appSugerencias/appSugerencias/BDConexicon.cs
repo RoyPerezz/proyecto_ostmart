@@ -117,10 +117,11 @@ namespace appSugerencias
 
         public static MySqlConnection BodegaOpen()
         {
-            string BD = optieneBd();
-            //MySqlConnection conBodega = new MySqlConnection("server=192.168.0.190; database=" + BD + "; Uid=root; pwd=;");
-            MySqlConnection conBodega = new MySqlConnection("server=192.168.0.190; database='MyBusinessDelta'; Uid=root; pwd=;");
-            conBodega.Open();
+           
+                string BD = optieneBd();
+                MySqlConnection conBodega = new MySqlConnection("server=192.168.0.190; database=" + BD + "; Uid=root; pwd=;");
+                conBodega.Open();
+           
 
 
 
