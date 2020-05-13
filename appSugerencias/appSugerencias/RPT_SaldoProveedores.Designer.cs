@@ -42,7 +42,6 @@
             this.LB_coloso = new System.Windows.Forms.Label();
             this.LB_velazquez = new System.Windows.Forms.Label();
             this.LB_pregot = new System.Windows.Forms.Label();
-            this.TB_total = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DG_reporte)).BeginInit();
             this.SuspendLayout();
             // 
@@ -174,20 +173,12 @@
             this.LB_pregot.TabIndex = 18;
             this.LB_pregot.Text = "PREGOT";
             // 
-            // TB_total
-            // 
-            this.TB_total.Location = new System.Drawing.Point(961, 379);
-            this.TB_total.Name = "TB_total";
-            this.TB_total.Size = new System.Drawing.Size(100, 20);
-            this.TB_total.TabIndex = 19;
-            // 
             // RPT_SaldoProveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(1354, 403);
-            this.Controls.Add(this.TB_total);
             this.Controls.Add(this.LB_pregot);
             this.Controls.Add(this.LB_velazquez);
             this.Controls.Add(this.LB_coloso);
@@ -222,6 +213,5 @@
         private System.Windows.Forms.Label LB_coloso;
         private System.Windows.Forms.Label LB_velazquez;
         private System.Windows.Forms.Label LB_pregot;
-        private System.Windows.Forms.TextBox TB_total;
     }
 }
