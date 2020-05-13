@@ -125,6 +125,18 @@
     <Compile Include="Conceptos.Designer.cs">
       <DependentUpon>Conceptos.cs</DependentUpon>
     </Compile>
+    <Compile Include="costoTraspasos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="costoTraspasos.Designer.cs">
+      <DependentUpon>costoTraspasos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CReporte.Designer.cs">
+      <DependentUpon>CReporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="Departamentos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +148,54 @@
     </Compile>
     <Compile Include="Etiquetas.Designer.cs">
       <DependentUpon>Etiquetas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form_ExistVitrina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_ExistVitrina.Designer.cs">
+      <DependentUpon>form_ExistVitrina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ConcentradorVitrina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ConcentradorVitrina.Designer.cs">
+      <DependentUpon>frm_ConcentradorVitrina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_costos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_costos.Designer.cs">
+      <DependentUpon>frm_costos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_CreaGastosExternos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_CreaGastosExternos.Designer.cs">
+      <DependentUpon>frm_CreaGastosExternos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_GastosExternos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_GastosExternos.Designer.cs">
+      <DependentUpon>frm_GastosExternos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_nuevo_pedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_nuevo_pedido.Designer.cs">
+      <DependentUpon>frm_nuevo_pedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_pedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_pedido.Designer.cs">
+      <DependentUpon>frm_pedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ventasxhora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ventasxhora.Designer.cs">
+      <DependentUpon>frm_ventasxhora.cs</DependentUpon>
     </Compile>
     <Compile Include="InvFisicoxLinea.cs">
       <SubType>Form</SubType>
@@ -397,6 +457,7 @@
     <Compile Include="TraspasoTiendas.Designer.cs">
       <DependentUpon>TraspasoTiendas.cs</DependentUpon>
     </Compile>
+    <Compile Include="VARIABLES.cs" />
     <Compile Include="VentasxTienda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -415,11 +476,41 @@
     <EmbeddedResource Include="Conceptos.resx">
       <DependentUpon>Conceptos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="costoTraspasos.resx">
+      <DependentUpon>costoTraspasos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CReporte.resx">
+      <DependentUpon>CReporte.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Departamentos.resx">
       <DependentUpon>Departamentos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Etiquetas.resx">
       <DependentUpon>Etiquetas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_ExistVitrina.resx">
+      <DependentUpon>form_ExistVitrina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_ConcentradorVitrina.resx">
+      <DependentUpon>frm_ConcentradorVitrina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_costos.resx">
+      <DependentUpon>frm_costos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_CreaGastosExternos.resx">
+      <DependentUpon>frm_CreaGastosExternos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_GastosExternos.resx">
+      <DependentUpon>frm_GastosExternos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_nuevo_pedido.resx">
+      <DependentUpon>frm_nuevo_pedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_pedido.resx">
+      <DependentUpon>frm_pedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_ventasxhora.resx">
+      <DependentUpon>frm_ventasxhora.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InvFisicoxLinea.resx">
       <DependentUpon>InvFisicoxLinea.cs</DependentUpon>

@@ -16,7 +16,14 @@ namespace appSugerencias
         {
             InitializeComponent();
         }
-        string usuario = "SISTEMAS";
+        string usuario;
+
+        public frm_GastosExternos(string Usuario)
+        {
+            InitializeComponent();
+            usuario = Usuario;
+        }
+        
         MySqlConnection con;
         private void frm_GastosExternos_Load(object sender, EventArgs e)
         {
@@ -135,16 +142,22 @@ namespace appSugerencias
            
         }
 
+        public void limpiar()
+        {
+
+        }
+
         public void guardaDatos()
         {
             string comando;
 
             DateTime fecha = dtGastos.Value;
+            DateTime fecha_creacion = DateTime.Now;
             //MessageBox.Show(fecha.ToString("yyyy-MM-dd"));
             try
             {
 
-                comando = "INSERT INTO rd_gastos_externos_pagos (fecha,hora,importe,id_gasto_externo,nombre_gasto,usuario,observacion) values (?fecha,?hora,?importe,?id,?gasto,?usuario,?observ)";
+                comando = "INSERT INTO rd_gastos_externos_pagos (fecha,hora,importe,id_gasto_externo,nombre_gasto,usuario,fecha_creacion,observacion) values (?fecha,?hora,?importe,?id,?gasto,?usuario,?fecha_creacion,?observ)";
                
                 
 
@@ -155,6 +168,7 @@ namespace appSugerencias
                 cmd.Parameters.Add("?id", MySqlDbType.VarChar).Value = cbGastos.SelectedValue.ToString();
                 cmd.Parameters.Add("?gasto", MySqlDbType.VarChar).Value = cbGastos.Text;
                 cmd.Parameters.Add("?usuario", MySqlDbType.VarChar).Value = usuario;
+                cmd.Parameters.Add("?fecha_creacion", MySqlDbType.VarChar).Value = fecha_creacion.ToString("yyyy-MM-dd");
                 cmd.Parameters.Add("?observ", MySqlDbType.VarChar).Value = tbObservaciones.Text;
 
 
@@ -163,6 +177,7 @@ namespace appSugerencias
 
                 tbImporte.Text = "";
                 tbObservaciones.Text = "";
+                cbGastos.Text = "";
 
                 MessageBox.Show("Datos gregados con exito");
                 
@@ -171,6 +186,9 @@ namespace appSugerencias
             {
                 MessageBox.Show("Error" + EX.Message);
             }
+
+
+           
         }
     }
 }

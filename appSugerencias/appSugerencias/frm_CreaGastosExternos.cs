@@ -29,7 +29,7 @@ namespace appSugerencias
 
 
                 MySqlConnection con;
-                con = BDConexicon.conectar();
+                con = BDConexicon.BodegaOpen();
                 MySqlCommand cmdR = new MySqlCommand("INSERT INTO  rd_gastos_externos (nombre_gasto) VALUES (?nombre)", con);
                 cmdR.Parameters.Add("?nombre", MySqlDbType.VarChar).Value = tbGastos.Text;
                 cmdR.ExecuteNonQuery();
@@ -49,7 +49,7 @@ namespace appSugerencias
         {
             try
             {
-                MySqlConnection con = BDConexicon.conectar();
+                MySqlConnection con = BDConexicon.BodegaOpen();
 
                 //string cadena = definemes(cbMeses.SelectedValue.ToString(), cbYear.Text);
 

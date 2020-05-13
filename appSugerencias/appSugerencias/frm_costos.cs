@@ -173,7 +173,7 @@ namespace appSugerencias
                      con = conectar();
                     comando = "SELECT  conegre.DESCRIP as DESCRIPCION, SUM(flujo.IMPORTE * flujo.tipo_cam) AS TOTAL FROM flujo INNER JOIN conegre ON flujo.concepto2 = conegre.CONCEPTO" +
                     " WHERE flujo.concepto <> 'CAM' AND flujo.concepto <> 'APERA' AND flujo.concepto <> 'CORTZ' AND flujo.ing_eg = 'E' AND " +
-                    "flujo.concepto <> 'Retir' AND flujo.concepto <> 'CHEQ' AND flujo.concepto <> 'TARJ' GROUP BY flujo.concepto2 ORDER BY TOTAL DESC ";
+                    "flujo.concepto <> 'Retir' AND flujo.concepto <> 'CHEQ' AND flujo.concepto <> 'TARJ'  AND flujo.concepto <> 'DEV' GROUP BY flujo.concepto2 ORDER BY TOTAL DESC ";
 
                 }
                 else if (flag == 2)
@@ -235,7 +235,7 @@ namespace appSugerencias
                 //test();
                 string comando = "SELECT SUM(flujo.IMPORTE * flujo.tipo_cam) AS Importe FROM flujo INNER JOIN conegre ON flujo.concepto2 = conegre.CONCEPTO " +
                     "WHERE flujo.concepto <> 'CAM' AND flujo.concepto <> 'APERA' AND flujo.concepto <> 'CORTZ' AND flujo.ing_eg = 'E' AND flujo.concepto <> 'Retir' AND " +
-                    "flujo.concepto <> 'CHEQ' AND flujo.concepto <> 'TARJ' ";
+                    "flujo.concepto <> 'CHEQ' AND flujo.concepto <> 'TARJ' AND flujo.concepto <> 'DEV'";
 
                 MySqlCommand cmdr = new MySqlCommand(comando, con);
                 MySqlDataReader mdrr;
@@ -665,6 +665,7 @@ namespace appSugerencias
             //{
             //    BD = tienda + " " + cbMeses.SelectedValue.ToString() + " " + cbYear.Text.ToString();
             //}
+
             BD = "MyBusinessDelta";
 
             MySqlConnection con = new MySqlConnection("server=" + IP + "; database=" + BD + "; Uid=root; pwd=;");
@@ -697,7 +698,7 @@ namespace appSugerencias
             }
             else if (mes == "ABR")
             {
-                cadena = "'" + Year + "04-01' AND "  +"'" + Year + "-04-30' ";
+                cadena = "'" + Year + "-04-01' AND "  +"'" + Year + "-04-30' ";
 
 
             }
@@ -708,12 +709,12 @@ namespace appSugerencias
             }
             else if (mes == "JUN")
             {
-                cadena = "'" + Year + "-06-01' AND "+ "'" + Year + "  '2019-06-30'";
+                cadena = "'" + Year + "-06-01' AND "+ "'" + Year + "  '-06-30'";
 
             }
             else if (mes == "JUL")
             {
-                cadena = "'" + Year + "-07-01' AND " +"'" + Year + "2019-07-31'";
+                cadena = "'" + Year + "-07-01' AND " +"'" + Year + "-07-31'";
 
             }
             else if (mes == "AGO")

@@ -11,18 +11,18 @@ namespace appSugerencias
 {
     public partial class CReporte : Form
     {
-        public CReporte(string destino)
-        {
-            InitializeComponent();
-            reporte rpt = new reporte();
-            rpt.SetParameterValue("destino", destino);
-            crystalReportViewer1.ReportSource = rpt;
-        }
+        //public CReporte(string destino)
+        //{
+        //    InitializeComponent();
+        //    reporte rpt = new reporte();
+        //    rpt.SetParameterValue("destino", destino);
+        //    crystalReportViewer1.ReportSource = rpt;
+        //}
 
-        private void crystalReportViewer1_Load(object sender, EventArgs e)
-        {
-          
-           
-        }
+        //private void crystalReportViewer1_Load(object sender, EventArgs e)
+        //{
+
+
+        //}
     }
 }

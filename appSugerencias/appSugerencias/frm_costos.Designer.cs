@@ -67,7 +67,6 @@
             this.lblBruta = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.lblGastosTotal = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCosto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -450,23 +449,12 @@
             this.lblGastosTotal.TabIndex = 30;
             this.lblGastosTotal.Text = "---";
             // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(1023, 53);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 31;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // frm_costos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(1295, 524);
-            this.Controls.Add(this.button5);
             this.Controls.Add(this.lblGastosTotal);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.lblBruta);
@@ -546,6 +534,5 @@
         private System.Windows.Forms.Label lblBruta;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label lblGastosTotal;
-        private System.Windows.Forms.Button button5;
     }
 }

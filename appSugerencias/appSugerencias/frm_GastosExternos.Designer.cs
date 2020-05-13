@@ -61,7 +61,7 @@
             this.cbGastos.FormattingEnabled = true;
             this.cbGastos.Location = new System.Drawing.Point(153, 43);
             this.cbGastos.Name = "cbGastos";
-            this.cbGastos.Size = new System.Drawing.Size(137, 21);
+            this.cbGastos.Size = new System.Drawing.Size(299, 21);
             this.cbGastos.TabIndex = 1;
             this.cbGastos.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -77,7 +77,7 @@
             // 
             // dtGastos
             // 
-            this.dtGastos.Location = new System.Drawing.Point(315, 44);
+            this.dtGastos.Location = new System.Drawing.Point(466, 44);
             this.dtGastos.Name = "dtGastos";
             this.dtGastos.Size = new System.Drawing.Size(200, 20);
             this.dtGastos.TabIndex = 3;
@@ -93,7 +93,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(399, 236);
+            this.button1.Location = new System.Drawing.Point(556, 173);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 42);
             this.button1.TabIndex = 5;
@@ -145,7 +145,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(312, 23);
+            this.label5.Location = new System.Drawing.Point(463, 23);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 18);
             this.label5.TabIndex = 10;
@@ -155,7 +155,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(525, 295);
+            this.ClientSize = new System.Drawing.Size(691, 246);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
