@@ -286,7 +286,58 @@ namespace appSugerencias
 
         }
 
+        //################################## METODOS DE CONEXION A RESPALDOS ########################################################
+ 
 
+        public static MySqlConnection RespaldoVA(string mes,int año)
+        {
+            string bd = "VALLARTA " + mes + " " + año;
+            MySqlConnection conVallarta = new MySqlConnection("server=192.168.1.2; database=" + bd + "; Uid=root; pwd=;");
+            conVallarta.Open();
+
+            return conVallarta;
+
+        }
+
+        public static MySqlConnection RespaldoRE(string mes,int año)
+        {
+            string bd = "RENA " + mes + " " + año;
+            MySqlConnection conRena = new MySqlConnection("server=192.168.2.2; database=" + bd + "; Uid=root; pwd=;");
+            conRena.Open();
+
+            return conRena;
+
+        }
+
+        public static MySqlConnection RespaldoCO(string mes,int año)
+        {
+            string bd = "COLOSO " + mes + " " + año;
+            MySqlConnection conColoso = new MySqlConnection("server=192.168.3.2; database=" + bd + "; Uid=root; pwd=;");
+            conColoso.Open();
+
+            return conColoso;
+
+        }
+
+        public static MySqlConnection RespaldoVE(string mes,int año)
+        {
+            string bd = "DIEZ " + mes + " " + año;
+            MySqlConnection conVelazquez = new MySqlConnection("server=192.168.4.2; database=" + bd + "; Uid=root; pwd=;");
+            conVelazquez.Open();
+
+            return conVelazquez;
+
+        }
+
+        public static MySqlConnection RespaldoPRE(string mes,int año)
+        {
+            string bd = "PREGOT " + mes + " " + año;
+            MySqlConnection conPregot = new MySqlConnection("server=192.168.6.2; database=" + bd + "; Uid=root; pwd=;");
+            conPregot.Open();
+
+            return conPregot;
+
+        }
 
     }
 }

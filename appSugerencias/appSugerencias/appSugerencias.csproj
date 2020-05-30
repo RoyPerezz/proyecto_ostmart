@@ -137,6 +137,12 @@
     <Compile Include="CReporte.Designer.cs">
       <DependentUpon>CReporte.cs</DependentUpon>
     </Compile>
+    <Compile Include="CuentasBancarias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasBancarias.Designer.cs">
+      <DependentUpon>CuentasBancarias.cs</DependentUpon>
+    </Compile>
     <Compile Include="Departamentos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,12 @@
     </Compile>
     <Compile Include="Etiquetas.Designer.cs">
       <DependentUpon>Etiquetas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedores.Designer.cs">
+      <DependentUpon>Proveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="form_ExistVitrina.cs">
       <SubType>Form</SubType>
@@ -208,6 +220,12 @@
     </Compile>
     <Compile Include="Nota.Designer.cs">
       <DependentUpon>Nota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abonos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abonos.Designer.cs">
+      <DependentUpon>Abonos.cs</DependentUpon>
     </Compile>
     <Compile Include="Productos.cs" />
     <Compile Include="Proveedor.cs" />
@@ -427,6 +445,12 @@
     <Compile Include="ReporteTraspasoR.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Rep_pagoproveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rep_pagoproveedores.Designer.cs">
+      <DependentUpon>Rep_pagoproveedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="RPT_SaldoProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -484,6 +508,9 @@
     <EmbeddedResource Include="CReporte.resx">
       <DependentUpon>CReporte.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CuentasBancarias.resx">
+      <DependentUpon>CuentasBancarias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Departamentos.resx">
       <DependentUpon>Departamentos.cs</DependentUpon>
     </EmbeddedResource>
@@ -519,6 +546,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Nota.resx">
       <DependentUpon>Nota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abonos.resx">
+      <DependentUpon>Abonos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedores.resx">
+      <DependentUpon>Proveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="registroAsesoras.resx">
       <DependentUpon>registroAsesoras.cs</DependentUpon>
@@ -661,6 +694,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteSug.resx">
       <DependentUpon>ReporteSug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rep_pagoproveedores.resx">
+      <DependentUpon>Rep_pagoproveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RPT_SaldoProveedores.resx">
       <DependentUpon>RPT_SaldoProveedores.cs</DependentUpon>

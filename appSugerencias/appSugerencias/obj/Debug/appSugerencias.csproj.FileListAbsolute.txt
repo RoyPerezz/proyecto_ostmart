@@ -905,3 +905,7 @@ C:\Users\Admin\source\repos\proyecto-osmart\appSugerencias\appSugerencias\obj\De
 C:\Users\Admin\source\repos\proyecto-osmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.csproj.CopyComplete
 C:\Users\Admin\source\repos\proyecto-osmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.exe
 C:\Users\Admin\source\repos\proyecto-osmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.pdb
+C:\Users\Admin\source\repos\proyecto-osmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Abonos.resources
+C:\Users\Admin\source\repos\proyecto-osmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.CuentasBancarias.resources
+C:\Users\Admin\source\repos\proyecto-osmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Proveedores.resources
+C:\Users\Admin\source\repos\proyecto-osmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Rep_pagoproveedores.resources

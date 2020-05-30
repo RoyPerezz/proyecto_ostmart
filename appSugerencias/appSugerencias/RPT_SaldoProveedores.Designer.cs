@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RPT_SaldoProveedores));
             this.DG_reporte = new System.Windows.Forms.DataGridView();
             this.LB_estado = new System.Windows.Forms.Label();
@@ -42,19 +42,25 @@
             this.LB_coloso = new System.Windows.Forms.Label();
             this.LB_velazquez = new System.Windows.Forms.Label();
             this.LB_pregot = new System.Windows.Forms.Label();
+            this.BT_pdf = new System.Windows.Forms.Button();
+            this.CHK_fecha = new System.Windows.Forms.CheckBox();
+            this.DT_date = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.DG_reporte)).BeginInit();
             this.SuspendLayout();
             // 
             // DG_reporte
             // 
             this.DG_reporte.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.DG_reporte.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.DG_reporte.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.DG_reporte.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DG_reporte.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DG_reporte.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DG_reporte.Location = new System.Drawing.Point(16, 50);
             this.DG_reporte.Name = "DG_reporte";
-            this.DG_reporte.Size = new System.Drawing.Size(1212, 324);
+            this.DG_reporte.Size = new System.Drawing.Size(1212, 408);
             this.DG_reporte.TabIndex = 3;
             // 
             // LB_estado
@@ -68,6 +74,7 @@
             // 
             // button2
             // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.BackColor = System.Drawing.Color.DodgerBlue;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
@@ -84,6 +91,7 @@
             // 
             // BT_saldos
             // 
+            this.BT_saldos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BT_saldos.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_saldos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_saldos.ForeColor = System.Drawing.Color.White;
@@ -97,7 +105,7 @@
             // 
             // DT_fecha
             // 
-            this.DT_fecha.Location = new System.Drawing.Point(270, 380);
+            this.DT_fecha.Location = new System.Drawing.Point(1143, 464);
             this.DT_fecha.Name = "DT_fecha";
             this.DT_fecha.Size = new System.Drawing.Size(200, 20);
             this.DT_fecha.TabIndex = 11;
@@ -106,7 +114,7 @@
             // CHK_saldo
             // 
             this.CHK_saldo.AutoSize = true;
-            this.CHK_saldo.Location = new System.Drawing.Point(825, 16);
+            this.CHK_saldo.Location = new System.Drawing.Point(1093, 15);
             this.CHK_saldo.Name = "CHK_saldo";
             this.CHK_saldo.Size = new System.Drawing.Size(135, 17);
             this.CHK_saldo.TabIndex = 12;
@@ -173,12 +181,50 @@
             this.LB_pregot.TabIndex = 18;
             this.LB_pregot.Text = "PREGOT";
             // 
+            // BT_pdf
+            // 
+            this.BT_pdf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BT_pdf.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BT_pdf.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_pdf.ForeColor = System.Drawing.Color.White;
+            this.BT_pdf.Image = ((System.Drawing.Image)(resources.GetObject("BT_pdf.Image")));
+            this.BT_pdf.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BT_pdf.Location = new System.Drawing.Point(1254, 230);
+            this.BT_pdf.Name = "BT_pdf";
+            this.BT_pdf.Size = new System.Drawing.Size(89, 63);
+            this.BT_pdf.TabIndex = 19;
+            this.BT_pdf.Text = "PDF";
+            this.BT_pdf.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BT_pdf.UseVisualStyleBackColor = false;
+            this.BT_pdf.Click += new System.EventHandler(this.BT_pdf_Click);
+            // 
+            // CHK_fecha
+            // 
+            this.CHK_fecha.AutoSize = true;
+            this.CHK_fecha.Location = new System.Drawing.Point(524, 15);
+            this.CHK_fecha.Name = "CHK_fecha";
+            this.CHK_fecha.Size = new System.Drawing.Size(85, 17);
+            this.CHK_fecha.TabIndex = 20;
+            this.CHK_fecha.Text = "Elegir Fecha";
+            this.CHK_fecha.UseVisualStyleBackColor = true;
+            this.CHK_fecha.CheckedChanged += new System.EventHandler(this.CHK_fecha_CheckedChanged);
+            // 
+            // DT_date
+            // 
+            this.DT_date.Location = new System.Drawing.Point(612, 13);
+            this.DT_date.Name = "DT_date";
+            this.DT_date.Size = new System.Drawing.Size(200, 20);
+            this.DT_date.TabIndex = 21;
+            // 
             // RPT_SaldoProveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(1354, 403);
+            this.ClientSize = new System.Drawing.Size(1354, 496);
+            this.Controls.Add(this.DT_date);
+            this.Controls.Add(this.CHK_fecha);
+            this.Controls.Add(this.BT_pdf);
             this.Controls.Add(this.LB_pregot);
             this.Controls.Add(this.LB_velazquez);
             this.Controls.Add(this.LB_coloso);
@@ -213,5 +259,8 @@
         private System.Windows.Forms.Label LB_coloso;
         private System.Windows.Forms.Label LB_velazquez;
         private System.Windows.Forms.Label LB_pregot;
+        private System.Windows.Forms.Button BT_pdf;
+        private System.Windows.Forms.CheckBox CHK_fecha;
+        private System.Windows.Forms.DateTimePicker DT_date;
     }
 }

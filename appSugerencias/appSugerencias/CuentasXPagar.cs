@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -201,10 +202,7 @@ namespace appSugerencias
             master = vista.ToTable();
 
 
-            //MySqlCommand cmd = new MySqlCommand("select cp.cuenxpag,cp.proveedor,cp.fecha,cp.tipo_doc,cp.NO_REFEREN,cp.cargo_ab,cp.importe " +
-            //  "from cuenxpdet cp where cp.proveedor ='" + TB_proveedor.Text + "' ORDER BY cp.FECHA", conectar);
-
-            //MySqlDataReader dr = cmd.ExecuteReader();
+          
 
             for (int i = 0; i < master.Rows.Count; i++)
             {
@@ -232,9 +230,20 @@ namespace appSugerencias
                 
                
             }
-           
 
-            
+            DG_datos.Columns["IDMOV"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            DG_datos.Columns["PROV"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            DG_datos.Columns["FECHA_"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            DG_datos.Columns["TIPO_DOCUMENTO"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            DG_datos.Columns["REFERENCIA"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            DG_datos.Columns["MOVIMIENTO"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            DG_datos.Columns["SUCURSAL"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            DG_datos.Columns["COMPRA"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            DG_datos.Columns["PAGO"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            DG_datos.Columns["SALDO_"].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+
+
 
         }
 
@@ -492,10 +501,7 @@ namespace appSugerencias
 
         }
 
-        private void DG_datos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+       
 
         private void LB_pregot_Click(object sender, EventArgs e)
         {
@@ -535,8 +541,16 @@ namespace appSugerencias
           
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
+            saldo = 0;
+            DTBodega.Clear();
+            DTVallarta.Clear();
+            DTRena.Clear();
+            DTColoso.Clear();
+            DTVelazquez.Clear();
+            DTPregot.Clear();
+            master.Clear();
             ResetarComponentes();
             ProbarConexiones();
             string proveedor = TB_proveedor.Text;
@@ -578,6 +592,47 @@ namespace appSugerencias
                 CB_proveedor.SelectedIndex = index;
 
             }
+        }
+
+        private void DG_datos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+
+            try
+            {
+                //double saldo = 0;
+
+                //if (DG_datos.Rows.Count >0)
+                //{
+                //    //DG_datos.Rows[DG_datos.Rows.Count - 1].Selected = true;
+                //    saldo = Convert.ToDouble(DG_datos.Rows[DG_datos.Rows.Count - 1].Cells[9]);
+                //}
+
+                //string compra = Convert.ToString(DG_datos.Rows[e.RowIndex].Cells[0].Value);
+                //string tienda = Convert.ToString(DG_datos.Rows[e.RowIndex].Cells[6].Value);
+                ////Abonos ab = new Abonos(compra, TB_proveedor.Text, CB_proveedor.SelectedItem.ToString(),tienda);
+                //Abonos ab = new Abonos();
+                //ab.Show();
+            }
+            catch (Exception ex)
+            {
+
+                
+            }
+        }
+
+        private void BT_abonos_Click(object sender, EventArgs e)
+        {
+            int filas = DG_datos.RowCount;
+
+            decimal digito = decimal.Parse(DG_datos.Rows[filas - 1].Cells[9].Value.ToString(), NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"));
+            string s = digito.ToString("G0");
+            saldo = Convert.ToDouble(s);
+            
+            string prov = TB_proveedor.Text;
+            string nombre = CB_proveedor.SelectedItem.ToString();
+            Abonos ab = new Abonos(prov,nombre,saldo);
+            ab.Show();
         }
     }
 }
