@@ -155,6 +155,12 @@
     <Compile Include="Etiquetas.Designer.cs">
       <DependentUpon>Etiquetas.cs</DependentUpon>
     </Compile>
+    <Compile Include="PagarA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PagarA.Designer.cs">
+      <DependentUpon>PagarA.cs</DependentUpon>
+    </Compile>
     <Compile Include="Proveedores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -427,6 +433,12 @@
     <Compile Include="RepEtiquetas.Designer.cs">
       <DependentUpon>RepEtiquetas.cs</DependentUpon>
     </Compile>
+    <Compile Include="RepGastosxDia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RepGastosxDia.Designer.cs">
+      <DependentUpon>RepGastosxDia.cs</DependentUpon>
+    </Compile>
     <Compile Include="reporte.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -549,6 +561,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abonos.resx">
       <DependentUpon>Abonos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PagarA.resx">
+      <DependentUpon>PagarA.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Proveedores.resx">
       <DependentUpon>Proveedores.cs</DependentUpon>
@@ -691,6 +706,9 @@
     </Compile>
     <EmbeddedResource Include="RepEtiquetas.resx">
       <DependentUpon>RepEtiquetas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RepGastosxDia.resx">
+      <DependentUpon>RepGastosxDia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteSug.resx">
       <DependentUpon>ReporteSug.cs</DependentUpon>

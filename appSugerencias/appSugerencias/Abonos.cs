@@ -23,6 +23,13 @@ namespace appSugerencias
         string compra = "", proveedor = "", nombre = "";
         int cont = 0;
         string mensaje = "";
+        DataTable DTBodega = new DataTable();
+        DataTable DTVallarta = new DataTable();
+        DataTable DTRena = new DataTable();
+        DataTable DTColoso = new DataTable();
+        DataTable DTVelazquez = new DataTable();
+        DataTable DTPregot = new DataTable();
+        DataTable maestro = new DataTable();
 
         public Abonos(string proveedor, string nombre, double saldo)
         {
@@ -35,10 +42,12 @@ namespace appSugerencias
         public void Bancos()
         {
             MySqlConnection con = BDConexicon.BodegaOpen();
+            CB_banco.Items.Add("");
             try
             {
                 MySqlCommand cmd = new MySqlCommand("SELECT distinct banco FROM rd_cuentas_bancarias WHERE fk_proveedor='" + TB_proveedor.Text + "'", con);
                 MySqlDataReader dr = cmd.ExecuteReader();
+                CB_banco.Items.Add("");
                 while (dr.Read())
                 {
                     CB_banco.Items.Add(dr["banco"].ToString());
@@ -85,6 +94,10 @@ namespace appSugerencias
                 TB_cod.Text = "DEPEFE";
             }
 
+            if (CB_tipodoc.SelectedItem.ToString().Equals(""))
+            {
+                TB_cod.Text = "";
+            }
         }
 
 
@@ -232,8 +245,175 @@ namespace appSugerencias
         }
 
 
-        //BOTON PAGAR
-        private void button2_Click(object sender, EventArgs e)
+
+        //TRAE EL SALDO DEL PROVEEDOR TRAS APLICAR EL ABONO
+        public void SaldoProvedor(string proveedor)
+        {
+            string consulta = "SELECT CUENXPAG, PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, CARGO_AB, IMPORTE FROM CUENXPDET WHERE PROVEEDOR ='" + proveedor + "'";
+
+            //VALLARTA
+            try
+            {
+                MySqlConnection conVallarta = BDConexicon.VallartaOpen();
+                MySqlCommand cmdVA = new MySqlCommand(consulta, conVallarta);
+                MySqlDataAdapter adVA = new MySqlDataAdapter(cmdVA);
+                adVA.Fill(DTVallarta);
+                DataColumn col = new DataColumn();
+                col.ColumnName = "TIENDA";
+                col.DefaultValue = "VALLARTA";
+                DTVallarta.Columns.Add(col);
+                //LB_vallarta.Text = "CONECTADO";
+                conVallarta.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            //RENA
+            try
+            {
+                //DATOS DE RENA
+                MySqlConnection conRena = BDConexicon.RenaOpen();
+                MySqlCommand cmdRE = new MySqlCommand(consulta, conRena);
+                MySqlDataAdapter adRE = new MySqlDataAdapter(cmdRE);
+                adRE.Fill(DTRena);
+                DataColumn col = new DataColumn();
+                col.ColumnName = "TIENDA";
+                col.DefaultValue = "RENA";
+                DTRena.Columns.Add(col);
+                //LB_rena.Text = "CONECTADO";
+                conRena.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            //COLOSO
+            try
+            {
+                //DATOS DE COLOSO
+                MySqlConnection conColoso = BDConexicon.ColosoOpen();
+                MySqlCommand cmdCO = new MySqlCommand(consulta, conColoso);
+                MySqlDataAdapter adCO = new MySqlDataAdapter(cmdCO);
+                adCO.Fill(DTColoso);
+                DataColumn col = new DataColumn();
+                col.ColumnName = "TIENDA";
+                col.DefaultValue = "COLOSO";
+                DTColoso.Columns.Add(col);
+                //LB_coloso.Text = "CONECTADO";
+                conColoso.Close();
+            }
+            catch (Exception ex)
+            {
+
+
+            }
+
+            //VELAZQUEZ
+            try
+            {
+                //DATOS DE VELAZQUEZ
+                MySqlConnection conVelazquez = BDConexicon.VelazquezOpen();
+                MySqlCommand cmdVE = new MySqlCommand(consulta, conVelazquez);
+                MySqlDataAdapter adVE = new MySqlDataAdapter(cmdVE);
+                adVE.Fill(DTVelazquez);
+                DataColumn col = new DataColumn();
+                col.ColumnName = "TIENDA";
+                col.DefaultValue = "VELAZQUEZ";
+                DTVelazquez.Columns.Add(col);
+                //LB_velazquez.Text = "CONECTADO";
+                conVelazquez.Close();
+            }
+            catch (Exception ex)
+            {
+            }
+
+            //PREGOT
+            try
+            {
+                //DATOS DE PREGOT
+                MySqlConnection conPregot = BDConexicon.Papeleria1Open();
+                MySqlCommand cmdPRE = new MySqlCommand(consulta, conPregot);
+                MySqlDataAdapter adPRE = new MySqlDataAdapter(cmdPRE);
+                adPRE.Fill(DTPregot);
+                DataColumn col = new DataColumn();
+                col.ColumnName = "TIENDA";
+                col.DefaultValue = "PREGOT";
+                DTPregot.Columns.Add(col);
+                //LB_pregot.Text = "CONECTADO";
+                conPregot.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            //BODEGA
+            try
+            {
+
+                //DATOS DE BODEGA
+                MySqlConnection conBodega = BDConexicon.BodegaOpen();
+                MySqlCommand cmdBO = new MySqlCommand(consulta, conBodega);
+                MySqlDataAdapter adBO = new MySqlDataAdapter(cmdBO);
+                adBO.Fill(DTBodega);
+                DataColumn col = new DataColumn();
+                col.ColumnName = "TIENDA";
+                col.DefaultValue = "BODEGA";
+                DTBodega.Columns.Add(col);
+                //LB_bodega.Text = "CONECTADO";
+                conBodega.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            maestro.Merge(DTVallarta);
+            maestro.Merge(DTRena);
+            maestro.Merge(DTColoso);
+            maestro.Merge(DTVelazquez);
+            maestro.Merge(DTPregot);
+            maestro.Merge(DTBodega);
+
+            DataView vista = maestro.DefaultView;
+            vista.Sort = "FECHA";
+            maestro = vista.ToTable();
+
+            for (int i = 0; i < maestro.Rows.Count; i++)
+            {
+                //importe = Convert.ToDouble(maestro.Rows[i]["IMPORTE"].ToString());
+                //fecha = Convert.ToDateTime(maestro.Rows[i]["FECHA"].ToString());
+          
+
+                if (maestro.Rows[i]["cargo_ab"].ToString().Equals("C"))
+                {//SI LA OPERACION ES "C" ES UNA COMPRA Y SE SUMA AL SALDO
+                    saldo += Convert.ToDouble(maestro.Rows[i]["IMPORTE"].ToString());
+                    //cargo = Convert.ToDouble(maestro.Rows[i]["IMPORTE"].ToString());
+                   
+                }
+
+                else
+                {
+                    //PERO SI ES DIFERENTE DE "C"(UN ABONO, AJUSTE, DEVOLUCIO, ETC) SE RESTA DEL SALDO DE LA CUENTA
+
+                    saldo -= Convert.ToDouble(maestro.Rows[i]["IMPORTE"].ToString());
+                    //abono = Convert.ToDouble(maestro.Rows[i]["IMPORTE"].ToString());
+                    
+
+                }
+
+                TB_saldo_proveedor.Text = String.Format("{0:0.##}", saldo.ToString("C"));
+
+
+            }
+
+        }
+
+        //REALIZA EL ABONO A LA COMPRA E INSERTA LOS REGISTROS EN LAS RESPECTIVAS BD
+        public void AplicarPago()
         {
             MySqlConnection con = ElegirSucursal();
             int consec = ConsecAbonos();
@@ -319,7 +499,7 @@ namespace appSugerencias
 
             //INSERTAR ABONO EN TABLA FLUJO
 
-            if (CHK_va.Checked==true)
+            if (CHK_va.Checked == true)
             {
                 aplicarRetiroVA();
             }
@@ -344,6 +524,33 @@ namespace appSugerencias
                 aplicarRetiroPRE();
             }
 
+
+
+
+
+            //TRAER EL NUEVO SALDO DE LA COMPRA TRAS REALIZAR EL ABONO
+            decimal digito2 = decimal.Parse(TB_saldocompra.Text, NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"));
+            string saldocompra = digito2.ToString("G0");
+
+            decimal digito3 = decimal.Parse(TB_abono.Text, NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"));
+            string abonocompra = digito3.ToString("G0");
+
+            double saldoComActual = Convert.ToDouble(saldocompra);
+            double abonoCom = Convert.ToDouble(abonocompra);
+            double nuevoSaldoCom = saldoComActual - abonoCom;
+
+            TB_saldocompra.Text = String.Format("{0:0.##}", nuevoSaldoCom.ToString("C"));
+
+            decimal digito4 = decimal.Parse(TB_saldo_proveedor.Text, NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"));
+            string saldoprov = digito4.ToString("G0");
+
+            double saldoActualProv = Convert.ToDouble(saldoprov);
+
+            double nuevoSaldoProv = saldoActualProv - abonoCom;
+
+            TB_saldo_proveedor.Text = String.Format("{0:0.##}", nuevoSaldoProv.ToString("C"));
+            con.Close();
+
             //LIMPIAR ELEMENTOS
             TB_pagoVA.Text = "";
             TB_pagoRE.Text = "";
@@ -355,12 +562,27 @@ namespace appSugerencias
             TB_abono.Text = "";
             CB_sucursal.SelectedIndex = 0;
             CB_cxpag.SelectedIndex = 0;
+            CB_banco.SelectedIndex = 0;
+            CB_cuenta.SelectedIndex = 0;
+            CB_persona.SelectedIndex = 0;
             MessageBox.Show("ABONO APLICADO");
+        }
 
-            CuentasXPagar c = new CuentasXPagar();
-            c.button1_Click(this,null); 
+        //BOTON PAGAR
+        private void button2_Click(object sender, EventArgs e)
+        {
 
-            con.Close();
+
+            if (TB_cod.Text.Equals("")||CB_sucursal.SelectedIndex==0||CB_cxpag.SelectedIndex==0||CB_banco.SelectedIndex==0||CB_cuenta.SelectedIndex==0||CB_persona.SelectedIndex==0||TB_referencia.Text.Equals("")||TB_abono.Text.Equals(""))
+            {
+                MessageBox.Show("Favor de llenar los datos necesarios para realizar el abono");
+            }
+            else
+            {
+                AplicarPago();
+            }
+          
+           
         }
 
         //BOTON TOMAR EFECTIVO
@@ -466,6 +688,30 @@ namespace appSugerencias
             sumaPago = 0; totalVA = 0; totalRE = 0; totalCO = 0; totalVE = 0; totalPRE = 0;
             efeva = 0; efere = 0; efeco = 0; efeve = 0; efepre = 0;
 
+            if (!TB_pagoVA.Text.Equals(""))
+            {
+                CHK_va.Checked = true;
+            }
+
+            if (!TB_pagoRE.Text.Equals(""))
+            {
+                CHK_re.Checked = true;
+            }
+
+            if (!TB_pagoCO.Text.Equals(""))
+            {
+                CHK_co.Checked = true;
+            }
+
+            if (!TB_pagoVE.Text.Equals(""))
+            {
+                CHK_ve.Checked = true;
+            }
+
+            if (!TB_pagoPRE.Text.Equals(""))
+            {
+                CHK_pre.Checked = true;
+            }
         }
 
 
@@ -508,12 +754,15 @@ namespace appSugerencias
             consec.ExecuteNonQuery();
 
             DateTime fechActual = DateTime.Now;
-            MySqlCommand reporte = new MySqlCommand("INSERT INTO rd_rep_pagoproveedores(nombreprov,monto,banco,cuenta,fecha)VALUES(?nombreprov,?monto,?banco,?cuenta,?fecha)",con);
+            MySqlCommand reporte = new MySqlCommand("INSERT INTO rd_rep_pagoproveedores(nombreprov,pagarA,monto,banco,cuenta,fecha,tienda,compra)VALUES(?nombreprov,?pagarA,?monto,?banco,?cuenta,?fecha,?tienda,?compra)", con);
             reporte.Parameters.AddWithValue("?nombreprov", TB_nombre.Text);
+            reporte.Parameters.AddWithValue("?pagarA",CB_persona.SelectedItem.ToString());
             reporte.Parameters.AddWithValue("?monto", retiro);
             reporte.Parameters.AddWithValue("banco", CB_banco.SelectedItem.ToString());
             reporte.Parameters.AddWithValue("?cuenta", CB_cuenta.SelectedItem.ToString());
             reporte.Parameters.AddWithValue("?fecha", fechActual.ToString("yyyy-MM-dd"));
+            reporte.Parameters.AddWithValue("?tienda",CB_sucursal.SelectedItem.ToString());
+            reporte.Parameters.AddWithValue("?compra", CB_cxpag.SelectedItem.ToString());
             reporte.ExecuteNonQuery();
             con.Close();
         }
@@ -557,12 +806,15 @@ namespace appSugerencias
             consec.ExecuteNonQuery();
 
             DateTime fechActual = DateTime.Now;
-            MySqlCommand reporte = new MySqlCommand("INSERT INTO rd_rep_pagoproveedores(nombreprov,monto,banco,cuenta,fecha)VALUES(?nombreprov,?monto,?banco,?cuenta,?fecha)", con);
+            MySqlCommand reporte = new MySqlCommand("INSERT INTO rd_rep_pagoproveedores(nombreprov,pagarA,monto,banco,cuenta,fecha,tienda,compra)VALUES(?nombreprov,?pagarA,?monto,?banco,?cuenta,?fecha,?tienda,?compra)", con);
             reporte.Parameters.AddWithValue("?nombreprov", TB_nombre.Text);
+            reporte.Parameters.AddWithValue("?pagarA", CB_persona.SelectedItem.ToString());
             reporte.Parameters.AddWithValue("?monto", retiro);
             reporte.Parameters.AddWithValue("banco", CB_banco.SelectedItem.ToString());
-            reporte.Parameters.AddWithValue("?cuenta", CB_cxpag.SelectedItem.ToString());
+            reporte.Parameters.AddWithValue("?cuenta", CB_cuenta.SelectedItem.ToString());
             reporte.Parameters.AddWithValue("?fecha", fechActual.ToString("yyyy-MM-dd"));
+            reporte.Parameters.AddWithValue("?tienda", CB_sucursal.SelectedItem.ToString());
+            reporte.Parameters.AddWithValue("?compra", CB_cxpag.SelectedItem.ToString());
             reporte.ExecuteNonQuery();
             con.Close();
         }
@@ -603,12 +855,15 @@ namespace appSugerencias
             consec.ExecuteNonQuery();
 
             DateTime fechActual = DateTime.Now;
-            MySqlCommand reporte = new MySqlCommand("INSERT INTO rd_rep_pagoproveedores(nombreprov,monto,banco,cuenta,fecha)VALUES(?nombreprov,?monto,?banco,?cuenta,?fecha)", con);
+            MySqlCommand reporte = new MySqlCommand("INSERT INTO rd_rep_pagoproveedores(nombreprov,pagarA,monto,banco,cuenta,fecha,tienda,compra)VALUES(?nombreprov,?pagarA,?monto,?banco,?cuenta,?fecha,?tienda,?compra)", con);
             reporte.Parameters.AddWithValue("?nombreprov", TB_nombre.Text);
+            reporte.Parameters.AddWithValue("?pagarA", CB_persona.SelectedItem.ToString());
             reporte.Parameters.AddWithValue("?monto", retiro);
             reporte.Parameters.AddWithValue("banco", CB_banco.SelectedItem.ToString());
-            reporte.Parameters.AddWithValue("?cuenta", CB_cxpag.SelectedItem.ToString());
+            reporte.Parameters.AddWithValue("?cuenta", CB_cuenta.SelectedItem.ToString());
             reporte.Parameters.AddWithValue("?fecha", fechActual.ToString("yyyy-MM-dd"));
+            reporte.Parameters.AddWithValue("?tienda", CB_sucursal.SelectedItem.ToString());
+            reporte.Parameters.AddWithValue("?compra", CB_cxpag.SelectedItem.ToString());
             reporte.ExecuteNonQuery();
             con.Close();
         }
@@ -649,12 +904,15 @@ namespace appSugerencias
             consec.ExecuteNonQuery();
 
             DateTime fechActual = DateTime.Now;
-            MySqlCommand reporte = new MySqlCommand("INSERT INTO rd_rep_pagoproveedores(nombreprov,monto,banco,cuenta,fecha)VALUES(?nombreprov,?monto,?banco,?cuenta,?fecha)", con);
+            MySqlCommand reporte = new MySqlCommand("INSERT INTO rd_rep_pagoproveedores(nombreprov,pagarA,monto,banco,cuenta,fecha,tienda,compra)VALUES(?nombreprov,?pagarA,?monto,?banco,?cuenta,?fecha,?tienda,?compra)", con);
             reporte.Parameters.AddWithValue("?nombreprov", TB_nombre.Text);
+            reporte.Parameters.AddWithValue("?pagarA", CB_persona.SelectedItem.ToString());
             reporte.Parameters.AddWithValue("?monto", retiro);
             reporte.Parameters.AddWithValue("banco", CB_banco.SelectedItem.ToString());
-            reporte.Parameters.AddWithValue("?cuenta", CB_cxpag.SelectedItem.ToString());
+            reporte.Parameters.AddWithValue("?cuenta", CB_cuenta.SelectedItem.ToString());
             reporte.Parameters.AddWithValue("?fecha", fechActual.ToString("yyyy-MM-dd"));
+            reporte.Parameters.AddWithValue("?tienda", CB_sucursal.SelectedItem.ToString());
+            reporte.Parameters.AddWithValue("?compra", CB_cxpag.SelectedItem.ToString());
             reporte.ExecuteNonQuery();
             con.Close();
         }
@@ -695,12 +953,15 @@ namespace appSugerencias
             consec.ExecuteNonQuery();
 
             DateTime fechActual = DateTime.Now;
-            MySqlCommand reporte = new MySqlCommand("INSERT INTO rd_rep_pagoproveedores(nombreprov,monto,banco,cuenta,fecha)VALUES(?nombreprov,?monto,?banco,?cuenta,?fecha)", con);
+            MySqlCommand reporte = new MySqlCommand("INSERT INTO rd_rep_pagoproveedores(nombreprov,pagarA,monto,banco,cuenta,fecha,tienda,compra)VALUES(?nombreprov,?pagarA,?monto,?banco,?cuenta,?fecha,?tienda,?compra)", con);
             reporte.Parameters.AddWithValue("?nombreprov", TB_nombre.Text);
+            reporte.Parameters.AddWithValue("?pagarA", CB_persona.SelectedItem.ToString());
             reporte.Parameters.AddWithValue("?monto", retiro);
             reporte.Parameters.AddWithValue("banco", CB_banco.SelectedItem.ToString());
-            reporte.Parameters.AddWithValue("?cuenta", CB_cxpag.SelectedItem.ToString());
+            reporte.Parameters.AddWithValue("?cuenta", CB_cuenta.SelectedItem.ToString());
             reporte.Parameters.AddWithValue("?fecha", fechActual.ToString("yyyy-MM-dd"));
+            reporte.Parameters.AddWithValue("?tienda", CB_sucursal.SelectedItem.ToString());
+            reporte.Parameters.AddWithValue("?compra", CB_cxpag.SelectedItem.ToString());
             reporte.ExecuteNonQuery();
             con.Close();
         }
@@ -892,10 +1153,11 @@ namespace appSugerencias
                     con = BDConexicon.BodegaOpen();
                     MySqlCommand cmd = new MySqlCommand("SELECT SALDO FROM cuenxpag WHERE CUENXPAG ='" + CB_cxpag.SelectedItem.ToString() + "'", con);
                     MySqlDataReader dr = cmd.ExecuteReader();
-
+                    double saldocompra = 0;
                     while (dr.Read())
                     {
-                        TB_saldocompra.Text= dr["SALDO"].ToString();
+                        saldocompra = Convert.ToDouble(dr["SALDO"].ToString());
+                        TB_saldocompra.Text = String.Format("{0:0.##}", saldocompra.ToString("C"));
                     }
                     dr.Close();
                 }
@@ -1026,13 +1288,24 @@ namespace appSugerencias
             MySqlConnection con = BDConexicon.BodegaOpen();
             MySqlCommand cmd = new MySqlCommand("SELECT cuenta FROM rd_cuentas_bancarias WHERE banco ='"+CB_banco.SelectedItem.ToString()+"' and fk_proveedor='"+TB_proveedor.Text+"'",con);
             MySqlDataReader dr = cmd.ExecuteReader();
-
+            CB_cuenta.Items.Add("");
+            CB_cuenta.SelectedIndex = 0;
             while (dr.Read())
             {
                 CB_cuenta.Items.Add(dr["cuenta"].ToString());
             }
 
             dr.Close();
+
+            MySqlCommand cmd2 = new MySqlCommand("SELECT persona FROM rd_persona_parapagar WHERE fkproveedor='"+TB_proveedor.Text+"' and banco='"+CB_banco.SelectedItem.ToString()+"'",con);
+            MySqlDataReader dr2 = cmd2.ExecuteReader();
+            CB_persona.Items.Add("");
+            CB_persona.SelectedIndex = 0;
+            while (dr2.Read())
+            {
+                CB_persona.Items.Add(dr2["persona"].ToString());
+            }
+            dr2.Close();
             con.Close();
         }
         //################################################################################################

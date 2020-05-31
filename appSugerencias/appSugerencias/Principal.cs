@@ -1455,6 +1455,23 @@ namespace appSugerencias
             frm.Show();
         }
 
+        private void gastosxDíaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //se localiza el formulario buscandolo entre los forms abiertos
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is RepGastosxDia);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm = new RepGastosxDia();
+            frm.Show();
+        }
+
 
 
         //private void ventasPTiendasToolStripMenuItem_Click(object sender, EventArgs e)

@@ -77,6 +77,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.CB_tipodoc = new System.Windows.Forms.ComboBox();
             this.DT_fecha = new System.Windows.Forms.DateTimePicker();
+            this.label11 = new System.Windows.Forms.Label();
+            this.CB_persona = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -331,6 +333,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.CB_persona);
             this.groupBox2.Controls.Add(this.TB_nombre);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.TB_referencia);
@@ -459,7 +463,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(385, 127);
+            this.label8.Location = new System.Drawing.Point(393, 110);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(79, 13);
             this.label8.TabIndex = 17;
@@ -468,7 +472,7 @@
             // CB_cuenta
             // 
             this.CB_cuenta.FormattingEnabled = true;
-            this.CB_cuenta.Location = new System.Drawing.Point(466, 123);
+            this.CB_cuenta.Location = new System.Drawing.Point(474, 106);
             this.CB_cuenta.Name = "CB_cuenta";
             this.CB_cuenta.Size = new System.Drawing.Size(196, 21);
             this.CB_cuenta.TabIndex = 16;
@@ -476,7 +480,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(418, 100);
+            this.label7.Location = new System.Drawing.Point(426, 83);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 13);
             this.label7.TabIndex = 15;
@@ -498,7 +502,7 @@
             // CB_banco
             // 
             this.CB_banco.FormattingEnabled = true;
-            this.CB_banco.Location = new System.Drawing.Point(466, 96);
+            this.CB_banco.Location = new System.Drawing.Point(474, 79);
             this.CB_banco.Name = "CB_banco";
             this.CB_banco.Size = new System.Drawing.Size(196, 21);
             this.CB_banco.TabIndex = 14;
@@ -577,6 +581,23 @@
             this.DT_fecha.Size = new System.Drawing.Size(200, 20);
             this.DT_fecha.TabIndex = 10;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(393, 137);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(54, 13);
+            this.label11.TabIndex = 32;
+            this.label11.Text = "PAGAR A";
+            // 
+            // CB_persona
+            // 
+            this.CB_persona.FormattingEnabled = true;
+            this.CB_persona.Location = new System.Drawing.Point(453, 133);
+            this.CB_persona.Name = "CB_persona";
+            this.CB_persona.Size = new System.Drawing.Size(217, 21);
+            this.CB_persona.TabIndex = 31;
+            // 
             // Abonos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -648,5 +669,7 @@
         private System.Windows.Forms.CheckBox CHK_re;
         private System.Windows.Forms.CheckBox CHK_va;
         private System.Windows.Forms.TextBox TB_nombre;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox CB_persona;
     }
 }

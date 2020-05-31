@@ -623,16 +623,23 @@ namespace appSugerencias
 
         private void BT_abonos_Click(object sender, EventArgs e)
         {
-            int filas = DG_datos.RowCount;
+            if (DG_datos.Rows.Count>0)
+            {
+                int filas = DG_datos.RowCount;
 
-            decimal digito = decimal.Parse(DG_datos.Rows[filas - 1].Cells[9].Value.ToString(), NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"));
-            string s = digito.ToString("G0");
-            saldo = Convert.ToDouble(s);
-            
-            string prov = TB_proveedor.Text;
-            string nombre = CB_proveedor.SelectedItem.ToString();
-            Abonos ab = new Abonos(prov,nombre,saldo);
-            ab.Show();
+                decimal digito = decimal.Parse(DG_datos.Rows[filas - 1].Cells[9].Value.ToString(), NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"));
+                string s = digito.ToString("G0");
+                saldo = Convert.ToDouble(s);
+
+                string prov = TB_proveedor.Text;
+                string nombre = CB_proveedor.SelectedItem.ToString();
+                Abonos ab = new Abonos(prov, nombre, saldo);
+                ab.Show();
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un proveedor y busca su estado de cuenta para poder aplicar un abono");
+            }
         }
     }
 }

@@ -211,5 +211,11 @@ namespace appSugerencias
         {
             Limpiar();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            PagarA persona = new PagarA(TB_proveedor.Text, CB_proveedor.SelectedItem.ToString(),CB_banco.SelectedItem.ToString());
+            persona.Show();
+        }
     }
 }
