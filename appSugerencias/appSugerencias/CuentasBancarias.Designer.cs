@@ -41,20 +41,22 @@
             this.PROVEEDOR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BANCO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CUENTA_BANCARIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CLIENTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BT_agregar = new System.Windows.Forms.Button();
             this.CB_banco = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.TB_filtro = new System.Windows.Forms.TextBox();
             this.TB_id = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.TB_anombrede = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DG_cuentas)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 45);
+            this.label1.Location = new System.Drawing.Point(26, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 13);
             this.label1.TabIndex = 0;
@@ -63,7 +65,7 @@
             // CB_proveedor
             // 
             this.CB_proveedor.FormattingEnabled = true;
-            this.CB_proveedor.Location = new System.Drawing.Point(108, 41);
+            this.CB_proveedor.Location = new System.Drawing.Point(103, 41);
             this.CB_proveedor.Name = "CB_proveedor";
             this.CB_proveedor.Size = new System.Drawing.Size(329, 21);
             this.CB_proveedor.TabIndex = 1;
@@ -71,7 +73,7 @@
             // 
             // TB_proveedor
             // 
-            this.TB_proveedor.Location = new System.Drawing.Point(449, 42);
+            this.TB_proveedor.Location = new System.Drawing.Point(444, 42);
             this.TB_proveedor.Name = "TB_proveedor";
             this.TB_proveedor.Size = new System.Drawing.Size(85, 20);
             this.TB_proveedor.TabIndex = 2;
@@ -79,7 +81,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(63, 76);
+            this.label2.Location = new System.Drawing.Point(58, 76);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 3;
@@ -87,7 +89,7 @@
             // 
             // TB_cuenta
             // 
-            this.TB_cuenta.Location = new System.Drawing.Point(108, 98);
+            this.TB_cuenta.Location = new System.Drawing.Point(103, 98);
             this.TB_cuenta.Name = "TB_cuenta";
             this.TB_cuenta.Size = new System.Drawing.Size(426, 20);
             this.TB_cuenta.TabIndex = 6;
@@ -95,7 +97,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 101);
+            this.label3.Location = new System.Drawing.Point(20, 101);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 13);
             this.label3.TabIndex = 5;
@@ -103,7 +105,7 @@
             // 
             // BT_buscar
             // 
-            this.BT_buscar.Location = new System.Drawing.Point(190, 366);
+            this.BT_buscar.Location = new System.Drawing.Point(332, 341);
             this.BT_buscar.Name = "BT_buscar";
             this.BT_buscar.Size = new System.Drawing.Size(106, 35);
             this.BT_buscar.TabIndex = 19;
@@ -113,7 +115,7 @@
             // 
             // BT_guardar
             // 
-            this.BT_guardar.Location = new System.Drawing.Point(310, 366);
+            this.BT_guardar.Location = new System.Drawing.Point(452, 341);
             this.BT_guardar.Name = "BT_guardar";
             this.BT_guardar.Size = new System.Drawing.Size(106, 35);
             this.BT_guardar.TabIndex = 20;
@@ -129,11 +131,13 @@
             this.ID,
             this.PROVEEDOR,
             this.BANCO,
-            this.CUENTA_BANCARIA});
-            this.DG_cuentas.Location = new System.Drawing.Point(22, 186);
+            this.CUENTA_BANCARIA,
+            this.CLIENTE});
+            this.DG_cuentas.Location = new System.Drawing.Point(29, 161);
             this.DG_cuentas.Name = "DG_cuentas";
-            this.DG_cuentas.Size = new System.Drawing.Size(512, 174);
+            this.DG_cuentas.Size = new System.Drawing.Size(650, 174);
             this.DG_cuentas.TabIndex = 21;
+            this.DG_cuentas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_cuentas_CellContentClick);
             this.DG_cuentas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_cuentas_CellDoubleClick);
             // 
             // ID
@@ -156,9 +160,14 @@
             this.CUENTA_BANCARIA.HeaderText = "CUENTA BANCARIA";
             this.CUENTA_BANCARIA.Name = "CUENTA_BANCARIA";
             // 
+            // CLIENTE
+            // 
+            this.CLIENTE.HeaderText = "A NOMBRE";
+            this.CLIENTE.Name = "CLIENTE";
+            // 
             // BT_agregar
             // 
-            this.BT_agregar.Location = new System.Drawing.Point(242, 134);
+            this.BT_agregar.Location = new System.Drawing.Point(552, 12);
             this.BT_agregar.Name = "BT_agregar";
             this.BT_agregar.Size = new System.Drawing.Size(120, 46);
             this.BT_agregar.TabIndex = 22;
@@ -178,19 +187,20 @@
             "BANCOPPEL",
             "HSBC",
             "INBURSA",
-            "LIVERPOOL",
+            "LIVERPOOL (BANAMEX)",
             "SALDAZO/OXXO",
             "SANTANDER",
             "SCOTIANBANK"});
-            this.CB_banco.Location = new System.Drawing.Point(108, 71);
+            this.CB_banco.Location = new System.Drawing.Point(103, 71);
             this.CB_banco.Name = "CB_banco";
             this.CB_banco.Size = new System.Drawing.Size(426, 21);
             this.CB_banco.TabIndex = 23;
+            this.CB_banco.SelectedIndexChanged += new System.EventHandler(this.CB_banco_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(58, 18);
+            this.label4.Location = new System.Drawing.Point(53, 18);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 13);
             this.label4.TabIndex = 24;
@@ -198,7 +208,7 @@
             // 
             // TB_filtro
             // 
-            this.TB_filtro.Location = new System.Drawing.Point(108, 15);
+            this.TB_filtro.Location = new System.Drawing.Point(103, 15);
             this.TB_filtro.Name = "TB_filtro";
             this.TB_filtro.Size = new System.Drawing.Size(426, 20);
             this.TB_filtro.TabIndex = 25;
@@ -206,7 +216,7 @@
             // 
             // TB_id
             // 
-            this.TB_id.Location = new System.Drawing.Point(23, 366);
+            this.TB_id.Location = new System.Drawing.Point(29, 341);
             this.TB_id.Name = "TB_id";
             this.TB_id.Size = new System.Drawing.Size(85, 20);
             this.TB_id.TabIndex = 26;
@@ -214,7 +224,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(431, 366);
+            this.button1.Location = new System.Drawing.Point(573, 341);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(106, 35);
             this.button1.TabIndex = 27;
@@ -222,23 +232,30 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // TB_anombrede
             // 
-            this.button2.Location = new System.Drawing.Point(368, 134);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(166, 46);
-            this.button2.TabIndex = 28;
-            this.button2.Text = "REGISTRAR PERSONAS A PAGAR";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.TB_anombrede.Location = new System.Drawing.Point(103, 124);
+            this.TB_anombrede.Name = "TB_anombrede";
+            this.TB_anombrede.Size = new System.Drawing.Size(426, 20);
+            this.TB_anombrede.TabIndex = 30;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(20, 127);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(82, 13);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "A NOMBRE DE";
             // 
             // CuentasBancarias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(561, 423);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(684, 388);
+            this.Controls.Add(this.TB_anombrede);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.TB_id);
             this.Controls.Add(this.TB_filtro);
@@ -284,6 +301,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CUENTA_BANCARIA;
         private System.Windows.Forms.TextBox TB_id;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CLIENTE;
+        private System.Windows.Forms.TextBox TB_anombrede;
+        private System.Windows.Forms.Label label5;
     }
 }

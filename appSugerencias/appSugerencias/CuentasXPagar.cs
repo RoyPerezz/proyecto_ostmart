@@ -28,13 +28,13 @@ namespace appSugerencias
         DataTable DTPregot = new DataTable();
         DataTable DTBodega = new DataTable();
         DataTable master = new DataTable();
-
+        
 
         //############# OBTENGO EL REGISTRO DE CARGOS Y ABONOS DE CADA UNA DE LAS TIENDAS #####################################################################
         public void CuentasPendientesVA(string proveedor)
         {
-
-            string consulta = "SELECT CUENXPAG, PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, CARGO_AB, IMPORTE FROM CUENXPDET WHERE PROVEEDOR ='"+ proveedor + "'";
+            //string consulta = "SELECT TE.CUENXPAG,CXP.COMPRA, TE.PROVEEDOR, TE.FECHA AS FECHA, TE.TIPO_DOC, TE.NO_REFEREN, TE.CARGO_AB, TE.IMPORTE FROM CUENXPDET TE INNER JOIN CUENXPAG CXP  ON TE.CUENXPAG = CXP.CUENXPAG WHERE TE.PROVEEDOR ='" + proveedor + "'"; 
+            string consulta = "SELECT COMPRA, PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, CARGO_AB, IMPORTE FROM CUENXPDET WHERE PROVEEDOR ='"+ proveedor + "'";
             //DATOS DE VALLLARTA
             try
             {
@@ -56,8 +56,8 @@ namespace appSugerencias
 
         public void CuentasPendientesRE(string proveedor)
         {
-
-            string consulta = "SELECT CUENXPAG, PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, CARGO_AB, IMPORTE FROM CUENXPDET WHERE PROVEEDOR ='" + proveedor + "'";
+           // string consulta = "SELECT TE.CUENXPAG,CXP.COMPRA, TE.PROVEEDOR, TE.FECHA AS FECHA, TE.TIPO_DOC, TE.NO_REFEREN, TE.CARGO_AB, TE.IMPORTE FROM CUENXPDET TE INNER JOIN CUENXPAG CXP  ON TE.CUENXPAG = CXP.CUENXPAG WHERE TE.PROVEEDOR ='" + proveedor + "'";
+            string consulta = "SELECT COMPRA, PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, CARGO_AB, IMPORTE FROM CUENXPDET WHERE PROVEEDOR ='" + proveedor + "'";
 
             try
             {
@@ -81,8 +81,8 @@ namespace appSugerencias
 
         public void CuentasPendientesCO(string proveedor)
         {
-
-            string consulta = "SELECT CUENXPAG, PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, CARGO_AB, IMPORTE FROM CUENXPDET WHERE PROVEEDOR ='" + proveedor + "'";
+            //string consulta = "SELECT TE.CUENXPAG,CXP.COMPRA, TE.PROVEEDOR, TE.FECHA AS FECHA, TE.TIPO_DOC, TE.NO_REFEREN, TE.CARGO_AB, TE.IMPORTE FROM CUENXPDET TE INNER JOIN CUENXPAG CXP  ON TE.CUENXPAG = CXP.CUENXPAG WHERE TE.PROVEEDOR ='" + proveedor + "'";
+            string consulta = "SELECT COMPRA, PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, CARGO_AB, IMPORTE FROM CUENXPDET WHERE PROVEEDOR ='" + proveedor + "'";
             try
             {
                 //DATOS DE COLOSO
@@ -105,8 +105,8 @@ namespace appSugerencias
 
         public void CuentasPendientesVE(string proveedor)
         {
-
-            string consulta = "SELECT CUENXPAG, PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, CARGO_AB, IMPORTE FROM CUENXPDET WHERE PROVEEDOR ='" + proveedor + "'";
+            //string consulta = "SELECT TE.CUENXPAG,CXP.COMPRA, TE.PROVEEDOR, TE.FECHA AS FECHA, TE.TIPO_DOC, TE.NO_REFEREN, TE.CARGO_AB, TE.IMPORTE FROM CUENXPDET TE INNER JOIN CUENXPAG CXP  ON TE.CUENXPAG = CXP.CUENXPAG WHERE TE.PROVEEDOR ='" + proveedor + "'";
+            string consulta = "SELECT COMPRA, PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, CARGO_AB, IMPORTE FROM CUENXPDET WHERE PROVEEDOR ='" + proveedor + "'";
             try
             {
                 //DATOS DE VELAZQUEZ
@@ -127,7 +127,8 @@ namespace appSugerencias
 
         public void CuentasPendientesPRE(string proveedor)
         {
-            string consulta = "SELECT CUENXPAG, PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, CARGO_AB, IMPORTE FROM CUENXPDET WHERE PROVEEDOR ='" + proveedor + "'";
+           // string consulta = "SELECT TE.CUENXPAG,CXP.COMPRA, TE.PROVEEDOR, TE.FECHA  AS FECHA, TE.TIPO_DOC, TE.NO_REFEREN, TE.CARGO_AB, TE.IMPORTE FROM CUENXPDET TE INNER JOIN CUENXPAG CXP  ON TE.CUENXPAG = CXP.CUENXPAG WHERE TE.PROVEEDOR ='" + proveedor + "'";
+            string consulta = "SELECT COMPRA, PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, CARGO_AB, IMPORTE FROM CUENXPDET WHERE PROVEEDOR ='" + proveedor + "'";
             try
             {
                 //DATOS DE PREGOT
@@ -149,8 +150,8 @@ namespace appSugerencias
 
         public void CuentasPendientesBO(string proveedor)
         {
-
-            string consulta = "SELECT CUENXPAG, PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, CARGO_AB, IMPORTE FROM CUENXPDET WHERE PROVEEDOR ='" + proveedor + "'";
+           // string consulta = "SELECT TE.CUENXPAG,CXP.COMPRA, TE.PROVEEDOR, TE.FECHA AS FECHA, TE.TIPO_DOC, TE.NO_REFEREN, TE.CARGO_AB, TE.IMPORTE FROM CUENXPDET TE INNER JOIN CUENXPAG CXP  ON TE.CUENXPAG = CXP.CUENXPAG WHERE TE.PROVEEDOR ='" + proveedor + "'";
+            string consulta = "SELECT COMPRA,PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, CARGO_AB, IMPORTE FROM CUENXPDET WHERE PROVEEDOR ='" + proveedor + "'";
             try
             {
                
@@ -214,7 +215,7 @@ namespace appSugerencias
                 {//SI LA OPERACION ES "C" ES UNA COMPRA Y SE SUMA AL SALDO
                     saldo += Convert.ToDouble(master.Rows[i]["IMPORTE"].ToString());
                     cargo = Convert.ToDouble(master.Rows[i]["IMPORTE"].ToString());
-                    DG_datos.Rows.Add(master.Rows[i]["CUENXPAG"].ToString(), master.Rows[i]["PROVEEDOR"].ToString() + " " + CB_proveedor.SelectedItem.ToString(), fecha.ToString("dd/MM/yyyy"), master.Rows[i]["TIPO_DOC"].ToString(), master.Rows[i]["NO_REFEREN"].ToString(), master.Rows[i]["CARGO_AB"].ToString(), tienda,String.Format("{0:0.##}", cargo.ToString("C")), "", String.Format("{0:0.##}", saldo.ToString("C")));
+                    DG_datos.Rows.Add(master.Rows[i]["COMPRA"].ToString(), master.Rows[i]["PROVEEDOR"].ToString() + " " + CB_proveedor.SelectedItem.ToString(), fecha.ToString("dd/MM/yyyy"), master.Rows[i]["TIPO_DOC"].ToString(), master.Rows[i]["NO_REFEREN"].ToString(), master.Rows[i]["CARGO_AB"].ToString(), tienda,String.Format("{0:0.##}", cargo.ToString("C")), "", String.Format("{0:0.##}", saldo.ToString("C")));
                 }
 
                 else
@@ -223,7 +224,7 @@ namespace appSugerencias
 
                     saldo -= Convert.ToDouble(master.Rows[i]["IMPORTE"].ToString());
                     abono = Convert.ToDouble(master.Rows[i]["IMPORTE"].ToString());
-                    DG_datos.Rows.Add(master.Rows[i]["CUENXPAG"].ToString(), master.Rows[i]["PROVEEDOR"].ToString()+" "+CB_proveedor.SelectedItem.ToString(), fecha.ToString("dd/MM/yyyy"), master.Rows[i]["TIPO_DOC"].ToString(), master.Rows[i]["NO_REFEREN"].ToString(), master.Rows[i]["CARGO_AB"].ToString(), tienda,"", String.Format("{0:0.##}", abono.ToString("C")), String.Format("{0:0.##}", saldo.ToString("C")));
+                    DG_datos.Rows.Add(master.Rows[i]["COMPRA"].ToString(), master.Rows[i]["PROVEEDOR"].ToString()+" "+CB_proveedor.SelectedItem.ToString(), fecha.ToString("dd/MM/yyyy"), master.Rows[i]["TIPO_DOC"].ToString(), master.Rows[i]["NO_REFEREN"].ToString(), master.Rows[i]["CARGO_AB"].ToString(), tienda,"", String.Format("{0:0.##}", abono.ToString("C")), String.Format("{0:0.##}", saldo.ToString("C")));
 
                 }
 

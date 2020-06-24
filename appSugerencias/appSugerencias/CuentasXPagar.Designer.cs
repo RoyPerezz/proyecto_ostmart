@@ -75,12 +75,12 @@
             // 
             // CB_proveedor
             // 
-            this.CB_proveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.CB_proveedor.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.CB_proveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CB_proveedor.FormattingEnabled = true;
             this.CB_proveedor.Location = new System.Drawing.Point(355, 97);
             this.CB_proveedor.Name = "CB_proveedor";
-            this.CB_proveedor.Size = new System.Drawing.Size(914, 33);
+            this.CB_proveedor.Size = new System.Drawing.Size(996, 33);
             this.CB_proveedor.TabIndex = 1;
             this.CB_proveedor.SelectedIndexChanged += new System.EventHandler(this.CB_proveedor_SelectedIndexChanged);
             // 
@@ -89,7 +89,9 @@
             this.DG_datos.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.DG_datos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.DG_datos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.DG_datos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DG_datos.BackgroundColor = System.Drawing.SystemColors.Control;
             this.DG_datos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -123,13 +125,13 @@
             this.DG_datos.EnableHeadersVisualStyles = false;
             this.DG_datos.Location = new System.Drawing.Point(2, 140);
             this.DG_datos.Name = "DG_datos";
-            this.DG_datos.Size = new System.Drawing.Size(1598, 411);
+            this.DG_datos.Size = new System.Drawing.Size(1680, 437);
             this.DG_datos.TabIndex = 2;
             this.DG_datos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_datos_CellDoubleClick);
             // 
             // IDMOV
             // 
-            this.IDMOV.HeaderText = "IDMOV";
+            this.IDMOV.HeaderText = "COMPRA";
             this.IDMOV.Name = "IDMOV";
             // 
             // PROV
@@ -188,6 +190,7 @@
             // 
             // TB_proveedor
             // 
+            this.TB_proveedor.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.TB_proveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TB_proveedor.Location = new System.Drawing.Point(20, 18);
             this.TB_proveedor.Name = "TB_proveedor";
@@ -197,6 +200,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -219,12 +223,13 @@
             // 
             // BT_guardar
             // 
+            this.BT_guardar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BT_guardar.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_guardar.ForeColor = System.Drawing.Color.White;
             this.BT_guardar.Image = ((System.Drawing.Image)(resources.GetObject("BT_guardar.Image")));
             this.BT_guardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BT_guardar.Location = new System.Drawing.Point(1398, 94);
+            this.BT_guardar.Location = new System.Drawing.Point(1480, 94);
             this.BT_guardar.Name = "BT_guardar";
             this.BT_guardar.Size = new System.Drawing.Size(103, 36);
             this.BT_guardar.TabIndex = 9;
@@ -301,10 +306,11 @@
             // 
             // BT_Buscar
             // 
+            this.BT_Buscar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BT_Buscar.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_Buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_Buscar.ForeColor = System.Drawing.Color.White;
-            this.BT_Buscar.Location = new System.Drawing.Point(1301, 94);
+            this.BT_Buscar.Location = new System.Drawing.Point(1383, 94);
             this.BT_Buscar.Name = "BT_Buscar";
             this.BT_Buscar.Size = new System.Drawing.Size(85, 36);
             this.BT_Buscar.TabIndex = 22;
@@ -314,6 +320,7 @@
             // 
             // TB_filtro
             // 
+            this.TB_filtro.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.TB_filtro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TB_filtro.Location = new System.Drawing.Point(20, 97);
             this.TB_filtro.Name = "TB_filtro";
@@ -323,6 +330,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -334,6 +342,7 @@
             // 
             // PN_conexiones
             // 
+            this.PN_conexiones.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.PN_conexiones.BackColor = System.Drawing.Color.White;
             this.PN_conexiones.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PN_conexiones.Controls.Add(this.LB_pre);
@@ -342,7 +351,7 @@
             this.PN_conexiones.Controls.Add(this.LB_re);
             this.PN_conexiones.Controls.Add(this.LB_co);
             this.PN_conexiones.Controls.Add(this.LB_ve);
-            this.PN_conexiones.Location = new System.Drawing.Point(984, 12);
+            this.PN_conexiones.Location = new System.Drawing.Point(1081, 18);
             this.PN_conexiones.Name = "PN_conexiones";
             this.PN_conexiones.Size = new System.Drawing.Size(601, 57);
             this.PN_conexiones.TabIndex = 26;
@@ -378,10 +387,11 @@
             // 
             // BT_abonos
             // 
+            this.BT_abonos.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BT_abonos.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_abonos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_abonos.ForeColor = System.Drawing.Color.White;
-            this.BT_abonos.Location = new System.Drawing.Point(1515, 94);
+            this.BT_abonos.Location = new System.Drawing.Point(1597, 94);
             this.BT_abonos.Name = "BT_abonos";
             this.BT_abonos.Size = new System.Drawing.Size(85, 36);
             this.BT_abonos.TabIndex = 27;
@@ -394,7 +404,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(1604, 589);
+            this.ClientSize = new System.Drawing.Size(1686, 589);
             this.Controls.Add(this.BT_abonos);
             this.Controls.Add(this.PN_conexiones);
             this.Controls.Add(this.label3);
@@ -406,7 +416,6 @@
             this.Controls.Add(this.DG_datos);
             this.Controls.Add(this.CB_proveedor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
             this.Name = "CuentasXPagar";
             this.Text = "Cuentas Por Pagar";
             this.Load += new System.EventHandler(this.CuentasXPagar_Load);
@@ -442,6 +451,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TIPO_DOC;
         private System.Windows.Forms.DataGridViewTextBoxColumn REF;
         private System.Windows.Forms.DataGridViewTextBoxColumn MOV;
+        private System.Windows.Forms.Button BT_abonos;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDMOV;
         private System.Windows.Forms.DataGridViewTextBoxColumn PROV;
         private System.Windows.Forms.DataGridViewTextBoxColumn FECHA_;
@@ -452,6 +462,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn COMPRA;
         private System.Windows.Forms.DataGridViewTextBoxColumn PAGO;
         private System.Windows.Forms.DataGridViewTextBoxColumn SALDO_;
-        private System.Windows.Forms.Button BT_abonos;
     }
 }

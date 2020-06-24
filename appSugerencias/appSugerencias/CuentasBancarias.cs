@@ -70,7 +70,7 @@ namespace appSugerencias
             int banco = CB_banco.SelectedIndex;
             string proveedor = TB_proveedor.Text;
             string cuenta = TB_cuenta.Text;
-
+            string cliente = TB_anombrede.Text;
             if (banco == 0||proveedor.Equals("")||cuenta.Equals(""))
             {
                 MessageBox.Show("CAPTURA LOS DATOS");
@@ -78,7 +78,7 @@ namespace appSugerencias
             else
             {
 
-                DG_cuentas.Rows.Add("",TB_proveedor.Text, CB_banco.SelectedItem.ToString(), TB_cuenta.Text);
+                DG_cuentas.Rows.Add("",TB_proveedor.Text, CB_banco.SelectedItem.ToString(), TB_cuenta.Text,cliente);
                 CB_banco.SelectedIndex = 0;
                 TB_cuenta.Text = "";
             }
@@ -117,11 +117,12 @@ namespace appSugerencias
                    
                     for (int i = 0; i < DG_cuentas.Rows.Count; i++)
                     {
-                        MySqlCommand cmd1 = new MySqlCommand("INSERT INTO rd_cuentas_bancarias(fk_proveedor,banco,cuenta) VALUES(?fk_proveedor,?banco,?cuenta)", con);
+                        MySqlCommand cmd1 = new MySqlCommand("INSERT INTO rd_cuentas_bancarias(fk_proveedor,banco,cuenta,pagara) VALUES(?fk_proveedor,?banco,?cuenta,?pagara)", con);
                         cmd1.Parameters.Clear();
                         cmd1.Parameters.AddWithValue("?fk_proveedor", Convert.ToString(DG_cuentas.Rows[i].Cells[1].Value));
                         cmd1.Parameters.AddWithValue("?banco", Convert.ToString(DG_cuentas.Rows[i].Cells[2].Value));
                         cmd1.Parameters.AddWithValue("?cuenta", Convert.ToString(DG_cuentas.Rows[i].Cells[3].Value));
+                        cmd1.Parameters.AddWithValue("?pagara", Convert.ToString(DG_cuentas.Rows[i].Cells[4].Value));
                         cmd1.ExecuteNonQuery();
                        
                     }
@@ -139,7 +140,7 @@ namespace appSugerencias
             {
                 try
                 {
-                    MySqlCommand cmd = new MySqlCommand("UPDATE rd_cuentas_bancarias SET banco='" + CB_banco.SelectedItem.ToString() + "', cuenta='" + TB_cuenta.Text + "' WHERE id='" + TB_id.Text + "'", con);
+                    MySqlCommand cmd = new MySqlCommand("UPDATE rd_cuentas_bancarias SET banco='" + CB_banco.SelectedItem.ToString() + "', cuenta='" + TB_cuenta.Text + "',pagara='"+ TB_anombrede.Text+"' WHERE id='" + TB_id.Text + "'", con);
                     cmd.ExecuteNonQuery();
                     Limpiar();
                     MessageBox.Show("SE HAN MODIFICADO LOS DATOS");
@@ -169,11 +170,18 @@ namespace appSugerencias
             {
                 MySqlCommand cmd = new MySqlCommand("SELECT * FROM rd_cuentas_bancarias WHERE fk_proveedor='"+TB_proveedor.Text+"'",con);
                 MySqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
+                if (dr.HasRows)
                 {
-                    DG_cuentas.Rows.Add(dr["id"].ToString(),dr["fk_proveedor"].ToString(),dr["banco"].ToString(),dr["cuenta"].ToString());
+                    while (dr.Read())
+                    {
+                        DG_cuentas.Rows.Add(dr["id"].ToString(), dr["fk_proveedor"].ToString(), dr["banco"].ToString(), dr["cuenta"].ToString(), dr["pagara"].ToString());
+                    }
+                    dr.Close();
                 }
-                dr.Close();
+                else
+                {
+                    MessageBox.Show("NO HAY CUENTAS BANCARIAS REGISTRADAS");
+                }
             }
             catch (Exception ex)
             {
@@ -205,6 +213,7 @@ namespace appSugerencias
             TB_id.Text = Convert.ToString(DG_cuentas.Rows[e.RowIndex].Cells[0].Value);
             CB_banco.SelectedItem = Convert.ToString(DG_cuentas.Rows[e.RowIndex].Cells[2].Value);
             TB_cuenta.Text = Convert.ToString(DG_cuentas.Rows[e.RowIndex].Cells[3].Value);
+            TB_anombrede.Text = Convert.ToString(DG_cuentas.Rows[e.RowIndex].Cells[4].Value);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -212,10 +221,20 @@ namespace appSugerencias
             Limpiar();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void DG_cuentas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            PagarA persona = new PagarA(TB_proveedor.Text, CB_proveedor.SelectedItem.ToString(),CB_banco.SelectedItem.ToString());
-            persona.Show();
+
         }
+
+        private void CB_banco_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //private void button2_Click(object sender, EventArgs e)
+        //{
+        //    PagarA persona = new PagarA(TB_proveedor.Text, CB_proveedor.SelectedItem.ToString(),CB_banco.SelectedItem.ToString());
+        //    persona.Show();
+        //}
     }
 }

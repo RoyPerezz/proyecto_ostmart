@@ -911,3 +911,6 @@ C:\Users\Admin\source\repos\proyecto-osmart\appSugerencias\appSugerencias\obj\De
 C:\Users\Admin\source\repos\proyecto-osmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Rep_pagoproveedores.resources
 C:\Users\Admin\source\repos\proyecto-osmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.RepGastosxDia.resources
 C:\Users\Admin\source\repos\proyecto-osmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.PagarA.resources
+C:\Users\Admin\source\repos\proyecto-osmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.CuentasBancariasOS.resources
+C:\Users\Admin\source\repos\proyecto-osmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.RetirarEfectivoTiendas.resources
+C:\Users\Admin\source\repos\proyecto-osmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Rep_CajaGral.resources

@@ -51,7 +51,7 @@ namespace appSugerencias
 
             string IP = optieneIp();
             string BD = optieneBd();
-            MySqlConnection con = new MySqlConnection("server=" + IP + "; database=" + BD + "; Uid=root; pwd=;");
+            MySqlConnection con = new MySqlConnection("server=" + IP + "; database=" + BD + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
             con.Open();
 
 
@@ -66,7 +66,7 @@ namespace appSugerencias
 
 
             string BD = optieneBd();
-            MySqlConnection conVallarta = new MySqlConnection("server=192.168.1.2; database=" + BD + "; Uid=root; pwd=;");
+            MySqlConnection conVallarta = new MySqlConnection("server=192.168.1.2; database=" + BD + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
             conVallarta.Open();
 
 
@@ -80,7 +80,7 @@ namespace appSugerencias
         {
 
             string BD = optieneBd();
-            MySqlConnection conRena = new MySqlConnection("server=192.168.2.2; database=" + BD + "; Uid=root; pwd=;");
+            MySqlConnection conRena = new MySqlConnection("server=192.168.2.2; database=" + BD + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
             conRena.Open();
 
 
@@ -92,7 +92,7 @@ namespace appSugerencias
         public static MySqlConnection VelazquezOpen()
         {
             string BD = optieneBd();
-            MySqlConnection conVelazquez = new MySqlConnection("server=192.168.4.2; database=" + BD + "; Uid=root; pwd=;");
+            MySqlConnection conVelazquez = new MySqlConnection("server=192.168.4.2; database=" + BD + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
             conVelazquez.Open();
 
 
@@ -107,7 +107,7 @@ namespace appSugerencias
         {
 
             string BD = optieneBd();
-            MySqlConnection conColoso = new MySqlConnection("server=192.168.3.2; database=" + BD + "; Uid=root; pwd=;");
+            MySqlConnection conColoso = new MySqlConnection("server=192.168.3.2; database=" + BD + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
             conColoso.Open();
 
             return conColoso;
@@ -119,7 +119,7 @@ namespace appSugerencias
         {
            
                 string BD = optieneBd();
-                MySqlConnection conBodega = new MySqlConnection("server=192.168.0.190; database=" + BD + "; Uid=root; pwd=;");
+                MySqlConnection conBodega = new MySqlConnection("server=192.168.0.190; database=" + BD + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
                 conBodega.Open();
            
 
@@ -216,7 +216,7 @@ namespace appSugerencias
 
             string IP = optieneIp();
             string BD = optieneBd();
-            MySqlConnection Vvallarta = new MySqlConnection("server=192.168.1.196; database=" + BD + "; Uid=root; pwd=;");
+            MySqlConnection Vvallarta = new MySqlConnection("server=192.168.1.196; database=" + BD + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
             Vvallarta.Open();
 
 
@@ -231,7 +231,7 @@ namespace appSugerencias
 
             //string IP = optieneIp();
             string BD = optieneBd();
-            MySqlConnection Vrena = new MySqlConnection("server=192.168.2.3; database=" + BD + "; Uid=root; pwd=;");
+            MySqlConnection Vrena = new MySqlConnection("server=192.168.2.3; database=" + BD + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
             Vrena.Open();
 
 
@@ -246,7 +246,7 @@ namespace appSugerencias
 
             string IP = optieneIp();
             string BD = optieneBd();
-            MySqlConnection Vcoloso = new MySqlConnection("server=192.168.3.3; database=" + BD + "; Uid=root; pwd=;");
+            MySqlConnection Vcoloso = new MySqlConnection("server=192.168.3.3; database=" + BD + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
             Vcoloso.Open();
 
 
@@ -261,7 +261,7 @@ namespace appSugerencias
 
             string IP = optieneIp();
             string BD = optieneBd();
-            MySqlConnection Vvelazquez = new MySqlConnection("server=192.168.4.3; database=" + BD + "; Uid=root; pwd=;");
+            MySqlConnection Vvelazquez = new MySqlConnection("server=192.168.4.3; database=" + BD + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
             Vvelazquez.Open();
 
 
@@ -277,7 +277,7 @@ namespace appSugerencias
         {
             string BD = optieneBd();
             string IPP = optieneIPPregot();
-            MySqlConnection conPapeleria1 = new MySqlConnection("server="+IPP+"; database=" + BD + "; Uid=root; pwd=;");
+            MySqlConnection conPapeleria1 = new MySqlConnection("server="+IPP+"; database=" + BD + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
             conPapeleria1.Open();
 
 
@@ -336,6 +336,23 @@ namespace appSugerencias
             conPregot.Open();
 
             return conPregot;
+
+        }
+
+        public static MySqlConnection Respconectar(string sucursal,string mes,int año)
+        {
+
+
+
+
+            string IP = optieneIp();
+            string BD = optieneBd();
+            MySqlConnection con = new MySqlConnection("server=" + IP + "; database="+sucursal+" "+mes+" "+año+"; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
+            con.Open();
+
+
+
+            return con;
 
         }
 

@@ -143,6 +143,12 @@
     <Compile Include="CuentasBancarias.Designer.cs">
       <DependentUpon>CuentasBancarias.cs</DependentUpon>
     </Compile>
+    <Compile Include="CuentasBancariasOS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasBancariasOS.Designer.cs">
+      <DependentUpon>CuentasBancariasOS.cs</DependentUpon>
+    </Compile>
     <Compile Include="Departamentos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -457,11 +463,23 @@
     <Compile Include="ReporteTraspasoR.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Rep_CajaGral.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rep_CajaGral.Designer.cs">
+      <DependentUpon>Rep_CajaGral.cs</DependentUpon>
+    </Compile>
     <Compile Include="Rep_pagoproveedores.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Rep_pagoproveedores.Designer.cs">
       <DependentUpon>Rep_pagoproveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RetirarEfectivoTiendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RetirarEfectivoTiendas.Designer.cs">
+      <DependentUpon>RetirarEfectivoTiendas.cs</DependentUpon>
     </Compile>
     <Compile Include="RPT_SaldoProveedores.cs">
       <SubType>Form</SubType>
@@ -522,6 +540,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CuentasBancarias.resx">
       <DependentUpon>CuentasBancarias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasBancariasOS.resx">
+      <DependentUpon>CuentasBancariasOS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Departamentos.resx">
       <DependentUpon>Departamentos.cs</DependentUpon>
@@ -713,8 +734,14 @@
     <EmbeddedResource Include="ReporteSug.resx">
       <DependentUpon>ReporteSug.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Rep_CajaGral.resx">
+      <DependentUpon>Rep_CajaGral.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Rep_pagoproveedores.resx">
       <DependentUpon>Rep_pagoproveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RetirarEfectivoTiendas.resx">
+      <DependentUpon>RetirarEfectivoTiendas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RPT_SaldoProveedores.resx">
       <DependentUpon>RPT_SaldoProveedores.cs</DependentUpon>
