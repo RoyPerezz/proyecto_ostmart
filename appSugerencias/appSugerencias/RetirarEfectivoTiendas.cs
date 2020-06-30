@@ -938,9 +938,10 @@ namespace appSugerencias
             TB_saldobanco.Text = String.Format("{0:0.##}", total.ToString("C"));
 
             //INSERTA LO QUE QUEDA DEL EFECTIVO DISPONIBLE EN LA TABLA rd_historial_saldobancos
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO rd_historial_saldobancos(tienda,mov,banco,cuenta,pagara,cantidad,fecha,hora) VALUES(?tienda,?mov,?banco,?cuenta,?pagara,?cantidad,?fecha,?hora) ", con);
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO rd_historial_saldobancos(tienda,mov,ie,banco,cuenta,pagara,cantidad,fecha,hora) VALUES(?tienda,?mov,?ie,?banco,?cuenta,?pagara,?cantidad,?fecha,?hora) ", con);
                     cmd.Parameters.AddWithValue("?tienda", CB_tienda.SelectedItem.ToString());
                     cmd.Parameters.AddWithValue("?mov","RBAN");
+                    cmd.Parameters.AddWithValue("?ie", "I");
                     cmd.Parameters.AddWithValue("?banco",CB_bancosOsmart.SelectedItem.ToString());
                     cmd.Parameters.AddWithValue("?cuenta", CB_cuentasOsmart.SelectedItem.ToString());
                     cmd.Parameters.AddWithValue("?pagara", CB_pagara.SelectedItem.ToString());

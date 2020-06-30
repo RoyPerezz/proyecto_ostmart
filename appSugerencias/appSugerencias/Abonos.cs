@@ -71,6 +71,11 @@ namespace appSugerencias
             TB_saldocuenta.Enabled = false;
             TB_anombrede.Enabled = false;
 
+            //CB_banco_osmart.SelectedIndex = 0;
+            //CB_cuenta_osmart.SelectedIndex = 0;
+            //TB_saldocuenta.Text = "";
+            //TB_anombrede.Text = "";
+                
             if (CB_tipodoc.SelectedItem.ToString().Equals("EFECTIVO"))
             {
                 TB_cod.Text = "EFE";
@@ -525,9 +530,10 @@ namespace appSugerencias
                 MySqlConnection bo = BDConexicon.BodegaOpen();
                 double cantidad = Convert.ToDouble(TB_abono.Text);
                 DateTime fecha2 = DateTime.Now;
-                MySqlCommand spei = new MySqlCommand("INSERT INTO rd_historial_saldobancos(tienda,mov,banco,cuenta,pagara,cantidad,fecha,hora) VALUES(?tienda,?mov,?banco,?cuenta,?pagara,?cantidad,?fecha,?hora) ", bo);
+                MySqlCommand spei = new MySqlCommand("INSERT INTO rd_historial_saldobancos(tienda,mov,ie,banco,cuenta,pagara,cantidad,fecha,hora) VALUES(?tienda,?mov,?ie,?banco,?cuenta,?pagara,?cantidad,?fecha,?hora) ", bo);
                 spei.Parameters.AddWithValue("?tienda", CB_sucursal.SelectedItem.ToString());
                 spei.Parameters.AddWithValue("?mov", "SPEI");
+                spei.Parameters.AddWithValue("?ie", "E");
                 spei.Parameters.AddWithValue("?banco", CB_banco_osmart.SelectedItem.ToString());
                 spei.Parameters.AddWithValue("?cuenta", CB_cuenta_osmart.SelectedItem.ToString());
                 spei.Parameters.AddWithValue("?pagara", CB_persona.SelectedItem.ToString());
@@ -1567,13 +1573,16 @@ namespace appSugerencias
         private void CB_sucursal_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-          
+
             string sucursal = Convert.ToString(CB_sucursal.SelectedItem.ToString());
             MySqlConnection con = null;
             CB_cxpag.Items.Clear();
             CB_cxpag.Items.Add("");
             TB_saldocompra.Text = "";
             CB_cxpag.SelectedIndex = -1;
+            CB_banco_osmart.Items.Clear();
+            CB_banco_osmart.Items.Add("");
+            CB_banco_osmart.SelectedIndex = 0;
 
             TB_cxp.Text = "";
 

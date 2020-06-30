@@ -21,8 +21,9 @@ namespace appSugerencias
         private void Rep_CajaGral_Load(object sender, EventArgs e)
         {
             DG_reporte.Columns[0].Width = 80;
-            DG_reporte.Columns[1].Width = 200;
-            
+            DG_reporte.Columns[1].Width = 40;
+            DG_reporte.Columns[2].Width = 200;
+
 
         }
 
@@ -30,14 +31,14 @@ namespace appSugerencias
         public void Saldo()
         {
 
-            double spei = 0;
-            double rban = 0;
+            double ingreso = 0;
+            double egreso = 0;
             for (int i = 0; i < DG_reporte.Rows.Count; i++)
             {
-                string mov = Convert.ToString(DG_reporte.Rows[i].Cells[0].Value);
+                string ie = Convert.ToString(DG_reporte.Rows[i].Cells[1].Value);
 
 
-                decimal digito = decimal.Parse(DG_reporte.Rows[i].Cells[2].Value.ToString(), NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"));
+                decimal digito = decimal.Parse(DG_reporte.Rows[i].Cells[3].Value.ToString(), NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"));
                 string texto = digito.ToString("G0");
                 double cantidad= Convert.ToDouble(texto);
 
@@ -48,22 +49,22 @@ namespace appSugerencias
 
               
 
-                if (mov.Equals("SPEI"))
+                if (ie.Equals("I"))
                 {
-                    spei += cantidad;
+                    ingreso += cantidad;
                 }
 
-                if (mov.Equals("RBAN"))
+                if (ie.Equals("E"))
                 {
-                    rban += cantidad;
+                    egreso += cantidad;
                 }
             }
 
-            double saldo = rban - spei;
+            double saldo = ingreso - egreso;
 
-            DG_reporte.Rows.Add("","SALDO", String.Format("{0:0.##}", saldo.ToString("C")),"","");
+            DG_reporte.Rows.Add("","","SALDO", String.Format("{0:0.##}", saldo.ToString("C")),"","");
 
-            saldo = 0; rban = 0; spei=0;
+            saldo = 0; ingreso = 0; egreso=0;
         }
 
 
@@ -81,7 +82,7 @@ namespace appSugerencias
 
                double cantidad = Convert.ToDouble(dr["cantidad"].ToString());
                 DateTime fecha = Convert.ToDateTime(dr["fecha"].ToString());
-                DG_reporte.Rows.Add(dr["mov"].ToString(), dr["pagara"].ToString(), String.Format("{0:0.##}", cantidad.ToString("C")), fecha.ToString("dd-MM-yyyy"),dr["hora"].ToString());
+                DG_reporte.Rows.Add(dr["mov"].ToString(), dr["ie"].ToString(), dr["pagara"].ToString(), String.Format("{0:0.##}", cantidad.ToString("C")), fecha.ToString("dd-MM-yyyy"),dr["hora"].ToString());
             }
            
             dr.Close();
