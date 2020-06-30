@@ -46,15 +46,15 @@ namespace appSugerencias
             importeDiaTo = 0;
             DateTime fecha;
 
-            string dia = DateTime.Now.ToString("dd");
-            string mes = DateTime.Now.ToString("MM");
-            string ano = DateTime.Now.ToString("yyyy");
+            // string dia = DateTime.Now.ToString("dd");
+            // string mes = DateTime.Now.ToString("MM");
+            // string ano = DateTime.Now.ToString("yyyy");
 
-           // MessageBox.Show(dia);
-            for( int i = Convert.ToInt32(dia); i < 0; i--)
-            {
-                dgvVentas.Rows[i].Cells[0].Value = i.ToString() + "/" + mes + "/" + ano;
-            }
+            //MessageBox.Show(dia);
+            // for( int i = Convert.ToInt32(dia); i < 0; i--)
+            // {
+            //     dgvVentas.Rows[i].Cells[0].Value = i.ToString() + "/" + mes + "/" + ano;
+            // }
 
 
 
@@ -99,7 +99,7 @@ namespace appSugerencias
                 LisVallarta.Add(totalVa);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 for (int i = 0; i < dgvVentas.Rows.Count; i++)
                 {
@@ -109,7 +109,7 @@ namespace appSugerencias
                 }
                 LisVallarta.Add(0);
             
-                MessageBox.Show("Vallarta sin conexion");
+                MessageBox.Show("Vallarta sin conexion" + ex.Message);
             }
 
            
@@ -147,7 +147,7 @@ namespace appSugerencias
 
 
         }
-            catch (Exception)
+            catch (Exception ex)
             {
                 for (int i = 0; i < dgvVentas.Rows.Count; i++)
                 {
@@ -156,7 +156,7 @@ namespace appSugerencias
                     LisRena.Add(0);
                 }
                 LisRena.Add(0);
-                MessageBox.Show("rena sin conexion");
+                MessageBox.Show("rena sin conexion"+ ex.Message);
 
 
 
@@ -194,7 +194,7 @@ namespace appSugerencias
                 dgvVentas.Rows[y].Cells[3].Value = totalVe.ToString("C");
                 LisVelazquez.Add(totalVe);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 for (int i = 0; i < dgvVentas.Rows.Count; i++)
                 {
@@ -204,7 +204,7 @@ namespace appSugerencias
                 }
                 LisVelazquez.Add(0);
               
-                MessageBox.Show("Velazquez sin conexion");
+                MessageBox.Show("Velazquez sin conexion"+ ex.Message);
             }
 
 
@@ -240,7 +240,7 @@ namespace appSugerencias
                 dgvVentas.Rows[y].Cells[4].Value = totalCo.ToString("C");
                 LisColoso.Add(totalCo);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 for (int i = 0; i < dgvVentas.Rows.Count; i++)
                 {
@@ -250,7 +250,7 @@ namespace appSugerencias
                 }
                 LisColoso.Add(0);
                 
-                MessageBox.Show("Coloso sin conexion");
+                MessageBox.Show("Coloso sin conexion" + ex.Message);
             }
 
             try
@@ -285,7 +285,7 @@ namespace appSugerencias
                 dgvVentas.Rows[y].Cells[5].Value = totalPre.ToString("C");
                 LisPregot.Add(totalPre);
             }
-            catch (Exception)
+            catch (Exception ep)
             {
                 for (int i = 0; i < dgvVentas.Rows.Count; i++)
                 {
@@ -294,7 +294,7 @@ namespace appSugerencias
                     LisPregot.Add(0);
                 }
                 LisPregot.Add(0);
-                MessageBox.Show("Pregot sin conexion");
+                MessageBox.Show("Pregot sin conexion" + ep.Message);
             }
 
            
@@ -320,6 +320,17 @@ namespace appSugerencias
 
         public void colocaFecha()
         {
+
+            // string dia = DateTime.Now.ToString("dd");
+            // string mes = DateTime.Now.ToString("MM");
+            // string ano = DateTime.Now.ToString("yyyy");
+
+            //MessageBox.Show(dia);
+            // for( int i = Convert.ToInt32(dia); i < 0; i--)
+            // {
+            //     dgvVentas.Rows[i].Cells[0].Value = i.ToString() + "/" + mes + "/" + ano;
+            // }
+            string dia = DateTime.Now.ToString("dd");
             string mes = DateTime.Now.ToString("MM");
             string ano = DateTime.Now.ToString("yyyy");
 
@@ -328,7 +339,7 @@ namespace appSugerencias
 
             for (int i = 0; i < dgvVentas.Rows.Count - 1; i++)
             {
-                int aux = i + 1;
+                int aux = Convert.ToInt32(dia);
                 dgvVentas.Rows[i].Cells[0].Value = aux.ToString() + "/" + mes + "/" + ano;
             }
 

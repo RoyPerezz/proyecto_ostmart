@@ -132,21 +132,21 @@ namespace appSugerencias
             else
             {
                 btGuardar.Enabled = false;
-                //try
-                //{
-                //    conex_guardar = BDConexicon.conectar();
-                //    actualiza();
-                //    conex_guardar.Close();
+                try
+                {
+                    conex_guardar = BDConexicon.conectar();
+                    actualiza();
+                    conex_guardar.Close();
 
-                //    lblBo.Text = "OK";
-                //    lblBo.ForeColor = Color.DarkGreen;
-                //}
-                //catch (Exception ex)
-                //{
-                //    lblBo.Text = "NA";
-                //    lblBo.ForeColor = Color.Red;
+                    lblBo.Text = "OK";
+                    lblBo.ForeColor = Color.DarkGreen;
+                }
+                catch (Exception ex)
+                {
+                    lblBo.Text = "NA";
+                    lblBo.ForeColor = Color.Red;
 
-                //}
+                }
 
                 try
                 {
@@ -212,20 +212,20 @@ namespace appSugerencias
                     lblVe.ForeColor = Color.Red;
                 }
 
-                //try
-                //{
-                //    conex_guardar = BDConexicon.Papeleria1Open();
-                //    actualiza();
-                //    conex_guardar.Close();
+                try
+                {
+                    conex_guardar = BDConexicon.V_PregotMina();
+                    actualiza();
+                    conex_guardar.Close();
 
-                //    lblPre.Text = "OK";
-                //    lblPre.ForeColor = Color.DarkGreen;
-                //}
-                //catch (Exception ex)
-                //{
-                //    lblPre.Text = "NA";
-                //    lblPre.ForeColor = Color.Red;
-                //}
+                    lblPM.Text = "OK";
+                    lblPM.ForeColor = Color.DarkGreen;
+                }
+                catch (Exception ex)
+                {
+                    lblPM.Text = "NA";
+                    lblPM.ForeColor = Color.Red;
+                }
 
                 limpiar();
 
@@ -332,8 +332,8 @@ namespace appSugerencias
 
         public void limpiaTiendas()
         {
-            //lblBo.Text = "---";
-            //lblBo.ForeColor = Color.Black;
+            lblBo.Text = "---";
+            lblBo.ForeColor = Color.Black;
 
             lblVa.Text = "---";
             lblVa.ForeColor = Color.Black;
@@ -348,8 +348,8 @@ namespace appSugerencias
             lblVe.ForeColor = Color.Black;
 
 
-            //lblPre.Text = "---";
-            //lblPre.ForeColor = Color.Black;
+            lblPM2.Text = "---";
+            lblPM2.ForeColor = Color.Black;
 
         }
 
@@ -548,23 +548,23 @@ namespace appSugerencias
             {
                 btExcel.Enabled = false;
 
-                ////Local
-                //try
-                //{
-                //    conex_excel = BDConexicon.conectar();
-                //    cargarArticulos();
-                //    conex_excel.Close();
+                //Local
+                try
+                {
+                    conex_excel = BDConexicon.BodegaOpen();
+                    cargarArticulos();
+                    conex_excel.Close();
 
-                //    lblBo2.Text = "OK";
-                //    lblBo2.ForeColor = Color.DarkGreen;
-                //}
-                //catch (Exception ex)
-                //{
-                //    lblBo2.Text = "NA";
-                //    lblBo2.ForeColor = Color.Red;
+                    lblBo2.Text = "OK";
+                    lblBo2.ForeColor = Color.DarkGreen;
+                }
+                catch (Exception ex)
+                {
+                    lblBo2.Text = "NA";
+                    lblBo2.ForeColor = Color.Red;
 
 
-                //}
+                }
 
                 //VALLARTA
                 try
@@ -639,23 +639,23 @@ namespace appSugerencias
 
                 }
 
-                ////PREGOT
-                //try
-                //{
-                //    conex_excel = BDConexicon.Papeleria1Open();
-                //    cargarArticulos();
-                //    conex_excel.Close();
+                //PREGOT
+                try
+                {
+                    conex_excel = BDConexicon.V_PregotMina();
+                    cargarArticulos();
+                    conex_excel.Close();
 
-                //    lblPre2.Text = "OK";
-                //    lblPre2.ForeColor = Color.DarkGreen;
-                //}
-                //catch (Exception ex)
-                //{
-                //    lblPre2.Text = "NA";
-                //    lblPre2.ForeColor = Color.Red;
+                    lblPM2.Text = "OK";
+                    lblPM2.ForeColor = Color.DarkGreen;
+                }
+                catch (Exception ex)
+                {
+                    lblPM2.Text = "NA";
+                    lblPM2.ForeColor = Color.Red;
 
 
-                //}
+                }
 
 
                 btExcel.Enabled = true;

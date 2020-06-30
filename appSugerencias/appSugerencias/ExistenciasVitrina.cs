@@ -21,6 +21,7 @@ namespace appSugerencias
         MySqlConnection vRena;
         MySqlConnection vColoso;
         MySqlConnection vVelazquez;
+        MySqlConnection VPregot;
         //MySqlConnection bodega;
 
         string Usuario;
@@ -36,7 +37,11 @@ namespace appSugerencias
 
         private void ExistenciasVitrina_Load(object sender, EventArgs e)
         {
-
+            CbVaExis.Checked = true;
+            CbReExis.Checked = true;
+            CbCoExis.Checked = true;
+            CbVeExis.Checked = true;
+            CbPrExis.Checked = true;
         }
 
 
@@ -228,21 +233,79 @@ namespace appSugerencias
 
         }
 
-        
+        public void ExistenciaPregotMina()
+        {
+            try
+            {
+
+                VPregot = BDConexicon.V_PregotMina();
+                string consulta = "SELECT existencia,fabricante from prods where articulo='" + TB_clave.Text + "'";
+                MySqlCommand cmd = new MySqlCommand(consulta, VPregot);
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    TB_Pregot.Text = dr["existencia"].ToString();
+                    LB_Pregot.Text = dr["fabricante"].ToString();
+                }
+                else
+                {
+                    TB_Pregot.ForeColor = Color.Red;
+                    TB_Pregot.Text = "No existe";
+                }
+
+                dr.Close();
+                VPregot.Close();
+            }
+            catch (Exception ex)
+            {
+                TB_Pregot.ForeColor = Color.Red;
+                TB_Pregot.Text = "Sin conexion";
+            }
+
+
+        }
+
+        public void busca()
+        {
+            if (CbVaExis.Checked)
+            {
+                DatosProducto();
+            }
+            if (CbReExis.Checked)
+            {
+                ExistenciaRE();
+            }
+
+            if (CbCoExis.Checked)
+            {
+                ExistenciaCo();
+
+            }
+
+            if (CbVeExis.Checked)
+            {
+                ExistenciaVE();
+
+            }
+            if (CbPrExis.Checked)
+            {
+                ExistenciaPregotMina();
+
+            }
+
+        }
 
 
         private void BT_buscar_Click(object sender, EventArgs e)
         {
 
+            busca();
 
 
+            
 
 
-            DatosProducto();
-            ExistenciaRE();
-            ExistenciaCo();
-            ExistenciaVE();
-     
             TB_clave.Focus();
         }
 
@@ -254,6 +317,7 @@ namespace appSugerencias
             TB_mayoreo.Text = "";
             TB_costo.Text = "";
             TB_fabricante.Text = "";
+            TB_Pregot.Text = "";
 
             TB_vallarta.Text = "";
             TB_rena.Text = "";
@@ -276,6 +340,7 @@ namespace appSugerencias
             LB_prov_rena.Text = "";
             LB_prov_coloso.Text = "";
             LB_prov_velazquez.Text = "";
+            LB_Pregot.Text = "";
 
             TB_clave.Focus();
         }
@@ -306,10 +371,7 @@ namespace appSugerencias
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                DatosProducto();
-                ExistenciaRE();
-                ExistenciaCo();
-                ExistenciaVE();
+                busca();
                
                 TB_clave.Focus();
             }
@@ -327,11 +389,13 @@ namespace appSugerencias
                 TB_rena.Text = "";
                 TB_coloso.Text = "";
                 TB_velazquez.Text = "";
+                TB_Pregot.Text = "";
 
                 LB_prov_vallarta.Text = "";
                 LB_prov_rena.Text = "";
                 LB_prov_coloso.Text = "";
                 LB_prov_velazquez.Text = "";
+                LB_Pregot.Text = "";
 
                 TB_clave.Focus();
             }
@@ -563,6 +627,56 @@ namespace appSugerencias
             {
                 lblCo.Text = "N/A";
                 lblCo.ForeColor = Color.Red;
+            }
+
+        }
+
+
+        public void PregotOferta()
+        {
+
+            MySqlConnection con;
+            try
+            {
+                con = BDConexicon.V_PregotMina();
+                DateTime Finicio = dt_Inicio.Value;
+                DateTime Ffin = dt_Fin.Value;
+
+                string inicio = getDate(Finicio);
+                string fin = getDate(Ffin);
+
+
+
+                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET oferta=1  WHERE articulo=?articulo", con);
+                cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_clave.Text;
+                MySqlDataReader mdrr;
+                mdrr = cmdoo.ExecuteReader();
+                mdrr.Close();
+
+                MySqlCommand cmdo = new MySqlCommand("DELETE FROM ofertas WHERE articulo=?articulo", con);
+                cmdo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_clave.Text;
+                MySqlDataReader mdr;
+                mdr = cmdo.ExecuteReader();
+                mdr.Close();
+
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO ofertas(articulo,fechainicial,fechafinal,porporcentaje,porcentaje) VALUES(?articulo,?fechainicial,?fechafinal,?porporcentaje,?porcentaje)", con);
+                cmd.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_clave.Text;
+                cmd.Parameters.Add("?fechainicial", MySqlDbType.VarChar).Value = inicio;
+                cmd.Parameters.Add("?fechafinal", MySqlDbType.VarChar).Value = fin;
+                cmd.Parameters.Add("?porporcentaje", MySqlDbType.Int16).Value = 1;
+                cmd.Parameters.Add("?porcentaje", MySqlDbType.Float).Value = (float)Convert.ToDouble(tbporcentaje.Text);
+                cmd.ExecuteNonQuery();
+
+                // limpiarOferta();
+
+                lblPreOferta.Text = "OK";
+                //MessageBox.Show("Los datos se Guardaron");
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                lblPreOferta.Text = "N/A";
+                lblPreOferta.ForeColor = Color.Red;
             }
 
         }
@@ -1089,6 +1203,41 @@ namespace appSugerencias
            
         }
 
+        private void PregotPrecio()
+        {
+
+
+            MySqlConnection con;
+            try
+            {
+                con = BDConexicon.V_PregotMina();
+                double Precio1 = Convert.ToDouble(tbPrecio1.Text);
+                double Precio2 = Convert.ToDouble(tbPrecio2.Text);
+                Precio1 = Precio1 / 1.16;
+                Precio2 = Precio2 / 1.16;
+
+
+                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET precio1=?precio1,precio2=?precio2  WHERE articulo=?articulo", con);
+                cmdoo.Parameters.Add("?precio1", MySqlDbType.VarChar).Value = Precio1;
+                cmdoo.Parameters.Add("?precio2", MySqlDbType.VarChar).Value = Precio2;
+                cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_clave.Text;
+                MySqlDataReader mdrr;
+                mdrr = cmdoo.ExecuteReader();
+                mdrr.Close();
+
+
+                lblPrePrecio.Text = "OK";
+                lblPrePrecio.ForeColor = Color.DarkGreen;
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                lblPrePrecio.Text = "N/A";
+                lblPrePrecio.ForeColor = Color.Red;
+            }
+
+        }
+
 
         //private void cBoxTodasPrecio_CheckedChanged(object sender, EventArgs e)
         //{
@@ -1098,7 +1247,7 @@ namespace appSugerencias
         //        cBoxRePrecio.Checked = true;
         //        cBoxVePrecio.Checked = true;
         //        cBoxCoPrecio.Checked = true;
-             
+
 
         //    }
         //    else if (!cBoxTodasPrecio.Checked)
@@ -1146,11 +1295,13 @@ namespace appSugerencias
                     lblRe.Text = "";
                     lblVe.Text = "";
                     lblCo.Text = "";
+                    lblPreOferta.Text = "";
 
                     lblVaPre.Text = "";
                     lblRePre.Text = "";
                     lblVePre.Text = "";
                     lblCoPre.Text = "";
+                    lblPrePrecio.Text = "";
 
                     DatosProducto();
                
@@ -1174,11 +1325,13 @@ namespace appSugerencias
                 lblRe.Text = "";
                 lblVe.Text = "";
                 lblCo.Text = "";
+                lblPreOferta.Text = "";
 
                 lblVaPre.Text = "";
                 lblRePre.Text = "";
                 lblVePre.Text = "";
                 lblCoPre.Text = "";
+                lblPrePrecio.Text = "";
                 TB_clave.Focus();
                 TB_clave.SelectAll();
                 SendKeys.Send("{BACKSPACE}");
@@ -1187,7 +1340,7 @@ namespace appSugerencias
 
         private void AplicaOferta_Click_4(object sender, EventArgs e)
         {
-            if (cBoxVa.Checked == false & cBoxRe.Checked == false & cBoxVe.Checked == false & cBoxCo.Checked == false)
+            if (cBoxVa.Checked == false & cBoxRe.Checked == false & cBoxVe.Checked == false & cBoxCo.Checked == false & cBoxPre.Checked==false)
             {
                 MessageBox.Show("Selecciona una Tienda para aplicar la Oferta");
             }
@@ -1261,6 +1414,23 @@ namespace appSugerencias
                     //MessageBox.Show("Coloso");
                 }
             }
+            if (cBoxPre.Checked)
+            {
+                if (string.IsNullOrEmpty(TB_clave.Text))
+                {
+                    MessageBox.Show("Inserta Codigo de Articulo");
+
+                }
+                else if (string.IsNullOrEmpty(tbporcentaje.Text))
+                {
+                    MessageBox.Show("Inserta Porcentaje de Descuento");
+                }
+                else
+                {
+                    PregotOferta();
+                    //MessageBox.Show("Pregot");
+                }
+            }
             else
             {
                 limpiarOferta();
@@ -1271,7 +1441,7 @@ namespace appSugerencias
         private void aplicarPrecio_Click_1(object sender, EventArgs e)
         {
 
-            if (cBoxVaPrecio.Checked == false & cBoxRePrecio.Checked == false & cBoxVePrecio.Checked == false & cBoxCoPrecio.Checked == false)
+            if (cBoxVaPrecio.Checked == false & cBoxRePrecio.Checked == false & cBoxVePrecio.Checked == false & cBoxCoPrecio.Checked == false & cBoxCoPrecio.Checked==false)
             {
                 MessageBox.Show("Selecciona una Tienda para aplicar la Oferta");
             }
@@ -1362,6 +1532,27 @@ namespace appSugerencias
                 }
             }
 
+            if (cBoxPrePrecio.Checked)
+            {
+                if (string.IsNullOrEmpty(TB_clave.Text))
+                {
+                    MessageBox.Show("Inserta Codigo de Articulo");
+
+                }
+                else if (string.IsNullOrEmpty(tbPrecio1.Text))
+                {
+                    MessageBox.Show("Inserta Precio Menudeo");
+                }
+                else if (string.IsNullOrEmpty(tbPrecio2.Text))
+                {
+                    MessageBox.Show("Inserta Precio Mayoreo");
+                }
+                {
+                    PregotPrecio();
+                    //MessageBox.Show("Coloso");
+                }
+            }
+
         }
 
         private void cBoxTodas_CheckedChanged_2(object sender, EventArgs e)
@@ -1372,7 +1563,7 @@ namespace appSugerencias
                 cBoxRe.Checked = true;
                 cBoxVe.Checked = true;
                 cBoxCo.Checked = true;
-
+                cBoxPre.Checked = true;
 
             }
             else if (!cBoxTodas.Checked)
@@ -1381,6 +1572,7 @@ namespace appSugerencias
                 cBoxRe.Checked = false;
                 cBoxVe.Checked = false;
                 cBoxCo.Checked = false;
+                cBoxPre.Checked = false;
             }
         }
 
@@ -1397,6 +1589,7 @@ namespace appSugerencias
                 cBoxRePrecio.Checked = true;
                 cBoxVePrecio.Checked = true;
                 cBoxCoPrecio.Checked = true;
+                cBoxPrePrecio.Checked = true;
 
 
             }
@@ -1406,7 +1599,14 @@ namespace appSugerencias
                 cBoxRePrecio.Checked = false;
                 cBoxVePrecio.Checked = false;
                 cBoxCoPrecio.Checked = false;
+                cBoxPrePrecio.Checked = false;
+
             }
+        }
+
+        private void TB_clave_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
