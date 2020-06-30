@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.DG_reporte = new System.Windows.Forms.DataGridView();
-            this.BT_aceptar = new System.Windows.Forms.Button();
-            this.DT_inicio = new System.Windows.Forms.DateTimePicker();
-            this.DT_fin = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.MOVIMIENTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ENVIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CANTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HORA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BT_aceptar = new System.Windows.Forms.Button();
+            this.DT_inicio = new System.Windows.Forms.DateTimePicker();
+            this.DT_fin = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DG_reporte)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,6 +61,36 @@
             this.DG_reporte.Name = "DG_reporte";
             this.DG_reporte.Size = new System.Drawing.Size(674, 352);
             this.DG_reporte.TabIndex = 0;
+            // 
+            // MOVIMIENTO
+            // 
+            this.MOVIMIENTO.HeaderText = "MOVIMIENTO";
+            this.MOVIMIENTO.Name = "MOVIMIENTO";
+            // 
+            // IE
+            // 
+            this.IE.HeaderText = "IE";
+            this.IE.Name = "IE";
+            // 
+            // ENVIO
+            // 
+            this.ENVIO.HeaderText = "SE ENVIO A";
+            this.ENVIO.Name = "ENVIO";
+            // 
+            // CANTIDAD
+            // 
+            this.CANTIDAD.HeaderText = "CANTIDAD";
+            this.CANTIDAD.Name = "CANTIDAD";
+            // 
+            // FECHA
+            // 
+            this.FECHA.HeaderText = "FECHA";
+            this.FECHA.Name = "FECHA";
+            // 
+            // HORA
+            // 
+            this.HORA.HeaderText = "HORA";
+            this.HORA.Name = "HORA";
             // 
             // BT_aceptar
             // 
@@ -112,36 +142,6 @@
             this.label2.Size = new System.Drawing.Size(24, 13);
             this.label2.TabIndex = 5;
             this.label2.Text = "FIN";
-            // 
-            // MOVIMIENTO
-            // 
-            this.MOVIMIENTO.HeaderText = "MOVIMIENTO";
-            this.MOVIMIENTO.Name = "MOVIMIENTO";
-            // 
-            // IE
-            // 
-            this.IE.HeaderText = "IE";
-            this.IE.Name = "IE";
-            // 
-            // ENVIO
-            // 
-            this.ENVIO.HeaderText = "SE ENVIO A";
-            this.ENVIO.Name = "ENVIO";
-            // 
-            // CANTIDAD
-            // 
-            this.CANTIDAD.HeaderText = "CANTIDAD";
-            this.CANTIDAD.Name = "CANTIDAD";
-            // 
-            // FECHA
-            // 
-            this.FECHA.HeaderText = "FECHA";
-            this.FECHA.Name = "FECHA";
-            // 
-            // HORA
-            // 
-            this.HORA.HeaderText = "HORA";
-            this.HORA.Name = "HORA";
             // 
             // Rep_CajaGral
             // 
