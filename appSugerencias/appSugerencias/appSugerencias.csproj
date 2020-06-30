@@ -100,6 +100,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abonos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abonos.Designer.cs">
+      <DependentUpon>Abonos.cs</DependentUpon>
+    </Compile>
     <Compile Include="ArticuloSinVentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +142,16 @@
     </Compile>
     <Compile Include="CReporte.Designer.cs">
       <DependentUpon>CReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasBancarias.cs" />
+    <Compile Include="CuentasBancarias.Designer.cs">
+      <DependentUpon>CuentasBancarias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasBancariasOS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasBancariasOS.Designer.cs">
+      <DependentUpon>CuentasBancariasOS.cs</DependentUpon>
     </Compile>
     <Compile Include="Departamentos.cs">
       <SubType>Form</SubType>
@@ -227,8 +243,16 @@
     <Compile Include="Nota.Designer.cs">
       <DependentUpon>Nota.cs</DependentUpon>
     </Compile>
+    <Compile Include="PagarA.cs" />
+    <Compile Include="PagarA.Designer.cs">
+      <DependentUpon>PagarA.cs</DependentUpon>
+    </Compile>
     <Compile Include="Productos.cs" />
     <Compile Include="Proveedor.cs" />
+    <Compile Include="Proveedores.cs" />
+    <Compile Include="Proveedores.Designer.cs">
+      <DependentUpon>Proveedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="registroAsesoras.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -427,6 +451,10 @@
     <Compile Include="RepEtiquetas.Designer.cs">
       <DependentUpon>RepEtiquetas.cs</DependentUpon>
     </Compile>
+    <Compile Include="RepGastosxDia.cs" />
+    <Compile Include="RepGastosxDia.Designer.cs">
+      <DependentUpon>RepGastosxDia.cs</DependentUpon>
+    </Compile>
     <Compile Include="reporte.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -444,6 +472,28 @@
     </Compile>
     <Compile Include="ReporteTraspasoR.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rep_CajaGral.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rep_CajaGral.Designer.cs">
+      <DependentUpon>Rep_CajaGral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rep_pagoproveedores.cs" />
+    <Compile Include="Rep_pagoproveedores.Designer.cs">
+      <DependentUpon>Rep_pagoproveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RetirarEfectivoTiendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RetirarEfectivoTiendas.Designer.cs">
+      <DependentUpon>RetirarEfectivoTiendas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Retiros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Retiros.Designer.cs">
+      <DependentUpon>Retiros.cs</DependentUpon>
     </Compile>
     <Compile Include="RPT_SaldoProveedores.cs">
       <SubType>Form</SubType>
@@ -478,6 +528,12 @@
       <DependentUpon>TraspasoTiendas.cs</DependentUpon>
     </Compile>
     <Compile Include="VARIABLES.cs" />
+    <Compile Include="VentasTarjeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentasTarjeta.Designer.cs">
+      <DependentUpon>VentasTarjeta.cs</DependentUpon>
+    </Compile>
     <Compile Include="VentasXLinea.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -490,6 +546,9 @@
     <Compile Include="VentasxTienda.Designer.cs">
       <DependentUpon>VentasxTienda.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Abonos.resx">
+      <DependentUpon>Abonos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ArticuloSinVentas.resx">
       <DependentUpon>ArticuloSinVentas.cs</DependentUpon>
     </EmbeddedResource>
@@ -507,6 +566,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CReporte.resx">
       <DependentUpon>CReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasBancarias.resx">
+      <DependentUpon>CuentasBancarias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasBancariasOS.resx">
+      <DependentUpon>CuentasBancariasOS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Departamentos.resx">
       <DependentUpon>Departamentos.cs</DependentUpon>
@@ -552,6 +617,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Nota.resx">
       <DependentUpon>Nota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PagarA.resx">
+      <DependentUpon>PagarA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedores.resx">
+      <DependentUpon>Proveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="registroAsesoras.resx">
       <DependentUpon>registroAsesoras.cs</DependentUpon>
@@ -692,8 +763,23 @@
     <EmbeddedResource Include="RepEtiquetas.resx">
       <DependentUpon>RepEtiquetas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RepGastosxDia.resx">
+      <DependentUpon>RepGastosxDia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReporteSug.resx">
       <DependentUpon>ReporteSug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rep_CajaGral.resx">
+      <DependentUpon>Rep_CajaGral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rep_pagoproveedores.resx">
+      <DependentUpon>Rep_pagoproveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RetirarEfectivoTiendas.resx">
+      <DependentUpon>RetirarEfectivoTiendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Retiros.resx">
+      <DependentUpon>Retiros.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RPT_SaldoProveedores.resx">
       <DependentUpon>RPT_SaldoProveedores.cs</DependentUpon>
@@ -709,6 +795,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TraspasoTiendas.resx">
       <DependentUpon>TraspasoTiendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentasTarjeta.resx">
+      <DependentUpon>VentasTarjeta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VentasXLinea.resx">
       <DependentUpon>VentasXLinea.cs</DependentUpon>
