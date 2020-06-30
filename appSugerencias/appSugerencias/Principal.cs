@@ -137,7 +137,7 @@ namespace appSugerencias
 
             }
 
-            if (Area == "ENC CAJAS" || Area == "SISTEMAS" || Area == "SUPER" || Area == "ADMON GRAL" || Area == "GERENTE" || Area == "CXPAGAR")
+            if (Area == "ENC CAJAS" || Area == "SISTEMAS" || Area == "SUPER" || Area == "ADMON GRAL" || Area == "GERENTE")
             {
                 reportesToolStripMenuItem.Enabled = true;
             }
@@ -182,7 +182,7 @@ namespace appSugerencias
             }
 
 
-            if (Area == "PAGOS" || Area == "SISTEMAS" || Area == "SUPER" || Area == "ADMON GRAL" || Area == "CXPAGAR")
+            if (Area == "PAGOS" || Area == "SISTEMAS" || Area == "SUPER" || Area == "ADMON GRAL" )
             {
                 cuentasPPagarToolStripMenuItem.Enabled = true;
             }
@@ -1274,12 +1274,8 @@ namespace appSugerencias
             }
 
             //sino existe la instancia se crea una nueva
-            //frm = new RPT_SaldoProveedores();
-            //frm.Show();
-
-            RPT_SaldoProveedores repor = new RPT_SaldoProveedores();
-            repor.area = Area;
-            repor.Show();
+            frm = new RPT_SaldoProveedores();
+            frm.Show();
         }
 
         private void estadoDeCuentaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1398,16 +1394,10 @@ namespace appSugerencias
             frm.Show();
         }
 
-        private void cuentasPPagarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void pedidosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void cuentasBancariasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
             //se localiza el formulario buscandolo entre los forms abiertos
-            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is CuentasBancarias);
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_pedido);
 
             if (frm != null)
             {
@@ -1417,14 +1407,14 @@ namespace appSugerencias
             }
 
             //sino existe la instancia se crea una nueva
-            frm = new CuentasBancarias();
+            frm = new frm_pedido();
             frm.Show();
         }
 
-        private void pagosToolStripMenuItem_Click_1(object sender, EventArgs e)
+        private void pedidosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //se localiza el formulario buscandolo entre los forms abiertos
-            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is VentasTarjeta);
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_pedido);
 
             if (frm != null)
             {
@@ -1434,14 +1424,14 @@ namespace appSugerencias
             }
 
             //sino existe la instancia se crea una nueva
-            frm = new VentasTarjeta();
+            frm = new frm_pedido();
             frm.Show();
         }
 
-        private void pagoAProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        private void comprasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            //se localiza el formulario buscandolo entre los forms abiertos
-            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Rep_pagoproveedores);
+            //se localiza el formulario buscandolo entre los forms abiertos 
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_ComprasVitrina);
 
             if (frm != null)
             {
@@ -1451,98 +1441,8 @@ namespace appSugerencias
             }
 
             //sino existe la instancia se crea una nueva
-            //frm = new Rep_pagoproveedores();
-            //frm.Show();
-            Rep_pagoproveedores rep = new Rep_pagoproveedores(lblUsuario.Text);
-            rep.Show();
-        }
-
-        private void gastosxDíaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //se localiza el formulario buscandolo entre los forms abiertos
-            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is RepGastosxDia);
-
-            if (frm != null)
-            {
-                //si la instancia existe la pongo en primer plano
-                frm.BringToFront();
-                return;
-            }
-
-            //sino existe la instancia se crea una nueva
-            frm = new RepGastosxDia();
+            frm = new frm_ComprasVitrina(Usuario);
             frm.Show();
-        }
-
-        private void cuentasBancariasOsmartToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //se localiza el formulario buscandolo entre los forms abiertos
-            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is CuentasBancariasOS);
-
-            if (frm != null)
-            {
-                //si la instancia existe la pongo en primer plano
-                frm.BringToFront();
-                return;
-            }
-
-            //sino existe la instancia se crea una nueva
-            frm = new CuentasBancariasOS();
-            frm.Show();
-        }
-
-        private void depositoACuentasOsmartToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //se localiza el formulario buscandolo entre los forms abiertos
-            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is RetirarEfectivoTiendas);
-
-            if (frm != null)
-            {
-                //si la instancia existe la pongo en primer plano
-                frm.BringToFront();
-                return;
-            }
-
-            //sino existe la instancia se crea una nueva
-            frm = new RetirarEfectivoTiendas();
-            frm.Show();
-        }
-
-        private void repCajaGeneralToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //se localiza el formulario buscandolo entre los forms abiertos
-            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Rep_CajaGral);
-
-            if (frm != null)
-            {
-                //si la instancia existe la pongo en primer plano
-                frm.BringToFront();
-                return;
-            }
-
-            //sino existe la instancia se crea una nueva
-            frm = new Rep_CajaGral();
-            frm.Show();
-        }
-
-        private void cobroTarjetaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //se localiza el formulario buscandolo entre los forms abiertos
-            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Retiros);
-
-            if (frm != null)
-            {
-                //si la instancia existe la pongo en primer plano
-                frm.BringToFront();
-                return;
-            }
-
-            //sino existe la instancia se crea una nueva
-            //frm = new Rep_CajaGral();
-            //frm.Show();
-
-            Retiros r = new Retiros(lblUsuario.Text);
-            r.Show();
         }
 
 

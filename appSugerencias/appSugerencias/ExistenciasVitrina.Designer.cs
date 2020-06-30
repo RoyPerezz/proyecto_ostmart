@@ -88,6 +88,18 @@
             this.LB_prov_rena = new System.Windows.Forms.Label();
             this.LB_prov_velazquez = new System.Windows.Forms.Label();
             this.LB_prov_coloso = new System.Windows.Forms.Label();
+            this.LB_Pregot = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.TB_Pregot = new System.Windows.Forms.TextBox();
+            this.cBoxPre = new System.Windows.Forms.CheckBox();
+            this.cBoxPrePrecio = new System.Windows.Forms.CheckBox();
+            this.CbVaExis = new System.Windows.Forms.CheckBox();
+            this.CbReExis = new System.Windows.Forms.CheckBox();
+            this.CbVeExis = new System.Windows.Forms.CheckBox();
+            this.CbCoExis = new System.Windows.Forms.CheckBox();
+            this.CbPrExis = new System.Windows.Forms.CheckBox();
+            this.lblPreOferta = new System.Windows.Forms.Label();
+            this.lblPrePrecio = new System.Windows.Forms.Label();
             this.panelOfertas.SuspendLayout();
             this.panelPrecios.SuspendLayout();
             this.SuspendLayout();
@@ -111,6 +123,7 @@
             this.TB_clave.Name = "TB_clave";
             this.TB_clave.Size = new System.Drawing.Size(338, 31);
             this.TB_clave.TabIndex = 1;
+            this.TB_clave.TextChanged += new System.EventHandler(this.TB_clave_TextChanged);
             this.TB_clave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_clave_KeyPress);
             // 
             // TB_descripcion
@@ -300,7 +313,7 @@
             this.BT_buscar.ForeColor = System.Drawing.Color.White;
             this.BT_buscar.Image = ((System.Drawing.Image)(resources.GetObject("BT_buscar.Image")));
             this.BT_buscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BT_buscar.Location = new System.Drawing.Point(365, 451);
+            this.BT_buscar.Location = new System.Drawing.Point(365, 482);
             this.BT_buscar.Name = "BT_buscar";
             this.BT_buscar.Size = new System.Drawing.Size(110, 68);
             this.BT_buscar.TabIndex = 23;
@@ -316,7 +329,7 @@
             this.BT_limpiar.ForeColor = System.Drawing.Color.White;
             this.BT_limpiar.Image = ((System.Drawing.Image)(resources.GetObject("BT_limpiar.Image")));
             this.BT_limpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BT_limpiar.Location = new System.Drawing.Point(202, 451);
+            this.BT_limpiar.Location = new System.Drawing.Point(202, 482);
             this.BT_limpiar.Name = "BT_limpiar";
             this.BT_limpiar.Size = new System.Drawing.Size(110, 68);
             this.BT_limpiar.TabIndex = 24;
@@ -327,6 +340,8 @@
             // 
             // panelOfertas
             // 
+            this.panelOfertas.Controls.Add(this.lblPreOferta);
+            this.panelOfertas.Controls.Add(this.cBoxPre);
             this.panelOfertas.Controls.Add(this.lblCo);
             this.panelOfertas.Controls.Add(this.lblVe);
             this.panelOfertas.Controls.Add(this.lblRe);
@@ -510,6 +525,8 @@
             // 
             // panelPrecios
             // 
+            this.panelPrecios.Controls.Add(this.lblPrePrecio);
+            this.panelPrecios.Controls.Add(this.cBoxPrePrecio);
             this.panelPrecios.Controls.Add(this.lblCoPre);
             this.panelPrecios.Controls.Add(this.lblVePre);
             this.panelPrecios.Controls.Add(this.lblRePre);
@@ -699,12 +716,130 @@
             this.LB_prov_coloso.Size = new System.Drawing.Size(0, 13);
             this.LB_prov_coloso.TabIndex = 32;
             // 
+            // LB_Pregot
+            // 
+            this.LB_Pregot.AutoSize = true;
+            this.LB_Pregot.Location = new System.Drawing.Point(276, 457);
+            this.LB_Pregot.Name = "LB_Pregot";
+            this.LB_Pregot.Size = new System.Drawing.Size(0, 13);
+            this.LB_Pregot.TabIndex = 35;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(69, 455);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(54, 16);
+            this.label18.TabIndex = 34;
+            this.label18.Text = "Pregot";
+            // 
+            // TB_Pregot
+            // 
+            this.TB_Pregot.Enabled = false;
+            this.TB_Pregot.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_Pregot.Location = new System.Drawing.Point(137, 450);
+            this.TB_Pregot.Multiline = true;
+            this.TB_Pregot.Name = "TB_Pregot";
+            this.TB_Pregot.Size = new System.Drawing.Size(132, 24);
+            this.TB_Pregot.TabIndex = 33;
+            this.TB_Pregot.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // cBoxPre
+            // 
+            this.cBoxPre.AutoSize = true;
+            this.cBoxPre.Location = new System.Drawing.Point(204, 42);
+            this.cBoxPre.Name = "cBoxPre";
+            this.cBoxPre.Size = new System.Drawing.Size(42, 17);
+            this.cBoxPre.TabIndex = 40;
+            this.cBoxPre.Text = "PM";
+            this.cBoxPre.UseVisualStyleBackColor = true;
+            // 
+            // cBoxPrePrecio
+            // 
+            this.cBoxPrePrecio.AutoSize = true;
+            this.cBoxPrePrecio.Location = new System.Drawing.Point(204, 42);
+            this.cBoxPrePrecio.Name = "cBoxPrePrecio";
+            this.cBoxPrePrecio.Size = new System.Drawing.Size(42, 17);
+            this.cBoxPrePrecio.TabIndex = 43;
+            this.cBoxPrePrecio.Text = "PM";
+            this.cBoxPrePrecio.UseVisualStyleBackColor = true;
+            // 
+            // CbVaExis
+            // 
+            this.CbVaExis.AutoSize = true;
+            this.CbVaExis.Location = new System.Drawing.Point(22, 308);
+            this.CbVaExis.Name = "CbVaExis";
+            this.CbVaExis.Size = new System.Drawing.Size(15, 14);
+            this.CbVaExis.TabIndex = 36;
+            this.CbVaExis.UseVisualStyleBackColor = true;
+            // 
+            // CbReExis
+            // 
+            this.CbReExis.AutoSize = true;
+            this.CbReExis.Location = new System.Drawing.Point(22, 346);
+            this.CbReExis.Name = "CbReExis";
+            this.CbReExis.Size = new System.Drawing.Size(15, 14);
+            this.CbReExis.TabIndex = 37;
+            this.CbReExis.UseVisualStyleBackColor = true;
+            // 
+            // CbVeExis
+            // 
+            this.CbVeExis.AutoSize = true;
+            this.CbVeExis.Location = new System.Drawing.Point(22, 382);
+            this.CbVeExis.Name = "CbVeExis";
+            this.CbVeExis.Size = new System.Drawing.Size(15, 14);
+            this.CbVeExis.TabIndex = 38;
+            this.CbVeExis.UseVisualStyleBackColor = true;
+            // 
+            // CbCoExis
+            // 
+            this.CbCoExis.AutoSize = true;
+            this.CbCoExis.Location = new System.Drawing.Point(22, 420);
+            this.CbCoExis.Name = "CbCoExis";
+            this.CbCoExis.Size = new System.Drawing.Size(15, 14);
+            this.CbCoExis.TabIndex = 39;
+            this.CbCoExis.UseVisualStyleBackColor = true;
+            // 
+            // CbPrExis
+            // 
+            this.CbPrExis.AutoSize = true;
+            this.CbPrExis.Location = new System.Drawing.Point(22, 455);
+            this.CbPrExis.Name = "CbPrExis";
+            this.CbPrExis.Size = new System.Drawing.Size(15, 14);
+            this.CbPrExis.TabIndex = 40;
+            this.CbPrExis.UseVisualStyleBackColor = true;
+            // 
+            // lblPreOferta
+            // 
+            this.lblPreOferta.AutoSize = true;
+            this.lblPreOferta.Location = new System.Drawing.Point(217, 61);
+            this.lblPreOferta.Name = "lblPreOferta";
+            this.lblPreOferta.Size = new System.Drawing.Size(0, 13);
+            this.lblPreOferta.TabIndex = 41;
+            // 
+            // lblPrePrecio
+            // 
+            this.lblPrePrecio.AutoSize = true;
+            this.lblPrePrecio.Location = new System.Drawing.Point(217, 61);
+            this.lblPrePrecio.Name = "lblPrePrecio";
+            this.lblPrePrecio.Size = new System.Drawing.Size(0, 13);
+            this.lblPrePrecio.TabIndex = 44;
+            // 
             // ExistenciasVitrina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(996, 527);
+            this.ClientSize = new System.Drawing.Size(996, 552);
+            this.Controls.Add(this.CbPrExis);
+            this.Controls.Add(this.CbCoExis);
+            this.Controls.Add(this.CbVeExis);
+            this.Controls.Add(this.CbReExis);
+            this.Controls.Add(this.CbVaExis);
+            this.Controls.Add(this.LB_Pregot);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.TB_Pregot);
             this.Controls.Add(this.LB_prov_coloso);
             this.Controls.Add(this.LB_prov_velazquez);
             this.Controls.Add(this.LB_prov_rena);
@@ -807,5 +942,17 @@
         private System.Windows.Forms.Label LB_prov_rena;
         private System.Windows.Forms.Label LB_prov_velazquez;
         private System.Windows.Forms.Label LB_prov_coloso;
+        private System.Windows.Forms.CheckBox cBoxPre;
+        private System.Windows.Forms.CheckBox cBoxPrePrecio;
+        private System.Windows.Forms.Label LB_Pregot;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox TB_Pregot;
+        private System.Windows.Forms.CheckBox CbVaExis;
+        private System.Windows.Forms.CheckBox CbReExis;
+        private System.Windows.Forms.CheckBox CbVeExis;
+        private System.Windows.Forms.CheckBox CbCoExis;
+        private System.Windows.Forms.CheckBox CbPrExis;
+        private System.Windows.Forms.Label lblPreOferta;
+        private System.Windows.Forms.Label lblPrePrecio;
     }
 }

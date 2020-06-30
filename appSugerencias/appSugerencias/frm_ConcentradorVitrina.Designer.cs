@@ -92,6 +92,14 @@
             this.button3 = new System.Windows.Forms.Button();
             this.tbArchivo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.lblPM = new System.Windows.Forms.Label();
+            this.pregot = new System.Windows.Forms.Label();
+            this.lblPM2 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.lblBo2 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.lblBo = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).BeginInit();
@@ -111,6 +119,10 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.lblBo);
+            this.tabPage1.Controls.Add(this.label19);
+            this.tabPage1.Controls.Add(this.lblPM);
+            this.tabPage1.Controls.Add(this.label17);
             this.tabPage1.Controls.Add(this.lblCo);
             this.tabPage1.Controls.Add(this.lblVe);
             this.tabPage1.Controls.Add(this.lblRe);
@@ -561,6 +573,10 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.lblBo2);
+            this.tabPage2.Controls.Add(this.label18);
+            this.tabPage2.Controls.Add(this.lblPM2);
+            this.tabPage2.Controls.Add(this.pregot);
             this.tabPage2.Controls.Add(this.lblCo2);
             this.tabPage2.Controls.Add(this.lblVe2);
             this.tabPage2.Controls.Add(this.lblRe2);
@@ -710,6 +726,82 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "CONCENTRADOR VITRINA";
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(942, 406);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(52, 13);
+            this.label17.TabIndex = 43;
+            this.label17.Text = "PREGOT";
+            // 
+            // lblPM
+            // 
+            this.lblPM.AutoSize = true;
+            this.lblPM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPM.Location = new System.Drawing.Point(1033, 409);
+            this.lblPM.Name = "lblPM";
+            this.lblPM.Size = new System.Drawing.Size(23, 16);
+            this.lblPM.TabIndex = 44;
+            this.lblPM.Text = "---";
+            // 
+            // pregot
+            // 
+            this.pregot.AutoSize = true;
+            this.pregot.Location = new System.Drawing.Point(27, 616);
+            this.pregot.Name = "pregot";
+            this.pregot.Size = new System.Drawing.Size(52, 13);
+            this.pregot.TabIndex = 51;
+            this.pregot.Text = "PREGOT";
+            // 
+            // lblPM2
+            // 
+            this.lblPM2.AutoSize = true;
+            this.lblPM2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPM2.Location = new System.Drawing.Point(118, 616);
+            this.lblPM2.Name = "lblPM2";
+            this.lblPM2.Size = new System.Drawing.Size(23, 16);
+            this.lblPM2.TabIndex = 52;
+            this.lblPM2.Text = "---";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(27, 495);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(52, 13);
+            this.label18.TabIndex = 53;
+            this.label18.Text = "BODEGA";
+            // 
+            // lblBo2
+            // 
+            this.lblBo2.AutoSize = true;
+            this.lblBo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBo2.Location = new System.Drawing.Point(118, 492);
+            this.lblBo2.Name = "lblBo2";
+            this.lblBo2.Size = new System.Drawing.Size(23, 16);
+            this.lblBo2.TabIndex = 54;
+            this.lblBo2.Text = "---";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(942, 284);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(52, 13);
+            this.label19.TabIndex = 45;
+            this.label19.Text = "BODEGA";
+            // 
+            // lblBo
+            // 
+            this.lblBo.AutoSize = true;
+            this.lblBo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBo.Location = new System.Drawing.Point(1033, 284);
+            this.lblBo.Name = "lblBo";
+            this.lblBo.Size = new System.Drawing.Size(23, 16);
+            this.lblBo.TabIndex = 46;
+            this.lblBo.Text = "---";
+            // 
             // frm_ConcentradorVitrina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -797,5 +889,13 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox tbArchivo;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblPM;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lblPM2;
+        private System.Windows.Forms.Label pregot;
+        private System.Windows.Forms.Label lblBo2;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label lblBo;
+        private System.Windows.Forms.Label label19;
     }
 }

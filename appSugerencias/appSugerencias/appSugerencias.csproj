@@ -100,6 +100,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abonos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abonos.Designer.cs">
+      <DependentUpon>Abonos.cs</DependentUpon>
+    </Compile>
     <Compile Include="ArticuloSinVentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,23 +167,17 @@
     <Compile Include="Etiquetas.Designer.cs">
       <DependentUpon>Etiquetas.cs</DependentUpon>
     </Compile>
-    <Compile Include="PagarA.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PagarA.Designer.cs">
-      <DependentUpon>PagarA.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Proveedores.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Proveedores.Designer.cs">
-      <DependentUpon>Proveedores.cs</DependentUpon>
-    </Compile>
     <Compile Include="form_ExistVitrina.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="form_ExistVitrina.Designer.cs">
       <DependentUpon>form_ExistVitrina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ComprasVitrina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ComprasVitrina.Designer.cs">
+      <DependentUpon>frm_ComprasVitrina.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_ConcentradorVitrina.cs">
       <SubType>Form</SubType>
@@ -215,6 +215,18 @@
     <Compile Include="frm_pedido.Designer.cs">
       <DependentUpon>frm_pedido.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_proveed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_proveed.Designer.cs">
+      <DependentUpon>frm_proveed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_proveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_proveedores.Designer.cs">
+      <DependentUpon>frm_proveedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_ventasxhora.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,14 +245,20 @@
     <Compile Include="Nota.Designer.cs">
       <DependentUpon>Nota.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abonos.cs">
+    <Compile Include="PagarA.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abonos.Designer.cs">
-      <DependentUpon>Abonos.cs</DependentUpon>
+    <Compile Include="PagarA.Designer.cs">
+      <DependentUpon>PagarA.cs</DependentUpon>
     </Compile>
     <Compile Include="Productos.cs" />
     <Compile Include="Proveedor.cs" />
+    <Compile Include="Proveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedores.Designer.cs">
+      <DependentUpon>Proveedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="registroAsesoras.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -526,12 +544,21 @@
     <Compile Include="VentasTarjeta.Designer.cs">
       <DependentUpon>VentasTarjeta.cs</DependentUpon>
     </Compile>
+    <Compile Include="VentasXLinea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentasXLinea.Designer.cs">
+      <DependentUpon>VentasXLinea.cs</DependentUpon>
+    </Compile>
     <Compile Include="VentasxTienda.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="VentasxTienda.Designer.cs">
       <DependentUpon>VentasxTienda.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Abonos.resx">
+      <DependentUpon>Abonos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ArticuloSinVentas.resx">
       <DependentUpon>ArticuloSinVentas.cs</DependentUpon>
     </EmbeddedResource>
@@ -565,6 +592,9 @@
     <EmbeddedResource Include="form_ExistVitrina.resx">
       <DependentUpon>form_ExistVitrina.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_ComprasVitrina.resx">
+      <DependentUpon>frm_ComprasVitrina.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_ConcentradorVitrina.resx">
       <DependentUpon>frm_ConcentradorVitrina.cs</DependentUpon>
     </EmbeddedResource>
@@ -583,6 +613,12 @@
     <EmbeddedResource Include="frm_pedido.resx">
       <DependentUpon>frm_pedido.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_proveed.resx">
+      <DependentUpon>frm_proveed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_proveedores.resx">
+      <DependentUpon>frm_proveedores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_ventasxhora.resx">
       <DependentUpon>frm_ventasxhora.cs</DependentUpon>
     </EmbeddedResource>
@@ -591,9 +627,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Nota.resx">
       <DependentUpon>Nota.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Abonos.resx">
-      <DependentUpon>Abonos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PagarA.resx">
       <DependentUpon>PagarA.cs</DependentUpon>
@@ -775,6 +808,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VentasTarjeta.resx">
       <DependentUpon>VentasTarjeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentasXLinea.resx">
+      <DependentUpon>VentasXLinea.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VentasxTienda.resx">
       <DependentUpon>VentasxTienda.cs</DependentUpon>

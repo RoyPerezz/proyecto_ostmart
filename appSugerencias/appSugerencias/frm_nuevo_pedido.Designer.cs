@@ -66,6 +66,11 @@
             this.button4 = new System.Windows.Forms.Button();
             this.tbIdPedido = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
+            this.tbProveedor = new System.Windows.Forms.TextBox();
+            this.cbLinea = new System.Windows.Forms.ComboBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.link = new System.Windows.Forms.LinkLabel();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -90,7 +95,7 @@
             // 
             this.tbPedido.Location = new System.Drawing.Point(116, 57);
             this.tbPedido.Name = "tbPedido";
-            this.tbPedido.Size = new System.Drawing.Size(182, 20);
+            this.tbPedido.Size = new System.Drawing.Size(316, 20);
             this.tbPedido.TabIndex = 2;
             // 
             // label3
@@ -133,7 +138,7 @@
             // 
             this.tbArea.Location = new System.Drawing.Point(116, 88);
             this.tbArea.Name = "tbArea";
-            this.tbArea.Size = new System.Drawing.Size(182, 20);
+            this.tbArea.Size = new System.Drawing.Size(316, 20);
             this.tbArea.TabIndex = 8;
             // 
             // cbProveedor
@@ -141,15 +146,16 @@
             this.cbProveedor.FormattingEnabled = true;
             this.cbProveedor.Location = new System.Drawing.Point(116, 127);
             this.cbProveedor.Name = "cbProveedor";
-            this.cbProveedor.Size = new System.Drawing.Size(182, 21);
+            this.cbProveedor.Size = new System.Drawing.Size(517, 21);
             this.cbProveedor.TabIndex = 9;
             // 
             // tbLink
             // 
             this.tbLink.Location = new System.Drawing.Point(113, 162);
             this.tbLink.Name = "tbLink";
-            this.tbLink.Size = new System.Drawing.Size(395, 20);
+            this.tbLink.Size = new System.Drawing.Size(591, 20);
             this.tbLink.TabIndex = 10;
+            this.tbLink.TextChanged += new System.EventHandler(this.tbLink_TextChanged);
             // 
             // cBoxVa
             // 
@@ -246,6 +252,7 @@
             // 
             // tbGuia
             // 
+            this.tbGuia.Enabled = false;
             this.tbGuia.Location = new System.Drawing.Point(113, 270);
             this.tbGuia.Name = "tbGuia";
             this.tbGuia.Size = new System.Drawing.Size(182, 20);
@@ -290,6 +297,7 @@
             // 
             // tbNota
             // 
+            this.tbNota.Enabled = false;
             this.tbNota.Location = new System.Drawing.Point(113, 305);
             this.tbNota.Name = "tbNota";
             this.tbNota.Size = new System.Drawing.Size(182, 20);
@@ -297,6 +305,7 @@
             // 
             // tbComPago
             // 
+            this.tbComPago.Enabled = false;
             this.tbComPago.Location = new System.Drawing.Point(113, 338);
             this.tbComPago.Name = "tbComPago";
             this.tbComPago.Size = new System.Drawing.Size(182, 20);
@@ -339,7 +348,7 @@
             this.button1.BackColor = System.Drawing.Color.DodgerBlue;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(457, 554);
+            this.button1.Location = new System.Drawing.Point(624, 576);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(118, 51);
             this.button1.TabIndex = 32;
@@ -361,8 +370,9 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 34;
-            this.button2.Text = "button2";
+            this.button2.Text = "...";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -398,12 +408,65 @@
             this.label15.TabIndex = 38;
             this.label15.Text = "Id Pedido";
             // 
+            // tbProveedor
+            // 
+            this.tbProveedor.Location = new System.Drawing.Point(116, 123);
+            this.tbProveedor.Name = "tbProveedor";
+            this.tbProveedor.Size = new System.Drawing.Size(491, 20);
+            this.tbProveedor.TabIndex = 40;
+            this.tbProveedor.Visible = false;
+            // 
+            // cbLinea
+            // 
+            this.cbLinea.FormattingEnabled = true;
+            this.cbLinea.Location = new System.Drawing.Point(559, 88);
+            this.cbLinea.Name = "cbLinea";
+            this.cbLinea.Size = new System.Drawing.Size(173, 21);
+            this.cbLinea.TabIndex = 41;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(438, 88);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 42;
+            this.button6.Text = "button6";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // link
+            // 
+            this.link.AutoSize = true;
+            this.link.Location = new System.Drawing.Point(710, 165);
+            this.link.Name = "link";
+            this.link.Size = new System.Drawing.Size(33, 13);
+            this.link.TabIndex = 43;
+            this.link.TabStop = true;
+            this.link.Text = "Open";
+            this.link.Visible = false;
+            this.link.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_LinkClicked);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(408, 269);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(78, 21);
+            this.button5.TabIndex = 44;
+            this.button5.Text = "Abrir";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click_1);
+            // 
             // frm_nuevo_pedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(636, 639);
+            this.ClientSize = new System.Drawing.Size(772, 639);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.link);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.cbLinea);
+            this.Controls.Add(this.tbProveedor);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.tbIdPedido);
             this.Controls.Add(this.button4);
@@ -490,5 +553,10 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox tbIdPedido;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox tbProveedor;
+        private System.Windows.Forms.ComboBox cbLinea;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.LinkLabel link;
+        private System.Windows.Forms.Button button5;
     }
 }

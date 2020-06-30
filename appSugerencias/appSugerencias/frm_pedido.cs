@@ -17,6 +17,7 @@ namespace appSugerencias
             InitializeComponent();
         }
 
+        MySqlConnection Conex;
 
 
         private void frm_pedido_Load(object sender, EventArgs e)
@@ -26,8 +27,8 @@ namespace appSugerencias
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //busqueda();
-            prueba();
+            busqueda();
+            //prueba();
         }
 
         public void prueba()
@@ -61,8 +62,8 @@ namespace appSugerencias
 
         public void busqueda()
         {
-                            MySqlConnection conex_pedido = BDConexicon.VallartaOpen();
-            string comando = "SELECT * FROM rd_pedido ";
+            MySqlConnection conex_pedido = BDConexicon.VallartaOpen();
+            string comando = "SELECT id_pedido,titulo_pedido,fecha,periodo,area,proveed.NOMBRE,link_pedido,estatus,cotiz,nota,guia,comprobante_pago,forma_pago,tipo_pago,observaciones FROM rd_pedido INNER JOIN proveed ON rd_pedido.proveedor = proveed.PROVEEDOR";
             // MySqlCommand cmd = new MySqlCommand("SELECT rd_traspaso.idtraspaso,rd_traspaso.estatus FROM rd_pedido   where rd_traspaso.fecha between '" + inicio + "'" + " and '" + fin + "' ", conex_pedido);
 
             MySqlCommand cmd = new MySqlCommand(comando, conex_pedido);
@@ -87,7 +88,7 @@ namespace appSugerencias
                     dgvPedidos.Rows[n].Cells[2].Value = item["fecha"].ToString();
                     dgvPedidos.Rows[n].Cells[3].Value = item["periodo"].ToString();
                     dgvPedidos.Rows[n].Cells[4].Value = item["area"].ToString();
-                    dgvPedidos.Rows[n].Cells[5].Value = item["proveedor"].ToString();
+                    dgvPedidos.Rows[n].Cells[5].Value = item["NOMBRE"].ToString();
                     dgvPedidos.Rows[n].Cells[6].Value = item["link_pedido"].ToString();
                     dgvPedidos.Rows[n].Cells[7].Value = item["estatus"].ToString();
                     dgvPedidos.Rows[n].Cells[8].Value = item["cotiz"].ToString();
@@ -123,35 +124,42 @@ namespace appSugerencias
             }
 
             //sino existe la instancia se crea una nueva
-            frm = new frm_nuevo_pedido(1);
+            frm = new frm_nuevo_pedido(1,"");
             frm.Show();
 
         }
 
         private void dgvPedidos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-           
-            string idpedido = dgvPedidos.Rows[e.RowIndex].Cells[0].Value.ToString();
 
-            VARIABLES.intpedido= Convert.ToInt32( dgvPedidos.Rows[e.RowIndex].Cells[0].Value.ToString());
-            VARIABLES.titulo_pedido = dgvPedidos.Rows[e.RowIndex].Cells[1].Value.ToString();
+            try
+            {
+                string idpedido = dgvPedidos.Rows[e.RowIndex].Cells[0].Value.ToString();
 
-            VARIABLES.area = dgvPedidos.Rows[e.RowIndex].Cells[4].Value.ToString();
-            VARIABLES.proveedor = dgvPedidos.Rows[e.RowIndex].Cells[5].Value.ToString();
-            VARIABLES.link_pedido = dgvPedidos.Rows[e.RowIndex].Cells[6].Value.ToString();
-            VARIABLES.cotiz = dgvPedidos.Rows[e.RowIndex].Cells[8].Value.ToString();
-            VARIABLES.nota = dgvPedidos.Rows[e.RowIndex].Cells[9].Value.ToString();
-            VARIABLES.guia = dgvPedidos.Rows[e.RowIndex].Cells[10].Value.ToString();
-            VARIABLES.comprobante_pago = dgvPedidos.Rows[e.RowIndex].Cells[11].Value.ToString();
-            VARIABLES.tipo_pago = dgvPedidos.Rows[e.RowIndex].Cells[12].Value.ToString();
-            VARIABLES.forma_pago = dgvPedidos.Rows[e.RowIndex].Cells[13].Value.ToString();
-            VARIABLES.observaciones = dgvPedidos.Rows[e.RowIndex].Cells[14].Value.ToString();
+                //VARIABLES.intpedido= Convert.ToInt32( dgvPedidos.Rows[e.RowIndex].Cells[0].Value.ToString());
+                //VARIABLES.titulo_pedido = dgvPedidos.Rows[e.RowIndex].Cells[1].Value.ToString();
+
+                //VARIABLES.area = dgvPedidos.Rows[e.RowIndex].Cells[4].Value.ToString();
+                //VARIABLES.proveedor = dgvPedidos.Rows[e.RowIndex].Cells[5].Value.ToString();
+                //VARIABLES.link_pedido = dgvPedidos.Rows[e.RowIndex].Cells[6].Value.ToString();
+                //VARIABLES.cotiz = dgvPedidos.Rows[e.RowIndex].Cells[8].Value.ToString();
+                //VARIABLES.nota = dgvPedidos.Rows[e.RowIndex].Cells[9].Value.ToString();
+                //VARIABLES.guia = dgvPedidos.Rows[e.RowIndex].Cells[10].Value.ToString();
+                //VARIABLES.comprobante_pago = dgvPedidos.Rows[e.RowIndex].Cells[11].Value.ToString();
+                //VARIABLES.tipo_pago = dgvPedidos.Rows[e.RowIndex].Cells[12].Value.ToString();
+                //VARIABLES.forma_pago = dgvPedidos.Rows[e.RowIndex].Cells[13].Value.ToString();
+                //VARIABLES.observaciones = dgvPedidos.Rows[e.RowIndex].Cells[14].Value.ToString();
 
 
 
-            frm_nuevo_pedido hijo = new frm_nuevo_pedido(2);
-            hijo.Show(this);
-           // MessageBox.Show(idpedido.ToString());
+                frm_nuevo_pedido hijo = new frm_nuevo_pedido(2, idpedido);
+                hijo.Show(this);
+                // MessageBox.Show(idpedido.ToString());
+            }
+            catch(Exception ex)
+            {
+
+            }
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
@@ -169,6 +177,8 @@ namespace appSugerencias
 
         private void cbFiltro_TextChanged(object sender, EventArgs e)
         {
+            Conex = BDConexicon.VallartaOpen();
+
             if (cbFiltro.Text == "ESTADO")
             {
                 //cbFiltro2.Text = "1";
@@ -187,15 +197,16 @@ namespace appSugerencias
                 llenaComboArea();
 
             }
+
+            Conex.Close();
         }
 
         public void llenaComboArea()
         {
             cbFiltro2.DataSource = null;
-            MySqlConnection conn;
-            conn = BDConexicon.VallartaOpen();
+            
 
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM rd_pedido_area", conn);
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM rd_pedido_area", Conex);
             MySqlDataAdapter mysqladap = new MySqlDataAdapter(cmd);
             DataTable dt1 = new DataTable();
 
@@ -204,16 +215,15 @@ namespace appSugerencias
             cbFiltro2.ValueMember = "idarea";
             cbFiltro2.DisplayMember = "area";
             cbFiltro2.DataSource = dt1;
-            conn.Close();
+         
         }
 
         public void llenaComboProveedor()
         {
             cbFiltro2.DataSource = null;
-            MySqlConnection conn;
-            conn = BDConexicon.VallartaOpen();
+           
 
-            MySqlCommand cmd = new MySqlCommand("SELECT PROVEEDOR,NOMBRE FROM proveed ", conn);
+            MySqlCommand cmd = new MySqlCommand("SELECT PROVEEDOR,NOMBRE FROM proveed ", Conex);
             MySqlDataAdapter mysqladap = new MySqlDataAdapter(cmd);
             DataTable dt1 = new DataTable();
 
@@ -222,17 +232,16 @@ namespace appSugerencias
             cbFiltro2.ValueMember = "PROVEEDOR";
             cbFiltro2.DisplayMember = "NOMBRE";
             cbFiltro2.DataSource = dt1;
-            conn.Close();
+           
         }
 
 
         public void llenaComboBoxEstado()
         {
             cbFiltro2.DataSource = null;
-            MySqlConnection conn;
-            conn = BDConexicon.VallartaOpen();
+            
 
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM rd_pedido_estado", conn);
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM rd_pedido_estado", Conex);
             MySqlDataAdapter mysqladap = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
 
@@ -241,9 +250,12 @@ namespace appSugerencias
             cbFiltro2.ValueMember = "idestado";
             cbFiltro2.DisplayMember = "estado";
             cbFiltro2.DataSource = dt;
-            conn.Close();
+           
         }
 
+        private void dgvPedidos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
+        }
     }
 }
