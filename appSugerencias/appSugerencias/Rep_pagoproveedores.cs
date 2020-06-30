@@ -296,7 +296,7 @@ namespace appSugerencias
                     suma += Convert.ToDouble(num);
                 }
 
-                DG_reporte.Rows.Add("", "TOTAL", String.Format("{0:0.##}", suma.ToString("C")), "", "", "", "", "");
+                DG_reporte.Rows.Add("", "", "TOTAL", String.Format("{0:0.##}", suma.ToString("C")), "", "", "", "");
                 //DG_reporte.Columns[2].DefaultCellStyle.Format = "C2";
             }
         }

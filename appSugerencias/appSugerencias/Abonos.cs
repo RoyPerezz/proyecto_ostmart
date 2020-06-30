@@ -130,7 +130,7 @@ namespace appSugerencias
                 CB_banco.SelectedIndex = 2;
                 CB_cuenta.SelectedItem = "EFECTIVO";
                 //CB_persona.SelectedItem = "EFECTIVO";
-                CB_persona.SelectedIndex = 2;
+                CB_persona.SelectedIndex = 1;
                 CB_banco.Enabled = false;
                 CB_cuenta.Enabled = false;
                 CB_persona.Enabled = false;
@@ -138,9 +138,14 @@ namespace appSugerencias
 
             if (TB_cod.Text.Equals("DESC") || TB_cod.Text.Equals("DEV"))
             {
-                CB_banco.SelectedIndex = 2;
-                CB_cuenta.SelectedItem = "EFECTIVO";
-                CB_persona.SelectedItem = "EFECTIVO";
+                //CB_banco.SelectedIndex = 2;
+                //CB_cuenta.Items.Add("");
+                //CB_cuenta.Items.Add("EFECTIVO");
+                //CB_persona.Items.Add("");
+                //CB_persona.Items.Add("EFECTIVO");
+                //CB_cuenta.SelectedIndex = 1;
+                //CB_persona.SelectedIndex = 1;
+
                 CB_banco.Enabled = false;
                 CB_cuenta.Enabled = false;
                 CB_persona.Enabled = false;
@@ -657,7 +662,7 @@ namespace appSugerencias
                     cpdetacreedor.Parameters.AddWithValue("?IMPORTE", abono);
                     cpdetacreedor.Parameters.AddWithValue("?MONEDA", "MN");
                     cpdetacreedor.Parameters.AddWithValue("?TIP_CAM", "1");
-                    cpdetacreedor.Parameters.AddWithValue("?COMPRA", 0);
+                    cpdetacreedor.Parameters.AddWithValue("?COMPRA", compra);
                     cpdetacreedor.Parameters.AddWithValue("?COBRADOR", "");
                     cpdetacreedor.Parameters.AddWithValue("?OBSERV", "");
                     cpdetacreedor.Parameters.AddWithValue("?CONTAB", "");
@@ -987,9 +992,9 @@ namespace appSugerencias
             TB_abono.Text = "";
             //CB_sucursal.SelectedIndex = 0;
             //CB_cxpag.SelectedIndex = 0;
-            CB_banco.SelectedIndex = 0;
-            CB_cuenta.SelectedIndex = 0;
-            CB_persona.SelectedIndex = 0;
+            //CB_banco.SelectedIndex = 0;
+            //CB_cuenta.SelectedIndex = 0;
+            //CB_persona.SelectedIndex = 0;
             CHK_va.Checked = false;
             CHK_re.Checked = false;
             CHK_co.Checked = false;
@@ -1961,6 +1966,7 @@ namespace appSugerencias
             {
                 
                 CB_persona.Items.Add("EFECTIVO");
+                CB_persona.SelectedIndex=1;
             }
             else
             {
@@ -1982,7 +1988,7 @@ namespace appSugerencias
 
             TB_anombrede.Text = "";
             MySqlConnection con = BDConexicon.BodegaOpen();
-            MySqlCommand cmd = new MySqlCommand("SELECT h.mov as movimiento,h.cantidad as cant FROM rd_historial_saldobancos h INNER JOIN rd_bancos_osmart b ON h.cuenta = b.cuenta " +
+            MySqlCommand cmd = new MySqlCommand("SELECT h.mov as movimiento,h.ie as ie,h.cantidad as cant FROM rd_historial_saldobancos h INNER JOIN rd_bancos_osmart b ON h.cuenta = b.cuenta " +
                 "WHERE b.cuenta ='" + CB_cuenta_osmart.SelectedItem.ToString() + "'", con);
 
             MySqlDataReader dr = cmd.ExecuteReader();
@@ -1992,12 +1998,13 @@ namespace appSugerencias
 
             while (dr.Read())
             {
-                if (dr["movimiento"].ToString().Equals("RBAN"))
+
+                if (dr["ie"].ToString().Equals("I"))
                 {
                     suma += Convert.ToDouble(dr["cant"].ToString());
                 }
 
-                if (dr["movimiento"].ToString().Equals("SPEI"))
+                if (dr["ie"].ToString().Equals("E"))
                 {
                     resta += Convert.ToDouble(dr["cant"].ToString());
                 }
@@ -2024,30 +2031,32 @@ namespace appSugerencias
         {
             if (CB_banco.SelectedItem.ToString().Equals("EFECTIVO"))
             {
+                CB_cuenta.Items.Add("");
                 CB_cuenta.Items.Add("EFECTIVO");
+                CB_cuenta.SelectedIndex = 1;
             }
            
 
 
-            if (TB_proveedor.Text.Equals("000001"))
-            {
+            //if (TB_proveedor.Text.Equals("000001"))
+            //{
               
-            }
-            else
-            {
-                CB_cuenta.Items.Clear();
-                CB_cuenta.Items.Add("");
-                CB_cuenta.SelectedIndex = 0;
+            //}
+            //else
+            //{
+            //    CB_cuenta.Items.Clear();
+            //    CB_cuenta.Items.Add("");
+            //    CB_cuenta.SelectedIndex = 0;
 
-                CB_persona.Items.Clear();
-                CB_persona.Items.Add("");
-                CB_persona.SelectedIndex = 0;
-            }
+            //    CB_persona.Items.Clear();
+            //    CB_persona.Items.Add("");
+            //    CB_persona.SelectedIndex = 0;
+            //}
 
-            if (CB_banco.SelectedItem.ToString().Equals("EFECTIVO"))
-            {
-                CB_cuenta.Items.Add("EFECTIVO");
-            }
+            //if (CB_banco.SelectedItem.ToString().Equals("EFECTIVO"))
+            //{
+            //    CB_cuenta.Items.Add("EFECTIVO");
+            //}
 
             MySqlConnection con = BDConexicon.BodegaOpen();
             MySqlCommand cmd = new MySqlCommand("SELECT cuenta FROM rd_cuentas_bancarias WHERE banco='"+CB_banco.SelectedItem.ToString()+"' AND fk_proveedor='"+ TB_proveedor.Text+"'", con);
@@ -2830,8 +2839,8 @@ namespace appSugerencias
                 CB_banco.Items.Add("");
                 CB_banco.Items.Add("EFECTIVO");
                 CB_banco.SelectedIndex = 2;
-                CB_cuenta.Items.Add("");
-                CB_cuenta.Items.Add("EFECTIVO");
+                //CB_cuenta.Items.Add("");
+                //CB_cuenta.Items.Add("EFECTIVO");
                 CB_cuenta.SelectedIndex = 1;
                 CB_persona.Items.Add("");
          

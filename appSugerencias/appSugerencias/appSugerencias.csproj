@@ -481,6 +481,12 @@
     <Compile Include="RetirarEfectivoTiendas.Designer.cs">
       <DependentUpon>RetirarEfectivoTiendas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Retiros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Retiros.Designer.cs">
+      <DependentUpon>Retiros.cs</DependentUpon>
+    </Compile>
     <Compile Include="RPT_SaldoProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -514,6 +520,12 @@
       <DependentUpon>TraspasoTiendas.cs</DependentUpon>
     </Compile>
     <Compile Include="VARIABLES.cs" />
+    <Compile Include="VentasTarjeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentasTarjeta.Designer.cs">
+      <DependentUpon>VentasTarjeta.cs</DependentUpon>
+    </Compile>
     <Compile Include="VentasxTienda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -743,6 +755,9 @@
     <EmbeddedResource Include="RetirarEfectivoTiendas.resx">
       <DependentUpon>RetirarEfectivoTiendas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Retiros.resx">
+      <DependentUpon>Retiros.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RPT_SaldoProveedores.resx">
       <DependentUpon>RPT_SaldoProveedores.cs</DependentUpon>
     </EmbeddedResource>
@@ -757,6 +772,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TraspasoTiendas.resx">
       <DependentUpon>TraspasoTiendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentasTarjeta.resx">
+      <DependentUpon>VentasTarjeta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VentasxTienda.resx">
       <DependentUpon>VentasxTienda.cs</DependentUpon>

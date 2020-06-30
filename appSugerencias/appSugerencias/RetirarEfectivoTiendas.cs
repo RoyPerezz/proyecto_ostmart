@@ -989,21 +989,22 @@ namespace appSugerencias
 
             double sumar = 0, restar = 0;
             MySqlConnection con = BDConexicon.BodegaOpen();
-            MySqlCommand cmd = new MySqlCommand("SELECT mov,cantidad FROM rd_historial_saldobancos WHERE cuenta='"+CB_cuentasOsmart.SelectedItem.ToString()+"'",con);
+            MySqlCommand cmd = new MySqlCommand("SELECT mov,ie,cantidad FROM rd_historial_saldobancos WHERE cuenta='"+CB_cuentasOsmart.SelectedItem.ToString()+"'",con);
             MySqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
 
-                if (dr["mov"].ToString().Equals("RBAN"))
+              
+
+                if (dr["ie"].ToString().Equals("I"))
                 {
                     sumar += Convert.ToDouble(dr["cantidad"].ToString());
                 }
 
-                if (dr["mov"].ToString().Equals("SPEI"))
+                if (dr["ie"].ToString().Equals("E"))
                 {
                     restar += Convert.ToDouble(dr["cantidad"].ToString());
                 }
-
 
             }
            

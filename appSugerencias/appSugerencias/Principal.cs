@@ -1423,19 +1423,19 @@ namespace appSugerencias
 
         private void pagosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            ////se localiza el formulario buscandolo entre los forms abiertos
-            //Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Abonos);
+            //se localiza el formulario buscandolo entre los forms abiertos
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is VentasTarjeta);
 
-            //if (frm != null)
-            //{
-            //    //si la instancia existe la pongo en primer plano
-            //    frm.BringToFront();
-            //    return;
-            //}
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
 
-            ////sino existe la instancia se crea una nueva
-            //frm = new Abonos();
-            //frm.Show();
+            //sino existe la instancia se crea una nueva
+            frm = new VentasTarjeta();
+            frm.Show();
         }
 
         private void pagoAProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1523,6 +1523,26 @@ namespace appSugerencias
             //sino existe la instancia se crea una nueva
             frm = new Rep_CajaGral();
             frm.Show();
+        }
+
+        private void cobroTarjetaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //se localiza el formulario buscandolo entre los forms abiertos
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Retiros);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            //frm = new Rep_CajaGral();
+            //frm.Show();
+
+            Retiros r = new Retiros(lblUsuario.Text);
+            r.Show();
         }
 
 
