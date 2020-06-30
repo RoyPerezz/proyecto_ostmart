@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -28,13 +27,13 @@ namespace appSugerencias
         DataTable DTPregot = new DataTable();
         DataTable DTBodega = new DataTable();
         DataTable master = new DataTable();
-        
+
 
         //############# OBTENGO EL REGISTRO DE CARGOS Y ABONOS DE CADA UNA DE LAS TIENDAS #####################################################################
         public void CuentasPendientesVA(string proveedor)
         {
-            //string consulta = "SELECT TE.CUENXPAG,CXP.COMPRA, TE.PROVEEDOR, TE.FECHA AS FECHA, TE.TIPO_DOC, TE.NO_REFEREN, TE.CARGO_AB, TE.IMPORTE FROM CUENXPDET TE INNER JOIN CUENXPAG CXP  ON TE.CUENXPAG = CXP.CUENXPAG WHERE TE.PROVEEDOR ='" + proveedor + "'"; 
-            string consulta = "SELECT COMPRA, PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, CARGO_AB, IMPORTE FROM CUENXPDET WHERE PROVEEDOR ='"+ proveedor + "'";
+
+            string consulta = "SELECT CUENXPAG, PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, CARGO_AB, IMPORTE FROM CUENXPDET WHERE PROVEEDOR ='"+ proveedor + "'";
             //DATOS DE VALLLARTA
             try
             {
@@ -56,8 +55,8 @@ namespace appSugerencias
 
         public void CuentasPendientesRE(string proveedor)
         {
-           // string consulta = "SELECT TE.CUENXPAG,CXP.COMPRA, TE.PROVEEDOR, TE.FECHA AS FECHA, TE.TIPO_DOC, TE.NO_REFEREN, TE.CARGO_AB, TE.IMPORTE FROM CUENXPDET TE INNER JOIN CUENXPAG CXP  ON TE.CUENXPAG = CXP.CUENXPAG WHERE TE.PROVEEDOR ='" + proveedor + "'";
-            string consulta = "SELECT COMPRA, PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, CARGO_AB, IMPORTE FROM CUENXPDET WHERE PROVEEDOR ='" + proveedor + "'";
+
+            string consulta = "SELECT CUENXPAG, PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, CARGO_AB, IMPORTE FROM CUENXPDET WHERE PROVEEDOR ='" + proveedor + "'";
 
             try
             {
@@ -81,8 +80,8 @@ namespace appSugerencias
 
         public void CuentasPendientesCO(string proveedor)
         {
-            //string consulta = "SELECT TE.CUENXPAG,CXP.COMPRA, TE.PROVEEDOR, TE.FECHA AS FECHA, TE.TIPO_DOC, TE.NO_REFEREN, TE.CARGO_AB, TE.IMPORTE FROM CUENXPDET TE INNER JOIN CUENXPAG CXP  ON TE.CUENXPAG = CXP.CUENXPAG WHERE TE.PROVEEDOR ='" + proveedor + "'";
-            string consulta = "SELECT COMPRA, PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, CARGO_AB, IMPORTE FROM CUENXPDET WHERE PROVEEDOR ='" + proveedor + "'";
+
+            string consulta = "SELECT CUENXPAG, PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, CARGO_AB, IMPORTE FROM CUENXPDET WHERE PROVEEDOR ='" + proveedor + "'";
             try
             {
                 //DATOS DE COLOSO
@@ -105,8 +104,8 @@ namespace appSugerencias
 
         public void CuentasPendientesVE(string proveedor)
         {
-            //string consulta = "SELECT TE.CUENXPAG,CXP.COMPRA, TE.PROVEEDOR, TE.FECHA AS FECHA, TE.TIPO_DOC, TE.NO_REFEREN, TE.CARGO_AB, TE.IMPORTE FROM CUENXPDET TE INNER JOIN CUENXPAG CXP  ON TE.CUENXPAG = CXP.CUENXPAG WHERE TE.PROVEEDOR ='" + proveedor + "'";
-            string consulta = "SELECT COMPRA, PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, CARGO_AB, IMPORTE FROM CUENXPDET WHERE PROVEEDOR ='" + proveedor + "'";
+
+            string consulta = "SELECT CUENXPAG, PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, CARGO_AB, IMPORTE FROM CUENXPDET WHERE PROVEEDOR ='" + proveedor + "'";
             try
             {
                 //DATOS DE VELAZQUEZ
@@ -127,8 +126,7 @@ namespace appSugerencias
 
         public void CuentasPendientesPRE(string proveedor)
         {
-           // string consulta = "SELECT TE.CUENXPAG,CXP.COMPRA, TE.PROVEEDOR, TE.FECHA  AS FECHA, TE.TIPO_DOC, TE.NO_REFEREN, TE.CARGO_AB, TE.IMPORTE FROM CUENXPDET TE INNER JOIN CUENXPAG CXP  ON TE.CUENXPAG = CXP.CUENXPAG WHERE TE.PROVEEDOR ='" + proveedor + "'";
-            string consulta = "SELECT COMPRA, PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, CARGO_AB, IMPORTE FROM CUENXPDET WHERE PROVEEDOR ='" + proveedor + "'";
+            string consulta = "SELECT CUENXPAG, PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, CARGO_AB, IMPORTE FROM CUENXPDET WHERE PROVEEDOR ='" + proveedor + "'";
             try
             {
                 //DATOS DE PREGOT
@@ -150,8 +148,8 @@ namespace appSugerencias
 
         public void CuentasPendientesBO(string proveedor)
         {
-           // string consulta = "SELECT TE.CUENXPAG,CXP.COMPRA, TE.PROVEEDOR, TE.FECHA AS FECHA, TE.TIPO_DOC, TE.NO_REFEREN, TE.CARGO_AB, TE.IMPORTE FROM CUENXPDET TE INNER JOIN CUENXPAG CXP  ON TE.CUENXPAG = CXP.CUENXPAG WHERE TE.PROVEEDOR ='" + proveedor + "'";
-            string consulta = "SELECT COMPRA,PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, CARGO_AB, IMPORTE FROM CUENXPDET WHERE PROVEEDOR ='" + proveedor + "'";
+
+            string consulta = "SELECT CUENXPAG, PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, CARGO_AB, IMPORTE FROM CUENXPDET WHERE PROVEEDOR ='" + proveedor + "'";
             try
             {
                
@@ -203,7 +201,10 @@ namespace appSugerencias
             master = vista.ToTable();
 
 
-          
+            //MySqlCommand cmd = new MySqlCommand("select cp.cuenxpag,cp.proveedor,cp.fecha,cp.tipo_doc,cp.NO_REFEREN,cp.cargo_ab,cp.importe " +
+            //  "from cuenxpdet cp where cp.proveedor ='" + TB_proveedor.Text + "' ORDER BY cp.FECHA", conectar);
+
+            //MySqlDataReader dr = cmd.ExecuteReader();
 
             for (int i = 0; i < master.Rows.Count; i++)
             {
@@ -215,7 +216,7 @@ namespace appSugerencias
                 {//SI LA OPERACION ES "C" ES UNA COMPRA Y SE SUMA AL SALDO
                     saldo += Convert.ToDouble(master.Rows[i]["IMPORTE"].ToString());
                     cargo = Convert.ToDouble(master.Rows[i]["IMPORTE"].ToString());
-                    DG_datos.Rows.Add(master.Rows[i]["COMPRA"].ToString(), master.Rows[i]["PROVEEDOR"].ToString() + " " + CB_proveedor.SelectedItem.ToString(), fecha.ToString("dd/MM/yyyy"), master.Rows[i]["TIPO_DOC"].ToString(), master.Rows[i]["NO_REFEREN"].ToString(), master.Rows[i]["CARGO_AB"].ToString(), tienda,String.Format("{0:0.##}", cargo.ToString("C")), "", String.Format("{0:0.##}", saldo.ToString("C")));
+                    DG_datos.Rows.Add(master.Rows[i]["CUENXPAG"].ToString(), master.Rows[i]["PROVEEDOR"].ToString() + " " + CB_proveedor.SelectedItem.ToString(), fecha.ToString("dd/MM/yyyy"), master.Rows[i]["TIPO_DOC"].ToString(), master.Rows[i]["NO_REFEREN"].ToString(), master.Rows[i]["CARGO_AB"].ToString(), tienda,String.Format("{0:0.##}", cargo.ToString("C")), "", String.Format("{0:0.##}", saldo.ToString("C")));
                 }
 
                 else
@@ -224,27 +225,16 @@ namespace appSugerencias
 
                     saldo -= Convert.ToDouble(master.Rows[i]["IMPORTE"].ToString());
                     abono = Convert.ToDouble(master.Rows[i]["IMPORTE"].ToString());
-                    DG_datos.Rows.Add(master.Rows[i]["COMPRA"].ToString(), master.Rows[i]["PROVEEDOR"].ToString()+" "+CB_proveedor.SelectedItem.ToString(), fecha.ToString("dd/MM/yyyy"), master.Rows[i]["TIPO_DOC"].ToString(), master.Rows[i]["NO_REFEREN"].ToString(), master.Rows[i]["CARGO_AB"].ToString(), tienda,"", String.Format("{0:0.##}", abono.ToString("C")), String.Format("{0:0.##}", saldo.ToString("C")));
+                    DG_datos.Rows.Add(master.Rows[i]["CUENXPAG"].ToString(), master.Rows[i]["PROVEEDOR"].ToString()+" "+CB_proveedor.SelectedItem.ToString(), fecha.ToString("dd/MM/yyyy"), master.Rows[i]["TIPO_DOC"].ToString(), master.Rows[i]["NO_REFEREN"].ToString(), master.Rows[i]["CARGO_AB"].ToString(), tienda,"", String.Format("{0:0.##}", abono.ToString("C")), String.Format("{0:0.##}", saldo.ToString("C")));
 
                 }
 
                 
                
             }
+           
 
-            DG_datos.Columns["IDMOV"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            DG_datos.Columns["PROV"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            DG_datos.Columns["FECHA_"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            DG_datos.Columns["TIPO_DOCUMENTO"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            DG_datos.Columns["REFERENCIA"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            DG_datos.Columns["MOVIMIENTO"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            DG_datos.Columns["SUCURSAL"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            DG_datos.Columns["COMPRA"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            DG_datos.Columns["PAGO"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            DG_datos.Columns["SALDO_"].SortMode = DataGridViewColumnSortMode.NotSortable;
-
-
-
+            
 
         }
 
@@ -502,7 +492,10 @@ namespace appSugerencias
 
         }
 
-       
+        private void DG_datos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
 
         private void LB_pregot_Click(object sender, EventArgs e)
         {
@@ -542,16 +535,8 @@ namespace appSugerencias
           
         }
 
-        public void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            saldo = 0;
-            DTBodega.Clear();
-            DTVallarta.Clear();
-            DTRena.Clear();
-            DTColoso.Clear();
-            DTVelazquez.Clear();
-            DTPregot.Clear();
-            master.Clear();
             ResetarComponentes();
             ProbarConexiones();
             string proveedor = TB_proveedor.Text;
@@ -592,54 +577,6 @@ namespace appSugerencias
                 int index = CB_proveedor.FindString(TB_filtro.Text.ToUpper());
                 CB_proveedor.SelectedIndex = index;
 
-            }
-        }
-
-        private void DG_datos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-
-            try
-            {
-                //double saldo = 0;
-
-                //if (DG_datos.Rows.Count >0)
-                //{
-                //    //DG_datos.Rows[DG_datos.Rows.Count - 1].Selected = true;
-                //    saldo = Convert.ToDouble(DG_datos.Rows[DG_datos.Rows.Count - 1].Cells[9]);
-                //}
-
-                //string compra = Convert.ToString(DG_datos.Rows[e.RowIndex].Cells[0].Value);
-                //string tienda = Convert.ToString(DG_datos.Rows[e.RowIndex].Cells[6].Value);
-                ////Abonos ab = new Abonos(compra, TB_proveedor.Text, CB_proveedor.SelectedItem.ToString(),tienda);
-                //Abonos ab = new Abonos();
-                //ab.Show();
-            }
-            catch (Exception ex)
-            {
-
-                
-            }
-        }
-
-        private void BT_abonos_Click(object sender, EventArgs e)
-        {
-            if (DG_datos.Rows.Count>0)
-            {
-                int filas = DG_datos.RowCount;
-
-                decimal digito = decimal.Parse(DG_datos.Rows[filas - 1].Cells[9].Value.ToString(), NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"));
-                string s = digito.ToString("G0");
-                saldo = Convert.ToDouble(s);
-
-                string prov = TB_proveedor.Text;
-                string nombre = CB_proveedor.SelectedItem.ToString();
-                Abonos ab = new Abonos(prov, nombre, saldo);
-                ab.Show();
-            }
-            else
-            {
-                MessageBox.Show("Selecciona un proveedor y busca su estado de cuenta para poder aplicar un abono");
             }
         }
     }
